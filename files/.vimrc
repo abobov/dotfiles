@@ -188,7 +188,7 @@ map gf :e <cfile><CR>
 
 map YY "+yy
 
-let s:hostname=hostname()
-if s:hostname == '10093352-SIBSAC'
-    source $HOME/_vimrc_10093352-SIBSAC
-endif
+let s:local_vimrc=$home/.vimrc-hostname()
+"if s:hostname == '10093352-SIBSAC'
+    "source $HOME/.vimrc_10093352-SIBSAC
+"endif
