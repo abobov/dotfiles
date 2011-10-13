@@ -1,0 +1,27 @@
+alias df='df -h'
+alias free='free -tm'
+alias whois='whois -H'
+alias zgrep='zgrep --color=auto'
+
+alias ls='ls --color=auto'
+alias ll='ls --color=always -l'
+alias lla='ls --color=alias -la'
+
+alias rm='rm --interactive=once'
+alias mv='mv --interactive'
+
+alias display_off='xset dpms force off'
+
+alias esync='sudo eix-sync'
+alias eupdw='sudo emerge -avuND @world'
+alias eetc='sudo etc-update'
+
+alias open='gnome-open'
+
+# Moving to directory in different teminals.
+alias xpwd='echo $PWD | xclip -i; xclip -o'
+alias xcd='cd "$(xclip -o)"'
+
+alias man='LANG=C man'
+
+# vim: et ft=zsh :

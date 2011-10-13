@@ -1,0 +1,6 @@
+#caption always '%3n %t'
+utf8 on on
+defutf8 on
+#caption always "%3n %t%? (%u)%?%?: %h%?"
+hardstatus string "%h"
+caption always "%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw}"

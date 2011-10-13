@@ -1,0 +1,65 @@
+if test -x =dircolors ; then
+    eval "`dircolors`"
+    export ZLS_COLORS=$LS_COLORS
+fi
+
+autoload -U is-at-least
+
+setopt aliases
+setopt all_export
+setopt append_history
+setopt auto_cd
+setopt auto_list
+setopt auto_menu
+setopt auto_param_keys
+setopt auto_param_slash
+setopt auto_remove_slash
+setopt auto_resume
+setopt always_to_end
+
+setopt bad_pattern
+setopt no_bg_nice
+setopt no_bsd_echo
+
+setopt check_jobs
+setopt correct
+setopt no_correct_all
+
+setopt no_emacs
+setopt exec
+setopt no_extended_history
+
+setopt hash_cmds
+setopt hash_dirs
+setopt hash_list_all
+setopt hist_find_no_dups
+setopt hist_ignore_all_dups
+setopt no_hist_ignore_space
+setopt hist_no_functions
+setopt hist_no_store
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
+setopt hist_verify
+setopt no_hup
+setopt no_ignore_eof
+
+setopt list_ambiguous
+setopt list_packed
+setopt mark_dirs
+setopt notify
+
+setopt no_rm_star_silent
+setopt no_rm_star_wait
+
+setopt no_share_history
+setopt vi
+setopt zle
+
+[ -w "$zsh_cache" ] && HISTFILE=$zsh_cache/history
+
+HISTSIZE=10000
+LISTMAX=1000
+REPORTIME=2
+SAVEHIST=10000
+
+# vim: et ft=zsh :

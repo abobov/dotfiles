@@ -1,0 +1,19 @@
+#!/bin/zsh
+
+autoload -U compinit zrecompile
+
+zsh_cache=$HOME/.zsh/cache
+mkdir -p "$zsh_cache"
+
+compinit -d "$zsh_cache/zcomp"
+
+for zshrc_snippet in "$HOME/.zsh/rc/S"[0-9][0-9]* ; do
+    source "$zshrc_snippet"
+done
+
+local_dir=$HOME/.zsh/rc-$HOSTNAME
+if [ -d "$local_dir" ] ; then
+    for zshrc_snippet in "$local_dir/S"[0-9][0-9]* ; do
+        source "$zshrc_snippet"
+    done
+fi

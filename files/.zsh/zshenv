@@ -1,0 +1,5 @@
+source "$HOME/.zsh/rc/S20_environment"
+local_zshenv=$HOME/.zsh/rc-$(/usr/bin/hostname)/S20_environment
+if [ -e "$local_zshenv" ] ; then
+    source "$local_zshenv"
+fi

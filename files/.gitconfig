@@ -1,0 +1,24 @@
+[user]
+    name = Anton Bobov
+    email = bobov_a@sibsac.ru
+[color]
+    ui = true
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[merge]
+    tool = vimdiff
+    stat = true
+[core]
+    pager = less -+$LESS -FRX
+[alias]
+    diffstat = diff --stat -r
+    co = checkout
+    lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    st = status
+    k =  !sh -c 'gitk $1' -
+    ka = !sh -c 'gitk --all' -
+    kb = !sh -c 'gitk --branches' -
+    fix = commit --amend -C HEAD
+    integrate = !sh -c 'git rebase master $1 && git checkout master && git merge --ff $1' -

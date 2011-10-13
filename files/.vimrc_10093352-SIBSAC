@@ -1,0 +1,7 @@
+if !has('gui_running')
+	colorscheme default
+endif
+set backupext=.bak
+set backupdir=$TEMP/bak
+set directory+=$TEMP
+set shellslash
