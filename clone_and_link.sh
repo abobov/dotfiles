@@ -5,9 +5,32 @@
 set -e
 dir=dot-files/files
 
+os=$(uname -o)
+
+create_windows_link()
+{
+    target=$target/$(basename "$link")
+    rm -rvf "$target"
+    if [ -d "$link" ] ; then
+        cmd /c mklink /D $(cygpath -w "$target") $(cygpath -w "$link")
+    else
+        cmd /c mklink $(cygpath -w "$target") $(cygpath -w "$link")
+    fi
+}
+
+create_link()
+{
+    local link=$1
+    local target=$2
+    case "$os" in
+        "Cygwin") create_windows_link ;;
+        *) ln --verbose --symbolic --force "$link" "$target" ;;
+    esac
+}
+
 cd &&
 ls --format=single-column --directory $dir/{,.}* | while read f ; do
     [ "$f" == "$dir/." ] ||
     [ "$f" == "$dir/.." ] ||
-    ln --verbose --symbolic --force "$f" ~/test/
+    create_link "$f" .
 done
