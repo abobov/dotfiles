@@ -1,0 +1,46 @@
+*visualBell:			False
+
+Rxvt*font:				-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-u
+
+URxvt.perl-ext-common:	default,tabbed,matcher
+
+URxvt*urlLauncher:		firefox
+urxvt*matcher.button:	1
+
+URxvt.tabbed.tabbar-fg:	2
+URxvt.tabbed.tabbar-bg:	0
+URxvt.tabbed.tab-fg:	3
+URxvt.tabbed.tab-bg:	0
+
+URxvt.scrollBar:		Fa;se
+! URxvt.scrollBar_floating:	True
+! URxvt.scrollBar_right:	False
+! URxvt.scrollColor:		#ffffff
+! URxvt.scrollstyle:		plain
+
+URxvt.saveLines:		10000
+
+URxvt.background:		#1d1d1d
+URxvt.foreground:		#d0d0d0
+
+!*color0:				#101010
+*color0:				#303030
+*color1:				#dc2f2f
+*color2:				#5ca84f
+*color3:				#cd8b00
+*color4:				#6b96cb
+*color5:				#817bbb
+*color6:				#52b1a2
+*color7:				#d0d0d0
+!*color8:				#242424
+*color8:				#343434
+*color9:				#f18983
+*color10:				#71e45e
+*color11:				#eaeb70
+*color12:				#88b6dd
+*color13:				#b598ca
+*color14:				#84e9e8
+*color15:				#f0f0f0
+
+URxvt.fading:			20 !term unfocus
+URxvt.urgentOnBell:		True
