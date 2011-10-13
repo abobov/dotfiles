@@ -1,6 +1,19 @@
-#caption always '%3n %t'
-utf8 on on
+hardstatus alwayslastline
+#hardstatus string "%{= }%-w%{= bk}%50>%n %t%{-}%+w%<" 
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+startup_message off
+altscreen on
+
 defutf8 on
-#caption always "%3n %t%? (%u)%?%?: %h%?"
-hardstatus string "%h"
-caption always "%{= kw} %-w%{= wk}%n*%t%{-}%+w%{= kw}"
+
+term rxvt
+termcapinfo * ti@:te@ # Scroll buffer on <Shift>[<PgUp>|<PgDw>]
+
+bindkey -k F1 next # Next tab on <F1>
+bindkey -k F2 prev # Prev tab on <F2>
+
+bind j focus down
+bind k focus up
+bind + resize +5
+bind - resize -5
+bind = resize =

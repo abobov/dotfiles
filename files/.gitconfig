@@ -1,8 +1,8 @@
 [user]
     name = Anton Bobov
-    email = bobov_a@sibsac.ru
+    email = abobov@gmail.com
 [color]
-    ui = true
+    ui = auto
 [diff]
     tool = vimdiff
 [difftool]
