@@ -2,7 +2,7 @@ if [ x"$HOME" = x ] ; then
     export HOME=$(cd ~ ; pwd)
 fi
 if [ x"$HOSTNAME" = x ] ; then
-    export HOSTNAME=$(/usr/bin/hostname)
+    export HOSTNAME=$(/bin/hostname)
 fi
 
 export SHELL=/bin/zsh
