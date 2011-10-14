@@ -3,8 +3,7 @@
 # Based on file from https://github.com/benhoskings/dot-files
 
 set -e
-dir=dot-files/files
-
+dir="$(cd "$(dirname "$0")" && pwd)/files"
 os=$(uname -o)
 
 create_windows_link()
@@ -20,8 +19,8 @@ create_windows_link()
 
 create_link()
 {
-    local link=$1
-    local target=$2
+    local link=$(echo "$1" | sed "s#^$HOME/##")
+    local target="$2"
     case "$os" in
         "Cygwin") create_windows_link ;;
         *) ln --verbose --symbolic --force "$link" "$target" ;;
@@ -29,7 +28,7 @@ create_link()
 }
 
 cd &&
-ls --format=single-column --directory $dir/{,.}* | while read f ; do
+ls --format=single-column --directory "$dir"/.* | while read f ; do
     [ "$f" == "$dir/." ] ||
     [ "$f" == "$dir/.." ] ||
     create_link "$f" .
