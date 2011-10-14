@@ -6,7 +6,7 @@ altscreen on
 
 defutf8 on
 
-term rxvt
+term xterm-256color
 termcapinfo * ti@:te@ # Scroll buffer on <Shift>[<PgUp>|<PgDw>]
 
 bindkey -k F1 next # Next tab on <F1>

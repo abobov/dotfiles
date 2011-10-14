@@ -8,8 +8,6 @@ if has("multi_byte")
     set fileencodings=ucs-bom,utf-8,cp1251,koi8-r,cp866
 endif
 
-let g:CSApprox_loaded = 1
-
 set encoding=utf-8
 
 set visualbell  " use a visual bell instead of beeping
