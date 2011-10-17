@@ -4,15 +4,15 @@
 
 set -e
 dir="$(cd "$(dirname "$0")" && pwd)"
-os=$(uname -o)
+os=$(uname --operating-system)
 ignore="$dir/ignore-$(/bin/hostname)"
 
 filter() {
-    fname="$(basename "$@")"
-    if [[ "$fname" == "." || "$fname" == ".." ]] ; then
+    fname="files/$(basename "$@")"
+    if [[ "$fname" == "files/." || "$fname" == "files/.." ]] ; then
         return 0
     fi
-    return $(grep -x -F "$fname" "$ignore" >/dev/null 2>&1)
+    return $(grep --line-regexp --fixed-strings "$fname" "$ignore" >/dev/null 2>&1)
 }
 
 create_windows_link()
@@ -20,9 +20,9 @@ create_windows_link()
     target=$target/$(basename "$link")
     rm -rvf "$target"
     if [ -d "$link" ] ; then
-        cmd /c mklink /D $(cygpath -w "$target") $(cygpath -w "$link")
+        cmd /c mklink /D $(cygpath --windows "$target") $(cygpath --windows "$link")
     else
-        cmd /c mklink $(cygpath -w "$target") $(cygpath -w "$link")
+        cmd /c mklink $(cygpath --windows "$target") $(cygpath --windows "$link")
     fi
 }
 
