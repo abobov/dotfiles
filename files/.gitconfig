@@ -21,4 +21,3 @@
     ka = !sh -c 'gitk --all' -
     kb = !sh -c 'gitk --branches' -
     fix = commit --amend -C HEAD
-    integrate = !sh -c 'git rebase master $1 && git checkout master && git merge --ff $1' -
