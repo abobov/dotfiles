@@ -15,6 +15,7 @@
 [alias]
     diffstat = diff --stat -r
     co = checkout
+    ci = commit
     lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     st = status
     k =  !sh -c 'gitk $1' -
