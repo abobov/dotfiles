@@ -1,0 +1,8 @@
+set index_format="%Z %{%b %d} %-15.15n (%4E) %s"
+
+reset attribution
+set date_format="!%a, %b %d, %Y at %H:%M:%S %Z"
+
+set from="abobov@gmail.com" 
+
+# vim: ft=muttrc

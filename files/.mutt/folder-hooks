@@ -1,0 +1,3 @@
+folder-hook .						source ~/.mutt/folder-hooks.default
+
+# vim: ft=muttrc

@@ -1,0 +1,139 @@
+# .muttrc file for mutt
+# Muttrc file
+# Based on the muttrc file by Dave Pearson
+# Based on the nuttrc fule by Simon Huggins
+
+# Mail boxes
+#set mbox_type=Maildir
+#set spoolfile="~/Mail/"
+#set folder="~/Mail"
+
+#set smtp_url="smtp://abobov@smtp.gmail.com:587/"
+set reverse_name
+#Gmail IMAP config
+#set folder="imaps://imap.gmail.com:993"
+#set spoolfile="+INBOX"
+#set postponed="+[Gmail]/Drafts"
+#set message_cachedir="~/.mutt/cache/bodies"
+#set certificate_file="~/.mutt/certificates"
+
+#Gmail maildir config
+set folder="~/Mail/Gmail"
+set spoolfile="+INBOX"
+set postponed="+[Gmail].Drafts"
+
+set header_cache="~/.mutt/cache/headers"
+
+set mbox=+mbox
+
+set signature="~/.mutt/signature"
+
+set assumed_charset="cp1251:koi8-r:utf-8"
+set attach_charset="cp1251:koi8-r:utf-8"
+
+set hostname="dexter-laptop"
+
+alternates "anton@bobov.name" "abobov@gmail.com"
+
+set print=ask-yes
+set print_command="muttprint"
+
+##
+# General options
+#
+
+set nohelp
+set locale="ru_RU.UTF8"
+set alias_file=~/.mutt/aliases
+
+set hdrs						# add my_hdr lines
+
+set postpone=ask-no
+#set postponed=+postponed
+#set move=ask-yes				# ask me to move read messages to mbox
+set move=no
+set include=yes					# include message in reply
+set delete=yes					# just delete then select to delete
+set sort=threads
+set sort_aux=date-received
+set charset=utf-8				# terminal charset
+set allow_8bit
+set rfc2047_parameters
+set mail_check=120				# check for new mail every 120 seconds
+
+set edit_headers				# change headers with body in editor
+
+set editor="vim -c '/^$/+1' -c nohl"
+set visual="vim"
+
+set menu_scroll
+
+#set autoedit					# don't ask me anyrging, let's go to compose msg
+set nomark_old					# not mark new unread messages as old
+set copy=no						# keep copies of outgoing mail
+unset record					# GMail automatically save in [Gmail]/Sent Mail
+set nobeep
+set smart_wrap
+set nomarkers					# don't want ant wrap markers
+set pager_context=3				# XXX
+set envelope_from					# XXX
+set tilde						# fill message to end of screen with ~
+set pager_stop					# don't move to next msg on end
+#set pager_index_lines=1			# XXX
+set nowrite_bcc					# don't show Bcc on write msgs
+set ascii_chars
+unset collapse_unread				# never collapse thread with unread  msgs
+set fast_reply					# don't ask me, just reply
+set realname="Anton Bobov"		#
+
+set pager_index_lines=11		# show msgs from index in pager
+set noconfirmappend				# don't ask me about appending msgs to other
+								# boxes
+set query_command="abook --mutt-query '%s'"
+set to_chars=" +TCF "			# Drop the "L".
+
+set thorough_search
+
+set sidebar_width=25
+set sidebar_visible=yes
+
+
+##
+# MIME-types to auto_view
+#
+set mailcap_path=~/.mutt/mutt_mailcap:/etc/mailcap
+
+auto_view application/octet-stream
+auto_view text/html
+
+# Ignore some headers
+ignore *
+unignore From Subject To CC Date Attach
+unignore X-Mailer: X-Mailing-List: User-Agent:
+
+# Order visible header lines
+hdr_order From Subject Date To CC
+
+# Default from
+#my_hdr From: Anton Bobov <abobov@gmail.com>
+my_hdr X-Attribution: AB
+my_hdr X-PGP-Key: http://id.bobov.name/pubkey.asc
+
+#
+# Source files
+#
+
+source ~/.mutt/macros
+source ~/.mutt/bindings
+source ~/.mutt/colors
+source ~/.mutt/mailboxes
+source ~/.mutt/subscriptions
+source ~/.mutt/crypto
+source $alias_file
+source ~/.mutt/secret
+source ~/.mutt/folder-hooks
+source ~/.mutt/fcc-hooks
+source ~/.mutt/send-hooks
+source ~/.mutt/maillists.generate
+
+push V

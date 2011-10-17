@@ -1,0 +1,82 @@
+# Generate date: Mon Oct 17 11:49:14     2011
+# vim: ft=muttrc :
+# email: mutt-users@mutt.org
+# mailbox: =ml_mutt
+subscribe mutt-users@mutt.org
+mailboxes "=ml_mutt"
+folder-hook "=ml_mutt" source folder-hooks.maillist
+fcc-hook mutt-users@mutt.org "=ml_mutt"
+
+
+# email: vim@vim.org
+# mailbox: =ml_vim
+subscribe vim@vim.org
+mailboxes "=ml_vim"
+folder-hook "=ml_vim" source folder-hooks.maillist
+fcc-hook vim@vim.org "=ml_vim"
+
+
+# email: gentoo-user@lists.gentoo.org
+# mailbox: =ml_gentoo_user
+subscribe gentoo-user@lists.gentoo.org
+mailboxes "=ml_gentoo_user"
+folder-hook "=ml_gentoo_user" source folder-hooks.maillist
+fcc-hook gentoo-user@lists.gentoo.org "=ml_gentoo_user"
+
+
+# email: gentoo-user-ru@lists.gentoo.org
+# mailbox: =ml_gentoo_user_ru
+subscribe gentoo-user-ru@lists.gentoo.org
+mailboxes "=ml_gentoo_user_ru"
+folder-hook "=ml_gentoo_user_ru" source folder-hooks.maillist
+fcc-hook gentoo-user-ru@lists.gentoo.org "=ml_gentoo_user_ru"
+
+
+# email: awesome@naquadah.org
+# mailbox: =ml_awesome
+subscribe awesome@naquadah.org
+mailboxes "=ml_awesome"
+folder-hook "=ml_awesome" source folder-hooks.maillist
+fcc-hook awesome@naquadah.org "=ml_awesome"
+
+
+# email: rxvt-unicode@lists.schmorp.de
+# mailbox: =ml_urxvt
+subscribe rxvt-unicode@lists.schmorp.de
+mailboxes "=ml_urxvt"
+folder-hook "=ml_urxvt" source folder-hooks.maillist
+fcc-hook rxvt-unicode@lists.schmorp.de "=ml_urxvt"
+
+
+# email: cygwin@cygwin.com
+# mailbox: =ml_cygwin
+subscribe cygwin@cygwin.com
+mailboxes "=ml_cygwin"
+folder-hook "=ml_cygwin" source folder-hooks.maillist
+fcc-hook cygwin@cygwin.com "=ml_cygwin"
+
+
+# email: google-web-toolkit@googlegroups.com
+# mailbox: =ml_gwt
+subscribe google-web-toolkit@googlegroups.com
+mailboxes "=ml_gwt"
+folder-hook "=ml_gwt" source folder-hooks.maillist
+fcc-hook google-web-toolkit@googlegroups.com "=ml_gwt"
+
+
+# email: trac-users@googlegroups.com
+# mailbox: =ml_trac
+subscribe trac-users@googlegroups.com
+mailboxes "=ml_trac"
+folder-hook "=ml_trac" source folder-hooks.maillist
+fcc-hook trac-users@googlegroups.com "=ml_trac"
+
+
+# email: tmux-users@lists.sourceforge.net
+# mailbox: =ml_tmux
+subscribe tmux-users@lists.sourceforge.net
+mailboxes "=ml_tmux"
+folder-hook "=ml_tmux" source folder-hooks.maillist
+fcc-hook tmux-users@lists.sourceforge.net "=ml_tmux"
+
+

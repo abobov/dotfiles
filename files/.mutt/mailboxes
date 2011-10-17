@@ -1,0 +1,9 @@
+# Don't forget add rule to fcc-hooked maillists
+
+mailboxes !
+mailboxes "=[Gmail].Sent Mail"
+mailboxes "=[Gmail].Drafts"
+mailboxes "=softdata"
+mailboxes "/var/spool/mail/dexter"
+
+# vim: ft=muttrc

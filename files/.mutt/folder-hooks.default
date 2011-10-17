@@ -1,0 +1,10 @@
+reset index_format
+push <collapse-all>
+push '.i' # see macros for more detail
+
+set date_format="%a, %e %B %Y в %H:%M"
+set attribution="В %d, %n пишет:"
+
+set from="anton@bobov.name" 
+
+# vim: ft=muttrc

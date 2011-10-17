@@ -1,0 +1,29 @@
+bind generic <Home> first-entry
+bind generic <End> last-entry
+bind generic <Left> previous-entry
+bind generic <Right> next-entry
+bind generic "(" current-top
+
+bind index "{" previous-thread
+bind index "}" next-thread
+bind index <Up> previous-thread
+bind index <Down> next-thread
+bind index - collapse-thread
+bind index "F" flag-message
+bind index \CP sidebar-prev
+bind index \CN sidebar-next
+bind index \CO sidebar-open
+
+bind pager <Home> top
+bind pager <End> bottom
+bind pager "{" previous-thread
+bind pager "}" next-thread
+bind pager <Up> previous-line
+bind pager <Down> next-line
+bind pager <Left> previous-entry
+bind pager <Right> next-entry
+bind pager \CP sidebar-prev
+bind pager \CN sidebar-next
+bind pager \CO sidebar-open
+
+# vim: ft=muttrc

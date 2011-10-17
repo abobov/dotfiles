@@ -1,0 +1,14 @@
+# vim: ft=muttrc
+# 
+# List of mail lists I'm subscribed to.
+#
+# Don't forget change folder-hook
+
+#subscribe mutt-user
+#subscribe vim
+#subscribe google-web-toolkit@googlegroups.com
+#subscribe jboss-user@lists.jboss.org 
+#subscribe gentoo-user-ru@lists.gentoo.org
+#subscribe gentoo-user@lists.gentoo.org
+#subscribe awesome@naquadah.org
+#subscribe cygwin@cygwin.com

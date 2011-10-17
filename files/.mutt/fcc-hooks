@@ -1,0 +1,11 @@
+# vim: ft=muttrc
+# Fcc hooks, everything else goes to $record
+#
+
+# Lists
+#fcc-save-hook '~t mutt-user'							=ml_mutt
+#fcc-save-hook '~t vim'									=ml_vim
+#fcc-save-hook '~t gentoo-user@lists.gentoo.org'		=ml_gentoo_user
+# fcc-save-hook '~t gentoo-user-ru@lists.gentoo.org'	=ml_gentoo_user_ru
+#fcc-save-hook '~t awesome@naquadah.org'				=ml_awesome
+# fcc-save-hook '~t cygwin@cygwin.com'					=ml_cygwin

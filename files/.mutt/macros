@@ -1,0 +1,16 @@
+macro index,pager S "<save-message>=[Gmail]/Spam<enter>" "mark message as spam"
+macro index ,r "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new messages read"
+#macro index,pager H "<save-message>=INBOX<enter>" "mark message as ham"
+
+macro index     .i      "l((~N|~O|~F)!~D)|(~d<1w!~Q)\n"
+macro index     .n      "l~N\n"
+macro index     .a      "l~A\n"
+macro index     .t      "l~d<1d\n"
+
+# Threads macros
+
+macro index,pager za "<Esc>v"
+macro index,pager zr "<Esc>V"
+macro index,pager zm "<Esc>V"
+
+# vim: ft=muttrc
