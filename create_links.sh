@@ -3,8 +3,17 @@
 # Based on file from https://github.com/benhoskings/dot-files
 
 set -e
-dir="$(cd "$(dirname "$0")" && pwd)/files"
+dir="$(cd "$(dirname "$0")" && pwd)"
 os=$(uname -o)
+ignore="$dir/ignore-$(/bin/hostname)"
+
+filter() {
+    fname="$(basename "$@")"
+    if [[ "$fname" == "." || "$fname" == ".." ]] ; then
+        return 0
+    fi
+    return $(grep -x -F "$fname" "$ignore" >/dev/null 2>&1)
+}
 
 create_windows_link()
 {
@@ -28,8 +37,7 @@ create_link()
 }
 
 cd &&
-ls --format=single-column --directory "$dir"/.* | while read f ; do
-    [ "$f" == "$dir/." ] ||
-    [ "$f" == "$dir/.." ] ||
+ls --format=single-column --directory "$dir"/files/.* | while read f ; do
+    filter "$f" ||
     create_link "$f" .
 done

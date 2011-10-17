@@ -1,0 +1,3 @@
+open() { explorer $(cygpath -w "$*") }
+
+# vim: et ft=zsh :
