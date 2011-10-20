@@ -8,9 +8,7 @@ if has("multi_byte")
     set fileencodings=ucs-bom,utf-8,cp1251,koi8-r,cp866
 endif
 
-if !has('gui')
-    let g:CSApprox_loaded=1
-endif
+let g:CSApprox_verbose_level=0
 
 set encoding=utf-8
 
@@ -28,12 +26,11 @@ set showcmd
 " По умолчанию пользоваться :help справкой
 set keywordprg=
 " Включить подсветку синтаксиса
-colorscheme desert
 if &t_Co >= 256 || has('gui_running')
-	colorscheme mustang
+    colorscheme desert
 endif
 if &t_Co > 2 || has('gui_running')
-	syntax on
+    syntax on
 endif
 
 filetype off " Do so to reload filetype plugins after pathogen
