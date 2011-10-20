@@ -1,4 +1,5 @@
-files/.zsh/cache
-files/.mutt/aliases
-files/.mutt/certificates
+/files/.mutt/aliases
+/files/.mutt/certificates
 /files/.vim/.netrwhist
+/files/.vim/spell/ru.utf-8.add*
+/files/.zsh/cache
