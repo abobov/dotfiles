@@ -1,3 +1,5 @@
+alias -s html=firefox
+
 alias df='df -h'
 alias free='free -tm'
 alias whois='whois -H'
