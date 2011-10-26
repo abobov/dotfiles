@@ -1,2 +1,4 @@
 " Испольщзуемый шрифт
 set guifont=Consolas:h10:cRUSSIAN
+
+colorscheme mustang

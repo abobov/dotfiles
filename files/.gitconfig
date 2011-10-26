@@ -22,3 +22,4 @@
     ka = !sh -c 'gitk --all' -
     kb = !sh -c 'gitk --branches' -
     fix = commit --amend -C HEAD
+    ar = !sh -c 'git archive --format=tar --prefix="$(basename "$PWD")-$1/" $1^{tree} | bzip2 >"$(basename "$PWD")-$1.tar.bz2"' -

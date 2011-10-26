@@ -6,6 +6,7 @@ set -e
 dir="$(cd "$(dirname "$0")" && pwd)"
 os=$(uname --operating-system)
 ignore="$dir/ignore-$(/bin/hostname)"
+CMD=$SYSTEMROOT/System32/cmd.exe
 
 filter() {
     fname="files/$(basename "$@")"
@@ -20,9 +21,9 @@ create_windows_link()
     target=$target/$(basename "$link")
     rm -rvf "$target"
     if [ -d "$link" ] ; then
-        cmd /c mklink /D $(cygpath --windows "$target") $(cygpath --windows "$link")
+        $CMD /c mklink /D $(cygpath --windows "$target") $(cygpath --windows "$link")
     else
-        cmd /c mklink $(cygpath --windows "$target") $(cygpath --windows "$link")
+        $CMD /c mklink $(cygpath --windows "$target") $(cygpath --windows "$link")
     fi
 }
 
