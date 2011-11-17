@@ -1,3 +1,13 @@
 open() { explorer $(cygpath -w "$*") }
+wsdl2html() {
+    while : ; do
+        local fname="$1"
+        local out="$fname.html"
+        xsltproc /cygdrive/d/bobov/scripts/wsdl-viewer.xsl "$fname" > "$out"
+        echo "WSDL documentation file: $out"
+        shift
+        [[ $# -eq 0 ]] && break
+    done
+}
 
 # vim: et ft=zsh :

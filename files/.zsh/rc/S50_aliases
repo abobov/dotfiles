@@ -1,4 +1,4 @@
-alias -s html=firefox
+alias -s html=$BROWSER
 
 alias df='df -h'
 alias free='free -tm'

@@ -1,3 +1,9 @@
+backward-delete-to-slash() {
+    local WORDCHARS=${WORDCHARS//\//}
+    zle .backward-delete-word
+}
+zle -N backward-delete-to-slash
+
 bindkey -v "^[[3~" delete-char
 bindkey -v "^[[5~" backward-word
 bindkey -v "^[[6~" forward-word
@@ -13,6 +19,7 @@ bindkey -v "^R" history-incremental-search-backward
 bindkey -v "^U" kill-whole-line
 bindkey -v "^V" quoted-insert
 bindkey -v "^W" backward-kill-word
+bindkey -v "^[w" backward-delete-to-slash
 
 bindkey -v "^N" down-history
 bindkey -v "^P" up-history
