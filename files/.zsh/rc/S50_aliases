@@ -1,4 +1,7 @@
 alias -s html=$BROWSER
+alias -s pdf=evince
+alias -s ps=evince
+alias -s dvi=evince
 
 alias df='df -h'
 alias free='free -tm'
