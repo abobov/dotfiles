@@ -2,10 +2,10 @@
 
 autoload -U compinit zrecompile
 
-zsh_cache=$HOME/.zsh/cache
-mkdir -p "$zsh_cache"
+#zsh_cache=$HOME/.zsh/cache
+#mkdir -p "$zsh_cache"
 
-compinit -d "$zsh_cache/zcomp"
+#compinit -d "$zsh_cache/zcomp"
 
 for zshrc_snippet in "$HOME/.zsh/rc/S"[0-9][0-9]* ; do
     source "$zshrc_snippet"
