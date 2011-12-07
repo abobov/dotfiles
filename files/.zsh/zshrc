@@ -17,3 +17,7 @@ if [ -d "$local_dir" ] ; then
         source "$zshrc_snippet"
     done
 fi
+
+if [ -f "/etc/zsh_command_not_found" ] ; then
+    source /etc/zsh_command_not_found
+fi
