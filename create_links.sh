@@ -38,7 +38,7 @@ create_link()
 }
 
 cd &&
-ls --format=single-column --directory "$dir"/files/.* | while read f ; do
+ls --format=single-column --directory "$dir"/files/.* "$dir"/files/bin | while read f ; do
     filter "$f" ||
     create_link "$f" .
 done

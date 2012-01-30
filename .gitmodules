@@ -5,3 +5,6 @@
 [submodule "repeat"]
     path = files/.vim/bundle/repeat
     url = git://github.com/tpope/vim-repeat.git
+[submodule "files/bin"]
+	path = files/bin
+	url = git@github.com:abobov/bin.git
