@@ -1,7 +1,4 @@
-if !has('gui_running')
-	set background=light
-	colorscheme default
-endif
+colorscheme eclipse
 set backupext=.bak
 set backupdir=$TEMP/bak
 set directory+=$TEMP

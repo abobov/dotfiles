@@ -27,7 +27,7 @@ set showcmd
 set keywordprg=
 " Включить подсветку синтаксиса
 if &t_Co >= 256 || has('gui_running')
-    colorscheme desert
+    colorscheme eclipse
 endif
 if &t_Co > 2 || has('gui_running')
     syntax on
