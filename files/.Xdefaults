@@ -1,8 +1,19 @@
-*visualBell:			False
+URxvt.visualBell:			true
 
-Rxvt*font:				-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-u
+!URxvt.font:				-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-u
+!URxvt.font:				fixed
+urxvt.font:             9x15,\
+        -misc-fixed-bold-r-normal--15-140-75-75-c-90-iso10646-1,\
+        -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1, \
+        [codeset=JISX0208]xft:Kochi Gothic, \
+        xft:Bitstream Vera Sans Mono:autohint=true, \
+        xft:Code2000:antialias=false
+urxvt.boldFont:         -xos4-terminus-bold-r-normal--14-140-72-72-c-80-iso8859-15
+urxvt.italicFont:       xft:Bitstream Vera Sans Mono:italic:autohint=true
+urxvt.boldItalicFont:   xft:Bitstream Vera Sans Mono:bold:italic:autohint=true
 
 URxvt.perl-ext-common:	default,tabbed,matcher
+URxvt.geometry:         140x36
 
 URxvt*urlLauncher:		firefox
 urxvt*matcher.button:	1
@@ -12,7 +23,7 @@ URxvt.tabbed.tabbar-bg:	0
 URxvt.tabbed.tab-fg:	3
 URxvt.tabbed.tab-bg:	0
 
-URxvt.scrollBar:		Fa;se
+URxvt.scrollBar:		False
 ! URxvt.scrollBar_floating:	True
 ! URxvt.scrollBar_right:	False
 ! URxvt.scrollColor:		#ffffff
@@ -20,27 +31,35 @@ URxvt.scrollBar:		Fa;se
 
 URxvt.saveLines:		10000
 
-URxvt.background:		#1d1d1d
-URxvt.foreground:		#d0d0d0
+! Colors setup
+URxvt.colorUL:          #294a8c
+URxvt*foreground: #323232
+URxvt*background: #f0f0f0
 
-!*color0:				#101010
-*color0:				#303030
-*color1:				#dc2f2f
-*color2:				#5ca84f
-*color3:				#cd8b00
-*color4:				#6b96cb
-*color5:				#817bbb
-*color6:				#52b1a2
-*color7:				#d0d0d0
-!*color8:				#242424
-*color8:				#343434
-*color9:				#f18983
-*color10:				#71e45e
-*color11:				#eaeb70
-*color12:				#88b6dd
-*color13:				#b598ca
-*color14:				#84e9e8
-*color15:				#f0f0f0
+! Normal
+
+URxvt.color0:  #323232
+URxvt.color1:  #a01010
+URxvt.color2:  #3c960f
+URxvt.color3:  #cfa717
+URxvt.color4:  #294a8c
+URxvt.color5:  #944ccd
+URxvt.color6:  #147cbd
+URxvt.color7:  #e8e8e8
+
+! Light
+
+URxvt.color8:  #646464
+URxvt.color9:  #c81414
+URxvt.color10: #5cb62f
+URxvt.color11: #fce94f
+URxvt.color12: #3b6ac8
+URxvt.color13: #9065b2
+URxvt.color14: #3994cd
+URxvt.color15: #fafafc
+URxvt*shading:		10
 
 URxvt.fading:			20 !term unfocus
 URxvt.urgentOnBell:		True
+
+URxvt.termName:         rxvt-256color
