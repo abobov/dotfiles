@@ -17,6 +17,8 @@ set reverse_name
 #set message_cachedir="~/.mutt/cache/bodies"
 #set certificate_file="~/.mutt/certificates"
 
+set sendmail="/usr/bin/msmtp"
+
 #Gmail maildir config
 set folder="~/Mail/Gmail"
 set spoolfile="+INBOX"
@@ -30,8 +32,6 @@ set signature="~/.mutt/signature"
 
 set assumed_charset="cp1251:koi8-r:utf-8"
 set attach_charset="cp1251:koi8-r:utf-8"
-
-set hostname="dexter-laptop"
 
 alternates "anton@bobov.name" "abobov@gmail.com"
 
