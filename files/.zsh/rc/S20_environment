@@ -5,6 +5,8 @@ if [ x"$HOSTNAME" = x ] ; then
     export HOSTNAME=$(/bin/hostname)
 fi
 
+path=(~/bin $path)
+
 export SHELL=/bin/zsh
 
 export MANWIDTH=80
