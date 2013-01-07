@@ -1,7 +1,9 @@
 alias -s html=$BROWSER
-alias -s pdf=evince
-alias -s ps=evince
-alias -s dvi=evince
+alias -s pdf=epdfview
+alias -s ps=epdfview
+alias -s dvi=epdfview
+
+alias -s exe=wine
 
 alias df='df -h'
 alias free='free -tm'
@@ -28,5 +30,8 @@ alias xpwd='echo $PWD | xclip -i; xclip -o'
 alias xcd='cd "$(xclip -o)"'
 
 alias man='LANG=C man'
+
+check_com g || alias g='git'
+check_com s || alias s='ssh'
 
 # vim: et ft=zsh :
