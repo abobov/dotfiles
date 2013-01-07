@@ -20,7 +20,7 @@ hi Pmenu guibg=#75507B
 autocmd InsertEnter * set cursorline
 autocmd InsertLeave * set nocursorline
 
-let s:local_gvimrc=$HOME . "/.gvimrc-" . hostname()
+let s:local_gvimrc=$MYGVIMRC . ".local"
 if filereadable(s:local_gvimrc)
     silent! execute ':source ' . s:local_gvimrc
 endif

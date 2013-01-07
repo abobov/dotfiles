@@ -11,13 +11,6 @@ for zshrc_snippet in "$HOME/.zsh/rc/S"[0-9][0-9]* ; do
     source "$zshrc_snippet"
 done
 
-local_dir=$HOME/.zsh/rc-$HOSTNAME
-if [ -d "$local_dir" ] ; then
-    for zshrc_snippet in "$local_dir/S"[0-9][0-9]* ; do
-        source "$zshrc_snippet"
-    done
-fi
-
 if [ -f "/etc/zsh_command_not_found" ] ; then
     source /etc/zsh_command_not_found
 fi

@@ -1,5 +1,0 @@
-colorscheme eclipse
-set backupext=.bak
-set backupdir=$TEMP/bak
-set directory+=$TEMP
-set shellslash

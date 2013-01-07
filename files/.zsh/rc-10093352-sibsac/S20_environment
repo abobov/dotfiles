@@ -1,4 +1,0 @@
-path=(/bin $path)
-cdpath=($cdpath /cygdrive)
-
-# vim: et ft=zsh :

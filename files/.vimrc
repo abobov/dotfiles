@@ -25,10 +25,6 @@ set hidden
 set showcmd
 " По умолчанию пользоваться :help справкой
 set keywordprg=
-" Включить подсветку синтаксиса
-if &t_Co >= 256 || has('gui_running')
-    colorscheme eclipse
-endif
 if &t_Co > 2 || has('gui_running')
     syntax on
 endif
@@ -188,7 +184,7 @@ map gf :e <cfile><CR>
 
 map YY "+yy
 
-let s:local_vimrc=$HOME . "/.vimrc-" . hostname()
+let s:local_vimrc=$MYVIMRC . ".local"
 if filereadable(s:local_vimrc)
     silent! execute ':source ' . s:local_vimrc
 endif

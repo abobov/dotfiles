@@ -1,5 +1,0 @@
-# vim: ft=sh :
-
-if [ -d /cygdrive/d/bobov/Uniar ]; then
-    hash -d uniar=/cygdrive/d/bobov/Uniar
-fi
