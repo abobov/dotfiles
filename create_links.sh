@@ -5,7 +5,6 @@
 set -e
 dir="$(cd "$(dirname "$0")" && pwd)"
 os=$(uname --operating-system)
-ignore="$dir/ignore-$(/bin/hostname)"
 CMD=$SYSTEMROOT/System32/cmd.exe
 
 filter() {
@@ -13,7 +12,7 @@ filter() {
     if [[ "$fname" == "files/." || "$fname" == "files/.." ]] ; then
         return 0
     fi
-    return $(grep --line-regexp --fixed-strings "$fname" "$ignore" >/dev/null 2>&1)
+    return 1
 }
 
 create_windows_link()
