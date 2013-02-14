@@ -7,3 +7,9 @@
 [submodule "files/bin"]
     path = files/bin
     url = git://github.com/abobov/bin.git
+[submodule "files/.vim/bundle/nginx-vim-syntax"]
+	path = files/.vim/bundle/nginx-vim-syntax
+	url = git://github.com/evanmiller/nginx-vim-syntax.git
+[submodule "files/.vim/bundle/nerdcommenter"]
+	path = files/.vim/bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git

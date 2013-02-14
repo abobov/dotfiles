@@ -128,6 +128,7 @@ if has('autocmd')
 	autocmd BufEnter * execute ":silent! lcd " . expand("%:p:h")
 
 	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+    au BufRead,BufNewFile /etc/nginx/* if &ft == "" | setfiletype nginx | endif
 endif
 
 "
