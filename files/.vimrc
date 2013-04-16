@@ -185,6 +185,10 @@ map gf :e <cfile><CR>
 
 map YY "+yy
 
+" Surrounds double angle quotes «»
+let g:surround_171="« \r »"
+let g:surround_187="«\r»"
+
 let s:local_vimrc=$MYVIMRC . ".local"
 if filereadable(s:local_vimrc)
     silent! execute ':source ' . s:local_vimrc
