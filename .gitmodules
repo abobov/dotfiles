@@ -8,8 +8,11 @@
     path = files/bin
     url = git://github.com/abobov/bin.git
 [submodule "files/.vim/bundle/nginx-vim-syntax"]
-	path = files/.vim/bundle/nginx-vim-syntax
-	url = git://github.com/evanmiller/nginx-vim-syntax.git
+    path = files/.vim/bundle/nginx-vim-syntax
+    url = git://github.com/evanmiller/nginx-vim-syntax.git
 [submodule "files/.vim/bundle/nerdcommenter"]
-	path = files/.vim/bundle/nerdcommenter
-	url = git://github.com/scrooloose/nerdcommenter.git
+    path = files/.vim/bundle/nerdcommenter
+    url = http://github.com/scrooloose/nerdcommenter.git
+[submodule "files/.vim/bundle/vim-markdown"]
+	path = files/.vim/bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
