@@ -1,7 +1,7 @@
 /files/.mutt/aliases
 /files/.mutt/certificates
 /files/.vim/.netrwhist
-/files/.vim/spell/ru.utf-8.add*
+/files/.vim/spell
 /files/.zsh/cache
 files/.mutt/secret
 files/.aria2/dht.dat
