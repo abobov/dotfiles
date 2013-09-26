@@ -1,6 +1,6 @@
 URxvt.visualBell:			true
 
-URxvt.font: xft:Monospace-14:autohint=true
+URxvt.font: xft:Monospace-10:autohint=true
 URxvt.letterSpace: -1
 
 URxvt.perl-ext-common:	default,tabbed,matcher
