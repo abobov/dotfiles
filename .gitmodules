@@ -1,18 +1,25 @@
-[submodule "surround"]
-    path = files/.vim/bundle/surround
-    url = git://github.com/tpope/vim-surround.git
-[submodule "repeat"]
-    path = files/.vim/bundle/repeat
-    url = git://github.com/tpope/vim-repeat.git
 [submodule "files/bin"]
     path = files/bin
-    url = git://github.com/abobov/bin.git
-[submodule "files/.vim/bundle/nginx-vim-syntax"]
+    url = https://github.com/abobov/bin.git
+# Vim bundles
+[submodule "surround"]
+    path = files/.vim/bundle/surround
+    url = https://github.com/tpope/vim-surround.git
+[submodule "repeat"]
+    path = files/.vim/bundle/repeat
+    url = https://github.com/tpope/vim-repeat.git
+[submodule "nginx-vim-syntax"]
     path = files/.vim/bundle/nginx-vim-syntax
-    url = git://github.com/evanmiller/nginx-vim-syntax.git
-[submodule "files/.vim/bundle/nerdcommenter"]
+    url = https://github.com/evanmiller/nginx-vim-syntax.git
+[submodule "nerdcommenter"]
     path = files/.vim/bundle/nerdcommenter
-    url = http://github.com/scrooloose/nerdcommenter.git
-[submodule "files/.vim/bundle/vim-markdown"]
-	path = files/.vim/bundle/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown.git
+    url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim-markdown"]
+    path = files/.vim/bundle/vim-markdown
+    url = https://github.com/plasticboy/vim-markdown.git
+[submodule "xml.vim"]
+    path = files/.vim/bundle/xml.vim
+    url = https://github.com/othree/xml.vim
+[submodule "vim-yaml"]
+    path = files/.vim/bundle/vim-yaml
+    url = https://github.com/avakhov/vim-yaml

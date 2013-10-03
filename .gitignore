@@ -1,7 +1,8 @@
+/files/.aria2/dht.dat
 /files/.mutt/aliases
 /files/.mutt/certificates
+/files/.mutt/secret
 /files/.vim/.netrwhist
+/files/.vim/doc/tags
 /files/.vim/spell
 /files/.zsh/cache
-files/.mutt/secret
-files/.aria2/dht.dat
