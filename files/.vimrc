@@ -25,13 +25,13 @@ set hidden
 set showcmd
 " По умолчанию пользоваться :help справкой
 set keywordprg=
+
+filetype off " Do so to reload filetype plugins after pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
 if &t_Co > 2 || has('gui_running')
     syntax on
 endif
-
-filetype off " Do so to reload filetype plugins after pathogen
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
 runtime! macros/matchit.vim

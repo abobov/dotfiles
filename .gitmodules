@@ -22,3 +22,6 @@
 [submodule "files/.vim/bundle/vim-jade"]
 	path = files/.vim/bundle/vim-jade
 	url = git://github.com/digitaltoad/vim-jade.git
+[submodule "files/.vim/bundle/vim-pathogen"]
+	path = files/.vim/bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen
