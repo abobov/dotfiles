@@ -19,3 +19,6 @@
 [submodule "files/.zsh/zsh-completions"]
 	path = files/.zsh/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "files/.vim/bundle/vim-jade"]
+	path = files/.vim/bundle/vim-jade
+	url = git://github.com/digitaltoad/vim-jade.git
