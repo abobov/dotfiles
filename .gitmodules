@@ -25,3 +25,6 @@
 [submodule "files/.vim/bundle/vim-pathogen"]
 	path = files/.vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
+[submodule "files/.vim/bundle/nerdtree"]
+	path = files/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree
