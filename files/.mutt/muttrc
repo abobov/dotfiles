@@ -134,6 +134,5 @@ source ~/.mutt/secret
 source ~/.mutt/folder-hooks
 source ~/.mutt/fcc-hooks
 source ~/.mutt/send-hooks
-source ~/.mutt/maillists.generate
 
 push V
