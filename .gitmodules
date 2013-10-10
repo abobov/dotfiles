@@ -1,30 +1,37 @@
-[submodule "surround"]
-    path = files/.vim/bundle/surround
-    url = git://github.com/tpope/vim-surround.git
-[submodule "repeat"]
-    path = files/.vim/bundle/repeat
-    url = git://github.com/tpope/vim-repeat.git
 [submodule "files/bin"]
     path = files/bin
-    url = git://github.com/abobov/bin.git
-[submodule "files/.vim/bundle/nginx-vim-syntax"]
-    path = files/.vim/bundle/nginx-vim-syntax
-    url = git://github.com/evanmiller/nginx-vim-syntax.git
-[submodule "files/.vim/bundle/nerdcommenter"]
-    path = files/.vim/bundle/nerdcommenter
-    url = http://github.com/scrooloose/nerdcommenter.git
-[submodule "files/.vim/bundle/vim-markdown"]
-    path = files/.vim/bundle/vim-markdown
-    url = https://github.com/plasticboy/vim-markdown.git
-[submodule "files/.zsh/zsh-completions"]
+    url = https://github.com/abobov/bin.git
+[submodule "zsh-completions"]
     path = files/.zsh/zsh-completions
     url = https://github.com/zsh-users/zsh-completions.git
-[submodule "files/.vim/bundle/vim-jade"]
-    path = files/.vim/bundle/vim-jade
-    url = git://github.com/digitaltoad/vim-jade.git
-[submodule "files/.vim/bundle/vim-pathogen"]
+# Vim bundles
+[submodule "vim-pathogen"]
     path = files/.vim/bundle/vim-pathogen
     url = https://github.com/tpope/vim-pathogen
-[submodule "files/.vim/bundle/nerdtree"]
+[submodule "surround"]
+    path = files/.vim/bundle/surround
+    url = https://github.com/tpope/vim-surround.git
+[submodule "repeat"]
+    path = files/.vim/bundle/repeat
+    url = https://github.com/tpope/vim-repeat.git
+[submodule "nerdcommenter"]
+    path = files/.vim/bundle/nerdcommenter
+    url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "nerdtree"]
     path = files/.vim/bundle/nerdtree
     url = https://github.com/scrooloose/nerdtree
+[submodule "vim-markdown"]
+    path = files/.vim/bundle/vim-markdown
+    url = https://github.com/plasticboy/vim-markdown.git
+[submodule "vim-jade"]
+    path = files/.vim/bundle/vim-jade
+    url = git://github.com/digitaltoad/vim-jade.git
+[submodule "xml.vim"]
+    path = files/.vim/bundle/xml.vim
+    url = https://github.com/othree/xml.vim
+[submodule "vim-yaml"]
+    path = files/.vim/bundle/vim-yaml
+    url = https://github.com/avakhov/vim-yaml
+[submodule "nginx-vim-syntax"]
+    path = files/.vim/bundle/nginx-vim-syntax
+    url = https://github.com/evanmiller/nginx-vim-syntax.git
