@@ -16,3 +16,6 @@
 [submodule "files/.vim/bundle/vim-markdown"]
 	path = files/.vim/bundle/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "files/.zsh/zsh-completions"]
+	path = files/.zsh/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git

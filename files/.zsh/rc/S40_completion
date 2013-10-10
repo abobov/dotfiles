@@ -37,7 +37,8 @@ zstyle ':completion:*' users $users
 # Ignore for vim
 zstyle ':completion:*:*:vi(m|):*:*files' ignored-patterns '*?.(aux|dvi|ps|pdf|bbl|toc|lot|lof|o|cm?|class|py[oc])'
 
-
-
+fpath=($HOME/.zsh/zsh-completions/src $fpath)
+# To force rebuild zcompdump:
+# rm -f ~/.zcompdump; compinit
 
 # vim: et ft=zsh fdm=marker :
