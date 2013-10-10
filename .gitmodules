@@ -14,17 +14,17 @@
     path = files/.vim/bundle/nerdcommenter
     url = http://github.com/scrooloose/nerdcommenter.git
 [submodule "files/.vim/bundle/vim-markdown"]
-	path = files/.vim/bundle/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown.git
+    path = files/.vim/bundle/vim-markdown
+    url = https://github.com/plasticboy/vim-markdown.git
 [submodule "files/.zsh/zsh-completions"]
-	path = files/.zsh/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions.git
+    path = files/.zsh/zsh-completions
+    url = https://github.com/zsh-users/zsh-completions.git
 [submodule "files/.vim/bundle/vim-jade"]
-	path = files/.vim/bundle/vim-jade
-	url = git://github.com/digitaltoad/vim-jade.git
+    path = files/.vim/bundle/vim-jade
+    url = git://github.com/digitaltoad/vim-jade.git
 [submodule "files/.vim/bundle/vim-pathogen"]
-	path = files/.vim/bundle/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen
+    path = files/.vim/bundle/vim-pathogen
+    url = https://github.com/tpope/vim-pathogen
 [submodule "files/.vim/bundle/nerdtree"]
-	path = files/.vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree
+    path = files/.vim/bundle/nerdtree
+    url = https://github.com/scrooloose/nerdtree
