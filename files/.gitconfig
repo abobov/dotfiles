@@ -25,4 +25,11 @@
     ar = !sh -c 'git archive --format=tar --prefix="$(basename "$PWD")-$1/" $1^{tree} | bzip2 >"$(basename "$PWD")-$1.tar.bz2"' -
     history-all = "!gitk --all $( git fsck | awk '/dangling commit/ {print $3}'; git log -g --pretty='format:%H')"
 [push]
-	default = matching
+    default = matching
+[advice]
+    statusHints = false
+[branch]
+    autosetupmerge = always
+    autosetuprebase = local
+[help]
+    autocorrect = 10
