@@ -20,12 +20,15 @@
 [submodule "nerdtree"]
     path = files/.vim/bundle/nerdtree
     url = https://github.com/scrooloose/nerdtree
+[submodule "vim-template"]
+    path = files/.vim/bundle/vim-template
+    url = https://github.com/aperezdc/vim-template
 [submodule "vim-markdown"]
     path = files/.vim/bundle/vim-markdown
     url = https://github.com/plasticboy/vim-markdown.git
 [submodule "vim-jade"]
     path = files/.vim/bundle/vim-jade
-    url = git://github.com/digitaltoad/vim-jade.git
+    url = https://github.com/digitaltoad/vim-jade.git
 [submodule "xml.vim"]
     path = files/.vim/bundle/xml.vim
     url = https://github.com/othree/xml.vim

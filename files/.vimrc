@@ -9,6 +9,7 @@ if has("multi_byte")
 endif
 
 let g:CSApprox_verbose_level=0
+let g:template_dir=$HOME . "/.vim/templates"
 
 set encoding=utf-8
 
