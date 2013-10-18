@@ -41,3 +41,6 @@
 [submodule "YankRing.vim"]
     path = files/.vim/bundle/YankRing.vim
     url = https://github.com/vim-scripts/YankRing.vim
+[submodule "vim-sparkup"]
+    path = files/.vim/bundle/vim-sparkup
+    url = https://github.com/tristen/vim-sparkup
