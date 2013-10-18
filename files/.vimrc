@@ -159,7 +159,7 @@ map <C-l> <C-w>l
 cmap w!! w !sudo tee % >/dev/null
 
 " Hide search highlights
-nmap <silent> <C-N> :silent nohlsearch<CR>
+nmap <silent> <C-L> :silent nohlsearch<CR>
 
 " map <C-c> "+y<CR>
 " map <C-v> "+gP<CR>
@@ -185,6 +185,10 @@ imap <C-Enter> o
 map gf :e <cfile><CR>
 
 map YY "+yy
+
+" Yankring
+nnoremap <silent> <F3> :YRShow<CR>
+inoremap <silent> <F3> <ESC>:YRShow<CR>
 
 " Surrounds double angle quotes «»
 let g:surround_171="« \r »"
