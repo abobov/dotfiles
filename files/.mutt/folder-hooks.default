@@ -1,9 +1,10 @@
-reset index_format
+set index_format="[%Z]  %D  %-20.20F  %s"
 push <collapse-all>
-push '.i' # see macros for more detail
+#push '.i' # see macros for more detail
 
-set date_format="%a, %e %B %Y в %H:%M"
-set attribution="В %d, %n пишет:"
+set date_format="!%d %B"
+set forward_format="Fwd: %s"
+set attribution="On %d, %n wrote:"
 
 set from="anton@bobov.name" 
 

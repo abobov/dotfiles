@@ -1,7 +1,8 @@
 # Don't forget add rule to fcc-hooked maillists
 
 mailboxes !
-mailboxes "=[Gmail].Sent Mail"
-mailboxes "=[Gmail].Drafts"
+mailboxes =archive
+mailboxes =sent
+mailboxes =drafts
 
 # vim: ft=muttrc

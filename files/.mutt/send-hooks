@@ -1,5 +1,0 @@
-#send-hook . "set crypt_autosign"
-
-#send-hook '~t test@example.com' "unset crypt_autosign"
-
-# vim: ft=muttrc

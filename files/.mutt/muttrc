@@ -4,29 +4,18 @@
 # Based on the nuttrc fule by Simon Huggins
 
 # Mail boxes
-#set mbox_type=Maildir
-#set spoolfile="~/Mail/"
-#set folder="~/Mail"
+set mbox_type=Maildir
 
-#set smtp_url="smtp://abobov@smtp.gmail.com:587/"
 set reverse_name
-#Gmail IMAP config
-#set folder="imaps://imap.gmail.com:993"
-#set spoolfile="+INBOX"
-#set postponed="+[Gmail]/Drafts"
-#set message_cachedir="~/.mutt/cache/bodies"
-#set certificate_file="~/.mutt/certificates"
 
-set sendmail="/usr/bin/msmtp"
+set sendmail="/usr/bin/msmtp --domain $HOSTNAME"
 
-#Gmail maildir config
 set folder="~/Mail/Gmail"
 set spoolfile="+INBOX"
-set postponed="+[Gmail].Drafts"
+set mbox=+archive
+set postponed=+drafts
 
 set header_cache="~/.mutt/cache/headers"
-
-set mbox=+mbox
 
 set signature="~/.mutt/signature"
 
@@ -43,19 +32,16 @@ set print_command="muttprint"
 #
 
 set nohelp
-set locale="ru_RU.UTF8"
 set alias_file=~/.mutt/aliases
 
 set hdrs						# add my_hdr lines
 
 set postpone=ask-no
-#set postponed=+postponed
-#set move=ask-yes				# ask me to move read messages to mbox
 set move=no
 set include=yes					# include message in reply
 set delete=yes					# just delete then select to delete
 set sort=threads
-set sort_aux=date-received
+set sort_aux=reverse-last-date-received
 set charset=utf-8				# terminal charset
 set allow_8bit
 set rfc2047_parameters
@@ -73,6 +59,8 @@ set nomark_old					# not mark new unread messages as old
 set copy=no						# keep copies of outgoing mail
 unset record					# GMail automatically save in [Gmail]/Sent Mail
 set nobeep
+set beep_new
+set pipe_decode
 set smart_wrap
 set nomarkers					# don't want ant wrap markers
 set pager_context=3				# XXX
@@ -83,6 +71,7 @@ set pager_stop					# don't move to next msg on end
 set nowrite_bcc					# don't show Bcc on write msgs
 set ascii_chars
 unset collapse_unread				# never collapse thread with unread  msgs
+set uncollapse_jump
 set fast_reply					# don't ask me, just reply
 set realname="Anton Bobov"		#
 
@@ -96,6 +85,8 @@ set thorough_search
 
 set sidebar_width=25
 set sidebar_visible=yes
+
+set status_format = "---[ Folder: %f ]---[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]---%>-%?p?( %p postponed )?---"
 
 
 ##
@@ -127,12 +118,8 @@ source ~/.mutt/macros
 source ~/.mutt/bindings
 source ~/.mutt/colors
 source ~/.mutt/mailboxes
-source ~/.mutt/subscriptions
 source ~/.mutt/crypto
 source $alias_file
-source ~/.mutt/secret
 source ~/.mutt/folder-hooks
-source ~/.mutt/fcc-hooks
-source ~/.mutt/send-hooks
 
 push V

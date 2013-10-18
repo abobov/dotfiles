@@ -2,10 +2,12 @@ macro index,pager S "<save-message>=[Gmail]/Spam<enter>" "mark message as spam"
 macro index ,r "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new messages read"
 #macro index,pager H "<save-message>=INBOX<enter>" "mark message as ham"
 
-macro index     .i      "l((~N|~O|~F)!~D)|(~d<1w!~Q)\n"
-macro index     .n      "l~N\n"
-macro index     .a      "l~A\n"
-macro index     .t      "l~d<1d\n"
+macro index     .i      "l((~N|~O|~F)!~D)|(~d<1w!~Q)\n" "list new, flagged or one week messages"
+macro index     .n      "l~N\n" "list only new messages"
+macro index     .a      "l~A\n" "list all messages"
+macro index     .t      "l~d<1d\n" "list today messages"
+macro index     O       "<shell-escape>offlineimap<enter>" "sync all mailboxes"
+macro index     o       "<shell-escape>offlineimap -qf INBOX<enter>" "sync INBOX"
 
 # Threads macros
 
