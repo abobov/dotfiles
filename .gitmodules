@@ -44,3 +44,6 @@
 [submodule "vim-sparkup"]
     path = files/.vim/bundle/vim-sparkup
     url = https://github.com/tristen/vim-sparkup
+[submodule "snipmate.vim"]
+    path = files/.vim/bundle/snipmate.vim
+    url = https://github.com/msanders/snipmate.vim
