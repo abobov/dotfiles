@@ -54,6 +54,7 @@ set nostartofline " many jump commands move the cursor to the first non-blank ch
 set ignorecase
 " Если в поиск используются разные регистры, то не игнорировать регистр
 set smartcase
+set gdefault
 " Автоматический отступ
 set autoindent
 set copyindent
@@ -70,8 +71,8 @@ set hlsearch
 " Создавать резервные копии
 set backup
 " Сколько строк оставлять при прокрутке с низу и с боку
-set scrolljump=6
-set scrolloff=6
+set scrolljump=4
+set scrolloff=4
 " Число столбцов отведенное на фолдинг
 " set foldcolumn=3
 " Подсвечивать парные скобки
@@ -110,7 +111,10 @@ else
 endif
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set pastetoggle=<F2>
-
+set cursorline
+set ttyfast
+set undodir=~/tmp/vim-undo
+set undofile
 
 " Map <Leader> to comma
 let mapleader=","
@@ -138,6 +142,15 @@ endif
 
 " Vim rocks!
 nnoremap ; :
+inoremap jj <ESC>
+
+" Disable help key
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+nnoremap / /\v
+vnoremap / /\v
 
 " Disable useless keys
 map <Up> <Nop>
