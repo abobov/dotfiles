@@ -1,33 +1,35 @@
+source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc
+
+###
+## Colors
 ##
-# Colors
-#
 
-color hdrdefault	black			cyan
-color quoted		brightred		black
-color signature		magenta			black
-color indicator		brightwhite		red
-color attachment	black			green
-color error			red				black
-color message		white			black
-color search		brightwhite		magenta
-color status		brightyellow	magenta
-color tree			red				black
-color normal		white			black
-color tilde			green			black
-color bold			brightyellow	black
-color markers		red				black
+#color hdrdefault	black			cyan
+#color quoted		brightred		black
+#color signature		magenta			black
+#color indicator		brightwhite		red
+#color attachment	black			green
+#color error			red				black
+#color message		white			black
+#color search		brightwhite		magenta
+#color status		brightyellow	magenta
+#color tree			red				black
+#color normal		white			black
+#color tilde			green			black
+#color bold			brightyellow	black
+#color markers		red				black
 
-# Highlights inside body of msg.
-color body		brightblue	black	"(http|ftp)://[^ \"\t\r\n]*"
-color body		brightblue	black	"mailto:[-a-z_0-9.]+@[-a-z0-9.]+"
-color body		brightblue	black	"[-a-z_0-9.]+@[-a-z0-9_.]+"
-color body		brightgreen	black	" [:;]-*[)>(<|]"
+## Highlights inside body of msg.
+#color body		brightblue	black	"(http|ftp)://[^ \"\t\r\n]*"
+#color body		brightblue	black	"mailto:[-a-z_0-9.]+@[-a-z0-9.]+"
+#color body		brightblue	black	"[-a-z_0-9.]+@[-a-z0-9_.]+"
+#color body		brightgreen	black	" [:;]-*[)>(<|]"
 
-color	header	brightwhite cyan	"^(From|Subject):"
+#color	header	brightwhite cyan	"^(From|Subject):"
 
-color	index	green	black	~p
-color	index	black	yellow	~F
+#color	index	green	black	~p
+#color	index	black	yellow	~F
 
-color sidebar_new yellow default
+#color sidebar_new yellow default
 
 # vim: ft=muttrc

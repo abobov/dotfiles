@@ -4,6 +4,10 @@
 [submodule "zsh-completions"]
     path = files/.zsh/zsh-completions
     url = https://github.com/zsh-users/zsh-completions.git
+# Mutt
+[submodule "mutt-colors-solarized"]
+    path = files/.mutt/mutt-colors-solarized
+    url = https://github.com/altercation/mutt-colors-solarized
 # Vim bundles
 [submodule "vim-pathogen"]
     path = files/.vim/bundle/vim-pathogen
