@@ -126,7 +126,6 @@ if has('autocmd')
 	" TODO перенести в ftplugin
 	autocmd FileType tex setlocal spell spelllang=ru,en textwidth=79
 	autocmd FileType java setlocal omnifunc=javacomplete#Complete
-	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 	autocmd FileType python set expandtab
 	autocmd FileType html,xml,ant set nolist
 	" Автоматически устанавливать директорию файла как текущую
