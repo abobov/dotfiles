@@ -2,6 +2,7 @@
 /files/.mutt/aliases
 /files/.mutt/certificates
 /files/.mutt/secret
+/files/.mutt/cache
 /files/.vim/.netrwhist
 /files/.vim/doc/tags
 /files/.vim/spell
