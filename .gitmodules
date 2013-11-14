@@ -50,3 +50,9 @@
 [submodule "Command-T"]
     path = files/.vim/bundle/Command-T
     url = https://github.com/wincent/Command-T
+[submodule "git-vim"]
+    path = files/.vim/bundle/git-vim
+    url = https://github.com/motemen/git-vim
+[submodule "taglist.vim"]
+    path = files/.vim/bundle/taglist.vim
+    url = https://github.com/vim-scripts/taglist.vim

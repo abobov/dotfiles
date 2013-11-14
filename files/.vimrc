@@ -8,7 +8,6 @@ if has("multi_byte")
     set fileencodings=ucs-bom,utf-8,cp1251,koi8-r,cp866
 endif
 
-let g:CSApprox_verbose_level=0
 let g:template_dir=$HOME . "/.vim/templates"
 
 set encoding=utf-8
