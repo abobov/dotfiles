@@ -67,8 +67,6 @@ set showbreak=↵
 set incsearch
 " Подсвечивать результаты поиска
 set hlsearch
-" Создавать резервные копии
-set backup
 " Сколько строк оставлять при прокрутке с низу и с боку
 set scrolljump=4
 set scrolloff=4
@@ -98,8 +96,6 @@ set wildmode=list:longest,full
 set lazyredraw
 " Не создавать swap файл в текущей директории
 set directory-=.
-" Не создавать резервную копию в этой же директории
-set backupdir-=.
 " Язык проверки орфографии по умолчанию
 set spelllang=ru,en
 set list
@@ -112,8 +108,13 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 set pastetoggle=<F2>
 set cursorline
 set ttyfast
-set undodir=~/tmp/vim-undo
+
 set undofile
+set undodir=$HOME/tmp/vim-undo,$TEMP,.
+set backup
+set backupdir=$HOME/tmp/vim-backup,$TEMP,.
+set directory=$HOME/tmp,$TEMP,.
+let g:yankring_history_dir="~/tmp"
 
 " Map <Leader> to comma
 let mapleader=","
@@ -171,15 +172,10 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Hide search highlights
 nmap <silent> <C-L> :silent nohlsearch<CR>
+nmap <Silent> <Leader>/ :silent nohlsearch<CR>
 
-" map <C-c> "+y<CR>
-" map <C-v> "+gP<CR>
-" map <C-D> dd
-" imap <C-D> <Esc>ddi
 nnoremap <silent> <F8> :Tlist<CR>
 
-" Убрать выделение результатов поиска
-nmap <Silent> <Leader>/ :silent nohlsearch<CR>
 " Увеличить шаг прокрутки буфера
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
@@ -209,3 +205,7 @@ let s:local_vimrc=$MYVIMRC . ".local"
 if filereadable(s:local_vimrc)
     silent! execute ':source ' . s:local_vimrc
 endif
+
+" Remap sparkup "next tag"
+let g:sparkupNextMapping = '<c-x>'
+
