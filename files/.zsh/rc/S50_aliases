@@ -1,7 +1,5 @@
 alias -s html=$BROWSER
-alias -s pdf=epdfview
-alias -s ps=epdfview
-alias -s dvi=epdfview
+alias -s pdf=mupdf
 
 alias -s exe=wine
 
