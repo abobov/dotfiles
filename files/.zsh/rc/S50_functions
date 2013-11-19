@@ -2,4 +2,8 @@ mcd() {
     mkdir -p "$1" && cd "$1"
 }
 
+ppgrep() {
+    pgrep "$@" | xargs --no-run-if-empty ps fp
+}
+
 # vim: ft=zsh :
