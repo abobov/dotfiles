@@ -15,4 +15,6 @@ macro index,pager za "<Esc>v"
 macro index,pager zr "<Esc>V"
 macro index,pager zm "<Esc>V"
 
+macro index,pager A "<pipe-message>abook --add-email<return>" " add the sender address to abook"
+
 # vim: ft=muttrc
