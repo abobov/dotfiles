@@ -60,3 +60,9 @@
 [submodule "taglist.vim"]
     path = files/.vim/bundle/taglist.vim
     url = https://github.com/vim-scripts/taglist.vim
+[submodule "vim-ledger"]
+    path = files/.vim/bundle/vim-ledger
+    url = https://github.com/ledger/vim-ledger
+[submodule "tabular"]
+    path = files/.vim/bundle/tabular
+    url = https://github.com/godlygeek/tabular

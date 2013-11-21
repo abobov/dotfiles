@@ -1,0 +1,14 @@
+# Ledger
+
+alias le='noglob ledger'
+
+bal() {
+    le $* balance ^Assets ^Liabilities
+}
+
+ele() {
+    fn=$(sed -En 's/^--file (.*)/\1/p' ~/.ledgerrc)
+    vim "$(eval "echo $fn")"
+}
+
+# vim: et ft=zsh :
