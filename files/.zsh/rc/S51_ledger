@@ -1,9 +1,9 @@
 # Ledger
 
-alias le='noglob ledger'
+alias ledger='noglob ledger'
 
 bal() {
-    le $* balance ^Assets ^Liabilities
+    ledger balance $* ^Assets ^Liabilities
 }
 
 ele() {
