@@ -207,5 +207,5 @@ if filereadable(s:local_vimrc)
 endif
 
 " Remap sparkup "next tag"
-let g:sparkupNextMapping = '<c-x>'
+"let g:sparkupNextMapping = '<c-x>'
 
