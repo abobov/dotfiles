@@ -57,5 +57,11 @@
     path = files/.vim/bundle/taglist.vim
     url = https://github.com/vim-scripts/taglist.vim
 [submodule "syntastic"]
-	path = files/.vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
+    path = files/.vim/bundle/syntastic
+    url = https://github.com/scrooloose/syntastic.git
+[submodule "FuzzyFinder"]
+    path = files/.vim/bundle/FuzzyFinder
+    url = https://github.com/vim-scripts/FuzzyFinder.git
+[submodule "L9"]
+    path = files/.vim/bundle/L9
+    url = https://github.com/vim-scripts/L9.git

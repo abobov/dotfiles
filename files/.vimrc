@@ -1,4 +1,4 @@
-" vim: spell spelllang=ru,en :
+" vim: spell spelllang=ru,en foldmethod=marker :
 " Установить режим не совместимый с Vi
 set nocompatible
 language C
@@ -209,3 +209,8 @@ let s:local_vimrc=$MYVIMRC . ".local"
 if filereadable(s:local_vimrc)
     silent! execute ':source ' . s:local_vimrc
 endif
+
+" Fuzzy Finder {{{1
+nnoremap '. :FufFileWithCurrentBufferDir<CR>
+nnoremap 'f :FufFile<CR>
+nnoremap 'k :FufBuffer<CR>
