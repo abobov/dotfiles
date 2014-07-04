@@ -1,20 +1,29 @@
-" vim: spell spelllang=ru,en :
-" Установить режим не совместимый с Vi
+" vim: spell spelllang=ru,en foldmethod=marker :
+
+" Setup {{{1
 set nocompatible
 language C
 
-" Автоматическое определение кодировки файла
+filetype off " Do so to reload filetype plugins after pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+if &t_Co > 2 || has('gui_running')
+    syntax on
+endif
+filetype plugin indent on
+
+let g:template_dir=$HOME . "/.vim/templates"
+
+" Options {{{1
+
+set encoding=utf-8
+" Encodings try list
 if has("multi_byte")
     set fileencodings=ucs-bom,utf-8,cp1251,koi8-r,cp866
 endif
 
-let g:template_dir=$HOME . "/.vim/templates"
-
-set encoding=utf-8
-
-set visualbell  " use a visual bell instead of beeping
-set t_vb=
-set noerrorbells
+set autoread
+set visualbell t_vb=
 set title
 set keymap=russian-jcukenwin
 set iminsert=0
@@ -25,18 +34,10 @@ set hidden
 set showcmd
 " По умолчанию пользоваться :help справкой
 set keywordprg=
-
-filetype off " Do so to reload filetype plugins after pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-if &t_Co > 2 || has('gui_running')
-    syntax on
-endif
-filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 
 runtime! macros/matchit.vim
 set backspace=indent,eol,start
-" Цветовая схема по умолчанию
 " Показывать столбец с номерами строк
 set number
 " Размер табуляции
@@ -114,14 +115,11 @@ set undodir=$HOME/tmp/vim-undo,$TEMP,.
 set backup
 set backupdir=$HOME/tmp/vim-backup,$TEMP,.
 set directory=$HOME/tmp,$TEMP,.
-let g:yankring_history_dir="~/tmp"
 
 " Map <Leader> to comma
 let mapleader=","
 
-"
-" Автоматические действия
-"
+" Autocommands{{{1
 if has('autocmd')
 	" TODO перенести в ftplugin
 	autocmd FileType tex setlocal spell spelllang=ru,en textwidth=79
@@ -134,29 +132,35 @@ if has('autocmd')
 	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
     au BufRead,BufNewFile /etc/nginx/* if &ft == "" | setfiletype nginx | endif
 endif
-
-"
-" Mappings
-"
-
+" Mappings {{{1
 " Vim rocks!
 nnoremap ; :
 inoremap jj <ESC>
 
-" Disable help key
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
+" Disable some keys
+inoremap <F1> <Nop>
+nnoremap <F1> <Nop>
+vnoremap <F1> <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+nnoremap <Leader>d "_d
+vnoremap <Leader>d "_d
 
 nnoremap / /\v
 vnoremap / /\v
 
-" Disable useless keys
-map <Up> <Nop>
-map <Down> <Nop>
-map <Left> <Nop>
-map <Right> <Nop>
-
+" Увеличить шаг прокрутки буфера
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+" Передвигаться держа курсор в центре по вертикале
+"map j jzz
+"map k kzz
+" Двигать блоки
+vnoremap < <gv
+vnoremap > >gv
 " Friendly moving over wrap lines
 nnoremap j gj
 nnoremap k gk
@@ -169,38 +173,39 @@ map <C-l> <C-w>l
 
 " Write file with sudo
 cmap w!! w !sudo tee % >/dev/null
-
 " Hide search highlights
 nmap <silent> <C-L> :silent nohlsearch<CR>
-nmap <Silent> <Leader>/ :silent nohlsearch<CR>
-
-nnoremap <silent> <F8> :Tlist<CR>
-
-" Увеличить шаг прокрутки буфера
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
-" Передвигаться держа курсор в центре по вертикале
-"map j jzz
-"map k kzz
-" Двигать блоки
-vnoremap < <gv
-vnoremap > >gv
+map gf :e <cfile><CR>
 
 imap <S-Enter> O
 imap <C-Enter> o
 
-map gf :e <cfile><CR>
+inoremap <C-u> <C-g>u<C-u>
+inoremap <C-w> <C-g>u<C-w>
 
-map YY "+yy
+nnoremap <C-n> :cnext<CR>z.
+nnoremap <C-p> :cprevious<CR>z.
 
-" Yankring
-nnoremap <silent> <F3> :YRShow<CR>
-inoremap <silent> <F3> <ESC>:YRShow<CR>
-
+" Plugins{{{1
+" Surround{{{2
 " Surrounds double angle quotes «»
 let g:surround_171="« \r »"
 let g:surround_187="«\r»"
+" Syntastic{{{2
+" Set syntastic passive mode
+let g:syntastic_mode_map = { 'mode': 'passive',
+                            \ 'active_filetypes': [],
+                            \ 'passive_filetypes': [] }
 
+" Taglist{{{2
+nnoremap <silent> <F8> :Tlist<CR>
+
+" Fuzzy Finder {{{2
+nnoremap '. :FufFileWithCurrentBufferDir<CR>
+nnoremap 'f :FufFile<CR>
+nnoremap 'k :FufBuffer<CR>
+
+" Load custom local config{{{1
 let s:local_vimrc=$MYVIMRC . ".local"
 if filereadable(s:local_vimrc)
     silent! execute ':source ' . s:local_vimrc
