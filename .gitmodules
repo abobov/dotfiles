@@ -63,12 +63,15 @@
 [submodule "tabular"]
     path = files/.vim/bundle/tabular
     url = https://github.com/godlygeek/tabular
-[submodule "syntastic"]
-    path = files/.vim/bundle/syntastic
-    url = https://github.com/scrooloose/syntastic.git
+;[submodule "syntastic"]
+    ;path = files/.vim/bundle/syntastic
+    ;url = https://github.com/scrooloose/syntastic.git
 [submodule "FuzzyFinder"]
     path = files/.vim/bundle/FuzzyFinder
     url = https://github.com/vim-scripts/FuzzyFinder.git
 [submodule "L9"]
     path = files/.vim/bundle/L9
     url = https://github.com/vim-scripts/L9.git
+[submodule "files/.vim/bundle/syntastic"]
+	path = files/.vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
