@@ -196,6 +196,11 @@ map YY "+yy
 nnoremap <silent> <F3> :YRShow<CR>
 inoremap <silent> <F3> <ESC>:YRShow<CR>
 
+" Set syntastic passive mode
+let g:syntastic_mode_map = { 'mode': 'passive',
+                            \ 'active_filetypes': [],
+                            \ 'passive_filetypes': [] }
+
 " Surrounds double angle quotes «»
 let g:surround_171="« \r »"
 let g:surround_187="«\r»"

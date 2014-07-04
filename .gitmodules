@@ -56,3 +56,6 @@
 [submodule "taglist.vim"]
     path = files/.vim/bundle/taglist.vim
     url = https://github.com/vim-scripts/taglist.vim
+[submodule "syntastic"]
+	path = files/.vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
