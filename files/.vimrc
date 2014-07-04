@@ -149,6 +149,9 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
+nnoremap <Space> za
+vnoremap <Space> za
+
 nnoremap <Leader>d "_d
 vnoremap <Leader>d "_d
 
@@ -195,10 +198,17 @@ nnoremap <C-p> :cprevious<CR>z.
 let g:surround_171="« \r »"
 let g:surround_187="«\r»"
 " Syntastic{{{2
-" Set syntastic passive mode
-let g:syntastic_mode_map = { 'mode': 'passive',
-                            \ 'active_filetypes': [],
-                            \ 'passive_filetypes': [] }
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_jump = 0
+let g:syntastic_java_checker = 'javac'
+let g:syntastic_mode_map = {
+            \ 'mode': 'passive',
+            \ 'active_filetypes': [],
+            \ 'passive_filetypes': ['java']
+            \ }
+
+nnoremap <Leader>C :SyntasticCheck<CR>
 
 " Taglist{{{2
 nnoremap <silent> <F8> :Tlist<CR>
@@ -208,7 +218,10 @@ nnoremap '. :FufFileWithCurrentBufferDir<CR>
 nnoremap 'f :FufFile<CR>
 nnoremap 'h :FufFile $HOME/<CR>
 nnoremap 'k :FufBuffer<CR>
+" NERD Tree{{{2
 
+noremap <F2> :NERDTreeToggle<CR>
+noremap <F2> <Esc>:NERDTreeToggle<CR>
 " Load custom local config{{{1
 let s:local_vimrc=$MYVIMRC . ".local"
 if filereadable(s:local_vimrc)
