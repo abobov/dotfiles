@@ -135,28 +135,32 @@ if has('autocmd')
     au BufRead,BufNewFile /etc/nginx/* if &ft == "" | setfiletype nginx | endif
 endif
 
-"
-" Mappings
-"
-
+" Mappings {{{1
 " Vim rocks!
 nnoremap ; :
 inoremap jj <ESC>
 
-" Disable help key
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
+" Disable some keys
+inoremap <F1> <Nop>
+nnoremap <F1> <Nop>
+vnoremap <F1> <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 nnoremap / /\v
 vnoremap / /\v
 
-" Disable useless keys
-map <Up> <Nop>
-map <Down> <Nop>
-map <Left> <Nop>
-map <Right> <Nop>
-
+" Увеличить шаг прокрутки буфера
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+" Передвигаться держа курсор в центре по вертикале
+"map j jzz
+"map k kzz
+" Двигать блоки
+vnoremap < <gv
+vnoremap > >gv
 " Friendly moving over wrap lines
 nnoremap j gj
 nnoremap k gk
@@ -169,45 +173,35 @@ map <C-l> <C-w>l
 
 " Write file with sudo
 cmap w!! w !sudo tee % >/dev/null
-
 " Hide search highlights
 nmap <silent> <C-L> :silent nohlsearch<CR>
-nmap <Silent> <Leader>/ :silent nohlsearch<CR>
-
-nnoremap <silent> <F8> :Tlist<CR>
-
-" Увеличить шаг прокрутки буфера
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
-" Передвигаться держа курсор в центре по вертикале
-"map j jzz
-"map k kzz
-" Двигать блоки
-vnoremap < <gv
-vnoremap > >gv
+map gf :e <cfile><CR>
 
 imap <S-Enter> O
 imap <C-Enter> o
 
-map gf :e <cfile><CR>
 
-map YY "+yy
-
+" Plugins{{{1
+" Surround{{{2
+" Surrounds double angle quotes «»
+let g:surround_171="« \r »"
+let g:surround_187="«\r»"
+" Syntastic{{{2
 " Set syntastic passive mode
 let g:syntastic_mode_map = { 'mode': 'passive',
                             \ 'active_filetypes': [],
                             \ 'passive_filetypes': [] }
 
-" Surrounds double angle quotes «»
-let g:surround_171="« \r »"
-let g:surround_187="«\r»"
+" Taglist{{{2
+nnoremap <silent> <F8> :Tlist<CR>
 
+" Fuzzy Finder {{{2
+nnoremap '. :FufFileWithCurrentBufferDir<CR>
+nnoremap 'f :FufFile<CR>
+nnoremap 'k :FufBuffer<CR>
+
+" Load custom local config{{{1
 let s:local_vimrc=$MYVIMRC . ".local"
 if filereadable(s:local_vimrc)
     silent! execute ':source ' . s:local_vimrc
 endif
-
-" Fuzzy Finder {{{1
-nnoremap '. :FufFileWithCurrentBufferDir<CR>
-nnoremap 'f :FufFile<CR>
-nnoremap 'k :FufBuffer<CR>
