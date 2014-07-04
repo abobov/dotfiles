@@ -119,9 +119,7 @@ set directory=$HOME/tmp,$TEMP,.
 " Map <Leader> to comma
 let mapleader=","
 
-"
-" Автоматические действия
-"
+" Autocommands{{{1
 if has('autocmd')
 	" TODO перенести в ftplugin
 	autocmd FileType tex setlocal spell spelllang=ru,en textwidth=79
@@ -134,7 +132,6 @@ if has('autocmd')
 	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
     au BufRead,BufNewFile /etc/nginx/* if &ft == "" | setfiletype nginx | endif
 endif
-
 " Mappings {{{1
 " Vim rocks!
 nnoremap ; :
@@ -148,6 +145,9 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+nnoremap <Leader>d "_d
+vnoremap <Leader>d "_d
 
 nnoremap / /\v
 vnoremap / /\v
@@ -180,6 +180,11 @@ map gf :e <cfile><CR>
 imap <S-Enter> O
 imap <C-Enter> o
 
+inoremap <C-u> <C-g>u<C-u>
+inoremap <C-w> <C-g>u<C-w>
+
+nnoremap <C-n> :cnext<CR>z.
+nnoremap <C-p> :cprevious<CR>z.
 
 " Plugins{{{1
 " Surround{{{2
