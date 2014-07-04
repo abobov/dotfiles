@@ -136,6 +136,9 @@ endif
 " Vim rocks!
 nnoremap ; :
 inoremap jj <ESC>
+nnoremap <Tab> %
+nnoremap H ^
+nnoremap T g_
 
 " Disable some keys
 inoremap <F1> <Nop>
@@ -203,6 +206,7 @@ nnoremap <silent> <F8> :Tlist<CR>
 " Fuzzy Finder {{{2
 nnoremap '. :FufFileWithCurrentBufferDir<CR>
 nnoremap 'f :FufFile<CR>
+nnoremap 'h :FufFile $HOME/<CR>
 nnoremap 'k :FufBuffer<CR>
 
 " Load custom local config{{{1
