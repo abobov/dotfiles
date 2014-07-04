@@ -192,10 +192,6 @@ map gf :e <cfile><CR>
 
 map YY "+yy
 
-" Yankring
-nnoremap <silent> <F3> :YRShow<CR>
-inoremap <silent> <F3> <ESC>:YRShow<CR>
-
 " Set syntastic passive mode
 let g:syntastic_mode_map = { 'mode': 'passive',
                             \ 'active_filetypes': [],

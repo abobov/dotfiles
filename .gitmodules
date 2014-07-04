@@ -38,9 +38,6 @@
 [submodule "nginx-vim-syntax"]
     path = files/.vim/bundle/nginx-vim-syntax
     url = https://github.com/evanmiller/nginx-vim-syntax.git
-[submodule "YankRing.vim"]
-    path = files/.vim/bundle/YankRing.vim
-    url = https://github.com/vim-scripts/YankRing.vim
 [submodule "vim-sparkup"]
     path = files/.vim/bundle/vim-sparkup
     url = https://github.com/tristen/vim-sparkup
