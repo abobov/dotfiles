@@ -1,20 +1,29 @@
 " vim: spell spelllang=ru,en foldmethod=marker :
-" Установить режим не совместимый с Vi
+
+" Setup {{{1
 set nocompatible
 language C
 
-" Автоматическое определение кодировки файла
+filetype off " Do so to reload filetype plugins after pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+if &t_Co > 2 || has('gui_running')
+    syntax on
+endif
+filetype plugin indent on
+
+let g:template_dir=$HOME . "/.vim/templates"
+
+" Options {{{1
+
+set encoding=utf-8
+" Encodings try list
 if has("multi_byte")
     set fileencodings=ucs-bom,utf-8,cp1251,koi8-r,cp866
 endif
 
-let g:template_dir=$HOME . "/.vim/templates"
-
-set encoding=utf-8
-
-set visualbell  " use a visual bell instead of beeping
-set t_vb=
-set noerrorbells
+set autoread
+set visualbell t_vb=
 set title
 set keymap=russian-jcukenwin
 set iminsert=0
@@ -25,18 +34,10 @@ set hidden
 set showcmd
 " По умолчанию пользоваться :help справкой
 set keywordprg=
-
-filetype off " Do so to reload filetype plugins after pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-if &t_Co > 2 || has('gui_running')
-    syntax on
-endif
-filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 
 runtime! macros/matchit.vim
 set backspace=indent,eol,start
-" Цветовая схема по умолчанию
 " Показывать столбец с номерами строк
 set number
 " Размер табуляции
