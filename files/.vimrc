@@ -37,6 +37,7 @@ set keywordprg=
 set omnifunc=syntaxcomplete#Complete
 
 runtime! macros/matchit.vim
+set virtualedit+=block
 set backspace=indent,eol,start
 " Показывать столбец с номерами строк
 set number
@@ -50,11 +51,6 @@ set softtabstop=4
 " Заменять таб на пробелы
 set expandtab
 set nostartofline " many jump commands move the cursor to the first non-blank character of a line
-" Игнорировать регистр при поиске
-set ignorecase
-" Если в поиск используются разные регистры, то не игнорировать регистр
-set smartcase
-set gdefault
 " Автоматический отступ
 set autoindent
 set copyindent
@@ -64,17 +60,11 @@ set smartindent
 set nowrap
 " Символ показывающий перенос текста
 set showbreak=↵
-" При поиске переходить на результат по мере набора
-set incsearch
-" Подсвечивать результаты поиска
-set hlsearch
 " Сколько строк оставлять при прокрутке с низу и с боку
 set scrolljump=4
 set scrolloff=4
 " Число столбцов отведенное на фолдинг
 " set foldcolumn=3
-" Подсвечивать парные скобки
-set showmatch
 " Позволить перемещать курсор после начала и конца строки на предыдущую и
 " следующую соответственно.
 set whichwrap+=<>[]
@@ -106,7 +96,7 @@ else
 	set listchars=tab:>\ ,trail:·,extends:#,nbsp:·
 endif
 set wildignore=*.swp,*.bak,*.pyc,*.class
-set pastetoggle=<F2>
+set pastetoggle=<F3>
 set cursorline
 set ttyfast
 
@@ -119,6 +109,17 @@ set directory=$HOME/tmp,$TEMP,.
 " Map <Leader> to comma
 let mapleader=","
 
+" Search {{{1
+nnoremap / /\v
+vnoremap / /\v
+
+set gdefault
+set hlsearch
+set ignorecase
+set incsearch
+set showmatch
+set smartcase
+
 " Autocommands{{{1
 if has('autocmd')
 	" TODO перенести в ftplugin
@@ -129,7 +130,7 @@ if has('autocmd')
 	" Автоматически устанавливать директорию файла как текущую
 	autocmd BufEnter * execute ":silent! lcd " . expand("%:p:h")
 
-	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
     au BufRead,BufNewFile /etc/nginx/* if &ft == "" | setfiletype nginx | endif
 endif
 " Mappings {{{1
@@ -155,9 +156,6 @@ vnoremap <Space> za
 nnoremap <Leader>d "_d
 vnoremap <Leader>d "_d
 
-nnoremap / /\v
-vnoremap / /\v
-
 " Увеличить шаг прокрутки буфера
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
@@ -180,11 +178,8 @@ map <C-l> <C-w>l
 " Write file with sudo
 cmap w!! w !sudo tee % >/dev/null
 " Hide search highlights
-nmap <silent> <C-L> :silent nohlsearch<CR>
+noremap <Leader><Space> :silent nohlsearch<CR>
 map gf :e <cfile><CR>
-
-imap <S-Enter> O
-imap <C-Enter> o
 
 inoremap <C-u> <C-g>u<C-u>
 inoremap <C-w> <C-g>u<C-w>
@@ -222,12 +217,10 @@ nnoremap 'k :FufBuffer<CR>
 
 noremap <F2> :NERDTreeToggle<CR>
 noremap <F2> <Esc>:NERDTreeToggle<CR>
+" Sparkup{{{2
+let g:sparkupNextMapping = '<c-x>'
 " Load custom local config{{{1
 let s:local_vimrc=$MYVIMRC . ".local"
 if filereadable(s:local_vimrc)
     silent! execute ':source ' . s:local_vimrc
 endif
-
-" Remap sparkup "next tag"
-"let g:sparkupNextMapping = '<c-x>'
-
