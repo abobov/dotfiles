@@ -102,16 +102,31 @@ set ttyfast
 
 set undofile
 set undodir=$HOME/tmp/vim-undo,$TEMP,.
-set backup
-set backupdir=$HOME/tmp/vim-backup,$TEMP,.
-set directory=$HOME/tmp,$TEMP,.
 
 " Map <Leader> to comma
 let mapleader=","
 
+" Backup {{{1
+
+set backup
+set noswapfile
+
+set undodir=$HOME/tmp/vim/undo//
+set backupdir=$HOME/tmp/vim/backup//
+set directory=$HOME/tmp/vim/swap//
+
+" Make directories
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+endif
+if !isdirectory(expand(&backupdir))
+    call mkdir(expand(&backupdir), "p")
+endif
+if !isdirectory(expand(&directory))
+    call mkdir(expand(&directory), "p")
+endif
+
 " Search {{{1
-nnoremap / /\v
-vnoremap / /\v
 
 set gdefault
 set hlsearch
@@ -119,6 +134,10 @@ set ignorecase
 set incsearch
 set showmatch
 set smartcase
+
+nnoremap / /\v
+vnoremap / /\v
+nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
 
 " Autocommands{{{1
 if has('autocmd')
@@ -130,7 +149,7 @@ if has('autocmd')
 	" Автоматически устанавливать директорию файла как текущую
 	autocmd BufEnter * execute ":silent! lcd " . expand("%:p:h")
 
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe 'normal g`"zvzz' | endif
     au BufRead,BufNewFile /etc/nginx/* if &ft == "" | setfiletype nginx | endif
 endif
 " Mappings {{{1
@@ -139,7 +158,7 @@ nnoremap ; :
 inoremap jj <ESC>
 nnoremap <Tab> %
 nnoremap H ^
-nnoremap T g_
+nnoremap L g_
 
 " Disable some keys
 inoremap <F1> <Nop>
@@ -180,6 +199,20 @@ cmap w!! w !sudo tee % >/dev/null
 " Hide search highlights
 noremap <Leader><Space> :silent nohlsearch<CR>
 map gf :e <cfile><CR>
+
+" Visual mode search {{{
+
+function! s:VSetSearch()
+    let temp = @@
+    norm! gvy
+    let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+    let @@ = temp
+endfunction
+
+vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><C-o>
+vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><C-o>
+
+" }}}
 
 inoremap <C-u> <C-g>u<C-u>
 inoremap <C-w> <C-g>u<C-w>
