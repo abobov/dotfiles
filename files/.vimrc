@@ -2,7 +2,6 @@
 
 " Setup {{{1
 set nocompatible
-language C
 
 filetype off " Do so to reload filetype plugins after pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -16,18 +15,24 @@ let g:template_dir=$HOME . "/.vim/templates"
 
 " Options {{{1
 
+" Locale {{{
+
+language C
 set encoding=utf-8
 " Encodings try list
 if has("multi_byte")
     set fileencodings=ucs-bom,utf-8,cp1251,koi8-r,cp866
 endif
+set keymap=russian-jcukenwin
+set spelllang=ru,en
+set iminsert=0
+set imsearch=0
+
+" }}}
 
 set autoread
 set visualbell t_vb=
 set title
-set keymap=russian-jcukenwin
-set iminsert=0
-set imsearch=0
 " Скрывать буфер редактировании другого
 set hidden
 " Отображать текущую команду
@@ -41,23 +46,7 @@ set virtualedit+=block
 set backspace=indent,eol,start
 " Показывать столбец с номерами строк
 set number
-" Размер табуляции
-set tabstop=4
-set smarttab
-" Размер сдвига блока
-set shiftwidth=4
-set shiftround
-set softtabstop=4
-" Заменять таб на пробелы
-set expandtab
 set nostartofline " many jump commands move the cursor to the first non-blank character of a line
-" Автоматический отступ
-set autoindent
-set copyindent
-" и умный автоматический отступ
-set smartindent
-" Не умещать текст на экране
-set nowrap
 " Символ показывающий перенос текста
 set showbreak=↵
 " Сколько строк оставлять при прокрутке с низу и с боку
@@ -88,28 +77,60 @@ set lazyredraw
 " Не создавать swap файл в текущей директории
 set directory-=.
 " Язык проверки орфографии по умолчанию
-set spelllang=ru,en
-set list
-if has('gui_running')
-	set listchars=tab:»\ ,trail:·,extends:#,nbsp:·
-else
-	set listchars=tab:>\ ,trail:·,extends:#,nbsp:·
-endif
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set pastetoggle=<F3>
 set cursorline
 set ttyfast
 
-set undofile
-set undodir=$HOME/tmp/vim-undo,$TEMP,.
+set autoindent
+set copyindent
+set smartindent
+
+" List chars {{{
+
+set list
+set listchars=tab:»\ ,trail:·,extends:#,nbsp:·
+
+augroup trailing
+    au!
+    au InsertEnter * :set listchars-=trail:·
+    au InsertLeave * :set listchars+=trail:·
+augroup END
+
+" }}}
+
+" Tabs and formatting {{{
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set smarttab
+set shiftround
+set expandtab
+set wrap
+set linebreak
+set textwidth=80
+
+set cpoptions+=J
+
+" }}}
 
 " Map <Leader> to comma
 let mapleader=","
+
+
+" Color scheme {{{
+
+colorscheme default
+set background=light
+
+" }}}
 
 " Backup {{{1
 
 set backup
 set noswapfile
+set undofile
 
 set undodir=$HOME/tmp/vim/undo//
 set backupdir=$HOME/tmp/vim/backup//
@@ -138,11 +159,27 @@ set smartcase
 nnoremap / /\v
 vnoremap / /\v
 nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
+noremap <Leader><Space> :silent nohlsearch<CR>
+
+" Visual mode search {{{
+
+function! s:VSetSearch()
+    let temp = @@
+    norm! gvy
+    let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
+    let @@ = temp
+endfunction
+
+vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><C-o>
+vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><C-o>
+
+" }}}
+
 
 " Autocommands{{{1
 if has('autocmd')
 	" TODO перенести в ftplugin
-	autocmd FileType tex setlocal spell spelllang=ru,en textwidth=79
+	autocmd FileType tex setlocal spell textwidth=79
 	autocmd FileType java setlocal omnifunc=javacomplete#Complete
 	autocmd FileType python set expandtab
 	autocmd FileType html,xml,ant set nolist
@@ -159,6 +196,13 @@ inoremap jj <ESC>
 nnoremap <Tab> %
 nnoremap H ^
 nnoremap L g_
+
+nnoremap J mzJ`z
+
+nnoremap <Leader>n :setlocal number!<cr>
+
+nnoremap <Leader>p :silent! set paste<CR>"*p:set nopaste<CR>
+vnoremap <Leader>y "*y
 
 " Disable some keys
 inoremap <F1> <Nop>
@@ -196,29 +240,22 @@ map <C-l> <C-w>l
 
 " Write file with sudo
 cmap w!! w !sudo tee % >/dev/null
-" Hide search highlights
-noremap <Leader><Space> :silent nohlsearch<CR>
 map gf :e <cfile><CR>
-
-" Visual mode search {{{
-
-function! s:VSetSearch()
-    let temp = @@
-    norm! gvy
-    let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-    let @@ = temp
-endfunction
-
-vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR><C-o>
-vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><C-o>
-
-" }}}
 
 inoremap <C-u> <C-g>u<C-u>
 inoremap <C-w> <C-g>u<C-w>
 
+inoremap <C-f> <C-x><C-f>
+inoremap <C-l> <C-x><C-l>
+
 nnoremap <C-n> :cnext<CR>z.
 nnoremap <C-p> :cprevious<CR>z.
+
+" Quick editing {{{
+
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
+
+" }}}
 
 " Plugins{{{1
 " Surround{{{2
@@ -250,6 +287,12 @@ nnoremap 'k :FufBuffer<CR>
 
 noremap <F2> :NERDTreeToggle<CR>
 noremap <F2> <Esc>:NERDTreeToggle<CR>
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDChristmasTree = 1
+let NERDTreeChDirMode = 2
+
 " Sparkup{{{2
 let g:sparkupNextMapping = '<c-x>'
 " Load custom local config{{{1
