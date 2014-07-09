@@ -124,7 +124,7 @@ let mapleader=","
 
 " Color scheme {{{
 
-colorscheme default
+colorscheme eclipse
 set background=light
 
 " }}}
