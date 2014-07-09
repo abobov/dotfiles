@@ -295,6 +295,23 @@ let NERDTreeChDirMode = 2
 
 " Sparkup{{{2
 let g:sparkupNextMapping = '<c-x>'
+
+" Scratch {{{
+
+function! ScratchToggle()
+    if exists("w:is_scratch_window")
+        unlet w:is_scratch_window
+        exec "q"
+    else
+        exec "norm! :Sscratch\<cr>\<c-w>l"
+        let w:is_scratch_window = 1
+    endif
+endfunction
+command! ScratchToggle call ScratchToggle()
+
+nnoremap <silent> <Leader><Tab> :ScratchToggle<cr>
+
+" }}}
 " Load custom local config{{{1
 let s:local_vimrc=$MYVIMRC . ".local"
 if filereadable(s:local_vimrc)
