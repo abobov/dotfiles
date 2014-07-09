@@ -1,4 +1,4 @@
-" vim: spell spelllang=ru,en foldmethod=marker :
+" vim: spell foldmethod=marker :
 
 " Setup {{{1
 set nocompatible
@@ -86,6 +86,9 @@ set autoindent
 set copyindent
 set smartindent
 
+set splitright
+set splitbelow
+
 " List chars {{{
 
 set list
@@ -110,7 +113,7 @@ set expandtab
 set wrap
 set linebreak
 set textwidth=80
-
+set formatoptions=rqnl1j
 set cpoptions+=J
 
 " }}}
@@ -200,11 +203,13 @@ nnoremap L g_
 nnoremap J mzJ`z
 
 nnoremap <Leader>n :setlocal number!<cr>
+nnoremap <Leader>s :setlocal spell!<cr>
 
 nnoremap <Leader>p :silent! set paste<CR>"*p:set nopaste<CR>
 vnoremap <Leader>y "*y
 
-" Disable some keys
+" Disable keys {{{
+
 inoremap <F1> <Nop>
 nnoremap <F1> <Nop>
 vnoremap <F1> <Nop>
@@ -212,6 +217,8 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+" }}}
 
 nnoremap <Space> za
 vnoremap <Space> za
@@ -228,9 +235,22 @@ nnoremap <C-y> 3<C-y>
 " Двигать блоки
 vnoremap < <gv
 vnoremap > >gv
-" Friendly moving over wrap lines
+
+" Wrapped lines navigation {{{
+
 nnoremap j gj
 nnoremap k gk
+
+nnoremap g$ $
+nnoremap $ g$
+nnoremap g0 0
+nnoremap 0 g0
+vnoremap g$ $
+vnoremap $ g$
+vnoremap g0 0
+vnoremap 0 g0
+
+" }}}
 
 " Speedup moving over windows
 map <C-h> <C-w>h
@@ -294,8 +314,10 @@ let NERDChristmasTree = 1
 let NERDTreeChDirMode = 2
 
 " Sparkup{{{2
-let g:sparkupNextMapping = '<c-x>'
 
+let g:sparkupNextMapping = '<c-s>'
+
+" 2}}}
 " Scratch {{{
 
 function! ScratchToggle()

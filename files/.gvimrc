@@ -1,17 +1,12 @@
 " Число строк в новом окне
 set lines=40
-" Отключение тулбара
-set guioptions-=T 
-" Горизонтальная прокрутка
-set guioptions-=b 
-" Вертикальная прокрутка
+set guioptions-=T
+set guioptions-=L
 set guioptions-=r
-" Убрать меню
 set guioptions-=m
-" Убрать мерцание курсора
 set guicursor+=a:blinkoff0
 
-" Set no visual bell again
+" Visual bell option reseted after starting gvim
 set t_vb=
 
 " Цвет меню дополнения
