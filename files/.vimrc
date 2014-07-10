@@ -118,9 +118,8 @@ set cpoptions+=J
 
 " }}}
 
-" Map <Leader> to comma
 let mapleader=","
-
+let maplocalleader="\\"
 
 " Color scheme {{{
 
@@ -277,6 +276,19 @@ nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 
 " }}}
 
+" Filetype {{{
+
+" XML {{{
+
+augroup ft_xml
+    au!
+    au FileType xml nnoremap <buffer> <localleader>z Vatzf
+    au FileType xml vnoremap <buffer> <localleader>z zf
+augroup END
+
+" }}}
+
+" }}}
 " Plugins{{{1
 " Surround{{{2
 " Surrounds double angle quotes «»
