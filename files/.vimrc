@@ -346,7 +346,18 @@ command! ScratchToggle call ScratchToggle()
 nnoremap <silent> <Leader><Tab> :ScratchToggle<cr>
 
 " }}}
-" Load custom local config{{{1
+" Tabular {{{
+
+function! TabularizeUnderCursos()
+    let ch = getline(".")[col(".") - 1]
+    call Tabularize('/\V' . ch)
+endfunction
+nnoremap <silent> <Leader>T :call TabularizeUnderCursos()<cr>
+
+" }}}
+" }}}
+" Load custom local config {{{
+
 let s:local_vimrc=$MYVIMRC . ".local"
 if filereadable(s:local_vimrc)
     silent! execute ':source ' . s:local_vimrc
