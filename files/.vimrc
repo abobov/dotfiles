@@ -1,6 +1,6 @@
 " vim: spell foldmethod=marker :
 
-" Setup {{{1
+" Setup {{{
 set nocompatible
 
 filetype off " Do so to reload filetype plugins after pathogen
@@ -12,8 +12,8 @@ endif
 filetype plugin indent on
 
 let g:template_dir=$HOME . "/.vim/templates"
-
-" Options {{{1
+" }}}
+" Options {{{
 
 " Locale {{{
 
@@ -128,7 +128,8 @@ set background=light
 
 " }}}
 
-" Backup {{{1
+" }}}
+" Backup {{{
 
 set backup
 set noswapfile
@@ -149,7 +150,8 @@ if !isdirectory(expand(&directory))
     call mkdir(expand(&directory), "p")
 endif
 
-" Search {{{1
+" }}}
+" Search {{{
 
 set gdefault
 set hlsearch
@@ -177,8 +179,8 @@ vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><C-o>
 
 " }}}
 
-
-" Autocommands{{{1
+" }}}
+" Autocommands {{{
 if has('autocmd')
 	" TODO перенести в ftplugin
 	autocmd FileType tex setlocal spell textwidth=79
@@ -188,10 +190,11 @@ if has('autocmd')
 	" Автоматически устанавливать директорию файла как текущую
 	autocmd BufEnter * execute ":silent! lcd " . expand("%:p:h")
 
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe 'normal g`"zvzz' | endif
+    au BufReadPost * if line("'\.") > 0 && line("'\.") <= line("$") | exe 'normal g`.zvzz' | endif
     au BufRead,BufNewFile /etc/nginx/* if &ft == "" | setfiletype nginx | endif
 endif
-" Mappings {{{1
+" }}}
+" Mappings {{{
 " Vim rocks!
 nnoremap ; :
 inoremap jj <ESC>
@@ -276,6 +279,7 @@ nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 
 " }}}
 
+" }}}
 " Filetype {{{
 
 " XML {{{
@@ -289,12 +293,15 @@ augroup END
 " }}}
 
 " }}}
-" Plugins{{{1
-" Surround{{{2
+" Plugins {{{
+" Surround {{{
+
 " Surrounds double angle quotes «»
 let g:surround_171="« \r »"
 let g:surround_187="«\r»"
-" Syntastic{{{2
+
+" }}}
+" Syntastic {{{
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_jump = 0
@@ -307,15 +314,21 @@ let g:syntastic_mode_map = {
 
 nnoremap <Leader>C :SyntasticCheck<CR>
 
-" Taglist{{{2
+" }}}
+" Taglist {{{
+
 nnoremap <silent> <F8> :Tlist<CR>
 
-" Fuzzy Finder {{{2
+" }}}
+" Fuzzy Finder {{{
+
 nnoremap '. :FufFileWithCurrentBufferDir<CR>
 nnoremap 'f :FufFile<CR>
 nnoremap 'h :FufFile $HOME/<CR>
 nnoremap 'k :FufBuffer<CR>
-" NERD Tree{{{2
+
+" }}}
+" NERD Tree {{{
 
 noremap <F2> :NERDTreeToggle<CR>
 noremap <F2> <Esc>:NERDTreeToggle<CR>
@@ -325,11 +338,12 @@ let NERDTreeDirArrows = 1
 let NERDChristmasTree = 1
 let NERDTreeChDirMode = 2
 
-" Sparkup{{{2
+" }}}
+" Sparkup {{{
 
 let g:sparkupNextMapping = '<c-s>'
 
-" 2}}}
+" }}}
 " Scratch {{{
 
 function! ScratchToggle()
@@ -362,3 +376,5 @@ let s:local_vimrc=$MYVIMRC . ".local"
 if filereadable(s:local_vimrc)
     silent! execute ':source ' . s:local_vimrc
 endif
+
+" }}}
