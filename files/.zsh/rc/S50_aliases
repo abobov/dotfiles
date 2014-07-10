@@ -36,6 +36,6 @@ alias cclip='xclip -selection clipboard'
 check_com g || alias g='git'
 check_com s || alias s='ssh'
 
-alias mocp='padsp mocp'
+alias mocp='PULSE_LATENCY_MSEC=60 mocp'
 
 # vim: et ft=zsh :
