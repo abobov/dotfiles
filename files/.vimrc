@@ -83,7 +83,6 @@ set cursorline
 set ttyfast
 
 set autoindent
-set copyindent
 set smartindent
 
 set splitright
@@ -187,8 +186,6 @@ if has('autocmd')
 	autocmd FileType java setlocal omnifunc=javacomplete#Complete
 	autocmd FileType python set expandtab
 	autocmd FileType html,xml,ant set nolist
-	" Автоматически устанавливать директорию файла как текущую
-	autocmd BufEnter * execute ":silent! lcd " . expand("%:p:h")
 
     au BufReadPost * if line("'\.") > 0 && line("'\.") <= line("$") | exe 'normal g`.zvzz' | endif
     au BufRead,BufNewFile /etc/nginx/* if &ft == "" | setfiletype nginx | endif
@@ -199,6 +196,7 @@ endif
 nnoremap ; :
 inoremap jj <ESC>
 nnoremap <Tab> %
+vnoremap <Tab> %
 nnoremap H ^
 nnoremap L g_
 
@@ -206,6 +204,7 @@ nnoremap J mzJ`z
 
 nnoremap <Leader>n :setlocal number!<cr>
 nnoremap <Leader>s :setlocal spell!<cr>
+nnoremap <Leader>w :setlocal wrap!<cr>
 
 nnoremap <Leader>p :silent! set paste<CR>"*p:set nopaste<CR>
 vnoremap <Leader>y "*y
@@ -237,6 +236,7 @@ nnoremap <C-y> 3<C-y>
 " Двигать блоки
 vnoremap < <gv
 vnoremap > >gv
+nnoremap <Leader>V V`]
 
 " Wrapped lines navigation {{{
 
@@ -288,6 +288,16 @@ augroup ft_xml
     au!
     au FileType xml nnoremap <buffer> <localleader>z Vatzf
     au FileType xml vnoremap <buffer> <localleader>z zf
+augroup END
+
+" }}}
+
+" Javascript {{{
+
+augroup ft_javascript
+    au!
+
+    au FileType javascript setlocal foldmethod=marker foldmarker={,}
 augroup END
 
 " }}}
