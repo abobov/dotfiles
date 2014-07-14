@@ -36,9 +36,6 @@
 [submodule "xml.vim"]
     path = files/.vim/bundle/xml.vim
     url = https://github.com/othree/xml.vim
-[submodule "vim-yaml"]
-    path = files/.vim/bundle/vim-yaml
-    url = https://github.com/avakhov/vim-yaml
 [submodule "nginx-vim-syntax"]
     path = files/.vim/bundle/nginx-vim-syntax
     url = https://github.com/evanmiller/nginx-vim-syntax.git
@@ -48,9 +45,6 @@
 [submodule "snipmate.vim"]
     path = files/.vim/bundle/snipmate.vim
     url = https://github.com/msanders/snipmate.vim
-[submodule "Command-T"]
-    path = files/.vim/bundle/Command-T
-    url = https://github.com/wincent/Command-T
 [submodule "git-vim"]
     path = files/.vim/bundle/git-vim
     url = https://github.com/motemen/git-vim
