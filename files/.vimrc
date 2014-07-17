@@ -194,11 +194,12 @@ endif
 " Mappings {{{
 " Vim rocks!
 nnoremap ; :
-inoremap jj <ESC>
+inoremap kk <ESC>
 nnoremap <Tab> %
 vnoremap <Tab> %
 nnoremap H ^
 nnoremap L g_
+inoremap <Leader>l <C-^>
 
 nnoremap J mzJ`z
 
