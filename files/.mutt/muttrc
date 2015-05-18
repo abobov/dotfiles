@@ -46,6 +46,7 @@ set charset=utf-8				# terminal charset
 set allow_8bit
 set rfc2047_parameters
 set mail_check=120				# check for new mail every 120 seconds
+set text_flowed=yes             # allow paragraphs re-flow
 
 set edit_headers				# change headers with body in editor
 
