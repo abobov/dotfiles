@@ -2,6 +2,7 @@ application/msword; oowriter %s
 application/octet-stream; ~/.mutt/mutt.octet.filter %s; copiousoutput
 image/*; geeqie '%s'
 text/html; x-www-browser '%s'; test=test -n "$DISPLAY"; nametemplate=%s.html
-text/html; lynx -display_charset=utf-8 -assume_charset=%{charset} -dump -force_html '%s' | sed 's/^\ \ \ //'; copiousoutput; description=H
+#text/html; lynx -display_charset=utf-8 -assume_charset=%{charset} -dump -force_html '%s' | sed 's/^\ \ \ //'; copiousoutput; description=H
+text/html; w3m -I %{charset} -T text/html; copiousoutput; description=H
 
 # vim: ft=muttrc :
