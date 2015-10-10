@@ -349,6 +349,8 @@ let NERDTreeDirArrows = 1
 let NERDChristmasTree = 1
 let NERDTreeChDirMode = 2
 
+let NERDTreeIgnore = [ '\.pyc$' ]
+
 " }}}
 " Sparkup {{{
 
