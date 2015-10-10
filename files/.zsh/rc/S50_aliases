@@ -38,4 +38,6 @@ check_com s || alias s='ssh'
 
 alias mocp='PULSE_LATENCY_MSEC=60 mocp'
 
+alias rscp='rsync -avzP'
+
 # vim: et ft=zsh :
