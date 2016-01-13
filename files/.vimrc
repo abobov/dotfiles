@@ -122,8 +122,9 @@ let maplocalleader="\\"
 
 " Color scheme {{{
 
-colorscheme eclipse
+let g:solarized_termcolors=256
 set background=light
+colorscheme solarized
 
 " }}}
 
