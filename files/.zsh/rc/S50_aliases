@@ -29,7 +29,7 @@ alias xcd='cd "$(xclip -o)"'
 
 alias man='LANG=C man'
 
-salias up='aptitude -u'
+alias upa='aptitude -u'
 
 alias cclip='xclip -selection clipboard'
 
@@ -39,5 +39,7 @@ check_com s || alias s='ssh'
 alias mocp='PULSE_LATENCY_MSEC=60 mocp'
 
 alias rscp='rsync -avzP'
+
+alias yd-date='youtube-dl --output="%(upload_date)s - %(title)s-%(id)s.%(ext)s"'
 
 # vim: et ft=zsh :

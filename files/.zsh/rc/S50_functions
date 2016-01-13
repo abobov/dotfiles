@@ -6,4 +6,12 @@ ppgrep() {
     pgrep "$@" | xargs --no-run-if-empty ps fp
 }
 
+stocks() {
+    curl -s 'http://download.finance.yahoo.com/d/quotes.csv?s='$1'&f=l1'
+}
+
+xe() {
+    stocks "$1=x"
+}
+
 # vim: ft=zsh :

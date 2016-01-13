@@ -29,7 +29,7 @@ hosts=($( ( \
 zstyle ':completion:*' hosts $hosts
 zstyle ':completion:*:hosts' list-colors '=(#b)(*)(bobov.name)=01;30=01;31' '=[^.]#=01;31'
 
-users=(root dexter)
+users=(root dexter anton)
 zstyle ':completion:*' users $users
 
 # }}}
@@ -37,8 +37,7 @@ zstyle ':completion:*' users $users
 # Ignore for vim
 zstyle ':completion:*:*:vi(m|):*:*files' ignored-patterns '*?.(aux|dvi|ps|pdf|bbl|toc|lot|lof|o|cm?|class|py[oc])'
 
-fpath=($HOME/.zsh/zsh-completions/src $fpath)
-# To force rebuild zcompdump:
-# rm -f ~/.zcompdump; compinit
+# Ledger completion like hledger
+compdef _hledger ledger
 
 # vim: et ft=zsh fdm=marker :

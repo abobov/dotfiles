@@ -7,6 +7,11 @@ fi
 
 path=(~/bin $path)
 
+fpath=($HOME/.zsh/zsh-completions/src $fpath)
+# To force rebuild zcompdump:
+# rm -f ~/.zcompdump; compinit
+
+
 export SHELL=/bin/zsh
 
 export MANWIDTH=80
