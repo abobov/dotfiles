@@ -30,12 +30,14 @@
 [submodule "vim-markdown"]
     path = files/.vim/bundle/vim-markdown
     url = https://github.com/plasticboy/vim-markdown.git
+    ignore = untracked
 [submodule "vim-jade"]
     path = files/.vim/bundle/vim-jade
     url = https://github.com/digitaltoad/vim-jade.git
 [submodule "xml.vim"]
     path = files/.vim/bundle/xml.vim
     url = https://github.com/othree/xml.vim
+    ignore = untracked
 [submodule "nginx-vim-syntax"]
     path = files/.vim/bundle/nginx-vim-syntax
     url = https://github.com/evanmiller/nginx-vim-syntax.git
@@ -45,12 +47,14 @@
 [submodule "snipmate.vim"]
     path = files/.vim/bundle/snipmate.vim
     url = https://github.com/msanders/snipmate.vim
+    ignore = untracked
 [submodule "git-vim"]
     path = files/.vim/bundle/git-vim
     url = https://github.com/motemen/git-vim
 [submodule "taglist.vim"]
     path = files/.vim/bundle/taglist.vim
     url = https://github.com/vim-scripts/taglist.vim
+    ignore = untracked
 [submodule "vim-ledger"]
     path = files/.vim/bundle/vim-ledger
     url = https://github.com/ledger/vim-ledger
@@ -63,9 +67,11 @@
 [submodule "FuzzyFinder"]
     path = files/.vim/bundle/FuzzyFinder
     url = https://github.com/vim-scripts/FuzzyFinder.git
+    ignore = untracked
 [submodule "L9"]
     path = files/.vim/bundle/L9
     url = https://github.com/vim-scripts/L9.git
+    ignore = untracked
 [submodule "files/.vim/bundle/syntastic"]
 	path = files/.vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
