@@ -191,6 +191,7 @@ if has('autocmd')
 
     au BufReadPost * if line("'\.") > 0 && line("'\.") <= line("$") | exe 'normal g`.zvzz' | endif
     au BufRead,BufNewFile /etc/nginx/* if &ft == "" | setfiletype nginx | endif
+    au BufReadPost *.ledger norm G
 endif
 " }}}
 " Mappings {{{
