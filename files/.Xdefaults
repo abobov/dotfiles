@@ -37,8 +37,21 @@ URxvt.termName:         rxvt-256color
 !
 ! http://ethanschoonover.com/solarized
 
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
 
-! Common
+URxvt*background:            S_base3
+URxvt*foreground:            S_base01
+URxvt*fadeColor:             S_base3
+URxvt*cursorColor:           S_base01
+URxvt*pointerColorBackground:S_base1
+URxvt*pointerColorForeground:S_base01
 
 #define S_yellow        #b58900
 #define S_orange        #cb4b16
@@ -49,45 +62,34 @@ URxvt.termName:         rxvt-256color
 #define S_cyan          #2aa198
 #define S_green         #859900
 
+!! black dark/light
+URxvt*color0:                S_base02
+URxvt*color8:                S_base03
 
-! Light
+!! red dark/light
+URxvt*color1:                S_red
+URxvt*color9:                S_orange
 
-#define S_base03        #fdf6e3
-#define S_base02        #eee8d5
-#define S_base01        #93a1a1
-#define S_base00        #839496
-#define S_base0         #657b83
-#define S_base1         #586e75
-#define S_base2         #073642
-#define S_base3         #002b36
+!! green dark/light
+URxvt*color2:                S_green
+URxvt*color10:               S_base01
 
+!! yellow dark/light
+URxvt*color3:                S_yellow
+URxvt*color11:               S_base00
 
-! To only apply colors to your terminal, for example, prefix
-! the color assignment statement with its name. Example:
-!
-! URxvt*background:            S_base03
+!! blue dark/light
+URxvt*color4:                S_blue
+URxvt*color12:               S_base0
 
-Urxvt*background:              S_base03
-Urxvt*foreground:              S_base0
-Urxvt*fading:                  40
-Urxvt*fadeColor:               S_base03
-Urxvt*cursorColor:             S_base1
-Urxvt*pointerColorBackground:  S_base01
-Urxvt*pointerColorForeground:  S_base1
+!! magenta dark/light
+URxvt*color5:                S_magenta
+URxvt*color13:               S_violet
 
-URxvt*color0:                  S_base02
-URxvt*color1:                  S_red
-URxvt*color2:                  S_green
-URxvt*color3:                  S_yellow
-URxvt*color4:                  S_blue
-URxvt*color5:                  S_magenta
-URxvt*color6:                  S_cyan
-URxvt*color7:                  S_base2
-URxvt*color9:                  S_orange
-URxvt*color8:                  S_base03
-URxvt*color10:                 S_base01
-URxvt*color11:                 S_base00
-URxvt*color12:                 S_base0
-URxvt*color13:                 S_violet
-URxvt*color14:                 S_base1
-URxvt*color15:                 S_base3
+!! cyan dark/light
+URxvt*color6:                S_cyan
+URxvt*color14:               S_base1
+
+!! white dark/light
+URxvt*color7:                S_base2
+URxvt*color15:               S_base3
