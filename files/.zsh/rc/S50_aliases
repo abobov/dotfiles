@@ -1,3 +1,9 @@
+# Remove grml aliasses
+unalias ag
+
+alias ag="ag --page less"
+
+
 alias -s html=$BROWSER
 alias -s pdf=mupdf
 
