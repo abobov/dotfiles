@@ -44,7 +44,9 @@ after_install() {
     if ! which ctags >/dev/null 2>&1; then
         echo 'No ctags.' >&2
     fi
-    cd $HOME/.vim/bundle/Command-T/ruby/command-t && make >/dev/null
+    if ! which ag >/dev/null 2>&1; then
+        echo 'No ag.' >&2
+    fi
 }
 
 check_override() {
