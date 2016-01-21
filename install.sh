@@ -37,16 +37,21 @@ create_link() {
     done
 }
 
+check_command() {
+    if ! $(which "$1" >/dev/null 2>&1) ; then
+        echo "No $1." >&2
+        if $(which "command-not-found" >/dev/null 2>&1) ; then
+            command-not-found "$1"
+        fi
+    fi
+}
+
 after_install() {
     mkdir -p $HOME/tmp/vim-undo $HOME/tmp/vim-backup
     mkdir -p $HOME/.mutt/cache
     touch $HOME/.mutt/aliases
-    if ! which ctags >/dev/null 2>&1; then
-        echo 'No ctags.' >&2
-    fi
-    if ! which ag >/dev/null 2>&1; then
-        echo 'No ag.' >&2
-    fi
+    check_command ctags
+    check_command ag
 }
 
 check_override() {
