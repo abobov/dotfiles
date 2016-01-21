@@ -1,6 +1,7 @@
 #!/bin/zsh
 
-autoload -U compinit zrecompile
+autoload -U compinit bashcompinit zrecompile
+bashcompinit -i
 
 #zsh_cache=$HOME/.zsh/cache
 #mkdir -p "$zsh_cache"

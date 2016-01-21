@@ -40,4 +40,7 @@ zstyle ':completion:*:*:vi(m|):*:*files' ignored-patterns '*?.(aux|dvi|ps|pdf|bb
 # Ledger completion like hledger
 compdef _hledger ledger
 
+# youtube-dl
+[[ -f /etc/bash_completion.d/youtube-dl.bash-completion ]] && source /etc/bash_completion.d/youtube-dl.bash-completion
+
 # vim: et ft=zsh fdm=marker :
