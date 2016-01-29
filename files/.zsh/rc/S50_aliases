@@ -35,7 +35,7 @@ alias xcd='cd "$(xclip -o)"'
 
 alias man='LANG=C man'
 
-alias upa='aptitude -u'
+alias upa='sudo aptitude -u'
 
 alias cclip='xclip -selection clipboard'
 
@@ -47,5 +47,10 @@ alias mocp='PULSE_LATENCY_MSEC=60 mocp'
 alias rscp='rsync -avzP'
 
 alias yd-date='youtube-dl --output="%(upload_date)s - %(title)s-%(id)s.%(ext)s"'
+
+alias boot-log="sed 's/\^\[/\o33/g;s/\[1G\[/\[27G\[/' /var/log/boot | less -r"
+
+alias ipv6_disable='sudo sysctl net.ipv6.conf.all.disable_ipv6=1'
+alias ipv6_enable='sudo sysctl net.ipv6.conf.all.disable_ipv6=0'
 
 # vim: et ft=zsh :
