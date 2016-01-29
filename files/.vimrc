@@ -81,6 +81,7 @@ set wildignore=*.swp,*.bak,*.pyc,*.class
 set pastetoggle=<F3>
 set cursorline
 set ttyfast
+set mouse=a
 
 set autoindent
 set smartindent
@@ -209,6 +210,7 @@ nnoremap J mzJ`z
 nnoremap <Leader>n :setlocal number!<cr>
 nnoremap <Leader>s :setlocal spell!<cr>
 nnoremap <Leader>w :setlocal wrap!<cr>
+nnoremap <Leader>l :setlocal list!<cr>
 
 nnoremap <Leader>p :silent! set paste<CR>"*p:set nopaste<CR>
 vnoremap <Leader>y "*y
