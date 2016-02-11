@@ -130,6 +130,8 @@ colorscheme solarized
 
 " }}}
 
+digraphs ru 8381
+
 " }}}
 " Backup {{{
 
