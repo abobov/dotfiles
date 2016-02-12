@@ -89,6 +89,14 @@ set smartindent
 set splitright
 set splitbelow
 
+" Tuneup delays when using escape key
+set timeout
+set timeoutlen=1000
+set ttimeout
+set ttimeoutlen=10
+
+
+
 " List chars {{{
 
 set list
@@ -186,6 +194,12 @@ vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR><C-o>
 " }}}
 " Autocommands {{{
 if has('autocmd')
+    " Cursor line only in current window and not insert mode
+    au WinEnter    * set cursorline
+    au WinLeave    * set nocursorline
+    au InsertEnter * set nocursorline
+    au InsertLeave * set cursorline
+
 	" TODO перенести в ftplugin
 	autocmd FileType tex setlocal spell textwidth=79
 	autocmd FileType java setlocal omnifunc=javacomplete#Complete

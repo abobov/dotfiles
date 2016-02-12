@@ -84,3 +84,6 @@
 [submodule "files/.vim/bundle/ag"]
 	path = files/.vim/bundle/ag
 	url = https://github.com/rking/ag.vim
+[submodule "files/.vim/bundle/vim-bracketed-paste"]
+	path = files/.vim/bundle/vim-bracketed-paste
+	url = https://github.com/ConradIrwin/vim-bracketed-paste
