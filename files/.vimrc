@@ -303,7 +303,6 @@ nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 
 " }}}
 " Filetype {{{
-
 " XML {{{
 
 augroup ft_xml
@@ -313,7 +312,6 @@ augroup ft_xml
 augroup END
 
 " }}}
-
 " Javascript {{{
 
 augroup ft_javascript
@@ -323,7 +321,12 @@ augroup ft_javascript
 augroup END
 
 " }}}
-
+" Ledger {{{
+augroup ft_ledger
+    au!
+    inoremap <silent><buffer> <Leader>e <Esc>:call ledger#entry()<CR>
+augroup END
+" }}}
 " }}}
 " Plugins {{{
 " Surround {{{
