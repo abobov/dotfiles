@@ -7,6 +7,7 @@ bind index } next-thread
 bind index - collapse-thread
 bind index F flag-message
 bind index p recall-message
+bind index g group-reply
 
 
 bind index,pager \CP sidebar-prev
