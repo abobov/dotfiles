@@ -4,7 +4,7 @@ unalias ag
 alias ag="ag --page less"
 
 
-alias -s html=$BROWSER
+alias -s html=x-www-browser
 alias -s pdf=mupdf
 
 alias -s exe=wine
@@ -27,7 +27,8 @@ alias esync='sudo eix-sync'
 alias eupdw='sudo emerge -avuND @world'
 alias eetc='sudo etc-update'
 
-alias open='gnome-open'
+alias open='xdg-open'
+alias notes='editor $HOME/Dropbox/notes.md'
 
 # Moving to directory in different teminals.
 alias xpwd='echo $PWD | xclip -i; xclip -o'
