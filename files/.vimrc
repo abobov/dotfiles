@@ -324,7 +324,7 @@ augroup END
 " Ledger {{{
 augroup ft_ledger
     au!
-    inoremap <silent><buffer> <Leader>e <Esc>:call ledger#entry()<CR>
+    au FileType ledger inoremap <silent><buffer> <Leader>e <Esc>:call ledger#entry()<CR>
 augroup END
 " }}}
 " }}}
