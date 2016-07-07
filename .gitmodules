@@ -87,3 +87,9 @@
 [submodule "files/.vim/bundle/vim-bracketed-paste"]
 	path = files/.vim/bundle/vim-bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste
+[submodule "vim/ctrlp"]
+	path = files/.vim/bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
+[submodule "vim/emmet"]
+	path = files/.vim/bundle/emmet-vim
+	url = https://github.com/mattn/emmet-vim.git
