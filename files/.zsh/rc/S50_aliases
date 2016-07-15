@@ -56,4 +56,9 @@ alias ipv6_enable='sudo sysctl net.ipv6.conf.all.disable_ipv6=0'
 
 alias aria2c-rpc="aria2c --enable-rpc"
 
+# VPN
+
+alias vpnopen='sudo vpnc-connect'
+alias vpnclose='sudo vpnc-disconnect'
+
 # vim: et ft=zsh :
