@@ -54,4 +54,6 @@ alias boot-log="sed 's/\^\[/\o33/g;s/\[1G\[/\[27G\[/' /var/log/boot | less -r"
 alias ipv6_disable='sudo sysctl net.ipv6.conf.all.disable_ipv6=1'
 alias ipv6_enable='sudo sysctl net.ipv6.conf.all.disable_ipv6=0'
 
+alias aria2c-rpc="aria2c --enable-rpc"
+
 # vim: et ft=zsh :
