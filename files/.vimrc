@@ -209,6 +209,9 @@ if has('autocmd')
     au BufReadPost * if line("'\.") > 0 && line("'\.") <= line("$") | exe 'normal g`.zvzz' | endif
     au BufRead,BufNewFile /etc/nginx/* if &ft == "" | setfiletype nginx | endif
     au BufReadPost *.ledger norm G
+
+    " Set scripts to be executable from shell
+    au BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent exec "!chmod +x <afile>" | endif
 endif
 " }}}
 " Mappings {{{
@@ -282,6 +285,9 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Open current buffer in new tab
+noremap <C-w><CR> :tab sp<CR>
+
 " Write file with sudo
 cmap w!! w !sudo tee % >/dev/null
 map gf :e <cfile><CR>
@@ -337,10 +343,10 @@ let g:surround_187="«\r»"
 
 " }}}
 " Syntastic {{{
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_auto_jump = 0
-let g:syntastic_java_checker = 'javac'
+"let g:syntastic_check_on_open = 0
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_auto_jump = 0
+"let g:syntastic_java_checker = 'javac'
 let g:syntastic_mode_map = {
             \ 'mode': 'passive',
             \ 'active_filetypes': [],
