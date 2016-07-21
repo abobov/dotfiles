@@ -93,3 +93,6 @@
 [submodule "vim/emmet"]
 	path = files/.vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
+[submodule "vim/vim-css-color"]
+	path = files/.vim/bundle/vim-css-color
+	url = https://github.com/ap/vim-css-color
