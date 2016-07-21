@@ -10,16 +10,18 @@ alias -s pdf=mupdf
 alias -s exe=wine
 
 alias df='df -h'
+alias du='du -h'
 alias free='free -tm'
 alias whois='whois -H'
 alias zgrep='zgrep --color=auto'
 
-alias ls='ls --color=auto'
-alias ll='ls --color=always -l'
-alias lla='ls --color=alias -la'
+alias ls='ls --color=auto -h -F'
 
 alias rm='rm --interactive=once'
 alias mv='mv --interactive'
+
+alias ping='grc ping'
+alias dig='grc dig'
 
 alias display_off='xset dpms force off'
 
@@ -56,9 +58,23 @@ alias ipv6_enable='sudo sysctl net.ipv6.conf.all.disable_ipv6=0'
 
 alias aria2c-rpc="aria2c --enable-rpc"
 
+alias sc=systemctl
+alias jf="journalctl --unit"
+
 # VPN
 
 alias vpnopen='sudo vpnc-connect'
 alias vpnclose='sudo vpnc-disconnect'
+
+# Global
+
+alias -g G='|grep'
+alias -g GI='|grep -i'
+alias -g H='|head'
+alias -g T='|tail'
+alias -g L='|less'
+
+# Run bush in last docker container
+alias dbash='docker exec -it `docker ps -ql` bash'
 
 # vim: et ft=zsh :

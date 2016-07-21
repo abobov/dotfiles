@@ -7,10 +7,36 @@ ppgrep() {
 }
 
 stocks() {
+    if [ -z "$1" ] ; then
+        cat <<EOM
+stocks NAME
+
+Get current stock value for NAME.
+
+Example:
+
+    $ stocks GOOG
+    $ stocks EURUSD=x
+EOM
+        return
+    fi
     curl -s 'http://download.finance.yahoo.com/d/quotes.csv?s='$1'&f=l1'
 }
 
 xe() {
+    if [ -z "$1" ] ; then
+        cat <<EOM
+xe NAME
+
+Get exchange rates.
+
+Example:
+
+    $ xe EURRUB
+    $ xe usdrub
+EOM
+        return
+    fi
     stocks "$1=x"
 }
 
