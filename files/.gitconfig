@@ -12,6 +12,7 @@
     stat = true
 [core]
     pager = less -+$LESS -FRX
+    excludesfile = ~/.gitignore
 [alias]
     diffstat = diff --stat -r
     co = checkout
@@ -33,3 +34,7 @@
     autosetuprebase = local
 [help]
     autocorrect = 10
+[credential]
+	helper = cache
+[remote-hg]
+	hg-git-compat = true
