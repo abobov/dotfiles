@@ -96,3 +96,6 @@
 [submodule "vim/vim-css-color"]
 	path = files/.vim/bundle/vim-css-color
 	url = https://github.com/ap/vim-css-color
+[submodule "vim/vim-multiple-cursors"]
+	path = files/.vim/bundle/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors

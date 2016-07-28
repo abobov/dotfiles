@@ -211,6 +211,7 @@ if has('autocmd')
     au BufReadPost *.ledger norm G
 
     " Set scripts to be executable from shell
+    "au BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent !chmod +x <afile> | endif
     au BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent exec "!chmod +x <afile>" | endif
 endif
 " }}}
@@ -410,6 +411,11 @@ function! TabularizeUnderCursos()
     call Tabularize('/\V' . ch)
 endfunction
 nnoremap <silent> <Leader>T :call TabularizeUnderCursos()<cr>
+
+" }}}
+" Emmet {{{
+
+let g:user_emmet_expandabbr_key = '<C-e>'
 
 " }}}
 " }}}
