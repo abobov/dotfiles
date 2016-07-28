@@ -61,6 +61,8 @@ alias aria2c-rpc="aria2c --enable-rpc"
 alias sc=systemctl
 alias jf="journalctl --unit"
 
+alias httpserver='python -m SimpleHTTPServer'
+
 # VPN
 
 alias vpnopen='sudo vpnc-connect'
@@ -76,5 +78,6 @@ alias -g L='|less'
 
 # Run bush in last docker container
 alias dbash='docker exec -it `docker ps -ql` bash'
+alias dps='docker ps'
 
 # vim: et ft=zsh :
