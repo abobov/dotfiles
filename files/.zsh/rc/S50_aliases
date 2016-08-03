@@ -80,4 +80,6 @@ alias -g L='|less'
 alias dbash='docker exec -it `docker ps -ql` bash'
 alias dps='docker ps'
 
+alias portcheck='nc -z -v -w 5'
+
 # vim: et ft=zsh :

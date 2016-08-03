@@ -1,6 +1,7 @@
 # Ledger
 
 alias ledger='noglob ledger'
+alias balc='bal --current --aux-date'
 
 bal() {
     ledger balance $* ^Assets ^Liabilities

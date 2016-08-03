@@ -40,4 +40,28 @@ EOM
     stocks "$1=x"
 }
 
+setgov() {
+    GOVS=($(cpufreq-info -g))
+
+    if [ -z "$1" ] ; then
+        cat <<EOM
+setgov GOVNAME
+
+Set CPU governor, available are: $GOVS
+
+Current governor is: $(cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor | sort -u | xargs echo)
+EOM
+        return
+    fi
+
+    if [ ${GOVS[(i)$1]} -le ${#GOVS} ] ; then
+        for ((i=0; i<$(nproc); i++)) ; do
+            sudo cpufreq-set -c $i -r -g $1
+        done
+    else
+        echo "Unsupported governor: $1"
+        return 1
+    fi
+}
+
 # vim: ft=zsh :
