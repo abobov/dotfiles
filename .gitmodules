@@ -99,3 +99,9 @@
 [submodule "vim/vim-multiple-cursors"]
 	path = files/.vim/bundle/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors
+[submodule "vim/yats.vim"]
+	path = files/.vim/bundle/yats.vim
+	url = https://github.com/HerringtonDarkholme/yats.vim
+[submodule "vim/vim-addon-local-vimrc"]
+	path = files/.vim/bundle/vim-addon-local-vimrc
+	url = https://github.com/MarcWeber/vim-addon-local-vimrc
