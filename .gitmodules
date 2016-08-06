@@ -41,9 +41,6 @@
 [submodule "nginx-vim-syntax"]
     path = files/.vim/bundle/nginx-vim-syntax
     url = https://github.com/evanmiller/nginx-vim-syntax.git
-[submodule "vim-sparkup"]
-    path = files/.vim/bundle/vim-sparkup
-    url = https://github.com/tristen/vim-sparkup
 [submodule "snipmate.vim"]
     path = files/.vim/bundle/snipmate.vim
     url = https://github.com/msanders/snipmate.vim
@@ -105,3 +102,12 @@
 [submodule "vim/vim-addon-local-vimrc"]
 	path = files/.vim/bundle/vim-addon-local-vimrc
 	url = https://github.com/MarcWeber/vim-addon-local-vimrc
+[submodule "vim/delimitmate"]
+	path = files/.vim/bundle/delimitmate
+	url = https://github.com/raimondi/delimitmate
+[submodule "vim/vim-orgmode"]
+	path = files/.vim/bundle/vim-orgmode
+	url = https://github.com/jceb/vim-orgmode
+[submodule "vim/vim-speeddating"]
+	path = files/.vim/bundle/vim-speeddating
+	url = https://github.com/tpope/vim-speeddating

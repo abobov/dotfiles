@@ -334,6 +334,12 @@ augroup ft_ledger
     au FileType ledger inoremap <silent><buffer> <Leader>e <Esc>:call ledger#entry()<CR>
 augroup END
 " }}}
+" Org {{{
+augroup ft_org
+    au!
+    au FileType org setlocal spell nolist
+augroup END
+" }}}
 " }}}
 " Plugins {{{
 " Surround {{{
@@ -379,6 +385,7 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDChristmasTree = 1
 let NERDTreeChDirMode = 2
+let NERDTreeAutoDeleteBuffer=1
 
 let NERDTreeIgnore = [ '\.pyc$' ]
 
@@ -416,6 +423,12 @@ nnoremap <silent> <Leader>T :call TabularizeUnderCursos()<cr>
 " Emmet {{{
 
 let g:user_emmet_expandabbr_key = '<C-e>'
+
+" }}}
+" delimitMate {{{
+
+let delimitMate_expand_cr = 1
+au FileType html,xml let b:delimitMate_matchpairs="(:),[:],{:}"
 
 " }}}
 " }}}
