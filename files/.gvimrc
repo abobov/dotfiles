@@ -9,8 +9,6 @@ set guicursor+=a:blinkoff0
 " Visual bell option reseted after starting gvim
 set t_vb=
 
-" Цвет меню дополнения
-hi Pmenu guibg=#75507B
 " Подсветка текущей строки при вводе
 autocmd InsertEnter * set cursorline
 autocmd InsertLeave * set nocursorline

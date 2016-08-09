@@ -6,9 +6,7 @@ set nocompatible
 filetype off " Do so to reload filetype plugins after pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
-if &t_Co > 2 || has('gui_running')
-    syntax on
-endif
+syntax on
 filetype plugin indent on
 
 let g:template_dir=$HOME . "/.vim/templates"
@@ -131,6 +129,9 @@ let maplocalleader="\\"
 
 " Color scheme {{{
 
+if &t_Co < 16
+    set t_Co=16
+endif
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 set background=light
@@ -273,10 +274,14 @@ nnoremap g$ $
 nnoremap $ g$
 nnoremap g0 0
 nnoremap 0 g0
+nnoremap g^ ^
+nnoremap ^ g^
 vnoremap g$ $
 vnoremap $ g$
 vnoremap g0 0
 vnoremap 0 g0
+vnoremap g^ ^
+vnoremap ^ g^
 
 " }}}
 
@@ -337,7 +342,7 @@ augroup END
 " Org {{{
 augroup ft_org
     au!
-    au FileType org setlocal spell nolist
+    au FileType org setlocal spell nolist tabstop=2 shiftwidth=2
 augroup END
 " }}}
 " }}}
