@@ -6,4 +6,5 @@
 /files/.vim/.netrwhist
 /files/.vim/doc/tags
 /files/.vim/spell
+/files/.vim/bundle
 /files/.zsh/cache

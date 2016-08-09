@@ -1,13 +1,83 @@
 " vim: spell foldmethod=marker :
 
-" Setup {{{
-set nocompatible
+" Setup & Plugins {{{
 
-filetype off " Do so to reload filetype plugins after pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-syntax on
+" Setup Vundle
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Plugins {{{
+
+Plugin 'VundleVim/Vundle.vim'
+
+" Library for other plugins
+Plugin 'https://github.com/vim-scripts/L9.git'
+
+" Git inside vim
+Plugin 'https://github.com/tpope/vim-fugitive.git'
+
+" Intelligent date inc/dec
+Plugin 'https://github.com/tpope/vim-speeddating'
+" Show colors in CSS format
+Plugin 'https://github.com/ap/vim-css-color'
+" Load project .vimrc files
+Plugin 'https://github.com/MarcWeber/vim-addon-local-vimrc'
+" Fuzzy finder
+Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
+" Finder
+Plugin 'https://github.com/vim-scripts/FuzzyFinder.git'
+" Solarized colorscheme
+Plugin 'https://github.com/altercation/vim-colors-solarized'
+" Zen codding
+Plugin 'https://github.com/mattn/emmet-vim.git'
+" Code snippets
+Plugin 'https://github.com/msanders/snipmate.vim'
+" Silversearch plugin
+Plugin 'https://github.com/rking/ag.vim'
+" Support dot command for plugins
+Plugin 'https://github.com/tpope/vim-repeat.git'
+Plugin 'https://github.com/tpope/vim-surround.git'
+" Files tree plugin
+Plugin 'https://github.com/scrooloose/nerdtree'
+" Commenting text
+Plugin 'https://github.com/scrooloose/nerdcommenter.git'
+Plugin 'https://github.com/raimondi/delimitmate'
+" Syntax check and linting
+Plugin 'https://github.com/scrooloose/syntastic.git'
+" Text alignment commands
+Plugin 'https://github.com/godlygeek/tabular'
+" Pasting in vim
+Plugin 'https://github.com/ConradIrwin/vim-bracketed-paste'
+" File templates
+Plugin 'https://github.com/aperezdc/vim-template'
+" Code browser
+Plugin 'https://github.com/vim-scripts/taglist.vim'
+
+" File types
+
+" Ledger
+Plugin 'https://github.com/ledger/vim-ledger'
+" Nginx
+Plugin 'https://github.com/evanmiller/nginx-vim-syntax.git'
+" Jade templates
+Plugin 'https://github.com/digitaltoad/vim-jade.git'
+" Markdown
+Plugin 'https://github.com/plasticboy/vim-markdown.git'
+" TypeScript
+Plugin 'https://github.com/HerringtonDarkholme/yats.vim'
+" Orgmode
+Plugin 'https://github.com/jceb/vim-orgmode'
+
+"Plugin 'https://github.com/othree/xml.vim'
+"Plugin 'https://github.com/terryma/vim-multiple-cursors'
+"Plugin 'https://github.com/motemen/git-vim'
+
+" }}}
+call vundle#end()
 filetype plugin indent on
+syntax on
 
 let g:template_dir=$HOME . "/.vim/templates"
 " }}}
@@ -393,11 +463,6 @@ let NERDTreeChDirMode = 2
 let NERDTreeAutoDeleteBuffer=1
 
 let NERDTreeIgnore = [ '\.pyc$' ]
-
-" }}}
-" Sparkup {{{
-
-let g:sparkupNextMapping = '<c-s>'
 
 " }}}
 " Scratch {{{
