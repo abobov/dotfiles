@@ -79,7 +79,9 @@ alias -g L='|less'
 # Run bush in last docker container
 alias dbash='docker exec -it `docker ps -ql` bash'
 alias dps='docker ps'
+alias dlog='docker logs --tail 100 --follow'
 
 alias portcheck='nc -z -v -w 5'
+alias jq='jq --color-output'
 
 # vim: et ft=zsh :
