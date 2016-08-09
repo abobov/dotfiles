@@ -79,7 +79,6 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
-let g:template_dir=$HOME . "/.vim/templates"
 " }}}
 " Options {{{
 
@@ -407,12 +406,19 @@ augroup END
 augroup ft_ledger
     au!
     au FileType ledger inoremap <silent><buffer> <Leader>e <Esc>:call ledger#entry()<CR>
+    au FileType ledger noremap = :LedgerAlign<CR>
 augroup END
 " }}}
 " Org {{{
 augroup ft_org
     au!
     au FileType org setlocal spell nolist tabstop=2 shiftwidth=2
+augroup END
+" }}}
+" QuickFix {{{
+augroup ft_qf
+    au!
+    au FileType qf set nowrap
 augroup END
 " }}}
 " }}}
@@ -498,7 +504,12 @@ let g:user_emmet_expandabbr_key = '<C-e>'
 " delimitMate {{{
 
 let delimitMate_expand_cr = 1
-au FileType html,xml let b:delimitMate_matchpairs="(:),[:],{:}"
+au FileType html let b:delimitMate_matchpairs="(:),[:],{:}"
+
+" }}}
+" Template {{{
+
+let g:templates_directory=$HOME . "/.vim/templates"
 
 " }}}
 " }}}
