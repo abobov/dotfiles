@@ -1,3 +1,7 @@
+# Fix aliases
+alias sudo='sudo '
+alias watch='watch '
+
 # Remove grml aliasses
 unalias ag
 
@@ -20,8 +24,10 @@ alias ls='ls --color=auto -h -F'
 alias rm='rm --interactive=once'
 alias mv='mv --interactive'
 
-alias ping='grc ping'
-alias dig='grc dig'
+if $(which grc >/dev/null) ; then
+    alias ping='grc ping'
+    alias dig='grc dig'
+fi
 
 alias display_off='xset dpms force off'
 

@@ -50,8 +50,10 @@ after_install() {
     mkdir -p $HOME/tmp/vim-undo $HOME/tmp/vim-backup
     mkdir -p $HOME/.mutt/cache
     touch $HOME/.mutt/aliases
+    [ -f $HOME/.fzf.zsh ] || echo "No fzf."
     check_command ctags
     check_command ag
+    check_command grc
 }
 
 check_override() {
