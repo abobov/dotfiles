@@ -43,6 +43,7 @@ Plugin 'https://github.com/tpope/vim-surround.git'
 Plugin 'https://github.com/scrooloose/nerdtree'
 " Commenting text
 Plugin 'https://github.com/scrooloose/nerdcommenter.git'
+" Automatic closing of quotes, parenthesis, etc...
 Plugin 'https://github.com/raimondi/delimitmate'
 " Syntax check and linting
 Plugin 'https://github.com/scrooloose/syntastic.git'
@@ -119,6 +120,8 @@ set showbreak=↵
 " Сколько строк оставлять при прокрутке с низу и с боку
 set scrolljump=4
 set scrolloff=4
+set sidescrolloff=5
+set display+=lastline
 " Число столбцов отведенное на фолдинг
 " set foldcolumn=3
 " Позволить перемещать курсор после начала и конца строки на предыдущую и
@@ -314,6 +317,7 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+nnoremap Q <Nop>
 
 " }}}
 
