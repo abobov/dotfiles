@@ -9,6 +9,10 @@ macro index     .t      "l~d<1d\n" "list today messages"
 macro index     O       "<shell-escape>offlineimap<enter>" "sync all mailboxes"
 macro index     o       "<shell-escape>offlineimap -qf INBOX<enter>" "sync INBOX"
 
+# Notmuch
+macro index L "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
+
+
 # Threads macros
 
 macro index,pager za "<Esc>v"
