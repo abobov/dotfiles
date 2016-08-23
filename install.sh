@@ -46,11 +46,21 @@ check_command() {
     fi
 }
 
+check_fzf() {
+    if [ ! -d $HOME/.fzf ] ; then
+        read -p "Install fzf? (y/n): "
+        if [ "y" == "$REPLY" ] ; then
+            git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+            $HOME/.fzf/install --all --no-update-rc
+        fi
+    fi
+}
+
 after_install() {
     mkdir -p $HOME/tmp/vim-undo $HOME/tmp/vim-backup
     mkdir -p $HOME/.mutt/cache
     touch $HOME/.mutt/aliases
-    [ -f $HOME/.fzf.zsh ] || echo "No fzf."
+    check_fzf
     check_command ctags
     check_command ag
     check_command grc
