@@ -114,6 +114,7 @@ set virtualedit+=block
 set backspace=indent,eol,start
 " Показывать столбец с номерами строк
 set number
+set relativenumber
 set nostartofline " many jump commands move the cursor to the first non-blank character of a line
 " Символ показывающий перенос текста
 set showbreak=↵
@@ -386,6 +387,10 @@ nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 
 " }}}
 
+" }}}
+" Commands {{{
+command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
+            \ | diffthis | wincmd p | diffthis
 " }}}
 " Filetype {{{
 " XML {{{
