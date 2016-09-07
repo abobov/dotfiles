@@ -3,7 +3,7 @@ alias sudo='sudo '
 alias watch='watch '
 
 # Remove grml aliasses
-unalias ag
+unalias ag 2>/dev/null
 
 alias ag="ag --page less"
 
@@ -24,7 +24,7 @@ alias ls='ls --color=auto -h -F'
 alias rm='rm --interactive=once'
 alias mv='mv --interactive'
 
-if $(which grc >/dev/null) ; then
+if $(which grc >/dev/null 2>&1) ; then
     alias ping='grc ping'
     alias dig='grc dig'
 fi
@@ -81,6 +81,7 @@ alias -g GI='|grep -i'
 alias -g H='|head'
 alias -g T='|tail'
 alias -g L='|less'
+alias -g LA='2>&1|less'
 
 # Run bush in last docker container
 alias dbash='docker exec -it `docker ps -ql` bash'
@@ -89,5 +90,11 @@ alias dlog='docker logs --tail 100 --follow'
 
 alias portcheck='nc -z -v -w 5'
 alias jq='jq --color-output'
+
+if $(which colordiff >/dev/null) ; then
+    alias diff='colordiff -u'
+else
+    alias diff='diff -u'
+fi
 
 # vim: et ft=zsh :
