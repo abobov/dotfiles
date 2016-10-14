@@ -100,6 +100,9 @@ set imsearch=0
 
 set autoread
 set visualbell t_vb=
+if exists('&belloff')
+    set belloff=all
+endif
 set title
 " Скрывать буфер редактировании другого
 set hidden
@@ -116,8 +119,6 @@ set backspace=indent,eol,start
 set number
 set relativenumber
 set nostartofline " many jump commands move the cursor to the first non-blank character of a line
-" Символ показывающий перенос текста
-set showbreak=↵
 " Сколько строк оставлять при прокрутке с низу и с боку
 set scrolljump=4
 set scrolloff=4
@@ -190,10 +191,16 @@ set smarttab
 set shiftround
 set expandtab
 set wrap
-set linebreak
 set textwidth=80
 set formatoptions=rqnl1j
 set cpoptions+=J
+
+set linebreak
+set showbreak=↵
+set breakindent
+if exists('&breakindentopt')
+    set breakindentopt=shift:2
+endif
 
 " }}}
 

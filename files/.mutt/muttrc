@@ -20,7 +20,7 @@ set header_cache="~/.mutt/cache/headers"
 set signature="~/.mutt/signature"
 
 set assumed_charset="cp1251:koi8-r:utf-8"
-set attach_charset="cp1251:koi8-r:utf-8"
+#set attach_charset="cp1251:koi8-r:utf-8"
 
 alternates "anton@bobov.name" "abobov@gmail.com"
 
@@ -99,6 +99,8 @@ set mailcap_path=~/.mutt/mutt_mailcap:/etc/mailcap
 
 auto_view application/octet-stream
 auto_view text/html
+
+alternative_order text/plain text/html
 
 # Ignore some headers
 ignore *

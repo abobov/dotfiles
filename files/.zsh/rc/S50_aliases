@@ -9,7 +9,7 @@ alias ag="ag --page less"
 
 
 alias -s html=x-www-browser
-alias -s pdf=mupdf
+alias -s pdf=evince
 
 alias -s exe=wine
 
