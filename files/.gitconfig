@@ -14,17 +14,19 @@
     pager = less -+$LESS -FRX
     excludesfile = ~/.gitignore
 [alias]
-    diffstat = diff --stat -r
+    aa = add --all --intent-to-add
+    ar = !sh -c 'git archive --format=tar --prefix="$(basename "$PWD")-$1/" $1^{tree} | bzip2 >"$(basename "$PWD")-$1.tar.bz2"' -
+    c = commit --verbose
     co = checkout
     ci = commit
-    lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    st = status
+    diffstat = diff --stat -r
+    fix = commit --amend -C HEAD
+    history-all = "!gitk --all $( git fsck | awk '/dangling commit/ {print $3}'; git log -g --pretty='format:%H')"
     k =  !sh -c 'gitk $1' -
     ka = !sh -c 'gitk --all' -
     kb = !sh -c 'gitk --branches' -
-    fix = commit --amend -C HEAD
-    ar = !sh -c 'git archive --format=tar --prefix="$(basename "$PWD")-$1/" $1^{tree} | bzip2 >"$(basename "$PWD")-$1.tar.bz2"' -
-    history-all = "!gitk --all $( git fsck | awk '/dangling commit/ {print $3}'; git log -g --pretty='format:%H')"
+    lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    st = status
 [push]
     default = matching
 [advice]
