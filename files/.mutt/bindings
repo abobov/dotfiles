@@ -1,14 +1,13 @@
 bind generic "(" current-top
 
-bind index gg first-entry
+bind index g group-reply
 bind index G last-entry
 bind index { previous-thread
 bind index } next-thread
 bind index - collapse-thread
+bind index _ collapse-all
 bind index F flag-message
 bind index p recall-message
-bind index g group-reply
-
 
 bind index,pager \CP sidebar-prev
 bind index,pager \CN sidebar-next
@@ -18,6 +17,7 @@ bind pager k previous-line
 bind pager j next-line
 bind pager gg top
 bind pager G bottom
+bind pager ,g group-reply
 
 bind pager "{" previous-thread
 bind pager "}" next-thread

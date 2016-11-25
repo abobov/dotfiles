@@ -1,0 +1,2 @@
+set sort=reverse-date
+macro index S "<enter-command>source ~/.mutt/sort-threads.rc<enter>"

@@ -40,7 +40,7 @@ set postpone=ask-no
 set move=no
 set include=yes					# include message in reply
 set delete=yes					# just delete then select to delete
-set sort=threads
+source ~/.mutt/sort-threads.rc
 set sort_aux=reverse-last-date-received
 set charset=utf-8				# terminal charset
 set allow_8bit

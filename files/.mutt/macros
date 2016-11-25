@@ -1,4 +1,4 @@
-macro index,pager S "<save-message>=[Gmail]/Spam<enter>" "mark message as spam"
+#macro index,pager S "<save-message>=[Gmail]/Spam<enter>" "mark message as spam"
 macro index ,r "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new messages read"
 #macro index,pager H "<save-message>=INBOX<enter>" "mark message as ham"
 
