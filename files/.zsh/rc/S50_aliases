@@ -24,6 +24,9 @@ alias ls='ls --color=auto -h -F'
 alias rm='rm --interactive=once'
 alias mv='mv --interactive'
 
+alias v='vim'
+alias t='tmux'
+
 if $(which grc >/dev/null 2>&1) ; then
     alias ping='grc ping'
     alias dig='grc dig'
@@ -35,7 +38,6 @@ alias esync='sudo eix-sync'
 alias eupdw='sudo emerge -avuND @world'
 alias eetc='sudo etc-update'
 
-alias open='xdg-open'
 alias notes='editor $HOME/Dropbox/notes.md'
 
 # Moving to directory in different teminals.
@@ -45,17 +47,16 @@ alias xcd='cd "$(xclip -o)"'
 alias man='LANG=C man'
 
 alias upa='sudo aptitude -u'
+alias apurge='sudo aptitude purge --purge-unused'
 
 alias cclip='xclip -selection clipboard'
 
 check_com g || alias g='git'
 check_com s || alias s='ssh'
 
-alias mocp='PULSE_LATENCY_MSEC=60 mocp'
-
 alias rscp='rsync -avzP'
 
-alias yd-date='youtube-dl --output="%(upload_date)s - %(title)s-%(id)s.%(ext)s"'
+alias yd-date='youtube-dl --output="[%(playlist_index)s] %(upload_date)s - %(title)s-%(id)s.%(ext)s"'
 
 alias boot-log="sed 's/\^\[/\o33/g;s/\[1G\[/\[27G\[/' /var/log/boot | less -r"
 
@@ -68,6 +69,14 @@ alias sc=systemctl
 alias jf="journalctl --unit"
 
 alias httpserver='python -m SimpleHTTPServer'
+test -f ~/bin/pandoc-filter-includes.py && alias pdoc='pandoc --smart --standalone --filter ~/bin/pandoc-filter-includes.py'
+
+# TLP
+
+alias tlp-stat='sudo tlp-stat'
+
+alias tlp-fullcharge='sudo tlp fullcharge BAT0; sudo tlp fullcharge BAT1'
+alias tlp-setcharge='sudo tlp setcharge BAT0; sudo tlp setcharge BAT1'
 
 # VPN
 
@@ -82,11 +91,18 @@ alias -g H='|head'
 alias -g T='|tail'
 alias -g L='|less'
 alias -g LA='2>&1|less'
+alias -g X='|xclip'
+alias -g XC='|xclip -selection clipboard'
+
+# Projects
+
+alias sz='~/src/sovzond/proj.sh'
 
 # Run bush in last docker container
 alias dbash='docker exec -it `docker ps -ql` bash'
 alias dps='docker ps'
 alias dlog='docker logs --tail 100 --follow'
+alias dclean='docker images --quiet --filter dangling=true | xargs --no-run-if-empty docker rmi'
 
 alias portcheck='nc -z -v -w 5'
 alias jq='jq --color-output'

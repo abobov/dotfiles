@@ -64,4 +64,12 @@ EOM
     fi
 }
 
+open() {
+    if [ $# == 0 ] ; then
+        xdg-open .
+    else
+        xdg-open $*
+    fi
+}
+
 # vim: ft=zsh :
