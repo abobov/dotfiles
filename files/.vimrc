@@ -59,7 +59,8 @@ Plugin 'https://github.com/vim-scripts/taglist.vim'
 " File types
 
 " Ledger
-Plugin 'https://github.com/ledger/vim-ledger'
+"Plugin 'https://github.com/ledger/vim-ledger'
+Plugin 'https://github.com/abobov/vim-ledger'
 " Nginx
 Plugin 'https://github.com/evanmiller/nginx-vim-syntax.git'
 " Jade templates
@@ -220,6 +221,7 @@ colorscheme solarized
 " }}}
 
 digraphs ru 8381
+digraphs e= 8364
 
 " }}}
 " Backup {{{

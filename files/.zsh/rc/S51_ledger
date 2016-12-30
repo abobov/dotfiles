@@ -5,9 +5,14 @@ alias ltoday='noglob ledger register --period today'
 alias ldays='noglob ledger register --begin "last day"'
 alias lweek='noglob ledger register --begin "last 7 days"'
 alias balc='bal --current --aux-date'
+alias lpending='ledger register --pending'
 
 bal() {
-    ledger balance $* ^Assets ^Liabilities
+    if  [ $# -eq 0 ] || [[ $1 =~ [-].+  ]] ; then
+        ledger balance $* ^Assets ^Liabilities
+    else
+        ledger balance ^Assets and $*
+    fi
 }
 
 ele() {
