@@ -27,16 +27,23 @@
     kb = !sh -c 'gitk --branches' -
     lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     st = status
-[push]
-    default = matching
+    addnw = !sh -c 'git diff --unified=0 --ignore-all-space --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
+    branch-name = "!git rev-parse --abbrev-ref HEAD"
+    publish = "!git push -u origin $(git branch-name)"
 [advice]
     statusHints = false
 [branch]
     autosetupmerge = always
     autosetuprebase = local
+[rebase]
+    instructionFormat = %s [%an] {%ar}
 [help]
     autocorrect = 10
 [credential]
-	helper = cache
+    helper = netrc
 [remote-hg]
-	hg-git-compat = true
+    hg-git-compat = true
+[filter "tabs"]
+    ;clean = unexpand --tabs=4 --first-only
+[gui]
+    tabsize = 4
