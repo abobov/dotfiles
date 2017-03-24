@@ -7,6 +7,7 @@ unalias ag 2>/dev/null
 
 alias ag="ag --page less"
 
+alias wcc="wc -c | numfmt --to=si"
 
 alias -s html=x-www-browser
 alias -s pdf=evince
@@ -26,6 +27,7 @@ alias mv='mv --interactive'
 
 alias v='vim'
 alias t='tmux'
+alias mux='tmuxinator'
 
 if $(which grc >/dev/null 2>&1) ; then
     alias ping='grc ping'
@@ -70,6 +72,8 @@ alias jf="journalctl --unit"
 
 alias httpserver='python -m SimpleHTTPServer'
 test -f ~/bin/pandoc-filter-includes.py && alias pdoc='pandoc --smart --standalone --filter ~/bin/pandoc-filter-includes.py'
+
+alias jkill="jps | grep -v ' Jps$' | grep -v ' org.eclipse.equinox.' | cut -d ' ' -f 1 | xargs -r kill"
 
 # TLP
 
