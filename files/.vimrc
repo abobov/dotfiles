@@ -289,8 +289,10 @@ if has('autocmd')
 	autocmd FileType python set expandtab
 	autocmd FileType html,xml,ant set nolist
 
+    " Restore cursor position
     au BufReadPost * if line("'\.") > 0 && line("'\.") <= line("$") | exe 'normal g`.zvzz' | endif
     au BufRead,BufNewFile /etc/nginx/* if &ft == "" | setfiletype nginx | endif
+    au BufEnter * if &filetype == "" | setlocal ft=text | endif
     au BufReadPost *.ledger norm G
 
     " Set scripts to be executable from shell
