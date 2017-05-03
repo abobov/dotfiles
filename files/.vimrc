@@ -29,7 +29,8 @@ Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
 " Finder
 Plugin 'https://github.com/vim-scripts/FuzzyFinder.git'
 " Solarized colorscheme
-Plugin 'https://github.com/altercation/vim-colors-solarized'
+"Plugin 'https://github.com/altercation/vim-colors-solarized'
+Plugin 'https://github.com/lifepillar/vim-solarized8'
 " Zen codding
 Plugin 'https://github.com/mattn/emmet-vim.git'
 " Code snippets
@@ -216,7 +217,7 @@ endif
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 set background=light
-colorscheme solarized
+colorscheme solarized8_light
 
 " }}}
 
