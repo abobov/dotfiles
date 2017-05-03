@@ -17,6 +17,7 @@ Plugin 'https://github.com/vim-scripts/L9.git'
 
 " Git inside vim
 Plugin 'https://github.com/tpope/vim-fugitive.git'
+Plugin 'https://github.com/tpope/vim-unimpaired'
 
 " Intelligent date inc/dec
 Plugin 'https://github.com/tpope/vim-speeddating'
@@ -117,6 +118,7 @@ set omnifunc=syntaxcomplete#Complete
 runtime! macros/matchit.vim
 set virtualedit+=block
 set backspace=indent,eol,start
+set diffopt+=vertical
 " Показывать столбец с номерами строк
 set number
 set relativenumber
@@ -296,6 +298,8 @@ if has('autocmd')
     au BufEnter * if &filetype == "" | setlocal ft=text | endif
     au BufReadPost *.ledger norm G
 
+    au BufRead,BufNewFile *.geojson if &ft == "" | setfiletype json | endif
+
     " Set scripts to be executable from shell
     "au BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent !chmod +x <afile> | endif
     au BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent exec "!chmod +x <afile>" | endif
@@ -423,6 +427,19 @@ augroup ft_javascript
 augroup END
 
 " }}}
+" JSON {{{
+
+augroup ft_json
+    au!
+
+    if executable('jq')
+        au FileType json noremap <Leader>jq :%!jq --indent 4 .<CR>
+        au FileType json vnoremap <Leader>jq :'<,'>!jq --indent 4 .<CR>
+    endif
+
+augroup END
+
+" }}}
 " Ledger {{{
 augroup ft_ledger
     au!
@@ -531,6 +548,11 @@ au FileType html let b:delimitMate_matchpairs="(:),[:],{:}"
 " Template {{{
 
 let g:templates_directory=$HOME . "/.vim/templates"
+
+" }}}
+" Ctrl-P {{{
+
+let g:ctrlp_user_command = 'find %s -type f'
 
 " }}}
 " }}}

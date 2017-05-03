@@ -16,6 +16,7 @@
 [alias]
     aa = add --all --intent-to-add
     ar = !sh -c 'git archive --format=tar --prefix="$(basename "$PWD")-$1/" $1^{tree} | bzip2 >"$(basename "$PWD")-$1.tar.bz2"' -
+    br = branch
     c = commit --verbose
     co = checkout
     ci = commit
