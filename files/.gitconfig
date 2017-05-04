@@ -1,18 +1,24 @@
 [user]
     name = Anton Bobov
     email = abobov@gmail.com
+[http]
+    sslVerify = false
 [color]
     ui = auto
 [diff]
     tool = vimdiff
 [difftool]
     prompt = false
+[grep]
+    lineNumber = true
 [merge]
     tool = vimdiff
     stat = true
 [core]
     pager = less -+$LESS -FRX
     excludesfile = ~/.gitignore
+[log]
+    decorate = short
 [alias]
     aa = add --all --intent-to-add
     ar = !sh -c 'git archive --format=tar --prefix="$(basename "$PWD")-$1/" $1^{tree} | bzip2 >"$(basename "$PWD")-$1.tar.bz2"' -
@@ -38,6 +44,10 @@
     autosetuprebase = local
 [rebase]
     instructionFormat = %s [%an] {%ar}
+[rerere]
+    enabled = true
+[status]
+    submoduleSummary = true
 [help]
     autocorrect = 10
 [credential]
