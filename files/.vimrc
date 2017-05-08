@@ -334,7 +334,7 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
-nnoremap Q <Nop>
+nnoremap Q @q
 
 " }}}
 
@@ -552,7 +552,8 @@ let g:templates_directory=$HOME . "/.vim/templates"
 " }}}
 " Ctrl-P {{{
 
-let g:ctrlp_user_command = 'find %s -type f'
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_user_caching = 0
 
 " }}}
 " }}}
