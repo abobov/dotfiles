@@ -7,9 +7,15 @@ alias lweek='noglob ledger register --begin "last 7 days"'
 alias balc='bal --current --aux-date'
 alias lpending='ledger register --pending'
 
+_ledger_smartcase_expr() {
+    echo "$1" | sed -r 's/[A-Z]/.*&/g'
+}
+
 bal() {
     if  [ $# -eq 0 ] || [[ $1 =~ [-].+  ]] ; then
         ledger balance $* ^Assets ^Liabilities
+    elif [ $# -eq 1 ] ; then
+        ledger balance ^Assets and $(_ledger_smartcase_expr "$*")
     else
         ledger balance ^Assets and $*
     fi

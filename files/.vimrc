@@ -96,6 +96,7 @@ if has("multi_byte")
 endif
 set keymap=russian-jcukenwin
 set spelllang=ru,en
+set spell
 set iminsert=0
 set imsearch=0
 
@@ -407,6 +408,9 @@ nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
 " Commands {{{
 command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
             \ | diffthis | wincmd p | diffthis
+if executable('jq')
+    command -range Jq <line1>,<line2>!jq --indent 4 .
+endif
 " }}}
 " Filetype {{{
 " XML {{{
@@ -432,9 +436,9 @@ augroup END
 augroup ft_json
     au!
 
-    if executable('jq')
-        au FileType json noremap <Leader>jq :%!jq --indent 4 .<CR>
-        au FileType json vnoremap <Leader>jq :'<,'>!jq --indent 4 .<CR>
+    if exists(':Jq')
+        au FileType json noremap <Leader>jq :%Jq<CR>
+        au FileType json vnoremap <Leader>jq :%Jq<CR>
     endif
 
 augroup END

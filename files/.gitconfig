@@ -33,7 +33,10 @@
     ka = !sh -c 'gitk --all' -
     kb = !sh -c 'gitk --branches' -
     lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    l = "!git lg -10"
+    f = !sh -c 'git branch | grep -F "feature/$1" | xargs -r -n 1 git co' -
     st = status
+    stashlist = stash list --date=short
     addnw = !sh -c 'git diff --unified=0 --ignore-all-space --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
     branch-name = "!git rev-parse --abbrev-ref HEAD"
     publish = "!git push -u origin $(git branch-name)"

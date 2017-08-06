@@ -7,7 +7,6 @@ pythonfile = ~/.offlineimap-utf7.py
 [Account Gmail]
 localrepository = LocalGmail
 remoterepository = RemoteGmail
-status_backend = sqlite
 postsynchook = notmuch new
 
 [Repository LocalGmail]

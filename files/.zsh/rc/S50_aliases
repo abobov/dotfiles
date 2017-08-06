@@ -32,6 +32,7 @@ alias mux='tmuxinator'
 if $(which grc >/dev/null 2>&1) ; then
     alias ping='grc ping'
     alias dig='grc dig'
+    alias ip='grc ip'
 fi
 
 alias display_off='xset dpms force off'
