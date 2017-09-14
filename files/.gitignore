@@ -3,6 +3,9 @@
 .project
 .settings
 
+# Idea project files
+.idea
+
 # SASS
 .sass-cache
 
