@@ -72,4 +72,16 @@ open() {
     fi
 }
 
+retry() {
+    for i in $(seq 5) ; do
+        $* && break || sleep 5
+    done
+}
+
+datediff() {
+    d1=$(date --date "$1" +%s)
+    d2=$(date --date "$2" +%s)
+    echo $(( (d1 - d2) / 86300 )) days
+}
+
 # vim: ft=zsh :

@@ -73,6 +73,7 @@ alias jf="journalctl --unit"
 
 alias httpserver='python -m SimpleHTTPServer'
 test -f ~/bin/pandoc-filter-includes.py && alias pdoc='pandoc --smart --standalone --filter ~/bin/pandoc-filter-includes.py'
+alias pdoc-pdf='pandoc --latex-engine=xelatex -V geometry:margin=1in -V mainfont="Linux Libertine O"'
 
 alias jkill="jps | grep -v ' Jps$' | grep -v ' org.eclipse.equinox.' | cut -d ' ' -f 1 | xargs -r kill"
 
