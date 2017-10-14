@@ -6,6 +6,7 @@ alias ldays='noglob ledger register --begin "last day"'
 alias lweek='noglob ledger register --begin "last 7 days"'
 alias balc='bal --current --aux-date'
 alias lpending='ledger register --pending'
+alias lcash='ledger balance Expenses:Cash'
 
 _ledger_smartcase_expr() {
     echo "$1" | sed -r 's/[A-Z]/.*&/g'

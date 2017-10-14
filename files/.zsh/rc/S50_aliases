@@ -119,4 +119,11 @@ else
     alias diff='diff -u'
 fi
 
+if $(which unoconv >/dev/null) ; then
+    alias 2pdf='unoconv --format pdf'
+elif $(which libreoffice >/dev/null) ; then
+    alias 2pdf='libreoffice --headless --convert-to pdf'
+fi
+
+
 # vim: et ft=zsh :
