@@ -67,6 +67,9 @@ alias ipv6_disable='sudo sysctl net.ipv6.conf.all.disable_ipv6=1'
 alias ipv6_enable='sudo sysctl net.ipv6.conf.all.disable_ipv6=0'
 
 alias aria2c-rpc="aria2c --enable-rpc"
+if [ -f "$HOME/.config/chromium/Default/Cookies" ] ; then
+    alias aria2c-cookies="aria2c --load-cookies='$HOME/.config/chromium/Default/Cookies'"
+fi
 
 alias sc=systemctl
 alias jf="journalctl --unit"
@@ -99,10 +102,6 @@ alias -g L='|less'
 alias -g LA='2>&1|less'
 alias -g X='|xclip'
 alias -g XC='|xclip -selection clipboard'
-
-# Projects
-
-alias sz='~/src/sovzond/proj.sh'
 
 # Run bush in last docker container
 alias dbash='docker exec -it `docker ps -ql` bash'

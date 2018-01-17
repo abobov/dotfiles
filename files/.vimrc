@@ -17,6 +17,7 @@ Plugin 'https://github.com/vim-scripts/L9.git'
 
 " Git inside vim
 Plugin 'https://github.com/tpope/vim-fugitive.git'
+Plugin 'https://github.com/airblade/vim-gitgutter'
 Plugin 'https://github.com/tpope/vim-unimpaired'
 
 " Intelligent date inc/dec
@@ -30,7 +31,6 @@ Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
 " Finder
 Plugin 'https://github.com/vim-scripts/FuzzyFinder.git'
 " Solarized colorscheme
-"Plugin 'https://github.com/altercation/vim-colors-solarized'
 Plugin 'https://github.com/lifepillar/vim-solarized8'
 " Zen codding
 Plugin 'https://github.com/mattn/emmet-vim.git'
@@ -55,16 +55,12 @@ Plugin 'https://github.com/godlygeek/tabular'
 Plugin 'https://github.com/ConradIrwin/vim-bracketed-paste'
 " File templates
 Plugin 'https://github.com/aperezdc/vim-template'
-" Code browser
-Plugin 'https://github.com/vim-scripts/taglist.vim'
 
 " File types
 
 " Ledger
-"Plugin 'https://github.com/ledger/vim-ledger'
 Plugin 'https://github.com/abobov/vim-ledger'
-" Nginx
-Plugin 'https://github.com/evanmiller/nginx-vim-syntax.git'
+
 " Jade templates
 Plugin 'https://github.com/digitaltoad/vim-jade.git'
 " Markdown
@@ -217,10 +213,13 @@ let maplocalleader="\\"
 if &t_Co < 16
     set t_Co=16
 endif
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 set background=light
 colorscheme solarized8_light
+set termguicolors
 
 " }}}
 
@@ -558,6 +557,11 @@ let g:templates_directory=$HOME . "/.vim/templates"
 
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_user_caching = 0
+
+" }}}
+" Ledger {{{
+
+let g:ledger_commodity_spell = 0
 
 " }}}
 " }}}

@@ -15,3 +15,6 @@
 # Infinitest
 infinitest.filters
 infinitest.args
+
+# NPM
+package-lock.json
