@@ -48,7 +48,7 @@ Plugin 'https://github.com/scrooloose/nerdcommenter.git'
 " Automatic closing of quotes, parenthesis, etc...
 Plugin 'https://github.com/raimondi/delimitmate'
 " Syntax check and linting
-Plugin 'https://github.com/scrooloose/syntastic.git'
+"Plugin 'https://github.com/scrooloose/syntastic.git'
 " Text alignment commands
 Plugin 'https://github.com/godlygeek/tabular'
 " Pasting in vim
@@ -221,7 +221,7 @@ if has('termguicolors')
     set termguicolors
 endif
 set background=light
-colorscheme solarized8_light
+colorscheme solarized8
 
 " }}}
 
@@ -450,6 +450,10 @@ augroup ft_ledger
     au!
     au FileType ledger inoremap <silent><buffer> <Leader>e <Esc>:call ledger#entry()<CR>
     au FileType ledger noremap = :LedgerAlign<CR>
+    au FileType ledger iabbrev <buffer> polza Assets:Bank:HomeCredit:Card:Polza
+    au FileType ledger iabbrev <buffer> alfa Assets:Bank:AlfaBank:Card
+    au FileType ledger iabbrev <buffer> tinkof Assets:Bank:Tinkoff:Card-Black
+    au BufWritePost *.ledger silent! make | redraw! | cwindow
 augroup END
 " }}}
 " Org {{{

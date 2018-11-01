@@ -29,11 +29,6 @@ alias v='vim'
 alias t='tmux'
 alias mux='tmuxinator'
 
-if $(which grc >/dev/null 2>&1) ; then
-    alias ping='grc ping'
-    alias dig='grc dig'
-    alias ip='grc ip'
-fi
 
 alias display_off='xset dpms force off'
 
@@ -124,5 +119,6 @@ elif $(which libreoffice >/dev/null) ; then
     alias 2pdf='libreoffice --headless --convert-to pdf'
 fi
 
+#[[ -s /etc/grc.zsh ]] && source /etc/grc.zsh
 
 # vim: et ft=zsh :

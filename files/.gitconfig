@@ -22,7 +22,7 @@
 [alias]
     aa = add --all --intent-to-add
     ar = !sh -c 'git archive --format=tar --prefix="$(basename "$PWD")-$1/" $1^{tree} | bzip2 >"$(basename "$PWD")-$1.tar.bz2"' -
-    br = branch
+    br = branch --sort=-committerdate
     c = commit --verbose
     co = checkout
     ci = commit
@@ -61,3 +61,13 @@
     ;clean = unexpand --tabs=4 --first-only
 [gui]
     tabsize = 2
+[pull]
+    rebase = true
+[guitool "meld"]
+    cmd = meld $FILENAME
+    noconsole = yes
+    needsfile = yes
+[guitool "gvim"]
+    cmd = gvim $FILENAME
+    noconsole = yes
+    needsfile = yes
