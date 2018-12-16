@@ -168,8 +168,6 @@ set timeoutlen=1000
 set ttimeout
 set ttimeoutlen=10
 
-
-
 " List chars {{{
 
 set list
@@ -227,6 +225,15 @@ colorscheme solarized8
 
 digraphs ru 8381
 digraphs e= 8364
+
+" }}}
+" Syntax {{{
+
+" http://www.panozzaj.com/blog/2016/03/21/ignore-urls-and-acroynms-while-spell-checking-vim/
+" Disable spell check for URL
+syn match UrlNoSpell '\w\+:\/\/\S\+' contains=@NoSpell
+" Disable spell check for acronyms
+syn match AcronymNoSpell '\<\(\u\|\d\)\{3,}s\?\>' contains=@NoSpell
 
 " }}}
 " Backup {{{
