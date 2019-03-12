@@ -71,3 +71,7 @@
     cmd = gvim $FILENAME
     noconsole = yes
     needsfile = yes
+[include]
+    path = .gitconfig.local
+[includeIf "gitdir:~/src/rusgis/**"]
+    path = ~/.gitconfig-rusgis

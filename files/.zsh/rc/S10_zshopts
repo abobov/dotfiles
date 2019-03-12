@@ -51,7 +51,7 @@ setopt notify
 setopt no_rm_star_silent
 setopt no_rm_star_wait
 
-setopt no_share_history
+setopt share_history
 setopt vi
 setopt zle
 
