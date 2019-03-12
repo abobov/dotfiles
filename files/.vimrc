@@ -406,6 +406,13 @@ inoremap <C-l> <C-x><C-l>
 nnoremap <C-n> :cnext<CR>z.
 nnoremap <C-p> :cprevious<CR>z.
 
+" {{{ Diff mode mappings
+if &diff
+    map ] ]c
+    map [ [c
+endif
+" }}}
+
 " Quick editing {{{
 
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
@@ -457,10 +464,10 @@ augroup ft_ledger
     au!
     au FileType ledger inoremap <silent><buffer> <Leader>e <Esc>:call ledger#entry()<CR>
     au FileType ledger noremap = :LedgerAlign<CR>
-    au FileType ledger iabbrev <buffer> polza Assets:Bank:HomeCredit:Card:Polza
     au FileType ledger iabbrev <buffer> alfa Assets:Bank:AlfaBank:Card
     au FileType ledger iabbrev <buffer> tinkof Assets:Bank:Tinkoff:Card-Black
     au BufWritePost *.ledger silent! make | redraw! | cwindow
+    au FileType ledger let g:ledger_align_at = 80
 augroup END
 " }}}
 " Org {{{
