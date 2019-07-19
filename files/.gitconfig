@@ -37,9 +37,12 @@
     f = !sh -c 'git branch | grep -F "feature/$1" | xargs -r -n 1 git co' -
     st = status
     stashlist = stash list --date=short
+    sha = rev-parse --short
     addnw = !sh -c 'git diff --unified=0 --ignore-all-space --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
     branch-name = "!git rev-parse --abbrev-ref HEAD"
     publish = "!git push -u origin $(git branch-name)"
+    # https://datagrok.org/git/git-serve/
+    quickserve="daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/"
 [advice]
     statusHints = false
 [branch]
@@ -75,3 +78,8 @@
     path = .gitconfig.local
 [includeIf "gitdir:~/src/rusgis/**"]
     path = ~/.gitconfig-rusgis
+[filter "lfs"]
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process

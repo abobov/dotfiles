@@ -55,11 +55,16 @@ Plugin 'https://github.com/godlygeek/tabular'
 Plugin 'https://github.com/ConradIrwin/vim-bracketed-paste'
 " File templates
 Plugin 'https://github.com/aperezdc/vim-template'
+" Calculations in Vim
+Plugin 'https://github.com/arecarn/vim-crunch'
+" Vim Tmux Navigator
+Plugin 'christoomey/vim-tmux-navigator'
 
 " File types
 
 " Ledger
-Plugin 'https://github.com/abobov/vim-ledger'
+"Plugin 'https://github.com/abobov/vim-ledger'
+Plugin 'https://github.com/ledger/vim-ledger'
 
 " Jade templates
 Plugin 'https://github.com/digitaltoad/vim-jade.git'
@@ -466,8 +471,12 @@ augroup ft_ledger
     au FileType ledger noremap = :LedgerAlign<CR>
     au FileType ledger iabbrev <buffer> alfa Assets:Bank:AlfaBank:Card
     au FileType ledger iabbrev <buffer> tinkof Assets:Bank:Tinkoff:Card-Black
+    au FileType ledger iabbrev <buffer> coin Assets:Bank:HomeCredit:Card:CoinKeeper
     au BufWritePost *.ledger silent! make | redraw! | cwindow
-    au FileType ledger let g:ledger_align_at = 80
+    au FileType ledger setlocal foldmethod=marker foldmarker={,}
+    au FileType ledger noremap <Leader>e :call ledger#entry()<CR>
+    au FileType leader let g:crunch_result_type_append = 0
+    au FileType ledger compiler ledger
 augroup END
 " }}}
 " Org {{{
@@ -581,7 +590,7 @@ let g:ctrlp_user_caching = 0
 " }}}
 " Ledger {{{
 
-let g:ledger_commodity_spell = 0
+let g:ledger_align_at = 80
 
 " }}}
 " }}}
