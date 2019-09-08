@@ -66,6 +66,8 @@
     tabsize = 2
 [pull]
     rebase = true
+[push]
+    followTags = true
 [guitool "meld"]
     cmd = meld $FILENAME
     noconsole = yes

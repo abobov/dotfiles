@@ -34,12 +34,13 @@ setopt hash_dirs
 setopt hash_list_all
 setopt hist_find_no_dups
 setopt hist_ignore_all_dups
-setopt no_hist_ignore_space
+setopt hist_ignore_space
 setopt hist_no_functions
 setopt hist_no_store
 setopt hist_reduce_blanks
 setopt hist_save_no_dups
 setopt hist_verify
+setopt share_history
 setopt no_hup
 setopt no_ignore_eof
 
@@ -51,7 +52,6 @@ setopt notify
 setopt no_rm_star_silent
 setopt no_rm_star_wait
 
-setopt share_history
 setopt vi
 setopt zle
 

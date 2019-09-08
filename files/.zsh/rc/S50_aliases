@@ -27,6 +27,7 @@ alias mv='mv --interactive'
 
 alias v='vim'
 alias t='tmux'
+alias ta='tmux attach-session'
 alias mux='tmuxinator'
 
 
@@ -123,6 +124,8 @@ if $(which unoconv >/dev/null) ; then
 elif $(which libreoffice >/dev/null) ; then
     alias 2pdf='libreoffice --headless --convert-to pdf'
 fi
+
+alias http='http --timeout=9999999'
 
 #[[ -s /etc/grc.zsh ]] && source /etc/grc.zsh
 
