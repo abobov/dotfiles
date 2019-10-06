@@ -59,6 +59,7 @@ Plugin 'https://github.com/aperezdc/vim-template'
 Plugin 'https://github.com/arecarn/vim-crunch'
 " Vim Tmux Navigator
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'lervag/vimtex'
 
 " File types
 
@@ -591,6 +592,11 @@ let g:ctrlp_user_caching = 0
 " Ledger {{{
 
 let g:ledger_align_at = 80
+
+" }}}
+" vimtex {{{
+
+let g:tex_flavor = 'latex'
 
 " }}}
 " }}}

@@ -47,7 +47,13 @@ check_command() {
 }
 
 check_fzf() {
-    if [ ! -d $HOME/.fzf ] ; then
+    if [ -d $HOME/.fzf ] ; then
+        read -p "Update fzf? (y/n): "
+        if [ "y" == "$REPLY" ] ; then
+            cd $HOME/.fzf && git pull
+            $HOME/.fzf/install --all --no-update-rc
+        fi
+    else
         read -p "Install fzf? (y/n): "
         if [ "y" == "$REPLY" ] ; then
             git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf

@@ -125,7 +125,7 @@ elif $(which libreoffice >/dev/null) ; then
     alias 2pdf='libreoffice --headless --convert-to pdf'
 fi
 
-alias http='http --timeout=9999999'
+alias http='http --timeout=99999'
 
 #[[ -s /etc/grc.zsh ]] && source /etc/grc.zsh
 
