@@ -46,28 +46,12 @@ check_command() {
     fi
 }
 
-check_fzf() {
-    if [ -d $HOME/.fzf ] ; then
-        read -p "Update fzf? (y/n): "
-        if [ "y" == "$REPLY" ] ; then
-            cd $HOME/.fzf && git pull
-            $HOME/.fzf/install --all --no-update-rc
-        fi
-    else
-        read -p "Install fzf? (y/n): "
-        if [ "y" == "$REPLY" ] ; then
-            git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-            $HOME/.fzf/install --all --no-update-rc
-        fi
-    fi
-}
-
 after_install() {
     mkdir -p $HOME/tmp/vim-undo $HOME/tmp/vim-backup
     mkdir -p $HOME/.mutt/cache
     touch $HOME/.mutt/aliases
-    check_fzf
     check_command ag
+    check_command fzf
 }
 
 check_override() {
@@ -90,5 +74,6 @@ if [[ "-f" = "$1" ]] ; then
 fi
 
 cd && \
+    git -C "$dir" submodule update --init && \
     ( ls --format=single-column --almost-all "$dir/files" | check_override | create_link ) && \
     after_install
