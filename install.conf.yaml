@@ -1,6 +1,7 @@
 - defaults:
         link:
                 relink: true
+                create: true
 
 - clean: ['~']
 
@@ -23,10 +24,9 @@
         ~/.zshrc: files/.zshrc
         ~/.zshenv: files/.zshenv
         ~/bin: files/bin
-        ~/.config/:
-            glob: true
-            path: files/.config/*
-            create: true
+        ~/.config/devilspie2: files/.config/devilspie2
+        ~/.config/youtube-dl: files/.config/youtube-dl
+        ~/.config/xfce4/terminal: files/.config/xfce4/terminal
 
 - create:
     - ~/.z
