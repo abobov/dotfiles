@@ -71,6 +71,8 @@ Plugin 'https://github.com/ledger/vim-ledger'
 Plugin 'https://github.com/digitaltoad/vim-jade.git'
 " Markdown
 Plugin 'https://github.com/plasticboy/vim-markdown.git'
+" Pandoc
+Plugin 'vim-pandoc/vim-pandoc'
 " TypeScript
 Plugin 'https://github.com/HerringtonDarkholme/yats.vim'
 " Orgmode
@@ -599,6 +601,12 @@ let g:ledger_accounts_cmd = 'cat ~/.ledger-accounts'
 " vimtex {{{
 
 let g:tex_flavor = 'latex'
+
+" }}}
+" vim-pandoc {{{
+
+let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
+let g:pandoc#filetypes#pandoc_markdown = 0
 
 " }}}
 " }}}
