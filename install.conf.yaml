@@ -33,8 +33,6 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [vim -c 'PluginInstall' +qall, Installing vim plugins]
-    - [~/.tmux/plugins/tpm/bin/install_plugins, Installing tmux plugins]
     -
         command: xargs -a packages.debian sudo apt-get install -y
         description: Installing packages
@@ -45,3 +43,5 @@
         stdin: true
         stdout: true
         stderr: true
+    - [vim -c 'PluginInstall' +qall, Installing vim plugins]
+    - [~/.tmux/plugins/tpm/bin/install_plugins, Installing tmux plugins]
