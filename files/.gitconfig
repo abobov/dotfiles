@@ -81,9 +81,7 @@
     noconsole = yes
     needsfile = yes
 [include]
-    path = .gitconfig.local
-[includeIf "gitdir:~/src/rusgis/**"]
-    path = ~/.gitconfig-rusgis
+    path = ~/.gitconfig.local
 [filter "lfs"]
     required = true
     clean = git-lfs clean -- %f

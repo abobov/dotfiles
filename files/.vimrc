@@ -225,7 +225,7 @@ if has('termguicolors')
     set termguicolors
 endif
 set background=light
-colorscheme solarized8
+silent! colorscheme solarized8
 
 " }}}
 
