@@ -43,6 +43,9 @@
     publish = "!git push -u origin $(git branch-name)"
     # https://datagrok.org/git/git-serve/
     quickserve="daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/"
+    # https://github.com/anishathalye/dotfiles/blob/master/gitconfig
+    update-submodules = submodule update --init --recursive
+    upgrade-submodules = submodule update --init --remote
 [advice]
     statusHints = false
     detachedHead = false
