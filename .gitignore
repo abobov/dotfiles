@@ -5,7 +5,7 @@
 /files/.mutt/cache
 /files/.vim/.netrwhist
 /files/.vim/doc/tags
-/files/.vim/spell
+/files/.vim/spell/*.add*
 /files/.vim/bundle
 /files/.zsh/cache
 /files/.tmux/plugins/
