@@ -465,21 +465,6 @@ augroup ft_json
 augroup END
 
 " }}}
-" Ledger {{{
-augroup ft_ledger
-    au!
-    au FileType ledger inoremap <silent><buffer> <Leader>e <Esc>:call ledger#entry()<CR>
-    au FileType ledger noremap = :LedgerAlign<CR>
-    au FileType ledger iabbrev <buffer> alfa Assets:Bank:AlfaBank:Card
-    au FileType ledger iabbrev <buffer> tinkof Assets:Bank:Tinkoff:Card-Black
-    au FileType ledger iabbrev <buffer> coin Assets:Bank:HomeCredit:Card:CoinKeeper
-    au BufWritePost *.ledger silent! make | redraw! | cwindow
-    au FileType ledger setlocal foldmethod=marker foldmarker={,}
-    au FileType ledger noremap <Leader>e :call ledger#entry()<CR>
-    au FileType leader let g:crunch_result_type_append = 0
-    au FileType ledger compiler ledger
-augroup END
-" }}}
 " Org {{{
 augroup ft_org
     au!
@@ -591,7 +576,24 @@ let g:ctrlp_user_caching = 0
 " }}}
 " Ledger {{{
 
+augroup ft_ledger
+    au!
+    au FileType ledger inoremap <silent><buffer> <Leader>e <Esc>:call ledger#entry()<CR>
+    au FileType ledger noremap = :LedgerAlign<CR>
+    au FileType ledger iabbrev <buffer> alfa Assets:Bank:AlfaBank:Card
+    au FileType ledger iabbrev <buffer> tinkof Assets:Bank:Tinkoff:Card-Black
+    au FileType ledger iabbrev <buffer> coin Assets:Bank:HomeCredit:Card:CoinKeeper
+    au BufWritePost *.ledger silent! make | redraw! | cwindow
+    au FileType ledger setlocal foldmethod=marker foldmarker={,}
+    au FileType ledger noremap <Leader>e :call ledger#entry()<CR>
+    au FileType leader let g:crunch_result_type_append = 0
+    au FileType ledger compiler ledger
+augroup END
+
+let g:ledger_date_format = '%Y-%m-%d'
 let g:ledger_align_at = 80
+let g:ledger_descriptions_cmd = 'cat ~/.ledger-descriptions'
+let g:ledger_accounts_cmd = 'cat ~/.ledger-accounts'
 
 " }}}
 " vimtex {{{

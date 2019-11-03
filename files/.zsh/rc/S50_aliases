@@ -19,14 +19,18 @@ alias du='du -h'
 alias free='free -tm'
 alias whois='whois -H'
 alias zgrep='zgrep --color=auto'
+alias fn='find . -name'
 
-alias ls='ls --color=auto -h -F'
+alias ls='ls --color=auto -h -F --group-directories-first'
+alias d='dirs -v | head -10'
 
 alias rm='rm --interactive=once'
 alias mv='mv --interactive'
+alias cp='cp --recursive'
 
+alias c=' clear'
 alias v='vim'
-alias t='tmux'
+alias t='tmux new-session -A -s main'
 alias ta='tmux attach-session'
 alias mux='tmuxinator'
 
@@ -83,15 +87,9 @@ alias tlp-stat='sudo tlp-stat'
 alias tlp-fullcharge='sudo tlp fullcharge BAT0; sudo tlp fullcharge BAT1'
 alias tlp-setcharge='sudo tlp setcharge BAT0; sudo tlp setcharge BAT1'
 
-# VPN
-
-alias vpnopen='sudo vpnc-connect'
-alias vpnclose='sudo vpnc-disconnect'
-
 # Global
 
-alias -g G='|grep'
-alias -g GI='|grep -i'
+alias -g G='|grep -i'
 alias -g H='|head'
 alias -g T='|tail'
 alias -g L='|less'
