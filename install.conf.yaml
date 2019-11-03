@@ -1,0 +1,35 @@
+- defaults:
+        link:
+                relink: true
+
+- clean: ['~']
+
+- link:
+        ~/.aria2: files/.aria2
+        ~/.mpv: files/.mpv
+        ~/.lessfilter.sh: files/.lessfilter.sh
+        # Git
+        ~/.gitconfig: files/.gitconfig
+        ~/.gitignore: files/.gitignore
+        # Tmux
+        ~/.tmux.conf: files/.tmux.conf
+        ~/.tmux: files/.tmux/
+        # Vim
+        ~/.vim: files/.vim
+        ~/.vimrc: files/.vimrc
+        ~/.gvimrc: files/.gvimrc
+        # Zsh
+        ~/.zsh: files/.zsh
+        ~/.zshrc: files/.zshrc
+        ~/.zshenv: files/.zshenv
+        ~/bin: files/bin
+        ~/.config/:
+            glob: true
+            path: files/.config/*
+            create: true
+
+- create:
+    - ~/.z
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
