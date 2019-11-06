@@ -30,18 +30,9 @@
         ~/.config/devilspie2: files/.config/devilspie2
         ~/.config/youtube-dl: files/.config/youtube-dl
         ~/.config/xfce4/terminal: files/.config/xfce4/terminal
+        ~/.config/redshift.conf: files/.config/redshift.conf
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    -
-        command: xargs -a packages.debian sudo apt-get install -y
-        description: Installing packages
-        stderr: true
-    -
-        command: '[ -n "$ZSH_VERSION" ] || chsh -s $(which zsh)'
-        description: Making zsh the default shell
-        stdin: true
-        stdout: true
-        stderr: true
     - [vim -c 'PluginInstall' +qall, Installing vim plugins]
     - [~/.tmux/plugins/tpm/bin/install_plugins, Installing tmux plugins]

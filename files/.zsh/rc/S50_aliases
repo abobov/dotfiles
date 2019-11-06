@@ -107,6 +107,10 @@ alias dlog='docker logs --tail 100 --follow'
 alias dc='docker-compose'
 alias dc-down='dc down --volumes --rmi local --remove-orphans'
 alias dc-logs='dc logs --tail 100 --follow'
+function dc-stats() {
+    dc $@ ps -q | xargs --no-run-if-empty docker stats
+}
+
 
 alias portcheck='nc -z -v -w 5'
 alias jq='jq --color-output'
@@ -123,7 +127,7 @@ elif $(which libreoffice >/dev/null) ; then
     alias 2pdf='libreoffice --headless --convert-to pdf'
 fi
 
-alias http='http --timeout=99999'
+alias http='http --timeout=99999 --style=solarized --body'
 
 #[[ -s /etc/grc.zsh ]] && source /etc/grc.zsh
 
