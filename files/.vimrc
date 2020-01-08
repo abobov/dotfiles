@@ -583,8 +583,8 @@ augroup ft_ledger
     au FileType ledger inoremap <silent><buffer> <Leader>e <Esc>:call ledger#entry()<CR>
     au FileType ledger noremap = :LedgerAlign<CR>
     au FileType ledger iabbrev <buffer> alfa Assets:Bank:AlfaBank:Card
+    au FileType ledger iabbrev <buffer> soyuz Assets:Bank:Soyuz:Savings:Deposit:2019-04-15
     au FileType ledger iabbrev <buffer> tinkof Assets:Bank:Tinkoff:Card-Black
-    au FileType ledger iabbrev <buffer> coin Assets:Bank:HomeCredit:Card:CoinKeeper
     au BufWritePost *.ledger silent! make | redraw! | cwindow
     au FileType ledger setlocal foldmethod=marker foldmarker={,}
     au FileType ledger noremap <Leader>e :call ledger#entry()<CR>

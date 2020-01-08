@@ -31,7 +31,6 @@ alias cp='cp --recursive'
 alias c=' clear'
 alias v='vim'
 alias t='tmux new-session -A -s main'
-alias ta='tmux attach-session'
 alias mux='tmuxinator'
 
 
@@ -40,8 +39,6 @@ alias display_off='xset dpms force off'
 alias esync='sudo eix-sync'
 alias eupdw='sudo emerge -avuND @world'
 alias eetc='sudo etc-update'
-
-alias notes='editor $HOME/Dropbox/notes.md'
 
 # Moving to directory in different teminals.
 alias xpwd='echo $PWD | xclip -i; xclip -o'
