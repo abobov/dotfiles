@@ -27,6 +27,7 @@ alias d='dirs -v | head -10'
 alias rm='rm --interactive=once'
 alias mv='mv --interactive'
 alias cp='cp --recursive'
+alias cal='ncal -Mb'
 
 alias c=' clear'
 alias v='vim'
@@ -56,7 +57,8 @@ check_com s || alias s='ssh'
 
 alias rscp='rsync -avzP'
 
-alias yd-date='youtube-dl --output="[%(playlist_index)s] %(upload_date)s - %(title)s-%(id)s.%(ext)s"'
+alias yt-date='youtube-dl --output="[%(playlist_index)s] %(upload_date)s - %(title)s-%(id)s.%(ext)s"'
+alias yt-audio='youtube-dl --format bestaudio --embed-thumbnail --extract-audio --audio-format mp3'
 
 alias boot-log="sed 's/\^\[/\o33/g;s/\[1G\[/\[27G\[/' /var/log/boot | less -r"
 
