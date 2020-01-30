@@ -3,7 +3,7 @@
     url = https://github.com/abobov/bin.git
 [submodule "zsh-completions"]
     path = files/.zsh/zsh-completions
-    url = https://github.com/zsh-users/zsh-completions.git
+    url = https://github.com/abobov/zsh-completions.git
 # Mutt
 [submodule "mutt-colors-solarized"]
     path = files/.mutt/mutt-colors-solarized
