@@ -613,6 +613,11 @@ let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 let g:pandoc#filetypes#pandoc_markdown = 0
 
 " }}}
+" YankRing {{{
+
+let g:yankring_history_dir = "$HOME/tmp/vim/"
+
+" }}}
 " }}}
 " Load custom local config {{{
 
