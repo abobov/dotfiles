@@ -22,6 +22,8 @@ Plugin 'https://github.com/tpope/vim-unimpaired'
 
 " Intelligent date inc/dec
 Plugin 'https://github.com/tpope/vim-speeddating'
+" Readline style insertion
+Plugin 'tpope/vim-rsi'
 " Show colors in CSS format
 Plugin 'https://github.com/ap/vim-css-color'
 " Load project .vimrc files
@@ -60,6 +62,11 @@ Plugin 'https://github.com/arecarn/vim-crunch'
 " Vim Tmux Navigator
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'lervag/vimtex'
+" A solid language pack for Vim.
+Plugin 'sheerun/vim-polyglot'
+Plugin 'terryma/vim-expand-region'
+" Maintains a history of previous yanks, changes and deletes
+Plugin 'vim-scripts/YankRing.vim'
 
 " File types
 
@@ -69,12 +76,8 @@ Plugin 'https://github.com/ledger/vim-ledger'
 
 " Jade templates
 Plugin 'https://github.com/digitaltoad/vim-jade.git'
-" Markdown
-Plugin 'https://github.com/plasticboy/vim-markdown.git'
 " Pandoc
 Plugin 'vim-pandoc/vim-pandoc'
-" TypeScript
-Plugin 'https://github.com/HerringtonDarkholme/yats.vim'
 " Orgmode
 Plugin 'https://github.com/jceb/vim-orgmode'
 
@@ -572,6 +575,7 @@ let g:templates_directory=$HOME . "/.vim/templates"
 " }}}
 " Ctrl-P {{{
 
+let g:ctrlp_map = "'p"
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_user_caching = 0
 

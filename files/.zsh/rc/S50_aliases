@@ -26,8 +26,10 @@ alias d='dirs -v | head -10'
 
 alias rm='rm --interactive=once'
 alias mv='mv --interactive'
+alias mkdir='mkdir -pv'
 alias cp='cp --recursive'
 alias cal='ncal -Mb'
+alias fd='fdfind'
 
 alias c=' clear'
 alias v='vim'
