@@ -1,10 +1,26 @@
-#!/bin/sh
+#!/bin/bash
 
 case $1 in
-    *.xml) if [ -x `which xmlstarlet 2>/dev/null` ]; then exec xmlstarlet fo "$1"; fi ;;
-    *.json) if [ -x `which jq 2>/dev/null` ]; then exec jq -C . "$1"; fi ;;
-    *.md) if [ -x `which pandoc 2>/dev/null` ]; then exec pandoc -t plain "$1"; fi ;;
-    *) exec /bin/lesspipe "$1";;
+    *.xml)
+        if [ -x "$(command -v xmlstarlet)" ]; then
+            exec xmlstarlet fo "$1"
+        fi
+        ;;
+    *.json)
+        if [ -x "$(command -v jq)" ]; then
+            exec jq -C . "$1"
+        elif [ -x "$(command -v python)" ] ; then
+            exec python -m json.tool "$1"
+        fi
+        ;;
+    *.md)
+        if [ -x "$(command -v pandoc)" ]; then
+            exec pandoc -t plain "$1"
+        fi
+        ;;
+    *)
+        exec /bin/lesspipe "$1"
+        ;;
 esac
 
 exit 1

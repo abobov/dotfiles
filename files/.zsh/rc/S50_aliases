@@ -116,15 +116,15 @@ function dc-stats() {
 alias portcheck='nc -z -v -w 5'
 alias jq='jq --color-output'
 
-if $(which colordiff >/dev/null) ; then
+if [ -x "$(command -v colordiff)" ] ; then
     alias diff='colordiff -u'
 else
     alias diff='diff -u'
 fi
 
-if $(which unoconv >/dev/null) ; then
+if [ -x "$(command -v unoconv)" ] ; then
     alias 2pdf='unoconv --format pdf'
-elif $(which libreoffice >/dev/null) ; then
+elif [ -x "$(command -v libreoffice)" ] ; then
     alias 2pdf='libreoffice --headless --convert-to pdf'
 fi
 
