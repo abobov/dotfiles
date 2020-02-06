@@ -613,6 +613,11 @@ let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 let g:pandoc#filetypes#pandoc_markdown = 0
 
 " }}}
+" polyglot {{{
+
+let g:polyglot_disabled = ['latex']
+
+" }}}
 " YankRing {{{
 
 let g:yankring_history_dir = "$HOME/tmp/vim/"

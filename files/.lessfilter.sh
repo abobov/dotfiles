@@ -18,6 +18,9 @@ case $1 in
             exec pandoc -t plain "$1"
         fi
         ;;
+    *.csv)
+        exec column -t -s, "$1"
+        ;;
     *)
         exec /bin/lesspipe "$1"
         ;;
