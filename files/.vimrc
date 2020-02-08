@@ -39,7 +39,7 @@ Plugin 'https://github.com/mattn/emmet-vim.git'
 " Code snippets
 Plugin 'https://github.com/msanders/snipmate.vim'
 " Silversearch plugin
-Plugin 'https://github.com/rking/ag.vim'
+Plugin 'mileszs/ack.vim'
 " Support dot command for plugins
 Plugin 'https://github.com/tpope/vim-repeat.git'
 Plugin 'https://github.com/tpope/vim-surround.git'
@@ -66,7 +66,7 @@ Plugin 'lervag/vimtex'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'terryma/vim-expand-region'
 " Maintains a history of previous yanks, changes and deletes
-Plugin 'vim-scripts/YankRing.vim'
+"Plugin 'vim-scripts/YankRing.vim'
 
 " File types
 
@@ -620,7 +620,20 @@ let g:polyglot_disabled = ['latex']
 " }}}
 " YankRing {{{
 
+let g:yankring_replace_n_pkey = '<C-k>'
+let g:yankring_replace_n_nkey = '<C-j>'
 let g:yankring_history_dir = "$HOME/tmp/vim/"
+
+" }}}
+" Ack {{{
+
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+    cnoreabbrev ag Ack
+    cnoreabbrev aG Ack
+    cnoreabbrev Ag Ack
+    cnoreabbrev AG Ack
+endif
 
 " }}}
 " }}}

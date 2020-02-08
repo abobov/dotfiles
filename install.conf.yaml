@@ -12,6 +12,7 @@
         ~/.aria2: files/.aria2
         ~/.mpv: files/.mpv
         ~/.lessfilter.sh: files/.lessfilter.sh
+        ~/.psqlrc: files/.psqlrc
         # Git
         ~/.gitconfig: files/.gitconfig
         ~/.gitignore: files/.gitignore
@@ -27,6 +28,7 @@
         ~/.zshrc: files/.zshrc
         ~/.zshenv: files/.zshenv
         ~/bin: files/bin
+        # Configs
         ~/.config/devilspie2: files/.config/devilspie2
         ~/.config/youtube-dl: files/.config/youtube-dl
         ~/.config/xfce4/terminal: files/.config/xfce4/terminal

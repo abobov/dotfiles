@@ -1,0 +1,23 @@
+-- Official docs: http://www.postgresql.org/docs/current/static/app-psql.html
+-- Unofficial docs: http://robots.thoughtbot.com/improving-the-command-line-postgres-experience
+
+\set QUIET 1
+
+\pset null '[NULL]'
+\pset border 2
+
+\set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%# '
+\set PROMPT2 '[more] %R > '
+
+-- Show how long each query takes to execute
+\timing
+
+-- Use best available output format
+\x auto
+-- Maintain a separate history for each database.
+\set HISTFILE ~/.psql_history- :DBNAME
+\set HISTCONTROL ignoreboth
+
+\unset QUIET
+
+-- vim: ft=sql :

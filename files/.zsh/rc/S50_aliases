@@ -14,8 +14,18 @@ alias -s pdf=evince
 
 alias -s exe=wine
 
+alias da='\du -sch'
+if [ -x "$(command -v ncdu)" ]; then
+    alias du='ncdu -rr -x --exclude .git'
+else
+    alias du='du -h'
+fi
+
+if [ -x "$(command -v prettyping)" ]; then
+    alias ping='prettyping --nolegend'
+fi
+
 alias df='df -h'
-alias du='du -h'
 alias free='free -tm'
 alias whois='whois -H'
 alias grep='grep --color=auto'
@@ -105,7 +115,7 @@ alias -g XC='|xclip -selection clipboard'
 # Docker and docker-compose
 #
 alias dbash='docker exec -it `docker ps -ql` bash'
-alias dps='docker ps'
+alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}\t{{.Ports}}"'
 alias drun='docker run -it --rm'
 alias dlog='docker logs --tail 100 --follow'
 alias dc='docker-compose'
@@ -114,7 +124,7 @@ alias dc-logs='dc logs --tail 100 --follow'
 function dc-stats() {
     dc $@ ps -q | xargs --no-run-if-empty docker stats
 }
-
+alias dockertop='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock moncho/dry'
 
 alias portcheck='nc -z -v -w 5'
 alias jq='jq --color-output'
