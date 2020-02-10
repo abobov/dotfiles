@@ -22,7 +22,7 @@ case $1 in
         exec column -t -s, "$1"
         ;;
     *)
-        exec /bin/lesspipe "$1"
+        exec /usr/bin/lesspipe "$1"
         ;;
 esac
 

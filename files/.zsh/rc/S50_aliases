@@ -9,11 +9,6 @@ alias ag="ag --page less"
 
 alias wcc="wc -c | numfmt --to=si"
 
-alias -s html=x-www-browser
-alias -s pdf=evince
-
-alias -s exe=wine
-
 alias da='\du -sch'
 if [ -x "$(command -v ncdu)" ]; then
     alias du='ncdu -rr -x --exclude .git'
@@ -39,16 +34,21 @@ alias d='dirs -v | head -10'
 
 alias rm='rm --interactive=once'
 alias mv='mv --interactive'
+alias cp='cp --interactive --recursive'
 alias mkdir='mkdir -pv'
-alias cp='cp --recursive'
 alias cal='ncal -Mb'
 alias fd='fdfind'
+alias dd='dd status=progress'
 
 alias c=' clear'
 alias v='vim'
 alias t='tmux new-session -A -s main'
 alias mux='tmuxinator'
 
+alias bc='bc -l'
+alias calc='noglob bc -l <<<'
+
+alias make='make -j$(nproc)'
 
 alias display_off='xset dpms force off'
 
@@ -101,6 +101,13 @@ alias tlp-stat='sudo tlp-stat'
 alias tlp-fullcharge='sudo tlp fullcharge BAT0; sudo tlp fullcharge BAT1'
 alias tlp-setcharge='sudo tlp setcharge BAT0; sudo tlp setcharge BAT1'
 
+#
+# ZFS
+#
+
+alias zfs='sudo zfs'
+alias zpool='sudo zpool'
+
 # Global
 
 alias -g G='|grep -i'
@@ -110,6 +117,16 @@ alias -g L='|less'
 alias -g LA='2>&1|less'
 alias -g X='|xclip'
 alias -g XC='|xclip -selection clipboard'
+
+#
+# File defaults
+#
+
+alias -s html=open
+alias -s pdf=open
+alias -s exe=wine
+alias -s jar="java -jar"
+alias -s git="git clone --recursive"
 
 #
 # Docker and docker-compose

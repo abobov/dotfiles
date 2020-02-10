@@ -1,3 +1,4 @@
 --format bestvideo[width<=1920]+bestaudio/best[width<=1920]/bestvideo+bestaudio/best
 --no-check-certificate
 --force-ipv4
+--add-metadata
