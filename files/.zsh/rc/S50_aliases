@@ -19,6 +19,7 @@ fi
 if [ -x "$(command -v prettyping)" ]; then
     alias ping='prettyping --nolegend'
 fi
+alias localip="hostname -I | gawk '{print \$1}'"
 
 alias df='df -h'
 alias free='free -tm'
@@ -45,7 +46,7 @@ alias v='vim'
 alias t='tmux new-session -A -s main'
 alias mux='tmuxinator'
 
-alias bc='bc -l'
+alias bc='bc -lq'
 alias calc='noglob bc -l <<<'
 
 alias make='make -j$(nproc)'
@@ -142,6 +143,14 @@ function dc-stats() {
     dc $@ ps -q | xargs --no-run-if-empty docker stats
 }
 alias dockertop='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock moncho/dry'
+
+#
+# Exim
+#
+alias exim-queue-list='sudo exim -bp'
+alias exim-queue-header='sudo exim -Mvh'
+alias exim-queue-body='sudo exim -Mvb'
+alias exim-queue-rm='sudo exim -Mrm'
 
 alias portcheck='nc -z -v -w 5'
 alias jq='jq --color-output'

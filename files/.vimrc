@@ -122,6 +122,7 @@ set showcmd
 " По умолчанию пользоваться :help справкой
 set keywordprg=
 set omnifunc=syntaxcomplete#Complete
+set complete+=kspell
 
 runtime! macros/matchit.vim
 set virtualedit+=block
