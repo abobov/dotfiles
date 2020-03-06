@@ -1,0 +1,23 @@
+# https://github.com/cofi/dotfiles/blob/master/zsh/auto_rehash
+
+emulate -L zsh
+
+rehash_preexec() {
+    case "$1" in
+        # debian
+        *apt*|*apt-get*|*aptitude*)
+            __rehash=1
+            ;;
+    esac
+}
+
+rehash_precmd() {
+    if [[ -n __rehash ]]; then
+        rehash
+        unset __rehash
+    fi
+}
+typeset -ga preexec_functions
+typeset -ga precmd_functions
+preexec_functions+=rehash_preexec
+precmd_functions+=rehash_precmd

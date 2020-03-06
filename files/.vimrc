@@ -438,6 +438,9 @@ command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
 if executable('jq')
     command -range Jq <line1>,<line2>!jq --indent 4 .
 endif
+if executable('xmlstarlet')
+    command -range Format <line1>,<line2>!xmlstarlet format
+endif
 " }}}
 " Filetype {{{
 " XML {{{

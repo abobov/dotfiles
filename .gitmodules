@@ -4,6 +4,9 @@
 [submodule "zsh-completions"]
     path = files/.zsh/zsh-completions
     url = https://github.com/abobov/zsh-completions.git
+[submodule "files/.zsh/z"]
+    path = files/.zsh/z
+    url = https://github.com/abobov/z.git
 # Mutt
 [submodule "mutt-colors-solarized"]
     path = files/.mutt/mutt-colors-solarized

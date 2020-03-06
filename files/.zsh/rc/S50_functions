@@ -31,7 +31,7 @@ EOM
 }
 
 open() {
-    if [ $# == 0 ] ; then
+    if [ $# = 0 ] ; then
         xdg-open .
     else
         xdg-open $*

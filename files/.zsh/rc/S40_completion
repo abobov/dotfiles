@@ -38,7 +38,12 @@ zstyle ':completion:*' users $users
 zstyle ':completion:*:*:vi(m|):*:*files' ignored-patterns '*?.(aux|dvi|ps|pdf|bbl|toc|lot|lof|o|cm?|class|py[oc])'
 
 # Ledger completion like hledger
-compdef _hledger ledger
+compdef ledger=hledger
+
+# Completing generic gnu commands
+# https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org
+compdef _gnu_generic lshw duplicity
+compdef _gnu_generic -p 'pg_*'
 
 # youtube-dl
 [[ -f /etc/bash_completion.d/youtube-dl.bash-completion ]] && source /etc/bash_completion.d/youtube-dl.bash-completion

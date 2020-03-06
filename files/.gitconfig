@@ -73,6 +73,7 @@
     ;clean = unexpand --tabs=4 --first-only
 [gui]
     tabsize = 2
+    gcwarning = false
 [pull]
     rebase = true
 [push]
