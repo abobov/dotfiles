@@ -42,7 +42,7 @@ compdef ledger=hledger
 
 # Completing generic gnu commands
 # https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org
-compdef _gnu_generic lshw duplicity
+compdef _gnu_generic lshw duplicity tldr
 compdef _gnu_generic -p 'pg_*'
 
 # youtube-dl

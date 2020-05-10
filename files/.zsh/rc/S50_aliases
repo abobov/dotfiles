@@ -63,8 +63,13 @@ alias xcd='cd "$(xclip -o)"'
 
 alias man='LANG=C man'
 
-alias upa='sudo aptitude -u'
-alias apurge='sudo aptitude purge --purge-unused'
+if [ -x "$(command -v aptitude)" ] ; then
+    alias upa='sudo aptitude -u'
+    alias apurge='sudo aptitude purge --purge-unused'
+else
+    alias up='sudo apt update; sudo apt upgrade'
+    alias apurge='sudo apt purge'
+fi
 
 alias cclip='xclip -selection clipboard'
 
@@ -168,6 +173,8 @@ elif [ -x "$(command -v libreoffice)" ] ; then
 fi
 
 alias http='http --timeout=99999 --style=solarized --body'
+
+alias remove-colors='sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g"'
 
 #[[ -s /etc/grc.zsh ]] && source /etc/grc.zsh
 
