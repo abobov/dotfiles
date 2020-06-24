@@ -7,6 +7,9 @@
 [submodule "files/.zsh/z"]
     path = files/.zsh/z
     url = https://github.com/abobov/z.git
+[submodule "files/.zsh/forgit"]
+    path = files/.zsh/forgit
+    url = https://github.com/wfxr/forgit.git
 # Mutt
 [submodule "mutt-colors-solarized"]
     path = files/.mutt/mutt-colors-solarized
