@@ -6,7 +6,7 @@
     url = https://github.com/abobov/zsh-completions.git
 [submodule "files/.zsh/z"]
     path = files/.zsh/z
-    url = https://github.com/abobov/z.git
+    url = https://github.com/rupa/z.git
 [submodule "files/.zsh/forgit"]
     path = files/.zsh/forgit
     url = https://github.com/wfxr/forgit.git
