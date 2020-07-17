@@ -29,6 +29,9 @@ alias zgrep='zgrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias fn='find . -name'
+alias ip='ip -color'
+alias dmesg='dmesg --human'
+alias ports='ss -tulanp'
 
 alias ls='ls --color=auto -h -F --group-directories-first'
 alias d='dirs -v | head -10'
@@ -80,7 +83,7 @@ alias gco="git branch | fzf | xargs git checkout"
 
 alias rscp='rsync -avzP'
 
-alias yt-date='youtube-dl --output="[%(playlist_index)s] %(upload_date)s - %(title)s-%(id)s.%(ext)s"'
+alias yt-date='youtube-dl --download-archive=download-archive.log --ignore-errors --output="[%(playlist_index)s] %(upload_date)s - %(title)s-%(id)s.%(ext)s"'
 alias yt-audio='youtube-dl --format bestaudio --embed-thumbnail --extract-audio --audio-format mp3'
 
 alias boot-log="sed 's/\^\[/\o33/g;s/\[1G\[/\[27G\[/' /var/log/boot | less -r"

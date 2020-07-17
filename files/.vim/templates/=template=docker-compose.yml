@@ -1,0 +1,13 @@
+version: "3"
+services:
+
+  name:
+    image: imagename
+    container_name: name
+    restart: unless-stopped
+    environment:
+      - TZ=UTC
+    labels:
+      - "label=true"
+    volumes:
+      - ./data:/data

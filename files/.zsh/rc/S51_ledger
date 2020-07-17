@@ -16,7 +16,7 @@ _ledger_smartcase_expr() {
 
 bal() {
     if  [ $# -eq 0 ] || [[ $1 =~ [-].+  ]] ; then
-        ledger accounts | fzf --multi --preview "ledger balance $* {+}"
+        ledger balance --format '%(account)\n' ^Assets | sort | fzf --multi --preview "ledger balance $* {+}"
     elif [ $# -eq 1 ] ; then
         ledger balance \( ^Assets ^Liabilities \) and $(_ledger_smartcase_expr "$*")
     else

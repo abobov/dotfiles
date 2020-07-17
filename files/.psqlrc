@@ -17,6 +17,7 @@
 \x auto
 -- Maintain a separate history for each database.
 \set HISTFILE ~/.psql_history- :DBNAME
+\set HISTSIZE 20000
 \set HISTCONTROL ignoreboth
 
 \unset QUIET

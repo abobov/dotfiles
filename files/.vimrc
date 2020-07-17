@@ -67,6 +67,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'terryma/vim-expand-region'
 " Maintains a history of previous yanks, changes and deletes
 "Plugin 'vim-scripts/YankRing.vim'
+Plugin 'tpope/vim-dadbod'
 
 " File types
 
@@ -167,6 +168,7 @@ set pastetoggle=<F3>
 set cursorline
 set ttyfast
 set mouse=a
+set shortmess+=Ic
 
 set autoindent
 set smartindent

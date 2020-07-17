@@ -13,6 +13,8 @@
         ~/.mpv: files/.mpv
         ~/.lessfilter.sh: files/.lessfilter.sh
         ~/.psqlrc: files/.psqlrc
+        ~/.taskrc: files/.taskrc
+        ~/.vit: files/.vit
         # Git
         ~/.gitconfig: files/.gitconfig
         ~/.gitignore: files/.gitignore
