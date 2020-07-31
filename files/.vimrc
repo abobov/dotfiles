@@ -105,8 +105,9 @@ endif
 set keymap=russian-jcukenwin
 set spelllang=ru,en
 set spell
+set spellcapcheck=
 set iminsert=0
-set imsearch=0
+"set imsearch=0
 
 " }}}
 
@@ -169,6 +170,7 @@ set cursorline
 set ttyfast
 set mouse=a
 set shortmess+=Ic
+set nrformats-=octal
 
 set autoindent
 set smartindent
@@ -591,6 +593,7 @@ let g:ctrlp_user_caching = 0
 augroup ft_ledger
     au!
     au FileType ledger inoremap <silent><buffer> <Leader>e <Esc>:call ledger#entry()<CR>
+    au FileType ledger noremap <silent><buffer> <Leader>x <Esc>:call ledger#transaction_state_toggle(line('.'), '* ')<CR>
     au FileType ledger noremap = :LedgerAlign<CR>
     au FileType ledger iabbrev <buffer> alfa Assets:Bank:AlfaBank:Card
     au FileType ledger iabbrev <buffer> soyuz Assets:Bank:Soyuz:Savings:Deposit:2019-04-15

@@ -51,6 +51,8 @@
     wc = whatchanged -p --abbrev-commit --pretty=medium
     undo = reset --soft HEAD~
     whoami = config user.email
+    fugitive = mergetool --tool fugitive
+    clean-branches = !sh -c 'git branch --merged | grep -v '^*' | fzf -m | xargs -rp git branch -d'
 [advice]
     statusHints = false
     detachedHead = false
@@ -93,3 +95,5 @@
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
+[mergetool "fugitive"]
+    cmd = vim -c \"Gdiff\" \"$MERGED\"
