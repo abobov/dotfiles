@@ -5,7 +5,7 @@ if [ x"$HOSTNAME" = x ] ; then
     export HOSTNAME=$(/bin/hostname)
 fi
 
-path=(~/bin $path)
+path=(~/bin ~/.local/bin $path)
 
 fpath=($HOME/.zsh/zsh-completions/src $fpath)
 # To force rebuild zcompdump:

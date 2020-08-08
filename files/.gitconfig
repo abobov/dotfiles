@@ -97,3 +97,5 @@
     process = git-lfs filter-process
 [mergetool "fugitive"]
     cmd = vim -c \"Gdiff\" \"$MERGED\"
+[fetch]
+    prune = true
