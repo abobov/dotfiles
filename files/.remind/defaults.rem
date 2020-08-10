@@ -1,0 +1,7 @@
+SET Week_1 1
+SET Week_2 8
+SET Week_3 15
+SET Week_4 22
+FSET _last(mo) "1 " + MON((mo % 12) + 1) + " --7"
+
+BANNER %_Reminders for %w, %d%s %m, %y%o: \

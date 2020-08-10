@@ -40,7 +40,6 @@ alias rm='rm --interactive=once'
 alias mv='mv --interactive'
 alias cp='cp --interactive --recursive'
 alias mkdir='mkdir -pv'
-alias cal='ncal -Mb'
 alias fd='fdfind'
 alias dd='dd status=progress'
 
@@ -104,6 +103,24 @@ test -f ~/bin/pandoc-filter-includes.py && alias pdoc='pandoc --smart --standalo
 alias pdoc-pdf='pandoc --latex-engine=xelatex -V geometry:margin=1in -V mainfont="Linux Libertine O"'
 
 alias jkill="jps | grep -v ' Jps$' | grep -v ' org.eclipse.equinox.' | cut -d ' ' -f 1 | xargs -r kill"
+
+#
+# Calendar & tasks
+#
+
+alias cal='ncal -Mb'
+alias ta='task add'
+if [ -x "$(command -v remind)" ] ; then
+    alias remind="remind -m -b1"
+    rem() { DOTREMINDERS=~/.remind/ /usr/bin/rem -m -b1 $* }
+    alias rem1="rem -cu+1"
+    alias rem2="rem -cu+2"
+    alias tt="rem; task"
+    alias tkrem="tkremind -m -b1 ~/.remind"
+    for day in {1..9} ; do
+        alias $day="rem '*$day'"
+    done
+fi
 
 # TLP
 
