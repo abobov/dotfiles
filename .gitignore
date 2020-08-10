@@ -9,3 +9,6 @@
 /files/.vim/bundle
 /files/.zsh/cache
 /files/.tmux/plugins/
+/files/.ssh/id_*
+/files/.ssh/known_hosts
+/files/.ssh/*.conf
