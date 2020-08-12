@@ -42,3 +42,4 @@
     - [git submodule update --init --recursive, Installing submodules]
     - [vim -c 'PluginInstall' +qall, Installing vim plugins]
     - [~/.tmux/plugins/tpm/bin/install_plugins, Installing tmux plugins]
+    - [chmod -R 0600 ~/.ssh/*]
