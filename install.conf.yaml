@@ -16,7 +16,7 @@
         ~/.psqlrc: files/.psqlrc
         ~/.taskrc: files/.taskrc
         ~/.vit: files/.vit
-        ~/.remind: files/.remind
+        ~/.reminders: files/.reminders
         # Git
         ~/.gitconfig: files/.gitconfig
         ~/.gitignore: files/.gitignore

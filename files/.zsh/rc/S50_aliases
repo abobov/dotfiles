@@ -112,11 +112,11 @@ alias cal='ncal -Mb'
 alias ta='task add'
 if [ -x "$(command -v remind)" ] ; then
     alias remind="remind -m -b1"
-    rem() { DOTREMINDERS=~/.remind/ /usr/bin/rem -m -b1 $* }
+    alias rem="rem -m -b1"
     alias rem1="rem -cu+1"
     alias rem2="rem -cu+2"
     alias tt="rem; task"
-    alias tkrem="tkremind -m -b1 ~/.remind"
+    alias tkrem="tkremind -m -b1 ~/.reminders"
     for day in {1..9} ; do
         alias $day="rem '*$day'"
     done

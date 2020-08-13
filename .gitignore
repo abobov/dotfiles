@@ -12,4 +12,4 @@
 /files/.ssh/id_*
 /files/.ssh/known_hosts
 /files/.ssh/*.conf
-/files/.remind/*
+/files/.reminders/*
