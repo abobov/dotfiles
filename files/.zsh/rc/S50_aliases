@@ -8,6 +8,7 @@ unalias ag 2>/dev/null
 alias ag="ag --page less"
 
 alias wcc="wc -c | numfmt --to=si"
+alias nf="numfmt --from=auto --to=iec"
 
 alias da='\du -sch'
 if [ -x "$(command -v ncdu)" ]; then
@@ -55,10 +56,6 @@ alias make='make -j$(nproc)'
 
 alias display_off='xset dpms force off'
 
-alias esync='sudo eix-sync'
-alias eupdw='sudo emerge -avuND @world'
-alias eetc='sudo etc-update'
-
 # Moving to directory in different teminals.
 alias xpwd='echo $PWD | xclip -i; xclip -o'
 alias xcd='cd "$(xclip -o)"'
@@ -104,6 +101,8 @@ alias pdoc-pdf='pandoc --latex-engine=xelatex -V geometry:margin=1in -V mainfont
 
 alias jkill="jps | grep -v ' Jps$' | grep -v ' org.eclipse.equinox.' | cut -d ' ' -f 1 | xargs -r kill"
 
+[ -x "$(command -v pgcli)" ] && alias pgcli="pgcli --pgclirc ~/.config/pgcli/config --pgclirc ~/.config/pgcli/local.config"
+
 #
 # Calendar & tasks
 #
@@ -111,12 +110,12 @@ alias jkill="jps | grep -v ' Jps$' | grep -v ' org.eclipse.equinox.' | cut -d ' 
 alias cal='ncal -Mb'
 alias ta='task add'
 if [ -x "$(command -v remind)" ] ; then
-    alias remind="remind -m -b1"
-    alias rem="rem -m -b1"
+    alias remind="noglob remind -@ -m -b1"
+    alias rem="noglob rem -@ -m -b1"
     alias rem1="rem -cu+1"
     alias rem2="rem -cu+2"
     alias tt="rem; task"
-    alias tkrem="tkremind -m -b1 ~/.reminders"
+    alias tkremind="tkremind -m -b1"
     for day in {1..9} ; do
         alias $day="rem '*$day'"
     done

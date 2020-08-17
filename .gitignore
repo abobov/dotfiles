@@ -9,7 +9,13 @@
 /files/.vim/bundle
 /files/.zsh/cache
 /files/.tmux/plugins/
-/files/.ssh/id_*
-/files/.ssh/known_hosts
-/files/.ssh/*.conf
+
+/files/.ssh/*
+!/files/.ssh/config
+!/files/.ssh/authorized_keys
+
 /files/.reminders/*
+!/files/.reminders/defaults.rem
+
+/files/.config/pgcli/*
+!/files/.config/pgcli/config
