@@ -66,6 +66,13 @@ data.location=~/.task
 include /usr/share/taskwarrior/solarized-light-256.theme
 #include /usr/share/taskwarrior/no-color.theme
 
+# Genmon report
+
+report.genmon.description=Genmon report.
+report.genmon.columns=description,due.relative
+report.genmon.filter=status:pending
+report.genmon.sort=urgency-
+
 # Tasksh
 
 uda.reviewed.type=date

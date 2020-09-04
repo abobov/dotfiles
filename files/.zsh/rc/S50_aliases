@@ -95,7 +95,11 @@ fi
 alias sc=systemctl
 alias jf="journalctl --unit"
 
-alias httpserver='python -m SimpleHTTPServer'
+if [ -x "$(command -v python3)" ] ; then
+    alias httpserver='python3 -m http.server'
+else
+    alias httpserver='python -m SimpleHTTPServer'
+fi
 test -f ~/bin/pandoc-filter-includes.py && alias pdoc='pandoc --smart --standalone --filter ~/bin/pandoc-filter-includes.py'
 alias pdoc-pdf='pandoc --latex-engine=xelatex -V geometry:margin=1in -V mainfont="Linux Libertine O"'
 
