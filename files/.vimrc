@@ -63,6 +63,7 @@ Plugin 'https://github.com/arecarn/vim-crunch'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'lervag/vimtex'
 " A solid language pack for Vim.
+let g:polyglot_disabled = ['latex']
 Plugin 'sheerun/vim-polyglot'
 Plugin 'terryma/vim-expand-region'
 " Maintains a history of previous yanks, changes and deletes
@@ -624,7 +625,6 @@ let g:pandoc#filetypes#pandoc_markdown = 0
 " }}}
 " polyglot {{{
 
-let g:polyglot_disabled = ['latex']
 
 " }}}
 " YankRing {{{
