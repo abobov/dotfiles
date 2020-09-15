@@ -19,3 +19,6 @@
 
 /files/.config/pgcli/*
 !/files/.config/pgcli/config
+
+/files/.task/*
+!/files/.task/hooks/

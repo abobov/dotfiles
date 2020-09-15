@@ -14,6 +14,7 @@
         ~/.ssh: files/.ssh
         ~/.lessfilter.sh: files/.lessfilter.sh
         ~/.psqlrc: files/.psqlrc
+        ~/.task: files/.task
         ~/.taskrc: files/.taskrc
         ~/.vit: files/.vit
         ~/.reminders: files/.reminders
