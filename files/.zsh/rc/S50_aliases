@@ -1,9 +1,10 @@
+function is_command() {
+    command -v $1 > /dev/null
+}
+
 # Fix aliases
 alias sudo='sudo '
 alias watch='watch '
-
-# Remove grml aliasses
-unalias ag 2>/dev/null
 
 alias ag="ag --page less"
 
@@ -11,16 +12,18 @@ alias wcc="wc -c | numfmt --to=si"
 alias nf="numfmt --from=auto --to=iec"
 
 alias da='\du -sch'
-if [ -x "$(command -v ncdu)" ]; then
+if is_command ncdu; then
     alias du='ncdu -rr -x --exclude .git'
 else
     alias du='du -h'
 fi
 
-if [ -x "$(command -v prettyping)" ]; then
+if is_command prettyping; then
     alias ping='prettyping --nolegend'
 fi
 alias localip="hostname -I | gawk '{print \$1}'"
+alias tcp-listen="netstat --tcp --listen --numeric --program 2>/dev/null || netstat -an | grep LISTEN"
+is_command ss && alias ports='ss -tulanp'
 
 alias df='df -h'
 alias free='free -tm'
@@ -32,7 +35,6 @@ alias egrep='egrep --color=auto'
 alias fn='find . -name'
 alias ip='ip -color'
 alias dmesg='dmesg --human'
-alias ports='ss -tulanp'
 
 alias ls='ls --color=auto -h -F --group-directories-first'
 alias d='dirs -v | head -10'
@@ -53,6 +55,7 @@ alias bc='bc -lq'
 alias calc='noglob bc -l <<<'
 
 alias make='make -j$(nproc)'
+alias nicer='nice -n 15 ionice -c 2 -n 7'
 
 alias display_off='xset dpms force off'
 
@@ -62,7 +65,7 @@ alias xcd='cd "$(xclip -o)"'
 
 alias man='LANG=C man'
 
-if [ -x "$(command -v aptitude)" ] ; then
+if is_command aptitude; then
     alias upa='sudo aptitude -u'
     alias apurge='sudo aptitude purge --purge-unused'
 else
@@ -95,7 +98,7 @@ fi
 alias sc=systemctl
 alias jf="journalctl --unit"
 
-if [ -x "$(command -v python3)" ] ; then
+if is_command python3; then
     alias httpserver='python3 -m http.server'
 else
     alias httpserver='python -m SimpleHTTPServer'
@@ -105,7 +108,9 @@ alias pdoc-pdf='pandoc --latex-engine=xelatex -V geometry:margin=1in -V mainfont
 
 alias jkill="jps | grep -v ' Jps$' | grep -v ' org.eclipse.equinox.' | cut -d ' ' -f 1 | xargs -r kill"
 
-[ -x "$(command -v pgcli)" ] && alias pgcli="pgcli --pgclirc ~/.config/pgcli/config --pgclirc ~/.config/pgcli/local.config"
+is_command pgcli && alias pgcli="pgcli --pgclirc ~/.config/pgcli/config --pgclirc ~/.config/pgcli/local.config"
+
+is_command lynx && alias urls="lynx -nonumbers -listonly -dump"
 
 #
 # Calendar & tasks
@@ -113,7 +118,8 @@ alias jkill="jps | grep -v ' Jps$' | grep -v ' org.eclipse.equinox.' | cut -d ' 
 
 alias cal='ncal -Mb'
 alias ta='task add'
-if [ -x "$(command -v remind)" ] ; then
+alias task-no-spell='TW_IGNORE_SPELL=1 task'
+if is_command remind; then
     alias remind="noglob remind -@ -m -b1"
     alias rem="noglob rem -@ -m -b1"
     alias rem1="rem -cu+1"
@@ -184,16 +190,25 @@ alias exim-queue-rm='sudo exim -Mrm'
 
 alias portcheck='nc -z -v -w 5'
 alias jq='jq --color-output'
+function mvn-or-mvnw() {
+    if [ -x ./mvnw ]; then
+        echo "executing mvnw instead of mvn"
+        ./mvnw "$@"
+    else
+        command mvn "$@"
+    fi
+}
+alias mvn="mvn-or-mvnw"
 
-if [ -x "$(command -v colordiff)" ] ; then
+if is_command colordiff; then
     alias diff='colordiff -u'
 else
     alias diff='diff -u'
 fi
 
-if [ -x "$(command -v unoconv)" ] ; then
+if is_command unoconv; then
     alias 2pdf='unoconv --format pdf'
-elif [ -x "$(command -v libreoffice)" ] ; then
+elif is_command libreoffice; then
     alias 2pdf='libreoffice --headless --convert-to pdf'
 fi
 
@@ -202,5 +217,7 @@ alias http='http --timeout=99999 --style=solarized --body'
 alias remove-colors='sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g"'
 
 #[[ -s /etc/grc.zsh ]] && source /etc/grc.zsh
+
+unfunction is_command
 
 # vim: et ft=zsh :

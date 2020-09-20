@@ -53,6 +53,11 @@
     whoami = config user.email
     fugitive = mergetool --tool fugitive
     clean-branches = !sh -c 'git branch --merged | grep -v '^*' | fzf -m | xargs -rp git branch -d'
+
+    # Gitlab merge requests helpers
+    mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+    mr-clean = "!git for-each-ref refs/heads/mr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+
 [advice]
     statusHints = false
     detachedHead = false
@@ -99,3 +104,8 @@
     cmd = vim -c \"Gdiff\" \"$MERGED\"
 [fetch]
     prune = true
+
+# Allow pushing changes when working with a "read-only" remote from GitHub.
+[url "git@github.com:"]
+    pushInsteadOf = https://github.com/
+    pushInsteadOf = git://github.com/
