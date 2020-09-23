@@ -22,3 +22,5 @@
 
 /files/.task/*
 !/files/.task/hooks/
+
+/files/.config/beets/state.pickle

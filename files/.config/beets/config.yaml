@@ -1,0 +1,10 @@
+directory: ~/Music/
+library: ~/Music/beets.db
+plugins: fetchart
+original_date: yes
+
+paths:
+    default: $albumartist/$album ($year)%aunique{}/$track - $title
+
+ui:
+  color: no

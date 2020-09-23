@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-from glob import glob
-from os.path import isfile, splitext
 import os
 import re
 import sys
+from glob import glob
+from os.path import isfile, splitext
 
 try:
     from hunspell import HunSpell
@@ -11,7 +11,6 @@ try:
 except ImportError as e:
     print(e)
     sys.exit(0)
-
 
 DICT_PATH = '/usr/share/hunspell/'
 LANGS = ['en_US', 'ru_RU']
@@ -41,10 +40,20 @@ def spellcheck(text):
 
     return errors
 
+
+def should_run_spellcheck(task):
+    if len(sys.argv) > 1:
+        opts = dict(arg.split(':', 1) for arg in sys.argv[1:])
+        command = opts['command']
+        return command in ['add', 'append', 'log', 'modify', 'prepend']
+    return False
+
+
 task = Task.from_input()
-errors = spellcheck(task['description'])
-if len(errors) > 0:
-    print('Spell errors:', ', '.join(errors))
-    if not ENV_SKIP in os.environ:
-        sys.exit(1)
+if should_run_spellcheck(task):
+    errors = spellcheck(task['description'])
+    if len(errors) > 0:
+        print('Spell errors:', ', '.join(errors))
+        if not ENV_SKIP in os.environ:
+            sys.exit(1)
 print(task.export_data())
