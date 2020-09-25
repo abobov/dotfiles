@@ -18,6 +18,7 @@
         ~/.taskrc: files/.taskrc
         ~/.vit: files/.vit
         ~/.reminders: files/.reminders
+        ~/.xsessionrc: files/.xsessionrc
         # Git
         ~/.gitconfig: files/.gitconfig
         ~/.gitignore: files/.gitignore
