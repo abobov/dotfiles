@@ -69,6 +69,7 @@ Plugin 'terryma/vim-expand-region'
 " Maintains a history of previous yanks, changes and deletes
 "Plugin 'vim-scripts/YankRing.vim'
 Plugin 'tpope/vim-dadbod'
+Plugin 'dhruvasagar/vim-table-mode'
 
 " File types
 

@@ -35,6 +35,7 @@ alias egrep='egrep --color=auto'
 alias fn='find . -name'
 alias ip='ip -color'
 alias dmesg='dmesg --human'
+alias crontab='crontab -i'
 
 alias ls='ls --color=auto -h -F --group-directories-first'
 alias d='dirs -v | head -10'
