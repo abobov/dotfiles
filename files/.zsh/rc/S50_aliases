@@ -2,28 +2,31 @@ function is_command() {
     command -v $1 > /dev/null
 }
 
+# {{{ Global aliases
+
+alias -g G='|grep -i'
+alias -g H='|head'
+alias -g T='|tail'
+alias -g L='|less'
+alias -g LA='2>&1|less'
+alias -g X='|xclip'
+alias -g XC='|xclip -selection clipboard'
+
+# }}}
+# Suffix aliases {{{
+
+alias -s html=open
+alias -s pdf=open
+is_command wine && alias -s exe=wine
+alias -s jar="java -jar"
+alias -s git="git clone --recursive"
+
+# }}}
+# Common tools {{{
+
 # Fix aliases
 alias sudo='sudo '
 alias watch='watch '
-
-alias ag="ag --page less"
-
-alias wcc="wc -c | numfmt --to=si"
-alias nf="numfmt --from=auto --to=iec"
-
-alias da='\du -sch'
-if is_command ncdu; then
-    alias du='ncdu -rr -x --exclude .git'
-else
-    alias du='du -h'
-fi
-
-if is_command prettyping; then
-    alias ping='prettyping --nolegend'
-fi
-alias localip="hostname -I | gawk '{print \$1}'"
-alias tcp-listen="netstat --tcp --listen --numeric --program 2>/dev/null || netstat -an | grep LISTEN"
-is_command ss && alias ports='ss -tulanp'
 
 alias df='df -h'
 alias free='free -tm'
@@ -35,36 +38,114 @@ alias egrep='egrep --color=auto'
 alias fn='find . -name'
 alias ip='ip -color'
 alias dmesg='dmesg --human'
+alias ag="ag --page less"
+alias wcc="wc -c | numfmt --to=si"
+alias nf="numfmt --from=auto --to=iec"
+
 alias crontab='crontab -i'
-
-alias ls='ls --color=auto -h -F --group-directories-first'
-alias d='dirs -v | head -10'
-
 alias rm='rm --interactive=once'
 alias mv='mv --interactive'
 alias cp='cp --interactive --recursive'
 alias mkdir='mkdir -pv'
+if is_command colordiff; then
+    alias diff='colordiff -u'
+else
+    alias diff='diff -u'
+fi
+
 alias fd='fdfind'
 alias dd='dd status=progress'
+alias ls='ls --color=auto -h -F --group-directories-first'
+alias d='dirs -v | head -10'
 
-alias c=' clear'
-alias v='vim'
-alias t='tmux new-session -A -s main'
-alias mux='tmuxinator'
+alias da='\du -sch'
+if is_command ncdu; then
+    alias du='ncdu -rr -x --exclude .git'
+else
+    alias du='du -h'
+fi
 
 alias bc='bc -lq'
 alias calc='noglob bc -l <<<'
 
-alias make='make -j$(nproc)'
-alias nicer='nice -n 15 ionice -c 2 -n 7'
-
-alias display_off='xset dpms force off'
-
-# Moving to directory in different teminals.
-alias xpwd='echo $PWD | xclip -i; xclip -o'
-alias xcd='cd "$(xclip -o)"'
+alias c=' clear'
+check_com g || alias g='git'
+check_com s || alias s='ssh'
+alias v='vim'
+alias t='tmux new-session -A -s main'
+alias mux='tmuxinator'
+alias scratch='vim -c Scratch'
+alias scratchmd='vim -c Scratch -c "set ft=markdown"'
+alias rscp='rsync -avzP'
 
 alias man='LANG=C man'
+
+alias sc=systemctl
+alias jf="journalctl --unit"
+
+# }}}
+# Network and web {{{
+
+if is_command prettyping; then
+    alias ping='prettyping --nolegend'
+fi
+alias localip="hostname -I | gawk '{print \$1}'"
+alias tcp-listen="netstat --tcp --listen --numeric --program 2>/dev/null || netstat -an | grep LISTEN"
+alias portcheck='nc -z -v -w 5'
+is_command ss && alias ports='ss -tulanp'
+is_command lynx && alias urls="lynx -nonumbers -listonly -dump"
+alias ipv6_disable='sudo sysctl net.ipv6.conf.all.disable_ipv6=1'
+alias ipv6_enable='sudo sysctl net.ipv6.conf.all.disable_ipv6=0'
+alias aria2c-rpc="aria2c --enable-rpc"
+if [ -f "$HOME/.config/chromium/Default/Cookies" ] ; then
+    alias aria2c-cookies="aria2c --load-cookies='$HOME/.config/chromium/Default/Cookies'"
+fi
+if is_command python3; then
+    alias httpserver='python3 -m http.server'
+else
+    alias httpserver='python -m SimpleHTTPServer'
+fi
+
+alias yt-date='youtube-dl --download-archive=download-archive.log --ignore-errors --output="[%(playlist_index)s] %(upload_date)s - %(title)s-%(id)s.%(ext)s"'
+alias yt-audio='youtube-dl --format bestaudio --embed-thumbnail --extract-audio --audio-format mp3'
+
+# }}}
+# Building tools and development {{{
+
+alias jq='jq --color-output'
+alias http='http --timeout=99999 --style=solarized --body'
+alias make='make -j$(nproc)'
+alias nicer='nice -n 15 ionice -c 2 -n 7'
+alias gco="git branch --sort=-committerdate | fzf --tiebreak=index | xargs git checkout"
+test -f ~/bin/pandoc-filter-includes.py && alias pdoc='pandoc --smart --standalone --filter ~/bin/pandoc-filter-includes.py'
+alias pdoc-pdf='pandoc --latex-engine=xelatex -V geometry:margin=1in -V mainfont="Linux Libertine O"'
+is_command pgcli && alias pgcli="pgcli --pgclirc ~/.config/pgcli/config --pgclirc ~/.config/pgcli/local.config"
+
+function mvn-or-mvnw() {
+    if [ -x ./mvnw ]; then
+        echo "executing mvnw instead of mvn"
+        ./mvnw "$@"
+    else
+        command mvn "$@"
+    fi
+}
+alias mvn="mvn-or-mvnw"
+
+# Docker and docker-compose
+alias dbash='docker exec -it `docker ps -ql` bash'
+alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}\t{{.Ports}}"'
+alias drun='docker run -it --rm'
+alias dlog='docker logs --tail 100 --follow'
+alias dc='docker-compose'
+alias dc-down='dc down --volumes --rmi local --remove-orphans'
+alias dc-logs='dc logs --tail 100 --follow'
+function dc-stats() {
+    dc $@ ps -q | xargs --no-run-if-empty docker stats
+}
+alias dockertop='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock moncho/dry'
+
+# }}}
+# Package manager {{{
 
 if is_command aptitude; then
     alias upa='sudo aptitude -u'
@@ -74,48 +155,8 @@ else
     alias apurge='sudo apt purge'
 fi
 
-alias cclip='xclip -selection clipboard'
-
-check_com g || alias g='git'
-check_com s || alias s='ssh'
-
-alias gco="git branch | fzf | xargs git checkout"
-
-alias rscp='rsync -avzP'
-
-alias yt-date='youtube-dl --download-archive=download-archive.log --ignore-errors --output="[%(playlist_index)s] %(upload_date)s - %(title)s-%(id)s.%(ext)s"'
-alias yt-audio='youtube-dl --format bestaudio --embed-thumbnail --extract-audio --audio-format mp3'
-
-alias boot-log="sed 's/\^\[/\o33/g;s/\[1G\[/\[27G\[/' /var/log/boot | less -r"
-
-alias ipv6_disable='sudo sysctl net.ipv6.conf.all.disable_ipv6=1'
-alias ipv6_enable='sudo sysctl net.ipv6.conf.all.disable_ipv6=0'
-
-alias aria2c-rpc="aria2c --enable-rpc"
-if [ -f "$HOME/.config/chromium/Default/Cookies" ] ; then
-    alias aria2c-cookies="aria2c --load-cookies='$HOME/.config/chromium/Default/Cookies'"
-fi
-
-alias sc=systemctl
-alias jf="journalctl --unit"
-
-if is_command python3; then
-    alias httpserver='python3 -m http.server'
-else
-    alias httpserver='python -m SimpleHTTPServer'
-fi
-test -f ~/bin/pandoc-filter-includes.py && alias pdoc='pandoc --smart --standalone --filter ~/bin/pandoc-filter-includes.py'
-alias pdoc-pdf='pandoc --latex-engine=xelatex -V geometry:margin=1in -V mainfont="Linux Libertine O"'
-
-alias jkill="jps | grep -v ' Jps$' | grep -v ' org.eclipse.equinox.' | cut -d ' ' -f 1 | xargs -r kill"
-
-is_command pgcli && alias pgcli="pgcli --pgclirc ~/.config/pgcli/config --pgclirc ~/.config/pgcli/local.config"
-
-is_command lynx && alias urls="lynx -nonumbers -listonly -dump"
-
-#
-# Calendar & tasks
-#
+# }}}
+# Calendar & tasks {{{
 
 alias cal='ncal -Mb'
 alias ta='task add'
@@ -132,80 +173,8 @@ if is_command remind; then
     done
 fi
 
-# TLP
-
-alias tlp-stat='sudo tlp-stat'
-
-alias tlp-fullcharge='sudo tlp fullcharge BAT0; sudo tlp fullcharge BAT1'
-alias tlp-setcharge='sudo tlp setcharge BAT0; sudo tlp setcharge BAT1'
-
-#
-# ZFS
-#
-
-alias zfs='sudo zfs'
-alias zpool='sudo zpool'
-
-# Global
-
-alias -g G='|grep -i'
-alias -g H='|head'
-alias -g T='|tail'
-alias -g L='|less'
-alias -g LA='2>&1|less'
-alias -g X='|xclip'
-alias -g XC='|xclip -selection clipboard'
-
-#
-# File defaults
-#
-
-alias -s html=open
-alias -s pdf=open
-alias -s exe=wine
-alias -s jar="java -jar"
-alias -s git="git clone --recursive"
-
-#
-# Docker and docker-compose
-#
-alias dbash='docker exec -it `docker ps -ql` bash'
-alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}\t{{.Ports}}"'
-alias drun='docker run -it --rm'
-alias dlog='docker logs --tail 100 --follow'
-alias dc='docker-compose'
-alias dc-down='dc down --volumes --rmi local --remove-orphans'
-alias dc-logs='dc logs --tail 100 --follow'
-function dc-stats() {
-    dc $@ ps -q | xargs --no-run-if-empty docker stats
-}
-alias dockertop='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock moncho/dry'
-
-#
-# Exim
-#
-alias exim-queue-list='sudo exim -bp'
-alias exim-queue-header='sudo exim -Mvh'
-alias exim-queue-body='sudo exim -Mvb'
-alias exim-queue-rm='sudo exim -Mrm'
-
-alias portcheck='nc -z -v -w 5'
-alias jq='jq --color-output'
-function mvn-or-mvnw() {
-    if [ -x ./mvnw ]; then
-        echo "executing mvnw instead of mvn"
-        ./mvnw "$@"
-    else
-        command mvn "$@"
-    fi
-}
-alias mvn="mvn-or-mvnw"
-
-if is_command colordiff; then
-    alias diff='colordiff -u'
-else
-    alias diff='diff -u'
-fi
+# }}}
+# Other and unsorted {{{
 
 if is_command unoconv; then
     alias 2pdf='unoconv --format pdf'
@@ -213,12 +182,33 @@ elif is_command libreoffice; then
     alias 2pdf='libreoffice --headless --convert-to pdf'
 fi
 
-alias http='http --timeout=99999 --style=solarized --body'
-
+alias display_off='xset dpms force off'
+alias cclip='xclip -selection clipboard'
 alias remove-colors='sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g"'
+alias boot-log="sed 's/\^\[/\o33/g;s/\[1G\[/\[27G\[/' /var/log/boot | less -r"
 
-#[[ -s /etc/grc.zsh ]] && source /etc/grc.zsh
+# TLP
+
+alias tlp-stat='sudo tlp-stat'
+alias tlp-fullcharge='sudo tlp fullcharge BAT0; sudo tlp fullcharge BAT1'
+alias tlp-setcharge='sudo tlp setcharge BAT0; sudo tlp setcharge BAT1'
+
+# ZFS
+
+alias zfs='sudo zfs'
+alias zpool='sudo zpool'
+
+# Exim
+#alias exim-queue-list='sudo exim -bp'
+#alias exim-queue-header='sudo exim -Mvh'
+#alias exim-queue-body='sudo exim -Mvb'
+#alias exim-queue-rm='sudo exim -Mrm'
+
+# }}}
+# Cleanup {{{
 
 unfunction is_command
 
-# vim: et ft=zsh :
+# }}}
+
+# vim: et ft=zsh fdm=marker :
