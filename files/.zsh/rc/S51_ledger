@@ -25,14 +25,13 @@ bal() {
 }
 
 ele() {
-    fn=$(sed -En 's/^--file (.*)/\1/p' ~/.ledgerrc)
+    fn="$HOME/Dropbox/ledger/data/$(date +%Y).ledger"
     vim "$(eval "echo $fn")"
 }
 
 lx() {
     entry=$(ledger xact $*)
-    fn=$(sed -En 's/^--file (.*)/\1/p' ~/.ledgerrc)
-    fn=${fn/#\~/$HOME}
+    fn="$HOME/Dropbox/ledger/data/$(date +%Y).ledger"
 
     echo "$entry"
     read -q reply?"Is it ok? (Y/n) "

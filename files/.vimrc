@@ -27,7 +27,7 @@ Plugin 'tpope/vim-rsi'
 " Show colors in CSS format
 Plugin 'https://github.com/ap/vim-css-color'
 " Load project .vimrc files
-Plugin 'https://github.com/MarcWeber/vim-addon-local-vimrc'
+"Plugin 'https://github.com/MarcWeber/vim-addon-local-vimrc'
 " Fuzzy finder
 Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
 " Finder
@@ -594,6 +594,7 @@ let g:ctrlp_user_caching = 0
 
 augroup ft_ledger
     au!
+    let g:ledger_main = '~/Dropbox/ledger/journal.ledger'
     au FileType ledger inoremap <silent><buffer> <Leader>e <Esc>:call ledger#entry()<CR>
     au FileType ledger noremap <silent><buffer> <Leader>x <Esc>:call ledger#transaction_state_toggle(line('.'), '* ')<CR>
     au FileType ledger noremap = :LedgerAlign<CR>

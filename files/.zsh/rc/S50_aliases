@@ -118,7 +118,6 @@ alias make='make -j$(nproc)'
 alias nicer='nice -n 15 ionice -c 2 -n 7'
 alias gco="git branch --sort=-committerdate | fzf --tiebreak=index | xargs git checkout"
 test -f ~/bin/pandoc-filter-includes.py && alias pdoc='pandoc --smart --standalone --filter ~/bin/pandoc-filter-includes.py'
-alias pdoc-pdf='pandoc --latex-engine=xelatex -V geometry:margin=1in -V mainfont="Linux Libertine O"'
 is_command pgcli && alias pgcli="pgcli --pgclirc ~/.config/pgcli/config --pgclirc ~/.config/pgcli/local.config"
 
 function mvn-or-mvnw() {
@@ -181,6 +180,11 @@ if is_command unoconv; then
 elif is_command libreoffice; then
     alias 2pdf='libreoffice --headless --convert-to pdf'
 fi
+alias pdoc-pdf='pandoc --latex-engine=xelatex -V geometry:margin=1in -V mainfont="Linux Libertine O"'
+alias ocrmypdf='ocrmypdf --clean --deskew --rotate-pages'
+alias ocrmypdf-rus='ocrmypdf --language rus'
+alias ocrmypdf-eng='ocrmypdf --language eng'
+alias ocrmypdf-rus-eng='ocrmypdf --language rus+eng'
 
 alias display_off='xset dpms force off'
 alias cclip='xclip -selection clipboard'

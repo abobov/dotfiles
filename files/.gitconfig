@@ -18,6 +18,7 @@
 [core]
     pager = less -+$LESS -FRX
     excludesfile = ~/.gitignore
+    quotepath = false
 [log]
     decorate = short
 [alias]
