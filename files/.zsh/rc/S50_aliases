@@ -117,6 +117,7 @@ alias http='http --timeout=99999 --style=solarized --body'
 alias make='make -j$(nproc)'
 alias nicer='nice -n 15 ionice -c 2 -n 7'
 alias gco="git branch --sort=-committerdate | fzf --tiebreak=index | xargs git checkout"
+alias ghome='cd "$(git rev-parse --show-toplevel)"'
 test -f ~/bin/pandoc-filter-includes.py && alias pdoc='pandoc --smart --standalone --filter ~/bin/pandoc-filter-includes.py'
 is_command pgcli && alias pgcli="pgcli --pgclirc ~/.config/pgcli/config --pgclirc ~/.config/pgcli/local.config"
 
@@ -129,6 +130,7 @@ function mvn-or-mvnw() {
     fi
 }
 alias mvn="mvn-or-mvnw"
+compdef _mvn mvn-or-mvnw
 
 # Docker and docker-compose
 alias dbash='docker exec -it `docker ps -ql` bash'

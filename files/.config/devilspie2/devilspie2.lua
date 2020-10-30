@@ -8,6 +8,8 @@ if (get_window_type() == 'WINDOW_TYPE_NORMAL') then
         maximize();
     elseif (get_application_name() == 'mpv') then
         center();
+    elseif (get_application_name() == 'TkRemind') then
+        center();
     elseif (get_window_name() == 'gitk') then
         maximize();
     elseif (get_window_name() == 'win0') then
