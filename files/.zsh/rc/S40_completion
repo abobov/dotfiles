@@ -29,7 +29,7 @@ hosts=($( ( \
 zstyle ':completion:*' hosts $hosts
 zstyle ':completion:*:hosts' list-colors '=(#b)(*)(bobov.name)=01;30=01;31' '=[^.]#=01;31'
 
-users=(root dexter anton)
+users=(root anton)
 zstyle ':completion:*' users $users
 
 # }}}
