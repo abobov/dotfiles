@@ -3,12 +3,25 @@
     email = abobov@gmail.com
 [http]
     sslVerify = false
-[color]
-    ui = auto
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold reverse
+    newNormal = "#009900" bold
+    newHighlight = "#009900" bold reverse
+[color "diff"]
+    meta = 11
+    frag = magenta bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
 [diff]
     tool = vimdiff
 [difftool]
     prompt = false
+[diff-so-fancy]
+    stripLeadingSymbols = false
+    markEmptyLines = false
 [grep]
     lineNumber = true
 [merge]
@@ -16,7 +29,7 @@
     stat = true
     tool = vimdiff
 [core]
-    pager = less -+$LESS -FRX
+    pager = diff-so-fancy | less -+$LESS -FRX
     excludesfile = ~/.gitignore
     quotepath = false
 [log]
@@ -29,6 +42,8 @@
     co = checkout
     ci = commit
     diffstat = diff --stat -r
+    dc = diff --find-copies-harder --cached
+    di = diff --find-copies-harder
     fix = commit --amend -C HEAD
     history-all = "!gitk --all $( git fsck | awk '/dangling commit/ {print $3}'; git log -g --pretty='format:%H')"
     k =  !sh -c 'gitk $1' -
