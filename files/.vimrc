@@ -313,14 +313,15 @@ if has('autocmd')
     au InsertEnter * set nocursorline
     au InsertLeave * set cursorline
 
-	" TODO перенести в ftplugin
-	autocmd FileType tex setlocal spell textwidth=79
-	autocmd FileType java setlocal omnifunc=javacomplete#Complete
-	autocmd FileType python set expandtab
-	autocmd FileType html,xml,ant set nolist
+    " TODO перенести в ftplugin
+    au FileType tex setlocal spell textwidth=79
+    au FileType java setlocal omnifunc=javacomplete#Complete
+    au FileType python set expandtab
+    au FileType html,xml,ant set nolist
 
     " Restore cursor position
-    au BufReadPost * if line("'\.") > 0 && line("'\.") <= line("$") | exe 'normal g`.zvzz' | endif
+    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe 'normal g`"zvzz' | endif
+
     au BufRead,BufNewFile /etc/nginx/* if &ft == "" | setfiletype nginx | endif
     au BufEnter * if &filetype == "" | setlocal ft=text | endif
     au BufReadPost *.ledger norm G
@@ -328,7 +329,6 @@ if has('autocmd')
     au BufRead,BufNewFile *.geojson if &ft == "" | setfiletype json | endif
 
     " Set scripts to be executable from shell
-    "au BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent !chmod +x <afile> | endif
     au BufWritePost * if getline(1) =~ "^#!.*/bin/" | silent exec "!chmod +x <afile>" | endif
 endif
 " }}}
