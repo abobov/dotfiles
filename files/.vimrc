@@ -447,8 +447,18 @@ endif
 if executable('xmlstarlet')
     command -range Format <line1>,<line2>!xmlstarlet format
 endif
+
+command Jira %!pandoc --to=jira
 " }}}
 " Filetype {{{
+" Vundle {{{
+
+augroup ft_vundle
+    au!
+    au FileType vundlelog setlocal nospell
+augroup END
+
+" }}}
 " XML {{{
 
 augroup ft_xml

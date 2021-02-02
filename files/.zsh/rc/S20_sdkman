@@ -1,0 +1,15 @@
+if [ -f "$HOME/.sdkman/bin/sdkman-init.sh" ] ; then
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+else
+    function sdk() {
+        vared -p 'No SDKMAN found, install it?: (y/N) ' -c answer
+        case "$answer" in
+            y|Y)
+                unset sdk
+                curl -s "https://get.sdkman.io?rcupdate=false" | bash
+                source "$HOME/.sdkman/bin/sdkman-init.sh"
+                ;;
+        esac
+
+    }
+fi

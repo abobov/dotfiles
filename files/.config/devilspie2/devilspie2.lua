@@ -15,11 +15,8 @@ if (get_window_type() == 'WINDOW_TYPE_NORMAL') then
     elseif (get_window_name() == 'win0') then
         -- IntelliJ IDEA starting window
         set_window_workspace(2);
-    elseif (get_window_class() == 'jetbrains-idea' and get_window_name() == 'IntelliJ IDEA') then
+    elseif (get_window_class() == 'jetbrains-idea' or get_window_class() == 'jetbrains-datagrip') then
         set_window_workspace(2);
-        maximize();
-    elseif (get_window_class() == 'jetbrains-datagrip' and get_window_name() == 'DataGrip') then
-        set_window_workspace(2);
-        maximize();
+        --maximize();
     end
 end
