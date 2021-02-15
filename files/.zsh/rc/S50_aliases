@@ -112,7 +112,6 @@ alias yt-audio='youtube-dl --format bestaudio --embed-thumbnail --extract-audio 
 # }}}
 # Building tools and development {{{
 
-alias jq='jq --color-output'
 alias http='http --timeout=99999 --style=solarized --body'
 alias make='make -j$(nproc)'
 alias nicer='nice -n 15 ionice -c 2 -n 7'

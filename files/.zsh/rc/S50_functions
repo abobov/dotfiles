@@ -50,6 +50,11 @@ datediff() {
     echo $(( (d1 - d2) / 86300 )) days
 }
 
+st() {
+    ssh -t "$@" tmux -u new-session -A -s main
+}
+compdef st=ssh
+
 transfer() {
     curl --progress-bar --upload-file "$1" https://transfer.sh/$(basename "$1") | tee /dev/null;
     echo
