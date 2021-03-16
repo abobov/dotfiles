@@ -1,0 +1,18 @@
+snippet rem "new reminder" b
+REM ${1:`date "+%d %b %Y"`} MSG ${2}%
+endsnippet
+
+snippet remt "new reminder with time" b
+REM ${1:`date "+%d %b %Y"`} AT ${2:12:00} DURATION 1:00 MSG ${3}%
+endsnippet
+
+snippet %
+%"${0:${VISUAL}}%"
+endsnippet
+
+priority 1
+
+snippet date "insert date"
+`date "+%d %b %Y"`
+endsnippet
+

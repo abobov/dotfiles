@@ -37,7 +37,7 @@ Plugin 'https://github.com/lifepillar/vim-solarized8'
 " Zen codding
 Plugin 'https://github.com/mattn/emmet-vim.git'
 " Code snippets
-Plugin 'https://github.com/msanders/snipmate.vim'
+Plugin 'SirVer/ultisnips'
 " Silversearch plugin
 Plugin 'mileszs/ack.vim'
 " Support dot command for plugins

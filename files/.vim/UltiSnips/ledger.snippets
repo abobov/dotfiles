@@ -1,0 +1,58 @@
+global !p
+def ledger_list(args):
+    import subprocess
+    res = subprocess.run(['ledger'] + args, capture_output=True)
+    return res.stdout.decode('utf-8').split('\n')
+
+def list_payees(filter):
+    return ledger_list(['payees', '-p', 'last 6 months'] + filter)
+
+def list_commodities(filter):
+    res = ledger_list(['commodities', '-p', 'last 6 months'] + filter)
+    return [m.strip('"') for m in res]
+
+def complete(base, matches):
+    matches = [m for m in matches if m != '']
+    if base:
+        matches = [m[len(base):] for m in matches if m.startswith(base)]
+    if not matches:
+        return ''
+    elif len(matches) == 1:
+        return matches[0]
+    elif len(matches) > 5:
+        return '[' + ' | '.join(matches[:5]) + ' | ...]'
+    else:
+        return '[' + ' | '.join(matches) + ']'
+endglobal
+
+snippet ent "new entry" b
+`date +%F` ${1:Transaction}
+    ${2:Expenses}                                ${3:R0.00}
+    ${4:Assets}
+endsnippet
+
+snippet div "new dividend" b
+`date +%F` * ${1:broker}
+    ; Stock: ${2:stock}
+    Assets:${3:Broker:$1:Cash}                   ${4:\$10.00}
+    Income:Broker:Dividend
+endsnippet
+
+snippet coupon "new coupon" b
+`date +%F` * ${1:broker}
+    ; Bond: ${2:bond}
+    Assets:${3:Broker:$1:Cash}                   ${4:\$10.00}
+    Income:Broker:Coupons
+endsnippet
+
+snippet broker "broker payee"
+$1`!p snip.rv = complete(t[1], list_payees(['Assets:Broker']))`$0
+endsnippet
+
+snippet stock "stock ticket"
+$1`!p snip.rv = complete(t[1], list_commodities(['Assets:Broker', 'and', 'Stock']))`$0
+endsnippet
+
+snippet bond "bond ticket"
+$1`!p snip.rv = complete(t[1], list_commodities(['Assets:Broker', 'and', 'Bond']))`$0
+endsnippet
