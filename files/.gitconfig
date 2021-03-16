@@ -34,6 +34,7 @@
     quotepath = false
 [log]
     decorate = short
+    mailmap = true
 [alias]
     aa = add --all
     amend = commit --amend

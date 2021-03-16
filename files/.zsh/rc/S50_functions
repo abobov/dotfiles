@@ -55,6 +55,23 @@ st() {
 }
 compdef st=ssh
 
+calc() {
+    echo "scale=3;$@" | bc -l
+}
+alias calc="noglob calc"
+
+# Take from @garybernhardt
+activate_virtualenv() {
+    for name in venv env ; do
+        for up in . ../.. ../../.. ; do
+            if [ -f $up/$name/bin/activate ] ; then
+                . $up/$name/bin/activate
+                return
+            fi
+        done
+    done
+}
+
 transfer() {
     curl --progress-bar --upload-file "$1" https://transfer.sh/$(basename "$1") | tee /dev/null;
     echo

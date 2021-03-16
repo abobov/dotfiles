@@ -66,7 +66,6 @@ else
 fi
 
 alias bc='bc -lq'
-alias calc='noglob bc -l <<<'
 
 alias c=' clear'
 check_com g || alias g='git'
@@ -82,6 +81,8 @@ alias man='LANG=C man'
 
 alias sc=systemctl
 alias jf="journalctl --unit"
+
+alias lsblk="lsblk -o NAME,SIZE,UUID,FSTYPE,MOUNTPOINT,LABEL,MODEL"
 
 # }}}
 # Network and web {{{
