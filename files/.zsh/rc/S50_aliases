@@ -113,7 +113,7 @@ alias yt-audio='youtube-dl --format bestaudio --embed-thumbnail --extract-audio 
 # }}}
 # Building tools and development {{{
 
-alias http='http --timeout=99999 --style=solarized --body'
+alias http='http --timeout=99999 --style=solarized'
 alias make='make -j$(nproc)'
 alias nicer='nice -n 15 ionice -c 2 -n 7'
 alias gco="git branch --sort=-committerdate | fzf --tiebreak=index | xargs git checkout"
