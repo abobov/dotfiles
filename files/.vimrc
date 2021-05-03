@@ -83,6 +83,8 @@ Plugin 'https://github.com/digitaltoad/vim-jade.git'
 Plugin 'vim-pandoc/vim-pandoc'
 " Orgmode
 Plugin 'https://github.com/jceb/vim-orgmode'
+" EditorConfig plugin for Vim
+Plugin 'editorconfig/editorconfig-vim'
 
 "Plugin 'https://github.com/othree/xml.vim'
 "Plugin 'https://github.com/terryma/vim-multiple-cursors'
@@ -655,6 +657,11 @@ if executable('ag')
     cnoreabbrev Ag Ack
     cnoreabbrev AG Ack
 endif
+
+" }}}
+" Editorconfig {{{
+
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " }}}
 " }}}

@@ -10,6 +10,7 @@
 
 - link:
         ~/.aria2: files/.aria2
+        ~/.editorconfig: files/.editorconfig
         ~/.mpv: files/.mpv
         ~/.ssh: files/.ssh
         ~/.lessfilter.sh: files/.lessfilter.sh
