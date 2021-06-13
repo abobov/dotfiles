@@ -19,4 +19,15 @@ jdk-select() {
     test -z "$version" || sdk use java $version
 }
 
+sdk-cleanup() {
+    find ~/.sdkman/candidates -maxdepth 2 -mindepth 2 -type d |
+        awk -F '/' '{print $(NF-1), $NF}' |
+        sort -V |
+        column -t |
+        fzf --multi |
+        while read candidate version ; do
+            sdk rm $candidate $version
+        done
+}
+
 # vim: ft=zsh

@@ -75,7 +75,7 @@ alias t='tmux new-session -A -s main'
 alias mux='tmuxinator'
 alias scratch='vim -c Scratch'
 alias scratchmd='vim -c Scratch -c "set ft=markdown"'
-alias rscp='rsync -avzP'
+alias rscp='rsync -avzhP'
 
 alias man='LANG=C man'
 
@@ -143,7 +143,8 @@ alias dc-logs='dc logs --tail 100 --follow'
 function dc-stats() {
     dc $@ ps -q | xargs --no-run-if-empty docker stats
 }
-alias dockertop='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock moncho/dry'
+alias docker-top='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock moncho/dry'
+alias docker-dive='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive'
 
 # }}}
 # Package manager {{{
