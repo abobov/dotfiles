@@ -72,6 +72,15 @@ activate_virtualenv() {
     done
 }
 
+edit-which() {
+    $EDITOR $(which "$@")
+}
+compdef edit-which=which
+
+ipinfo() {
+    curl ipinfo.io/json
+}
+
 transfer() {
     curl --progress-bar --upload-file "$1" https://transfer.sh/$(basename "$1") | tee /dev/null;
     echo

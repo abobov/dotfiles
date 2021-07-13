@@ -10,6 +10,8 @@ alias luncleared='ledger register --uncleared --begin "last 30 days"'
 alias lcash='ledger balance Expenses:Cash'
 alias budget='ledger budget --exchange R ^Expenses and not ^Expenses:Cash'
 alias budget-month='ledger budget --period "this month" --exchange R ^Expenses and not ^Expenses:Cash'
+alias ele="vim '$HOME/Dropbox/ledger/data/current.ledger'"
+
 
 _ledger_smartcase_expr() {
     echo "$1" | sed -r 's/[A-Z]/.*&/g'
@@ -23,11 +25,6 @@ bal() {
     else
         ledger balance \( ^Assets ^Liabilities \) and $*
     fi
-}
-
-ele() {
-    fn="$HOME/Dropbox/ledger/data/$(date +%Y).ledger"
-    vim "$(eval "echo $fn")"
 }
 
 lx() {
