@@ -84,6 +84,7 @@
 [branch]
     autosetupmerge = always
     autosetuprebase = local
+    sort = authordate
 [rebase]
     instructionFormat = %s [%an] {%ar}
 [rerere]

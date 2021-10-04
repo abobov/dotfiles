@@ -79,8 +79,6 @@ Plugin 'https://github.com/ledger/vim-ledger'
 
 " Jade templates
 Plugin 'https://github.com/digitaltoad/vim-jade.git'
-" Pandoc
-Plugin 'vim-pandoc/vim-pandoc'
 " Orgmode
 Plugin 'https://github.com/jceb/vim-orgmode'
 " EditorConfig plugin for Vim
@@ -613,6 +611,7 @@ augroup ft_ledger
     au FileType ledger iabbrev <buffer> alfa Assets:Bank:AlfaBank:Card
     au FileType ledger iabbrev <buffer> soyuz Assets:Bank:Soyuz:Savings:Deposit:2019-04-15
     au FileType ledger iabbrev <buffer> tinkof Assets:Bank:Tinkoff:Card-Black
+    au FileType ledger iabbrev <buffer> vtbm Assets:Bank:VTB:Card-MIR
     au BufWritePost *.ledger silent! make | redraw! | cwindow
     au FileType ledger setlocal foldmethod=marker foldmarker={,}
     au FileType ledger noremap <Leader>e :call ledger#entry()<CR>
@@ -629,12 +628,6 @@ let g:ledger_accounts_cmd = 'cat ~/.ledger-accounts'
 " vimtex {{{
 
 let g:tex_flavor = 'latex'
-
-" }}}
-" vim-pandoc {{{
-
-let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
-let g:pandoc#filetypes#pandoc_markdown = 0
 
 " }}}
 " polyglot {{{

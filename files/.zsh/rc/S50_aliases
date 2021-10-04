@@ -76,6 +76,8 @@ alias mux='tmuxinator'
 alias scratch='vim -c Scratch'
 alias scratchmd='vim -c Scratch -c "set ft=markdown"'
 alias rscp='rsync -avzhP'
+is_command pigz && alias gzip='pigz'
+is_command unpigz && alias gunzip='unpigz'
 
 alias man='LANG=C man'
 
@@ -117,6 +119,7 @@ alias http='http --timeout=99999 --style=solarized'
 alias make='make -j$(nproc)'
 alias nicer='nice -n 15 ionice -c 2 -n 7'
 alias gco="git branch --sort=-committerdate | fzf --tiebreak=index | xargs git checkout"
+alias gst="git status"
 alias ghome='cd "$(git rev-parse --show-toplevel)"'
 test -f ~/bin/pandoc-filter-includes.py && alias pdoc='pandoc --smart --standalone --filter ~/bin/pandoc-filter-includes.py'
 is_command pgcli && alias pgcli="pgcli --pgclirc ~/.config/pgcli/config --pgclirc ~/.config/pgcli/local.config"
