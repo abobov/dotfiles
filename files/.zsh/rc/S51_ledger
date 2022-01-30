@@ -29,7 +29,7 @@ bal() {
 
 lx() {
     entry=$(ledger xact $*)
-    fn="$HOME/Dropbox/ledger/data/$(date +%Y).ledger"
+    fn="$HOME/Dropbox/ledger/data/current.ledger"
 
     echo "$entry"
     read -q reply?"Is it ok? (Y/n) "

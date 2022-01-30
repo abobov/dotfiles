@@ -40,7 +40,7 @@ open() {
 
 retry() {
     for i in $(seq 5) ; do
-        $* && break || sleep 5
+        "$@" && break || sleep 5
     done
 }
 

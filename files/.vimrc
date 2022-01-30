@@ -13,52 +13,52 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Library for other plugins
-Plugin 'https://github.com/vim-scripts/L9.git'
+Plugin 'vim-scripts/L9.git'
 
 " Git inside vim
-Plugin 'https://github.com/tpope/vim-fugitive.git'
-Plugin 'https://github.com/airblade/vim-gitgutter'
-Plugin 'https://github.com/tpope/vim-unimpaired'
+Plugin 'tpope/vim-fugitive.git'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-unimpaired'
 
 " Intelligent date inc/dec
-Plugin 'https://github.com/tpope/vim-speeddating'
+Plugin 'tpope/vim-speeddating'
 " Readline style insertion
 Plugin 'tpope/vim-rsi'
 " Show colors in CSS format
-Plugin 'https://github.com/ap/vim-css-color'
+Plugin 'ap/vim-css-color'
 " Load project .vimrc files
 "Plugin 'https://github.com/MarcWeber/vim-addon-local-vimrc'
 " Fuzzy finder
-Plugin 'https://github.com/ctrlpvim/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 " Finder
-Plugin 'https://github.com/vim-scripts/FuzzyFinder.git'
+Plugin 'vim-scripts/FuzzyFinder.git'
 " Solarized colorscheme
-Plugin 'https://github.com/lifepillar/vim-solarized8'
+Plugin 'lifepillar/vim-solarized8'
 " Zen codding
-Plugin 'https://github.com/mattn/emmet-vim.git'
+Plugin 'mattn/emmet-vim.git'
 " Code snippets
 Plugin 'SirVer/ultisnips'
 " Silversearch plugin
 Plugin 'mileszs/ack.vim'
 " Support dot command for plugins
-Plugin 'https://github.com/tpope/vim-repeat.git'
-Plugin 'https://github.com/tpope/vim-surround.git'
+Plugin 'tpope/vim-repeat.git'
+Plugin 'tpope/vim-surround.git'
 " Files tree plugin
-Plugin 'https://github.com/scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 " Commenting text
-Plugin 'https://github.com/scrooloose/nerdcommenter.git'
+Plugin 'scrooloose/nerdcommenter.git'
 " Automatic closing of quotes, parenthesis, etc...
-Plugin 'https://github.com/raimondi/delimitmate'
+Plugin 'raimondi/delimitmate'
 " Syntax check and linting
 "Plugin 'https://github.com/scrooloose/syntastic.git'
 " Text alignment commands
-Plugin 'https://github.com/godlygeek/tabular'
+Plugin 'godlygeek/tabular'
 " Pasting in vim
-Plugin 'https://github.com/ConradIrwin/vim-bracketed-paste'
+Plugin 'ConradIrwin/vim-bracketed-paste'
 " File templates
-Plugin 'https://github.com/aperezdc/vim-template'
+Plugin 'aperezdc/vim-template'
 " Calculations in Vim
-Plugin 'https://github.com/arecarn/vim-crunch'
+Plugin 'arecarn/vim-crunch'
 " Vim Tmux Navigator
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'lervag/vimtex'

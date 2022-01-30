@@ -56,6 +56,7 @@ fi
 alias fd='fdfind'
 alias dd='dd status=progress'
 alias ls='ls --color=auto -h -F --group-directories-first'
+alias l='ls -l'
 alias d='dirs -v | head -10'
 
 alias da='\du -sch'
@@ -75,7 +76,7 @@ alias t='tmux new-session -A -s main'
 alias mux='tmuxinator'
 alias scratch='vim -c Scratch'
 alias scratchmd='vim -c Scratch -c "set ft=markdown"'
-alias rscp='rsync -avzhP'
+alias rscp='rsync -rlptDvzhP'
 is_command pigz && alias gzip='pigz'
 is_command unpigz && alias gunzip='unpigz'
 
@@ -121,7 +122,7 @@ alias nicer='nice -n 15 ionice -c 2 -n 7'
 alias gco="git branch --sort=-committerdate | fzf --tiebreak=index | xargs git checkout"
 alias gst="git status"
 alias ghome='cd "$(git rev-parse --show-toplevel)"'
-test -f ~/bin/pandoc-filter-includes.py && alias pdoc='pandoc --smart --standalone --filter ~/bin/pandoc-filter-includes.py'
+test -f ~/bin/pandoc-filter-includes.py && alias pdoc='pandoc --standalone --filter ~/bin/pandoc-filter-includes.py'
 is_command pgcli && alias pgcli="pgcli --pgclirc ~/.config/pgcli/config --pgclirc ~/.config/pgcli/local.config"
 
 function mvn-or-mvnw() {
@@ -134,6 +135,7 @@ function mvn-or-mvnw() {
 }
 alias mvn="mvn-or-mvnw"
 compdef _mvn mvn-or-mvnw
+compdef _mvn mvnd
 
 # Docker and docker-compose
 alias dbash='docker exec -it `docker ps -ql` bash'
@@ -145,6 +147,9 @@ alias dc-down='dc down --volumes --rmi local --remove-orphans'
 alias dc-logs='dc logs --tail 100 --follow'
 function dc-stats() {
     dc $@ ps -q | xargs --no-run-if-empty docker stats
+}
+function docker-save() {
+    docker save "$1" | gzip > $(slugify "$1").tar.gz
 }
 alias docker-top='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock moncho/dry'
 alias docker-dive='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive'
@@ -186,7 +191,7 @@ if is_command unoconv; then
 elif is_command libreoffice; then
     alias 2pdf='libreoffice --headless --convert-to pdf'
 fi
-alias pdoc-pdf='pandoc --latex-engine=xelatex -V geometry:margin=1in -V mainfont="Linux Libertine O"'
+alias pdoc-pdf='pandoc -V fontenc=T2A -V geometry:margin=1in -V mainfont="Linux Libertine O"'
 alias ocrmypdf='ocrmypdf --clean --deskew --rotate-pages'
 alias ocrmypdf-rus='ocrmypdf --language rus'
 alias ocrmypdf-eng='ocrmypdf --language eng'

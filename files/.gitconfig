@@ -1,6 +1,6 @@
 [user]
     name = Anton Bobov
-    email = abobov@gmail.com
+    email = anton@bobov.name
 [http]
     sslVerify = false
 [color "diff-highlight"]

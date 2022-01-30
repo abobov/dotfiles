@@ -1,5 +1,5 @@
 # vim: ft=zsh :
-source $ZSHDIR/z/z.sh
+source $HOME/.zsh/z/z.sh
 
 unalias z 2>/dev/null
 z() {
