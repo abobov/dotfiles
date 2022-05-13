@@ -51,6 +51,7 @@ Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'raimondi/delimitmate'
 " Syntax check and linting
 "Plugin 'https://github.com/scrooloose/syntastic.git'
+Plugin 'dense-analysis/ale'
 " Text alignment commands
 Plugin 'godlygeek/tabular'
 " Pasting in vim
@@ -449,6 +450,7 @@ if executable('xmlstarlet')
 endif
 
 command Jira %!pandoc --to=jira
+command Mine %!to-html-fragment
 " }}}
 " Filetype {{{
 " Vundle {{{
@@ -650,6 +652,17 @@ if executable('ag')
     cnoreabbrev Ag Ack
     cnoreabbrev AG Ack
 endif
+
+" }}}
+" ALE {{{
+
+
+au FileType java,python set omnifunc=ale#completion#OmniFunc
+
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {}
+let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
+let g:ale_fixers['json'] = ['jq']
 
 " }}}
 " Editorconfig {{{
