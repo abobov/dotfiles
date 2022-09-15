@@ -196,6 +196,7 @@ alias ocrmypdf='ocrmypdf --clean --deskew --rotate-pages'
 alias ocrmypdf-rus='ocrmypdf --language rus'
 alias ocrmypdf-eng='ocrmypdf --language eng'
 alias ocrmypdf-rus-eng='ocrmypdf --language rus+eng'
+alias ocrmypdf-swe-eng='ocrmypdf --language swe+eng'
 
 alias display_off='xset dpms force off'
 alias cclip='xclip -selection clipboard'
