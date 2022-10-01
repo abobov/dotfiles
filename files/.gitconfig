@@ -40,6 +40,7 @@
     amend = commit --amend
     ar = !sh -c 'git archive --format=tar --prefix="$(basename "$PWD")-$1/" $1^{tree} | bzip2 >"$(basename "$PWD")-$1.tar.bz2"' -
     br = branch --sort=-committerdate
+    acm = !git add --all && git commit -m
     c = commit --verbose
     co = checkout
     ci = commit
