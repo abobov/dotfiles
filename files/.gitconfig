@@ -72,6 +72,10 @@
     whoami = config user.email
     fugitive = mergetool --tool fugitive
     clean-branches = !sh -c 'git branch --merged | grep -v '^*' | fzf -m | xargs -rp git branch -d'
+    co-before = !sh -c 'git rev-list -1 --before="$@" HEAD | xargs -r git checkout' -
+    ri = rebase --interactive
+    rc = rebase --continue
+    ra = rebase --abort
 
     # Gitlab merge requests helpers
     mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
