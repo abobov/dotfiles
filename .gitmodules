@@ -3,7 +3,7 @@
     url = https://github.com/abobov/bin.git
 [submodule "zsh-completions"]
     path = files/.zsh/zsh-completions
-    url = https://github.com/zsh-users/zsh-completions.git
+    url = https://github.com/abobov/zsh-completions.git
 [submodule "files/.zsh/z"]
     path = files/.zsh/z
     url = https://github.com/rupa/z.git

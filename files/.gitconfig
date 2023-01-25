@@ -61,6 +61,7 @@
     sha = rev-parse --short
     addnw = !sh -c 'git diff --unified=0 --ignore-all-space --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
     branch-name = "!git rev-parse --abbrev-ref HEAD"
+    pushf = push --force-with-lease
     publish = "!git push -u origin $(git branch-name)"
     # https://datagrok.org/git/git-serve/
     quickserve="daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/"
@@ -92,6 +93,7 @@
     sort = authordate
 [rebase]
     instructionFormat = %s [%an] {%ar}
+    autoStash = true
 [rerere]
     enabled = true
 [status]
