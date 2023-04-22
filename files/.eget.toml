@@ -1,0 +1,14 @@
+[global]
+target = "~/.local/bin"
+upgrade_only = true
+
+["zyedidia/eget"]
+
+["antonmedv/fx"]
+
+["docker/compose"]
+target = "~/.local/bin/docker-compose"
+
+["jesseduffield/lazygit"]
+
+["pypa/pipx"]

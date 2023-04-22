@@ -11,14 +11,15 @@
 - link:
         ~/.aria2: files/.aria2
         ~/.editorconfig: files/.editorconfig
-        ~/.mpv: files/.mpv
-        ~/.ssh: files/.ssh
+        ~/.eget.toml: files/.eget.toml
         ~/.lessfilter.sh: files/.lessfilter.sh
+        ~/.mpv: files/.mpv
         ~/.psqlrc: files/.psqlrc
+        ~/.reminders: files/.reminders
+        ~/.ssh: files/.ssh
         ~/.task: files/.task
         ~/.taskrc: files/.taskrc
         ~/.vit: files/.vit
-        ~/.reminders: files/.reminders
         ~/.xsessionrc: files/.xsessionrc
         # Git
         ~/.gitconfig: files/.gitconfig
