@@ -45,7 +45,13 @@ compdef ledger=hledger
 compdef _gnu_generic lshw df duplicity tldr
 compdef _gnu_generic -p 'pg_*'
 
-# youtube-dl
-[[ -f /etc/bash_completion.d/youtube-dl.bash-completion ]] && source /etc/bash_completion.d/youtube-dl.bash-completion
+__load_completion_if_exists() {
+  [[ -f "$1" ]] && source "$1"
+}
+
+__load_completion_if_exists /etc/bash_completion.d/youtube-dl.bash-completion
+__load_completion_if_exists /usr/share/zsh/vendor-completions/_git-extras
+
+unset -f __load_completion_if_exists
 
 # vim: et ft=zsh fdm=marker :

@@ -1,7 +1,7 @@
 function () {
-  EGET_LOCATION="$HOME/.local/bin/eget"
+  __EGET_LOCATION="$HOME/.local/bin/eget"
 
-  if [ ! -x "$EGET_LOCATION" ] ; then
+  if [ ! -x "$__EGET_LOCATION" ] ; then
     function eget() {
       local EGET_SCRIPT_URL="https://zyedidia.github.io/eget.sh"
       local EGET_SCRIPT_CHECKSUM="0e64b8a3c13f531da005096cc364ac77835bda54276fedef6c62f3dbdc1ee919"
@@ -13,7 +13,7 @@ function () {
           trap 'rm -f "$temp_file"' EXIT
           curl -o "$temp_file" "$EGET_SCRIPT_URL"
           echo "$EGET_SCRIPT_CHECKSUM  $temp_file" | shasum --algorithm 256 --check --quiet
-          (cd $(dirname "$EGET_LOCATION") && sh "$temp_file")
+          (cd $(dirname "$__EGET_LOCATION") && sh "$temp_file")
           ;;
         *)
           return

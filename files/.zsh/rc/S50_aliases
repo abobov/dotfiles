@@ -11,6 +11,7 @@ alias -g L='|less'
 alias -g LA='2>&1|less'
 alias -g X='|xclip'
 alias -g XC='|xclip -selection clipboard'
+alias -g UP='|&\up'
 
 # }}}
 # Suffix aliases {{{
@@ -70,6 +71,7 @@ alias bc='bc -lq'
 
 alias c=' clear'
 check_com g || alias g='git'
+check_com lg && is_command lazygit || alias lg='lazygit'
 check_com s || alias s='ssh'
 alias v='vim'
 alias t='tmux new-session -A -s main'

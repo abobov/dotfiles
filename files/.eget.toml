@@ -12,3 +12,10 @@ target = "~/.local/bin/docker-compose"
 ["jesseduffield/lazygit"]
 
 ["pypa/pipx"]
+
+["akavel/up"]
+
+["so-fancy/diff-so-fancy"]
+
+["mvdan/sh"]
+target = "~/.local/bin/shfmt"

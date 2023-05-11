@@ -2,97 +2,92 @@
 
 " Setup & Plugins {{{
 
-" Setup Vundle
 set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin()
 
 " Plugins {{{
 
-Plugin 'VundleVim/Vundle.vim'
-
 " Library for other plugins
-Plugin 'vim-scripts/L9.git'
+Plug 'vim-scripts/L9'
 
 " Git inside vim
-Plugin 'tpope/vim-fugitive.git'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-unimpaired'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-unimpaired'
 
 " Intelligent date inc/dec
-Plugin 'tpope/vim-speeddating'
+Plug 'tpope/vim-speeddating'
 " Readline style insertion
-Plugin 'tpope/vim-rsi'
+"Plug 'tpope/vim-rsi'
 " Show colors in CSS format
-Plugin 'ap/vim-css-color'
+Plug 'ap/vim-css-color'
 " Load project .vimrc files
-"Plugin 'https://github.com/MarcWeber/vim-addon-local-vimrc'
+"Plug 'https://github.com/MarcWeber/vim-addon-local-vimrc'
 " Fuzzy finder
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 " Finder
-Plugin 'vim-scripts/FuzzyFinder.git'
+Plug 'vim-scripts/FuzzyFinder'
 " Solarized colorscheme
-Plugin 'lifepillar/vim-solarized8'
+Plug 'lifepillar/vim-solarized8'
 " Zen codding
-Plugin 'mattn/emmet-vim.git'
+Plug 'mattn/emmet-vim'
 " Code snippets
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 " Silversearch plugin
-Plugin 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 " Support dot command for plugins
-Plugin 'tpope/vim-repeat.git'
-Plugin 'tpope/vim-surround.git'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
 " Files tree plugin
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 " Commenting text
-Plugin 'scrooloose/nerdcommenter.git'
+Plug 'scrooloose/nerdcommenter'
 " Automatic closing of quotes, parenthesis, etc...
-Plugin 'raimondi/delimitmate'
+Plug 'raimondi/delimitmate'
 " Syntax check and linting
-"Plugin 'https://github.com/scrooloose/syntastic.git'
-Plugin 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
+" Java LSP support for ALE
+" Required by https://github.com/georgewfraser/java-language-server
+Plug 'natebosch/vim-lsc'
 " Text alignment commands
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 " Pasting in vim
-Plugin 'ConradIrwin/vim-bracketed-paste'
+Plug 'ConradIrwin/vim-bracketed-paste'
 " File templates
-Plugin 'aperezdc/vim-template'
+Plug 'aperezdc/vim-template'
 " Calculations in Vim
-Plugin 'arecarn/vim-crunch'
+Plug 'arecarn/vim-crunch'
 " Vim Tmux Navigator
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'lervag/vimtex'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'lervag/vimtex'
 " A solid language pack for Vim.
 let g:polyglot_disabled = ['latex']
-Plugin 'sheerun/vim-polyglot'
-Plugin 'terryma/vim-expand-region'
+Plug 'sheerun/vim-polyglot'
+Plug 'terryma/vim-expand-region'
 " Maintains a history of previous yanks, changes and deletes
-"Plugin 'vim-scripts/YankRing.vim'
-Plugin 'tpope/vim-dadbod'
-Plugin 'dhruvasagar/vim-table-mode'
+"Plug 'vim-scripts/YankRing.vim'
+Plug 'tpope/vim-dadbod'
+Plug 'dhruvasagar/vim-table-mode'
 
 " File types
 
 " Ledger
-"Plugin 'https://github.com/abobov/vim-ledger'
-Plugin 'https://github.com/ledger/vim-ledger'
+"Plug 'https://github.com/abobov/vim-ledger'
+Plug 'ledger/vim-ledger'
 
 " Jade templates
-Plugin 'https://github.com/digitaltoad/vim-jade.git'
+Plug 'digitaltoad/vim-jade'
 " Orgmode
-Plugin 'https://github.com/jceb/vim-orgmode'
+Plug 'jceb/vim-orgmode'
 " EditorConfig plugin for Vim
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
 
-"Plugin 'https://github.com/othree/xml.vim'
-"Plugin 'https://github.com/terryma/vim-multiple-cursors'
-"Plugin 'https://github.com/motemen/git-vim'
+"Plug 'https://github.com/othree/xml.vim'
+"Plug 'https://github.com/terryma/vim-multiple-cursors'
+"Plug 'https://github.com/motemen/git-vim'
 
 " }}}
-call vundle#end()
-filetype plugin indent on
-syntax on
+call plug#end()
 
 " }}}
 " Options {{{
@@ -606,6 +601,7 @@ let g:ctrlp_user_caching = 0
 
 augroup ft_ledger
     au!
+    setlocal textwidth=200
     let g:ledger_main = '~/Dropbox/ledger/journal.ledger'
     au FileType ledger inoremap <silent><buffer> <Leader>e <Esc>:call ledger#entry()<CR>
     au FileType ledger noremap <silent><buffer> <Leader>x <Esc>:call ledger#transaction_state_toggle(line('.'), '* ')<CR>
@@ -663,6 +659,7 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = {}
 let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
 let g:ale_fixers['json'] = ['jq']
+let g:ale_fixers['sh'] = ['shfmt']
 
 " }}}
 " Editorconfig {{{

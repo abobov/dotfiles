@@ -42,7 +42,14 @@ lx() {
 
 budgets() {
     seq 0 24 | xargs -I{} date -d "this month - {} months" +%Y-%m | \
-        fzf --reverse --preview-window 90% --preview 'ledger budget -p {} --exchange R ^Expenses and not ^Expenses:Cash'
+        fzf --reverse --preview-window 90% --preview 'ledger budget --force-color -p {} --exchange R ^Expenses and not ^Expenses:Cash'
 }
+
+expenses() {
+  account=$(ledger accounts -p 'last 6 months' '^Assets:' | fzf)
+  ledger balance "$@" '^Expenses:' and not '^Expenses:Cash$' and expr "any(account == '$account')"
+}
+
+alias expenses-month='expenses -p "this month"'
 
 # vim: et ft=zsh :

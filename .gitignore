@@ -7,6 +7,7 @@
 /files/.vim/doc/tags
 /files/.vim/spell/*.add*
 /files/.vim/bundle
+/files/.vim/plugged/
 /files/.zsh/cache
 /files/.tmux/plugins/
 
