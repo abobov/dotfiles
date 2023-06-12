@@ -32,7 +32,9 @@ Plug 'lifepillar/vim-solarized8'
 " Zen codding
 Plug 'mattn/emmet-vim'
 " Code snippets
-Plug 'SirVer/ultisnips'
+if has('python3')
+  Plug 'SirVer/ultisnips'
+endif
 " Silversearch plugin
 Plug 'mileszs/ack.vim'
 " Support dot command for plugins
