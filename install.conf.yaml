@@ -1,51 +1,56 @@
+# https://github.com/anishathalye/dotbot#configuration
+---
 - defaults:
-        link:
-                relink: true
-                create: true
+    link:
+      relink: true
+      create: true
 
-- clean: [
-    '~',
-    '~/.config'
-    ]
+- clean:
+    - '~'
+    - '~/.config'
+    - '~/.ssh'
+
+- create:
+    '~/.ssh':
+      mode: 0700
 
 - link:
-        ~/.aria2: files/.aria2
-        ~/.editorconfig: files/.editorconfig
-        ~/.eget.toml: files/.eget.toml
-        ~/.lessfilter.sh: files/.lessfilter.sh
-        ~/.mpv: files/.mpv
-        ~/.psqlrc: files/.psqlrc
-        ~/.reminders: files/.reminders
-        ~/.ssh: files/.ssh
-        ~/.task: files/.task
-        ~/.taskrc: files/.taskrc
-        ~/.vit: files/.vit
-        ~/.xsessionrc: files/.xsessionrc
-        # Git
-        ~/.gitconfig: files/.gitconfig
-        ~/.gitignore: files/.gitignore
-        # Tmux
-        ~/.tmux.conf: files/.tmux.conf
-        ~/.tmux: files/.tmux/
-        # Vim
-        ~/.vim: files/.vim
-        ~/.vimrc: files/.vimrc
-        ~/.gvimrc: files/.gvimrc
-        # Zsh
-        ~/.zsh: files/.zsh
-        ~/.zshrc: files/.zshrc
-        ~/.zshenv: files/.zshenv
-        ~/bin: files/bin
-        # Configs
-        ~/.config/devilspie2: files/.config/devilspie2
-        ~/.config/youtube-dl: files/.config/youtube-dl
-        ~/.config/xfce4/terminal: files/.config/xfce4/terminal
-        ~/.config/redshift.conf: files/.config/redshift.conf
-        ~/.config/pgcli: files/.config/pgcli
-        ~/.config/beets: files/.config/beets
+    ~/.aria2: files/.aria2
+    ~/.editorconfig: files/.editorconfig
+    ~/.eget.toml: files/.eget.toml
+    ~/.lessfilter.sh: files/.lessfilter.sh
+    ~/.mpv: files/.mpv
+    ~/.psqlrc: files/.psqlrc
+    ~/.reminders: files/.reminders
+    ~/.task: files/.task
+    ~/.taskrc: files/.taskrc
+    ~/.vit: files/.vit
+    ~/.xsessionrc: files/.xsessionrc
+    ~/.ssh/config: files/.ssh/config
+    # Git
+    ~/.gitconfig: files/.gitconfig
+    ~/.gitignore: files/.gitignore
+    # Tmux
+    ~/.tmux.conf: files/.tmux.conf
+    ~/.tmux: files/.tmux/
+    # Vim
+    ~/.vim: files/.vim
+    ~/.vimrc: files/.vimrc
+    ~/.gvimrc: files/.gvimrc
+    # Zsh
+    ~/.zsh: files/.zsh
+    ~/.zshrc: files/.zshrc
+    ~/.zshenv: files/.zshenv
+    ~/bin: files/bin
+    # Configs
+    ~/.config/devilspie2: files/.config/devilspie2
+    ~/.config/youtube-dl: files/.config/youtube-dl
+    ~/.config/xfce4/terminal: files/.config/xfce4/terminal
+    ~/.config/redshift.conf: files/.config/redshift.conf
+    ~/.config/pgcli: files/.config/pgcli
+    ~/.config/beets: files/.config/beets
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [chmod -R 0600 ~/.ssh/*]
     - [~/.tmux/plugins/tpm/bin/install_plugins, Installing tmux plugins]
     - [vim -c 'PlugInstall' +qall, Installing vim plugins]
