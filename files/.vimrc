@@ -654,14 +654,23 @@ endif
 " }}}
 " ALE {{{
 
+augroup plugin_ale
+    autocmd!
+    au FileType java,python set omnifunc=ale#completion#OmniFunc
+augroup END
 
-au FileType java,python set omnifunc=ale#completion#OmniFunc
+let g:ale_set_quickfix = 1
+
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {}
 let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
 let g:ale_fixers['json'] = ['jq']
 let g:ale_fixers['sh'] = ['shfmt']
+
+nmap <silent><leader>ad <Plug>(ale_detail)
+nmap <silent><leader>aj <Plug>(ale_next_wrap)
+nmap <silent><leader>ak <Plug>(ale_previous_wrap)
 
 " }}}
 " Editorconfig {{{
