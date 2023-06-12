@@ -100,8 +100,6 @@
     submoduleSummary = true
 [help]
     autocorrect = 10
-[credential]
-    helper = netrc
 [remote-hg]
     hg-git-compat = true
 [filter "tabs"]
