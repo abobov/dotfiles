@@ -17,9 +17,6 @@
 [submodule "mutt-colors-solarized"]
     path = files/.mutt/mutt-colors-solarized
     url = https://github.com/altercation/mutt-colors-solarized
-[submodule "vim/Vundle.vim"]
-    path = files/.vim/bundle/Vundle.vim
-    url = https://github.com/VundleVim/Vundle.vim
 [submodule "files/.tmux/plugins/tpm"]
     path = files/.tmux/plugins/tpm
     url = https://github.com/tmux-plugins/tpm
