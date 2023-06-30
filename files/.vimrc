@@ -12,7 +12,7 @@ Plug 'vim-scripts/L9'
 
 " Git inside vim
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter', { 'branch': 'main' }
 Plug 'tpope/vim-unimpaired'
 
 " Intelligent date inc/dec
@@ -447,7 +447,6 @@ if executable('xmlstarlet')
 endif
 
 command Jira %!pandoc --to=jira
-command Mine %!to-html-fragment
 " }}}
 " Filetype {{{
 " Vundle {{{

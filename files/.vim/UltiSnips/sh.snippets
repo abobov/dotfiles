@@ -1,0 +1,7 @@
+snippet ssh "safe shell optsions"
+set -euo pipefail
+endsnippet
+
+snippet scriptdir "get script directory"
+scriptdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+endsnippet
