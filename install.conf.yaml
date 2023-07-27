@@ -19,7 +19,6 @@
     ~/.editorconfig: files/.editorconfig
     ~/.eget.toml: files/.eget.toml
     ~/.lessfilter.sh: files/.lessfilter.sh
-    ~/.mpv: files/.mpv
     ~/.psqlrc: files/.psqlrc
     ~/.reminders: files/.reminders
     ~/.task: files/.task
@@ -49,6 +48,7 @@
     ~/.config/redshift.conf: files/.config/redshift.conf
     ~/.config/pgcli: files/.config/pgcli
     ~/.config/beets: files/.config/beets
+    ~/.config/mpv: files/.config/mpv
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

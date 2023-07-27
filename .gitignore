@@ -21,3 +21,4 @@
 !/files/.task/hooks/
 
 /files/.config/beets/state.pickle
+/files/.config/mpv/watch_later/
