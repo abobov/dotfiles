@@ -2,6 +2,11 @@
 target = "~/.local/bin"
 upgrade_only = true
 
+["rclone/rclone"]
+asset_filters = [ "zip" ]
+
+["restic/restic"]
+
 ["zyedidia/eget"]
 
 ["antonmedv/fx"]
@@ -14,6 +19,7 @@ target = "~/.local/bin/docker-compose"
 ["pypa/pipx"]
 
 ["akavel/up"]
+asset_filters = [ "up" ]
 
 ["so-fancy/diff-so-fancy"]
 
