@@ -1,5 +1,7 @@
 FROM abobov/debian:testing
 
-MAINTAINER Anton Bobov <abobov@gmail.com>
+LABEL maintainer="Anton Bobov <abobov@gmail.com>"
 
-RUN apt-get update && apt-get install -y %HERE%
+RUN apt-get update && apt-get install --no-install-recommends -y %HERE% \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
