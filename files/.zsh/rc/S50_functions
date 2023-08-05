@@ -62,14 +62,27 @@ alias calc="noglob calc"
 
 # Take from @garybernhardt
 activate_virtualenv() {
-    for name in venv env ; do
-        for up in . ../.. ../../.. ; do
-            if [ -f $up/$name/bin/activate ] ; then
-                . $up/$name/bin/activate
-                return
-            fi
-        done
+  local found_location=""
+  for name in venv env ; do
+    for up in . ../.. ../../.. ; do
+      if [ -f "$up/$name/bin/activate" ] ; then
+        found_location="$up/$name/bin/activate"
+        break
+      fi
     done
+    [ -n "$found_location" ] && break
+  done
+
+  if [ -z "$found_location" ] ; then
+    # create
+    read -r "answer?Virtualenv not found, create? "
+    if [[ "$answer" =~ ^[Yy]$ ]] ; then
+      virtualenv venv
+      activate_virtualenv
+    fi
+  else
+    . "$found_location"
+  fi
 }
 
 edit-which() {
