@@ -40,6 +40,8 @@ zstyle ':completion:*:*:vi(m|):*:*files' ignored-patterns '*?.(aux|dvi|ps|pdf|bb
 # Ledger completion like hledger
 compdef ledger=hledger
 
+compdef fdfind=fd
+
 # Completing generic gnu commands
 # https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org
 compdef _gnu_generic lshw df duplicity tldr
