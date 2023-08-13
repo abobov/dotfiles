@@ -11,6 +11,11 @@ asset_filters = [ "zip" ]
 
 ["antonmedv/fx"]
 
+["mikefarah/yq"]
+asset_filters = [ "tar.gz" ]
+file = "yq_linux_amd64"
+target = "~/.local/bin/yq"
+
 ["docker/compose"]
 target = "~/.local/bin/docker-compose"
 

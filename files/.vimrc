@@ -70,6 +70,7 @@ Plug 'terryma/vim-expand-region'
 "Plug 'vim-scripts/YankRing.vim'
 Plug 'tpope/vim-dadbod'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'tpope/vim-eunuch'
 
 " File types
 
@@ -106,6 +107,7 @@ set keymap=russian-jcukenwin
 set spelllang=ru,en
 set spell
 set spellcapcheck=
+set spelloptions=camel
 set iminsert=0
 "set imsearch=0
 
@@ -548,6 +550,11 @@ let NERDTreeChDirMode = 2
 let NERDTreeAutoDeleteBuffer=1
 
 let NERDTreeIgnore = [ '\.pyc$' ]
+
+" }}}
+" NERD Commenter {{{
+
+let NERDSpaceDelims=1
 
 " }}}
 " Scratch {{{
