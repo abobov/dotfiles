@@ -11,6 +11,7 @@ function () {
           unset -f eget
           temp_file=$(mktemp)
           trap 'rm -f "$temp_file"' EXIT
+          mkdir -p "$(dirname "$__EGET_LOCATION")"
           curl -o "$temp_file" "$EGET_SCRIPT_URL"
           echo "$EGET_SCRIPT_CHECKSUM  $temp_file" | shasum --algorithm 256 --check --quiet
           (cd $(dirname "$__EGET_LOCATION") && sh "$temp_file")
