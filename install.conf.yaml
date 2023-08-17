@@ -13,6 +13,7 @@
 - create:
     '~/.ssh':
       mode: 0700
+    '~/.local/bin':
 
 - link:
     ~/.aria2: files/.aria2
