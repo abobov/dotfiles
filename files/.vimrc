@@ -451,14 +451,6 @@ endif
 command Jira %!pandoc --to=jira
 " }}}
 " Filetype {{{
-" Vundle {{{
-
-augroup ft_vundle
-    au!
-    au FileType vundlelog setlocal nospell
-augroup END
-
-" }}}
 " XML {{{
 
 augroup ft_xml
@@ -500,6 +492,12 @@ augroup END
 augroup ft_qf
     au!
     au FileType qf set nowrap
+augroup END
+" }}}
+" Markdown {{{
+augroup ft_markdown
+    au!
+    au FileType markdown setlocal textwidth=0
 augroup END
 " }}}
 " }}}
@@ -609,7 +607,7 @@ let g:ctrlp_user_caching = 0
 
 augroup ft_ledger
     au!
-    setlocal textwidth=200
+    au FileType ledger setlocal textwidth=200
     let g:ledger_main = '~/Dropbox/ledger/journal.ledger'
     au FileType ledger inoremap <silent><buffer> <Leader>e <Esc>:call ledger#entry()<CR>
     au FileType ledger noremap <silent><buffer> <Leader>x <Esc>:call ledger#transaction_state_toggle(line('.'), '* ')<CR>
@@ -667,21 +665,34 @@ augroup END
 
 let g:ale_set_quickfix = 1
 
+" don't spam the virtual text ('disable' to disable)
+let ale_virtualtext_cursor = 'current'
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {}
 let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
-let g:ale_fixers['json'] = ['jq']
-let g:ale_fixers['sh'] = ['shfmt']
+let g:ale_fixers.json = ['jq']
+let g:ale_fixers.sh = ['shfmt']
+let g:ale_sign_error = 'x'
+let g:ale_sign_warning = '!'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 nmap <silent><leader>ad <Plug>(ale_detail)
 nmap <silent><leader>aj <Plug>(ale_next_wrap)
 nmap <silent><leader>ak <Plug>(ale_previous_wrap)
 
+" Disable all fixers for current filetype
+command ALEFixDisable let g:ale_fixers[&filetype] = {}
+
 " }}}
 " Editorconfig {{{
 
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+" }}}
+" dadbod {{{
+
+let g:local = 'postgres://postgres@localhost'
 
 " }}}
 " }}}
