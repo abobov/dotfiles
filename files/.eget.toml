@@ -16,6 +16,10 @@ asset_filters = [ "tar.gz" ]
 file = "yq_linux_amd64"
 target = "~/.local/bin/yq"
 
+["jarun/nnn"]
+asset_filters = [ "nnn-nerd-static" ]
+target = "~/.local/bin/nnn"
+
 ["docker/compose"]
 target = "~/.local/bin/docker-compose"
 
