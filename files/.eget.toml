@@ -26,6 +26,7 @@ target = "~/.local/bin/docker-compose"
 ["jesseduffield/lazygit"]
 
 ["sharkdp/bat"]
+asset_filters = [ "linux-gnu.tar.gz" ]
 
 ["pypa/pipx"]
 
