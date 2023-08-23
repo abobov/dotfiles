@@ -118,6 +118,7 @@ alias yt-audio='yt-dlp --format bestaudio --embed-thumbnail --extract-audio --au
 # }}}
 # Building tools and development {{{
 
+alias k='kubectl'
 alias http='http --timeout=99999 --style=solarized'
 alias make='make -j$(nproc)'
 alias nicer='nice -n 15 ionice -c 2 -n 7'
