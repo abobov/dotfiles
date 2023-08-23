@@ -25,6 +25,8 @@ target = "~/.local/bin/docker-compose"
 
 ["jesseduffield/lazygit"]
 
+["sharkdp/bat"]
+
 ["pypa/pipx"]
 
 ["akavel/up"]
