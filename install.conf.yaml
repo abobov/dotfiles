@@ -51,6 +51,7 @@
     ~/.config/beets: files/.config/beets
     ~/.config/mpv: files/.config/mpv
     ~/.config/yamllint: files/.config/yamllint
+    ~/.config/lazygit: files/.config/lazygit
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

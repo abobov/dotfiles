@@ -22,3 +22,5 @@
 
 /files/.config/beets/state.pickle
 /files/.config/mpv/watch_later/
+files/.config/lazygit/development.log
+files/.config/lazygit/state.yml

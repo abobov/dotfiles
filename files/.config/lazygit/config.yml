@@ -1,0 +1,23 @@
+---
+gui:
+  nerdFontsVersion: "3"
+  theme:
+    lightTheme: true
+  branchColors:
+    'develop': '#ff2222'
+  animateExplosion: false
+git:
+  paging:
+    colorArg: always
+    pager: diff-so-fancy
+  commitPrefixes:
+    gazprom:
+      pattern: "^(\\d+)-.*"
+      replace: "feat: #$1 "
+  branchLogCmd: "git lg --color=always --no-merges --graph {{branchName}} --"
+services:
+  'git.technocom.tech': 'gitea:git.technocom.tech'
+keybinding:
+  commits:
+    moveDownCommit: '<c-n>'
+    moveUpCommit: '<c-p>'
