@@ -50,6 +50,7 @@
     ~/.config/pgcli: files/.config/pgcli
     ~/.config/beets: files/.config/beets
     ~/.config/mpv: files/.config/mpv
+    ~/.config/yamllint: files/.config/yamllint
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
