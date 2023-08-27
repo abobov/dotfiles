@@ -37,16 +37,18 @@ alias zgrep='zgrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias fn='find . -name'
-alias ip='ip -color'
+alias ip='ip -color -brief'
 alias dmesg='dmesg --human'
 alias ag="ag --page less"
 alias wcc="wc -c | numfmt --to=si"
 alias nf="numfmt --from=auto --to=iec"
+alias tree="tree --dirsfirst"
 
 alias crontab='crontab -i'
 alias rm='rm --interactive=once'
+is_command trash-put && alias rm='trash-put'
 alias mv='mv --interactive'
-alias cp='cp --interactive --recursive'
+alias cp='cp --interactive --recursive --reflink=auto'
 alias mkdir='mkdir -pv'
 if is_command colordiff; then
     alias diff='colordiff -u'

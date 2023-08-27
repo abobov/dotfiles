@@ -4,6 +4,8 @@
   signingkey = B4DCCEF7CE0E6AF3
 [commit]
   gpgsign = true
+[tag]
+  gpgsign = true
 [http]
   sslVerify = false
 [color "diff-highlight"]
@@ -113,6 +115,7 @@
   rebase = true
 [push]
   followTags = true
+  gpgSign = if-asked
 [guitool "meld"]
   cmd = meld $FILENAME
   noconsole = yes
