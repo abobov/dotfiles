@@ -21,7 +21,6 @@
     ~/.eget.toml: files/.eget.toml
     ~/.lessfilter.sh: files/.lessfilter.sh
     ~/.psqlrc: files/.psqlrc
-    ~/.reminders: files/.reminders
     ~/.task: files/.task
     ~/.taskrc: files/.taskrc
     ~/.vit: files/.vit
