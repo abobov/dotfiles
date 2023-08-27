@@ -1,138 +1,139 @@
 [user]
-    name = Anton Bobov
-    email = anton@bobov.name
+  name = Anton Bobov
+  email = anton@bobov.name
+  signingkey = B4DCCEF7CE0E6AF3
+[commit]
+  gpgsign = true
 [http]
-    sslVerify = false
+  sslVerify = false
 [color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = red bold reverse
-    ;newNormal = "#009900" bold
-    ;newHighlight = "#009900" bold reverse
+  oldNormal = red bold
+  oldHighlight = red bold reverse
 [color "diff"]
-    meta = 11
-    frag = magenta bold
-    commit = yellow bold
-    old = red bold
-    new = green bold
-    whitespace = red reverse
+  meta = 11
+  frag = magenta bold
+  commit = yellow bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
 [diff]
-    tool = vimdiff
+  tool = vimdiff
 [difftool]
-    prompt = false
+  prompt = false
 [diff-so-fancy]
-    stripLeadingSymbols = false
-    markEmptyLines = false
+  stripLeadingSymbols = false
+  markEmptyLines = false
 [grep]
-    lineNumber = true
+  lineNumber = true
 [merge]
-    conflictstyle = diff3
-    stat = true
-    tool = vimdiff
+  conflictstyle = diff3
+  stat = true
+  tool = vimdiff
 [core]
-    pager = diff-so-fancy | less -+$LESS -FRX
-    excludesfile = ~/.gitignore
-    quotepath = false
+  pager = diff-so-fancy | less -+$LESS -FRX
+  excludesfile = ~/.gitignore
+  quotepath = false
 [log]
-    decorate = short
-    mailmap = true
+  decorate = short
+  mailmap = true
 [alias]
-    aa = add --all
-    amend = commit --amend
-    ar = !sh -c 'git archive --format=tar --prefix="$(basename "$PWD")-$1/" $1^{tree} | bzip2 >"$(basename "$PWD")-$1.tar.bz2"' -
-    br = branch --sort=-committerdate
-    acm = !git add --all && git commit -m
-    c = commit --verbose
-    co = checkout
-    ci = commit
-    diffstat = diff --stat -r
-    dc = diff --find-copies-harder --cached
-    di = diff --find-copies-harder
-    fix = commit --amend -C HEAD
-    history-all = "!gitk --all $( git fsck | awk '/dangling commit/ {print $3}'; git log -g --pretty='format:%H')"
-    k =  !sh -c 'gitk $1' -
-    ka = !sh -c 'gitk --all' -
-    kb = !sh -c 'gitk --branches' -
-    lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    l = "!git lg -10"
-    f = !sh -c 'git branch | grep -F "feature/$1" | xargs -r -n 1 git co' -
-    st = status
-    stashlist = stash list --date=short
-    stash-all = stash save --include-untracked
-    sha = rev-parse --short
-    addnw = !sh -c 'git diff --unified=0 --ignore-all-space --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
-    branch-name = "!git rev-parse --abbrev-ref HEAD"
-    pushf = push --force-with-lease
-    publish = "!git push -u origin $(git branch-name)"
+  aa = add --all
+  amend = commit --amend
+  ar = !sh -c 'git archive --format=tar --prefix="$(basename "$PWD")-$1/" $1^{tree} | bzip2 >"$(basename "$PWD")-$1.tar.bz2"' -
+  br = branch --sort=-committerdate
+  acm = !git add --all && git commit -m
+  c = commit --verbose
+  co = checkout
+  ci = commit
+  diffstat = diff --stat -r
+  dc = diff --find-copies-harder --cached
+  di = diff --find-copies-harder
+  fix = commit --amend -C HEAD
+  history-all = "!gitk --all $( git fsck | awk '/dangling commit/ {print $3}'; git log -g --pretty='format:%H')"
+  k =  !sh -c 'gitk $1' -
+  ka = !sh -c 'gitk --all' -
+  kb = !sh -c 'gitk --branches' -
+  lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  l = "!git lg -10"
+  f = !sh -c 'git branch | grep -F "feature/$1" | xargs -r -n 1 git co' -
+  st = status
+  stashlist = stash list --date=short
+  stash-all = stash save --include-untracked
+  sha = rev-parse --short
+  addnw = !sh -c 'git diff --unified=0 --ignore-all-space --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
+  branch-name = "!git rev-parse --abbrev-ref HEAD"
+  pushf = push --force-with-lease
+  publish = "!git push -u origin $(git branch-name)"
     # https://datagrok.org/git/git-serve/
-    quickserve="daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/"
+  quickserve="daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/"
     # https://github.com/anishathalye/dotfiles/blob/master/gitconfig
-    update-submodules = submodule update --init --recursive
-    upgrade-submodules = submodule update --init --remote
-    wc = whatchanged -p --abbrev-commit --pretty=medium
-    undo = reset --soft HEAD~
-    whoami = config user.email
-    fugitive = mergetool --tool fugitive
-    clean-branches = !sh -c 'git branch --merged | grep -v '^*' | fzf -m | xargs -rp git branch -d'
-    co-before = !sh -c 'git rev-list -1 --before="$@" HEAD | xargs -r git checkout' -
-    ri = rebase --interactive
-    rc = rebase --continue
-    ra = rebase --abort
-    prebase = rebase -x 'pre-commit run --from-ref HEAD~ --to-ref HEAD'
+  update-submodules = submodule update --init --recursive
+  upgrade-submodules = submodule update --init --remote
+  wc = whatchanged -p --abbrev-commit --pretty=medium
+  undo = reset --soft HEAD~
+  whoami = config user.email
+  fugitive = mergetool --tool fugitive
+  clean-branches = !sh -c 'git branch --merged | grep -v '^*' | fzf -m | xargs -rp git branch -d'
+  co-before = !sh -c 'git rev-list -1 --before="$@" HEAD | xargs -r git checkout' -
+  ri = rebase --interactive
+  rc = rebase --continue
+  ra = rebase --abort
+  prebase = rebase -x 'pre-commit run --from-ref HEAD~ --to-ref HEAD'
 
     # Gitlab merge requests helpers
-    mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
-    mr-clean = "!git for-each-ref refs/heads/mr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+  mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+  mr-clean = "!git for-each-ref refs/heads/mr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 
-    recent = "!git for-each-ref --color=always --sort=-committerdate refs/heads --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:magenta)%(authorname)%(color:reset)|%(color:bold green)%(committerdate:relative)|%(color:red)%(objectname:short)%(color:reset)'|column -ts'|'"
+  recent = "!git for-each-ref --color=always --sort=-committerdate refs/heads --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:magenta)%(authorname)%(color:reset)|%(color:bold green)%(committerdate:relative)|%(color:red)%(objectname:short)%(color:reset)'|column -ts'|'"
 
 [advice]
-    statusHints = false
-    detachedHead = false
+  statusHints = false
+  detachedHead = false
 [branch]
-    autosetupmerge = always
-    autosetuprebase = local
-    sort = authordate
+  autosetupmerge = always
+  autosetuprebase = local
+  sort = authordate
 [rebase]
-    instructionFormat = %s [%an] {%ar}
-    autoStash = true
+  instructionFormat = %s [%an] {%ar}
+  autoStash = true
 [rerere]
-    enabled = true
+  enabled = true
 [status]
-    submoduleSummary = true
+  submoduleSummary = true
 [help]
-    autocorrect = 10
+  autocorrect = 10
 [remote-hg]
-    hg-git-compat = true
+  hg-git-compat = true
 [filter "tabs"]
     ;clean = unexpand --tabs=4 --first-only
 [gui]
-    tabsize = 2
-    gcwarning = false
+  tabsize = 2
+  gcwarning = false
 [pull]
-    rebase = true
+  rebase = true
 [push]
-    followTags = true
+  followTags = true
 [guitool "meld"]
-    cmd = meld $FILENAME
-    noconsole = yes
-    needsfile = yes
+  cmd = meld $FILENAME
+  noconsole = yes
+  needsfile = yes
 [guitool "gvim"]
-    cmd = gvim $FILENAME
-    noconsole = yes
-    needsfile = yes
+  cmd = gvim $FILENAME
+  noconsole = yes
+  needsfile = yes
 [include]
-    path = ~/.gitconfig.local
+  path = ~/.gitconfig.local
 [filter "lfs"]
-    required = true
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
 [mergetool "fugitive"]
-    cmd = vim -c \"Gdiff\" \"$MERGED\"
+  cmd = vim -c \"Gdiff\" \"$MERGED\"
 [fetch]
-    prune = true
+  prune = true
 
 # Allow pushing changes when working with a "read-only" remote from GitHub.
 [url "git@github.com:"]
-    pushInsteadOf = https://github.com/
-    pushInsteadOf = git://github.com/
+  pushInsteadOf = https://github.com/
+  pushInsteadOf = git://github.com/
