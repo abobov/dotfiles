@@ -40,20 +40,41 @@ zstyle ':completion:*:*:vi(m|):*:*files' ignored-patterns '*?.(aux|dvi|ps|pdf|bb
 # Ledger completion like hledger
 compdef ledger=hledger
 
-compdef fdfind=fd
-
 # Completing generic gnu commands
 # https://github.com/zsh-users/zsh-completions/blob/master/zsh-completions-howto.org
-compdef _gnu_generic lshw df duplicity tldr
+compdef _gnu_generic lshw df duplicity
 compdef _gnu_generic -p 'pg_*'
+
+compdef _command tldr
 
 __load_completion_if_exists() {
   [[ -f "$1" ]] && source "$1"
 }
 
+__load_or_generate() {
+  if ! command -v "$1" >/dev/null ; then
+    return
+  fi
+  local target_file="/home/anton/.zsh/zsh-completions-cached/_$1"
+  local generate_command="$2"
+  if [ ! -f "$target_file" ] ; then
+    eval "$generate_command" > "$target_file"
+  fi
+}
+
 __load_completion_if_exists /etc/bash_completion.d/youtube-dl.bash-completion
 __load_completion_if_exists /usr/share/zsh/vendor-completions/_git-extras
 
-unset -f __load_completion_if_exists
+__load_or_generate kubectl "kubectl completion zsh"
+__load_or_generate helm "helm completion zsh"
+__load_or_generate fdfind 'curl -sL "https://raw.githubusercontent.com/sharkdp/fd/master/contrib/completion/_fd"'
+__load_or_generate restic 'restic generate --zsh-completion /dev/stdout'
+__load_or_generate docker 'curl -sL "https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker"'
+__load_or_generate docker-compose 'curl -sL "https://raw.githubusercontent.com/docker/compose/1.28.x/contrib/completion/zsh/_docker-compose"'
+__load_or_generate watson 'curl -sL "https://raw.githubusercontent.com/TailorDev/Watson/master/watson.zsh-completion"'
+
+compdef fdfind=fd
+
+unset -f __load_completion_if_exists __load_or_generate
 
 # vim: et ft=zsh fdm=marker :
