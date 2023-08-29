@@ -1,10 +1,20 @@
-export NNN_PLUG='o:fzopen;z:autojump;p:preview-tui;T:-!&xdg-open "$PWD"'
-export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$"
-export NNN_FCOLORS="03040601000205f7d204d9f7"
-export NNN_OPTS="aexR"
-if [ $(command -v trash) ] ; then
-    export NNN_TRASH=1
+NNN_PLUG='o:fzopen;z:autojump;p:preview-tui;T:-!&xdg-open "$PWD"'
+NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$"
+NNN_FCOLORS="03040601000205f7d204d9f7"
+
+if command -v trash >/dev/null ; then
+    NNN_TRASH=1
 fi
+
+NNN_OPTS="${NNN_OPTS}a"                 # auto NNN_FIFO
+NNN_OPTS="${NNN_OPTS}A"                 # no dir auto-enter during filter
+NNN_OPTS="${NNN_OPTS}e"                 # text in $VISUAL/$EDITOR/vi
+NNN_OPTS="${NNN_OPTS}x"                 # notis, selection sync, xterm title
+NNN_OPTS="${NNN_OPTS}R"                 # no rollover at edges
+if command -v cpg mvg >/dev/null ; then
+  NNN_OPTS="${NNN_OPTS}r"               # use advcpmv patched cp, mv
+fi
+
 
 n ()
 {
@@ -36,5 +46,7 @@ n ()
         rm -f "$NNN_TMPFILE" > /dev/null
     }
 }
+
+export NNN_PLUG NNN_ARCHIVE NNN_FCOLORS NNN_OPTS NNN_TRASH
 
 # vim: ft=zsh :
