@@ -2,3 +2,4 @@
 --no-check-certificate
 --force-ipv4
 --add-metadata
+--sponsorblock-mark all

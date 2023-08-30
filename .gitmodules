@@ -1,26 +1,35 @@
 [submodule "files/bin"]
-    path = files/bin
-    url = https://github.com/abobov/bin.git
+  path = files/bin
+  url = https://github.com/abobov/bin.git
 [submodule "zsh-completions"]
-    path = files/.zsh/zsh-completions
-    url = https://github.com/zsh-users/zsh-completions.git
+  path = files/.zsh/zsh-completions
+  url = https://github.com/zsh-users/zsh-completions.git
 [submodule "files/.zsh/z"]
-    path = files/.zsh/z
-    url = https://github.com/rupa/z.git
+  path = files/.zsh/z
+  url = https://github.com/rupa/z.git
 [submodule "files/.zsh/forgit"]
-    path = files/.zsh/forgit
-    url = https://github.com/wfxr/forgit.git
+  path = files/.zsh/forgit
+  url = https://github.com/wfxr/forgit.git
 [submodule "files/.zsh/grml-etc-core"]
-    path = files/.zsh/grml-etc-core
-    url = https://github.com/grml/grml-etc-core.git
+  path = files/.zsh/grml-etc-core
+  url = https://github.com/grml/grml-etc-core.git
 # Mutt
 [submodule "mutt-colors-solarized"]
-    path = files/.mutt/mutt-colors-solarized
-    url = https://github.com/altercation/mutt-colors-solarized
+  path = files/.mutt/mutt-colors-solarized
+  url = https://github.com/altercation/mutt-colors-solarized
 [submodule "files/.tmux/plugins/tpm"]
-    path = files/.tmux/plugins/tpm
-    url = https://github.com/tmux-plugins/tpm
+  path = files/.tmux/plugins/tpm
+  url = https://github.com/tmux-plugins/tpm
 [submodule "dotbot"]
-    path = dotbot
-    url = https://github.com/anishathalye/dotbot
-    ignore = dirty
+  path = dotbot
+  url = https://github.com/anishathalye/dotbot
+  ignore = dirty
+[submodule "files/.config/mpv/uosc"]
+  path = files/.config/mpv/uosc
+  url = https://github.com/tomasklaen/uosc.git
+[submodule "files/.config/mpv/sponsorblock"]
+  path = files/.config/mpv/sponsorblock
+  url = https://github.com/po5/mpv_sponsorblock.git
+[submodule "files/.config/mpv/thumbfast"]
+  path = files/.config/mpv/thumbfast
+  url = https://github.com/po5/thumbfast.git
