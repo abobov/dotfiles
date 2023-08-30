@@ -71,6 +71,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-dadbod'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'tpope/vim-eunuch'
+Plug 'michaeljsmith/vim-indent-object'
 
 " File types
 
@@ -608,21 +609,17 @@ let g:ctrlp_user_caching = 0
 augroup ft_ledger
     au!
     au FileType ledger setlocal textwidth=200
-    let g:ledger_main = '~/Dropbox/ledger/journal.ledger'
+    au FileType ledger setlocal foldmethod=marker foldmarker={,}
+    au FileType leader let g:crunch_result_type_append = 0
     au FileType ledger inoremap <silent><buffer> <Leader>e <Esc>:call ledger#entry()<CR>
     au FileType ledger noremap <silent><buffer> <Leader>x <Esc>:call ledger#transaction_state_toggle(line('.'), '* ')<CR>
     au FileType ledger noremap = :LedgerAlign<CR>
-    au FileType ledger iabbrev <buffer> alfa Assets:Bank:AlfaBank:Card
-    au FileType ledger iabbrev <buffer> soyuz Assets:Bank:Soyuz:Savings:Deposit:2019-04-15
-    au FileType ledger iabbrev <buffer> tinkof Assets:Bank:Tinkoff:Card-Black
-    au FileType ledger iabbrev <buffer> vtbm Assets:Bank:VTB:Card-MIR
-    au BufWritePost *.ledger silent! make | redraw! | cwindow
-    au FileType ledger setlocal foldmethod=marker foldmarker={,}
     au FileType ledger noremap <Leader>e :call ledger#entry()<CR>
-    au FileType leader let g:crunch_result_type_append = 0
     au FileType ledger compiler ledger
+    au BufWritePost *.ledger silent! make | redraw! | cwindow
 augroup END
 
+let g:ledger_main = '~/Dropbox/ledger/journal.ledger'
 let g:ledger_date_format = '%Y-%m-%d'
 let g:ledger_align_at = 80
 let g:ledger_descriptions_cmd = 'cat ~/.ledger-descriptions'
