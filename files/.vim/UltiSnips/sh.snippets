@@ -5,3 +5,17 @@ endsnippet
 snippet scriptdir "get script directory"
 scriptdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 endsnippet
+
+snippet getopts
+while getopts ":h" opt; do
+  case "${opt}" in
+  h)
+    help
+    ;;
+  *)
+    usage
+    ;;
+  esac
+done
+shift $((OPTIND - 1))
+endsnippet
