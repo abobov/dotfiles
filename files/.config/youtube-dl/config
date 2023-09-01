@@ -3,3 +3,6 @@
 --force-ipv4
 --add-metadata
 --sponsorblock-mark all
+--xff default
+--downloader aria2c
+--downloader-args aria2c:"-x8 -s8 -k1M"

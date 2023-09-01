@@ -33,3 +33,6 @@
 [submodule "files/.config/mpv/thumbfast"]
   path = files/.config/mpv/thumbfast
   url = https://github.com/po5/thumbfast.git
+[submodule "files/.config/mpv/reload"]
+  path = files/.config/mpv/reload
+  url = https://github.com/4e6/mpv-reload.git
