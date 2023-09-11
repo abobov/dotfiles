@@ -28,6 +28,7 @@ alias -s git="git clone --recursive"
 # Fix aliases
 alias sudo='sudo '
 alias watch='watch '
+is_command tldr && alias tldr='tldr '
 
 alias df='df -h'
 alias free='free -tm'
@@ -85,7 +86,7 @@ alias rscp='rsync -rlptDvzhP'
 is_command pigz && alias gzip='pigz'
 is_command unpigz && alias gunzip='unpigz'
 
-alias man='LANG=C man'
+alias man='LANG=C man '
 
 alias sc=systemctl
 alias jf="journalctl --unit"
