@@ -19,7 +19,9 @@
   new = green bold
   whitespace = red reverse
 [diff]
+  algorithm = histogram
   tool = vimdiff
+  colorMoved = true
 [difftool]
   prompt = false
 [diff-so-fancy]
@@ -28,7 +30,7 @@
 [grep]
   lineNumber = true
 [merge]
-  conflictstyle = diff3
+  conflictstyle = zdiff3
   stat = true
   tool = vimdiff
 [core]
@@ -98,7 +100,9 @@
 [rebase]
   instructionFormat = %s [%an] {%ar}
   autoStash = true
+  updateRefs = true
 [rerere]
+  autoUpdate = true
   enabled = true
 [status]
   submoduleSummary = true
