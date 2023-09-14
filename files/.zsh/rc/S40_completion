@@ -67,6 +67,7 @@ __load_completion_if_exists /usr/share/zsh/vendor-completions/_git-extras
 
 __load_or_generate kubectl "kubectl completion zsh"
 __load_or_generate helm "helm completion zsh"
+__load_or_generate yq "yq shell-completion zsh"
 __load_or_generate fdfind 'curl -sL "https://raw.githubusercontent.com/sharkdp/fd/master/contrib/completion/_fd"'
 __load_or_generate restic 'restic generate --zsh-completion /dev/stdout'
 __load_or_generate docker 'curl -sL "https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker"'

@@ -12,6 +12,8 @@ alias -g LA='2>&1|less'
 alias -g X='|xclip'
 alias -g XC='|xclip -selection clipboard'
 alias -g UP='|&\up'
+alias -g S='|sort'
+alias -g SN='|sort -n'
 
 # }}}
 # Suffix aliases {{{
@@ -28,7 +30,6 @@ alias -s git="git clone --recursive"
 # Fix aliases
 alias sudo='sudo '
 alias watch='watch '
-is_command tldr && alias tldr='tldr '
 
 alias df='df -h'
 alias free='free -tm'
