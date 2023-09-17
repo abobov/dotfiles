@@ -39,8 +39,10 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 export FZF_DEFAULT_OPTS="--color=light"
 if [ $(command -v fdfind) ] ; then
     export FZF_DEFAULT_COMMAND="fdfind --type file"
+    export FZF_ALT_C_COMMAND="fdfind --type directory"
 elif [ $(command -v fd) ] ; then
     export FZF_DEFAULT_COMMAND="fd --type file"
+    export FZF_ALT_C_COMMAND="fd --type directory"
 fi
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
