@@ -1,8 +1,35 @@
 --format bestvideo[width<=1920]+bestaudio/best[width<=1920]/bestvideo+bestaudio/best
---no-check-certificate
---force-ipv4
---add-metadata
+--live-from-start
 --sponsorblock-mark all
 --xff default
---downloader aria2c
---downloader-args aria2c:"-x8 -s8 -k1M"
+
+--no-check-certificate
+--force-ipv4
+--geo-bypass
+
+# python3-secretstorage required
+# --cookies-from-browser chromium
+# --mark-watched
+
+--concurrent-fragments 5
+# --downloader aria2c
+# --downloader-args aria2c:"--continue --max-connection-per-server 5 --split 5 --min-split-size 1M"
+
+--extractor-retries 4
+--file-access-retries 4
+--fragment-retries 4
+--retries 4
+--retry-sleep extractor:exp=4
+--retry-sleep file_access:exp=4
+--retry-sleep fragment:exp=4
+--retry-sleep http:exp=4
+--retry-sleep exp=4
+
+--audio-multistreams
+--video-multistreams
+--check-formats
+
+--embed-metadata
+--embed-thumbnail
+--embed-chapters
+--mtime
