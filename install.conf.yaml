@@ -41,18 +41,11 @@
     ~/.zshrc: files/.zshrc
     ~/.zshenv: files/.zshenv
     ~/bin: files/bin
-    # Configs
-    ~/.config/devilspie2: files/.config/devilspie2
-    ~/.config/youtube-dl: files/.config/youtube-dl
-    ~/.config/xfce4/terminal: files/.config/xfce4/terminal
-    ~/.config/redshift.conf: files/.config/redshift.conf
-    ~/.config/pgcli: files/.config/pgcli
-    ~/.config/beets: files/.config/beets
-    ~/.config/mpv: files/.config/mpv
-    ~/.config/yamllint: files/.config/yamllint
-    ~/.config/lazygit: files/.config/lazygit
-    ~/.config/nnn: files/.config/nnn
-    ~/.config/bat: files/.config/bat
+      # Configs
+    ~/.config/:
+      glob: true
+      path: files/.config/*
+      create: true
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
