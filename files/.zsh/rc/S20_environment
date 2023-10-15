@@ -18,7 +18,7 @@ export SHELL=/bin/zsh
 export MANWIDTH=80
 export EDITOR=vim
 export VISUAL=vim
-export LESS=FRSX
+export LESS=FRSXi
 if [ -f "$HOME/.lessfilter.sh" ] ; then
     export LESSOPEN="| $HOME/.lessfilter.sh %s"
 elif [ -f "/usr/share/source-highlight/src-hilite-lesspipe.sh" ] ; then

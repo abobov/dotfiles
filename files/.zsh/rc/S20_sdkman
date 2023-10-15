@@ -26,7 +26,7 @@ sdk-cleanup() {
         column -t |
         fzf --multi |
         while read candidate version ; do
-            sdk rm $candidate $version
+            sdk rm --force $candidate $version
         done
 }
 

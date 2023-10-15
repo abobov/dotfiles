@@ -69,6 +69,7 @@ alias d='dirs -v | head -10'
 alias da='\du -sch'
 if is_command ncdu; then
     alias du='ncdu -rr -x --exclude .git'
+    alias ncdu='ncdu -q'
 else
     alias du='du -h'
 fi
@@ -82,8 +83,8 @@ check_com s || alias s='ssh'
 alias v='vim'
 alias t='tmux new-session -A -s main'
 alias mux='tmuxinator'
-alias scratch='vim -c Scratch'
-alias scratchmd='vim -c Scratch -c "set ft=markdown"'
+alias scratch='vim -c Scratch +startinsert'
+alias scratchmd='scratch -c "set ft=markdown"'
 alias rscp='rsync -rlptDvzhP'
 is_command pigz && alias gzip='pigz'
 is_command unpigz && alias gunzip='unpigz'
@@ -118,8 +119,10 @@ else
     alias httpserver='python -m SimpleHTTPServer'
 fi
 
-alias yt-date='yt-dlp --download-archive=download-archive.log --ignore-errors --output="[%(playlist_index)s] %(upload_date)s - %(title)s-%(id)s.%(ext)s"'
-alias yt-audio='yt-dlp --format bestaudio --embed-thumbnail --extract-audio --audio-format mp3'
+alias yd='yt-dlp'
+alias yd-date='yd --download-archive=download-archive.log --ignore-errors --output="[%(playlist_index)s] %(upload_date)s - %(title)s-%(id)s.%(ext)s"'
+alias yd-audio='yd --format bestaudio --embed-thumbnail --extract-audio --audio-format mp3'
+alias yd-cb='xsel -bo | xargs yt-dlp'
 
 # }}}
 # Building tools and development {{{
@@ -127,7 +130,7 @@ alias yt-audio='yt-dlp --format bestaudio --embed-thumbnail --extract-audio --au
 alias k='kubectl'
 alias http='http --timeout=99999 --style=solarized'
 alias make='make -j$(nproc)'
-alias nicer='nice -n 15 ionice -c 2 -n 7'
+alias nicer='nice -n 15 ionice -c 2 -n 7 '
 alias gco="git branch --sort=-committerdate | fzf --tiebreak=index | xargs git checkout"
 alias gst="git status"
 alias ghome='cd "$(git rev-parse --show-toplevel)"'
