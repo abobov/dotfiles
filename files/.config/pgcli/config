@@ -43,7 +43,7 @@ generate_aliases = False
 log_file = default
 
 # keyword casing preference. Possible values "lower", "upper", "auto"
-keyword_casing = auto
+keyword_casing = upper
 
 # casing_file location.
 # In Unix/Linux: ~/.config/pgcli/casing
@@ -142,7 +142,7 @@ null_string = '<null>'
 # manage pager on startup
 enable_pager = True
 
-# Use keyring to automatically save and load password in a secure manner 
+# Use keyring to automatically save and load password in a secure manner
 keyring = True
 
 # Custom colors for the completion menu, toolbar, etc.
