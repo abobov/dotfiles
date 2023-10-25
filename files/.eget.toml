@@ -37,3 +37,6 @@ asset_filters = [ "up" ]
 
 ["mvdan/sh"]
 target = "~/.local/bin/shfmt"
+
+["Wilfred/difftastic"]
+asset_filters = [ "linux-gnu.tar.gz" ]
