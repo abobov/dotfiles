@@ -1,10 +1,88 @@
-directory: ~/Music/
+---
+# Inspired by: https://github.com/trapd00r/configs/blob/master/beets/config.yaml
 library: ~/Music/beets.db
-plugins: fetchart
-original_date: yes
+plugins:
+  - discogs
+  - duplicates
+  - edit
+  - embedart
+  - fetchart
+  - fromfilename
+  - ftintitle
+  - info
+  - missing
+  - rewrite
+  - albumtypes
+original_date: true
 
-paths:
-    default: $albumartist/$album ($year)%aunique{}/$track - $title
+albumtypes:
+  types:
+    - single: 'Single'
+    - soundtrack: 'OST'
+    - live: 'Live'
+    - compilation: 'Anthology'
+    - remix: 'Remix'
+  ignore_va: compilation
+
+fetchart:
+  minwidth: 500
+  maxwidth: 1200
+  sources:
+    - itunes
+    - amazon
+    - fanarttv
+    - albumart
+    - coverart
+    - wikipedia
+    - google
+    - filesystem
+
+embedart:
+  auto: true
+  ifempty: true
+  remove_art_file: false
+
+duplicates:
+  album: true
+  path: true
+  tiebreak:
+    items:
+      - bitrate
+
+musicbrainz:
+  extra_tags:
+    - year
+    - originalyear
+    - label
+
+match:
+  strong_rec_thresh: 0.10  # automatically accept any matches above 90% similarity
+  ignored: missing_tracks unmatched_tracks
+  ignored_media:
+    - 'Data CD'
+    - 'DVD'
+    - 'DVD-Video'
+    - 'Blu-ray'
+    - 'HD-DVD'
+    - 'VCD'
+    - 'SVCD'
+    - 'UMD'
+    - 'VHS'
+
+edit:
+  itemfields: track title artist album year
+  albumfields: track title artist albumartist album year
+
+import:
+  languages:
+    - ru
+    - en
 
 ui:
-  color: no
+  color: false
+
+paths:
+  default: $albumartist/$year - $album%aunique{}/$track - $title
+  albumtype:live: $albumartist/Live/$year - $album%aunique{}/$track - $title
+  albumtype:remix: $albumartist/Remix/$year - $album%aunique{}/$track - $title
+  albumtype:compilation: $albumartist/Anthology/$year - $album%aunique{}/$track - $title
