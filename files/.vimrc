@@ -65,6 +65,8 @@ Plug 'lervag/vimtex'
 " A solid language pack for Vim.
 let g:polyglot_disabled = ['latex']
 Plug 'sheerun/vim-polyglot'
+" Hurl syntax
+Plug 'Orange-OpenSource/hurl', { 'rtp': 'contrib/vim' }
 Plug 'terryma/vim-expand-region'
 " Maintains a history of previous yanks, changes and deletes
 "Plug 'vim-scripts/YankRing.vim'
@@ -72,6 +74,9 @@ Plug 'tpope/vim-dadbod'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'tpope/vim-eunuch'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'terrastruct/d2-vim'
+" Transparent editing of GPG encrypted files
+Plug 'jamessan/vim-gnupg'
 
 " File types
 
@@ -673,6 +678,7 @@ let g:ale_fixers.sh = ['shfmt']
 let g:ale_sign_error = 'x'
 let g:ale_sign_warning = '!'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_java_javac_options = '-encoding utf-8'
 
 nmap <silent><leader>ad <Plug>(ale_detail)
 nmap <silent><leader>aj <Plug>(ale_next_wrap)
