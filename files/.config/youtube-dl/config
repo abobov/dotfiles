@@ -1,10 +1,9 @@
---format bestvideo[width<=1920]+bestaudio/best[width<=1920]/bestvideo+bestaudio/best
+--format bestvideo[width<=3840]+bestaudio/best[width<=3840]/bestvideo+bestaudio/best
 --live-from-start
 --sponsorblock-mark all
 --xff default
 
 --no-check-certificate
---force-ipv4
 --geo-bypass
 
 # python3-secretstorage required

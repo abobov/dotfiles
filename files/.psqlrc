@@ -10,7 +10,7 @@
 \pset border 2
 \pset linestyle unicode
 
-\set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%# '
+\set PROMPT1 '%[%033[1m%]%x%M %n@%/%R%[%033[0m%]%# '
 \set PROMPT2 '[more] %R > '
 
 -- Show how long each query takes to execute
@@ -24,8 +24,6 @@
 \set HISTCONTROL ignoreboth
 
 \set COMP_KEYWORD_CASE upper
-
-\unset QUIET
 
 --
 -- Taken from: https://github.com/lbolla/dotfiles/blob/master/psql/.psqlrc
@@ -83,4 +81,5 @@
   \i `echo $HOME/`.psqlrc.local
 \endif
 
+\unset QUIET
 -- vim: ft=sql :

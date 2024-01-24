@@ -10,14 +10,36 @@ git:
   paging:
     colorArg: always
     pager: diff-so-fancy
+    externalDiffCommand: difft --color=always --background=light
   commitPrefixes:
     gazprom:
       pattern: "^(\\d+)-.*"
       replace: "feat: #$1 "
-  branchLogCmd: "git lg --color=always --no-merges --graph {{branchName}} --"
+  # branchLogCmd: "git lg --color=always --no-merges --graph {{branchName}} --"
 services:
   'git.technocom.tech': 'gitea:git.technocom.tech'
 keybinding:
   commits:
     moveDownCommit: '<c-n>'
     moveUpCommit: '<c-p>'
+customCommands:
+  - key: '<c-d>'
+    description: 'Show Difftastic for current commit'
+    context: 'subCommits'
+    command: 'git dshow "{{.SelectedLocalCommit.Sha}}"'
+    subprocess: true
+  - key: '<c-d>'
+    description: 'Show difft of current commit'
+    context: 'files'
+    command: 'git dft -- {{.SelectedFile.Name | quote}}'
+    subprocess: true
+  - key: '<c-d>'
+    description: 'Show difft of current commit'
+    context: 'commitFiles'
+    command: 'git dshow "{{.SelectedLocalCommit.Sha}}" -- {{.SelectedCommitFile.Name | quote}}'
+    subprocess: true
+  - key: '<c-d>'
+    description: 'Show difft of current commit'
+    context: 'commits'
+    command: 'git dshow "{{.SelectedLocalCommit.Sha}}"'
+    subprocess: true

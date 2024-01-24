@@ -55,8 +55,8 @@
   dc = diff --find-copies-harder --cached
   di = diff --find-copies-harder
   dft = difftool --tool=difftastic
-  dshow = "!f() { GIT_EXTERNAL_DIFF=difft git show --ext-diff $@; }; f"
-  dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
+  dshow = "!f() { GIT_EXTERNAL_DIFF=difft DFT_BACKGROUND=light git show --ext-diff $@; }; f"
+  dlog = "!f() { GIT_EXTERNAL_DIFF=difft DFT_BACKGROUND=light git log -p --ext-diff $@; }; f"
   fix = commit --amend -C HEAD
   history-all = "!gitk --all $( git fsck | awk '/dangling commit/ {print $3}'; git log -g --pretty='format:%H')"
   k =  !sh -c 'gitk $1' -
