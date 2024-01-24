@@ -15,7 +15,7 @@ else
 fi
 
 jdk-select() {
-    version=$(sdk ls java | grep installed | fzf --exact | awk -F '|' '{print $6}' | tr -d ' ')
+    version=$(sdk ls java | grep -E '(installed|local only)' | fzf --exact | awk -F '|' '{print $6}' | tr -d ' ')
     test -z "$version" || sdk use java $version
 }
 

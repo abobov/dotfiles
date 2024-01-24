@@ -1,4 +1,17 @@
-NNN_PLUG='o:fzopen;z:autojump;p:preview-tui;T:-!&xdg-open "$PWD"'
+nnn_plugins() {
+  local plugins=()
+  plugins=()
+  plugins+=(o:fzopen)
+  plugins+=(z:autojump)
+  plugins+=(p:preview-tui)
+  plugins+=('T:-!&xdg-open "$PWD"')  # Open current dir
+  echo ${(j:;:)plugins}
+}
+
+NNN_PLUG=$(nnn_plugins)
+
+unfunction nnn_plugins
+
 NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$"
 NNN_FCOLORS="03040601000205f7d204d9f7"
 

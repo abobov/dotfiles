@@ -2,9 +2,15 @@ function virtual_env_prompt () {
   REPLY=${VIRTUAL_ENV+(${VIRTUAL_ENV:t}) }
 }
 
+function nnn_prompt() {
+  REPLY=${NNNLVL+N3 }
+}
+
 grml_theme_add_token \
   virtual-env -f virtual_env_prompt '%F{magenta}' '%f'
+grml_theme_add_token \
+  nnn -f nnn_prompt '%F{green}' '%f'
 zstyle ':prompt:grml:left:setup' items \
-  rc virtual-env change-root user at host path vcs percent
+  rc virtual-env nnn change-root user at host path vcs percent
 
 # vim: ft=zsh :

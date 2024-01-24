@@ -29,6 +29,7 @@ alias -s git="git clone --recursive"
 
 # Fix aliases
 alias sudo='sudo '
+alias sudo-path='sudo env "PATH=$PATH"'
 alias watch='watch '
 
 alias df='df -h'
@@ -87,12 +88,15 @@ alias scratch='vim -c Scratch +startinsert'
 alias scratchmd='scratch -c "set ft=markdown"'
 alias rscp='rsync -rlptDvzhP'
 is_command pigz && alias gzip='pigz'
+is_command pigz && alias zcat='pigz -cd'
 is_command unpigz && alias gunzip='unpigz'
 
 alias man='LANG=C man '
 
 alias sc=systemctl
 alias jf="journalctl --unit"
+alias pwgen="pwgen --capitalize --numerals --secure"
+alias pw="pwgen 40 1"
 
 alias lsblk="lsblk -o NAME,SIZE,UUID,FSTYPE,MOUNTPOINT,LABEL,MODEL"
 
@@ -120,7 +124,7 @@ else
 fi
 
 alias yd='yt-dlp'
-alias yd-date='yd --download-archive=download-archive.log --ignore-errors --output="[%(playlist_index)s] %(upload_date)s - %(title)s-%(id)s.%(ext)s"'
+alias yd-date='yd --download-archive=download-archive.log --playlist-reverse --ignore-errors --output="[%(playlist_autonumber)04d] %(upload_date)s - %(title)s-%(id)s.%(ext)s"'
 alias yd-audio='yd --format bestaudio --embed-thumbnail --extract-audio --audio-format mp3'
 alias yd-cb='xsel -bo | xargs yt-dlp'
 
