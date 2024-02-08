@@ -44,9 +44,10 @@ lx() {
 }
 
 budgets() {
-    seq 0 24 | xargs -I{} date -d "this month - {} months" +%Y-%m | \
-        fzf --reverse --preview-window 90% --preview 'ledger budget --force-color -p {} --exchange R ^Expenses and not ^Expenses:Cash'
-}
+  first_day_of_current_month=$(date +%Y%m01)
+  seq 0 24 | xargs -I{} date -d "$first_day_of_current_month - {} months" +%Y-%m | \
+    fzf --reverse --preview-window 90% --preview 'ledger budget --force-color -p {} --exchange R ^Expenses and not ^Expenses:Cash'
+  }
 
 expenses() {
   account=$(ledger accounts -p 'last 6 months' '^Assets:' | fzf)

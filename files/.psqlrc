@@ -6,7 +6,7 @@
 \set VERBOSITY verbose
 \set ON_ERROR_ROLLBACK interactive
 
-\pset null '[NULL]'
+\pset null '⌀'
 \pset border 2
 \pset linestyle unicode
 
