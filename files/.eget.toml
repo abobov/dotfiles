@@ -2,41 +2,17 @@
 target = "~/.local/bin"
 upgrade_only = true
 
-["rclone/rclone"]
-asset_filters = [ "zip" ]
-
-["restic/restic"]
-
+# Easily install prebuilt binaries from GitHub.
 ["zyedidia/eget"]
 
-["antonmedv/fx"]
-
-["mikefarah/yq"]
-asset_filters = [ "tar.gz" ]
-file = "yq_linux_amd64"
-target = "~/.local/bin/yq"
-
+# n³ The unorthodox terminal file manager
 ["jarun/nnn"]
 asset_filters = [ "nnn-nerd-static" ]
 target = "~/.local/bin/nnn"
 
-["docker/compose"]
-target = "~/.local/bin/docker-compose"
-
-["jesseduffield/lazygit"]
-
-["sharkdp/bat"]
-asset_filters = [ "linux-gnu.tar.gz" ]
-
-["pypa/pipx"]
-
-["akavel/up"]
-asset_filters = [ "up" ]
-
-["so-fancy/diff-so-fancy"]
-
+# A shell parser, formatter, and interpreter with bash support; includes shfmt
 ["mvdan/sh"]
 target = "~/.local/bin/shfmt"
 
-["Wilfred/difftastic"]
-asset_filters = [ "linux-gnu.tar.gz" ]
+# Good-lookin' diffs. Actually… nah… The best-lookin' diffs. 🎉
+["so-fancy/diff-so-fancy"]

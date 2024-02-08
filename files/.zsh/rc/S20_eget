@@ -1,5 +1,20 @@
 function () {
   __EGET_LOCATION="$HOME/.local/bin/eget"
+  __EGET_CONFIG="$HOME/.eget.toml"
+  __EGET_CONFIG_LOCAL="$HOME/.eget.local.toml"
+
+  if [ -x "$__EGET_LOCATION" ] ; then
+    function eget() {
+      config="$__EGET_CONFIG"
+      if [ -f "$__EGET_CONFIG_LOCAL" ] ; then
+        config=$(mktemp -t eget.config.XXXXX --suffix .toml)
+        trap "rm '$config'" EXIT
+        cat "$__EGET_CONFIG" "$__EGET_CONFIG_LOCAL" >"$config" 2>/dev/null
+      fi
+
+      (export EGET_CONFIG="$config" && "$__EGET_LOCATION" "$@")
+    }
+  fi
 
   if [ ! -x "$__EGET_LOCATION" ] ; then
     function eget() {
