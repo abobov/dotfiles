@@ -64,7 +64,8 @@ alias calc="noglob calc"
 # Take from @garybernhardt
 activate_virtualenv() {
   local found_location=""
-  for name in venv env ; do
+  local default_name=venv
+  for name in $default_name env ; do
     for up in . ../.. ../../.. ; do
       if [ -f "$up/$name/bin/activate" ] ; then
         found_location="$up/$name/bin/activate"
@@ -78,7 +79,11 @@ activate_virtualenv() {
     # create
     read -r "answer?Virtualenv not found, create? "
     if [[ "$answer" =~ ^[Yy]$ ]] ; then
-      virtualenv venv
+      if command -v virtualenv>/dev/null ; then
+        virtualenv $default_name
+      else
+        python3 -m venv $default_name
+      fi
       activate_virtualenv
     fi
   else
