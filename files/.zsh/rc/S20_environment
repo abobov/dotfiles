@@ -48,5 +48,7 @@ elif [ $(command -v fd) ] ; then
 fi
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+# Better `set -x` messages
+export PS4='+ ${BASH_SOURCE:-}:${FUNCNAME[0]:-}:L${LINENO:-}:   '
 
 # vim: et ft=zsh :
