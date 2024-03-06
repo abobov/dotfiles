@@ -32,6 +32,8 @@ alias sudo='sudo '
 alias sudo-path='sudo env "PATH=$PATH"'
 alias watch='watch '
 
+alias -- -="cd -"
+
 alias df='df -h'
 alias free='free -tm'
 alias whois='whois -H'
