@@ -559,6 +559,8 @@ let NERDTreeIgnore = [ '\.pyc$' ]
 " NERD Commenter {{{
 
 let NERDSpaceDelims=1
+let g:NERDCustomDelimiters = { 'hurl': { 'left': '#' } }
+
 
 " }}}
 " Scratch {{{
