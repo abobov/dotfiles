@@ -22,6 +22,7 @@
   algorithm = histogram
   tool = vimdiff
   colorMoved = true
+  submodule = log
 [difftool]
   prompt = false
 [difftool "difftastic"]
@@ -127,6 +128,7 @@
 [push]
   followTags = true
   gpgSign = if-asked
+  autoSetupRemote = true
 [guitool "meld"]
   cmd = meld $FILENAME
   noconsole = yes
@@ -146,6 +148,7 @@
   cmd = vim -c \"Gdiff\" \"$MERGED\"
 [fetch]
   prune = true
+  writeCommitGraph = true
 
 # Allow pushing changes when working with a "read-only" remote from GitHub.
 [url "git@github.com:"]
