@@ -10,6 +10,9 @@ upgrade_only = true
 asset_filters = [ "nnn-nerd-static" ]
 target = "~/.local/bin/nnn"
 
+# ShellCheck, a static analysis tool for shell scripts
+["koalaman/shellcheck"]
+
 # A shell parser, formatter, and interpreter with bash support; includes shfmt
 ["mvdan/sh"]
 target = "~/.local/bin/shfmt"
