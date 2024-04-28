@@ -3,6 +3,14 @@ mcd() {
 }
 compdef _directories mcd
 
+wcc() {
+  wc -c "$@" | numfmt --to=si
+}
+
+wcl() {
+  wc -l "$@" | numfmt --grouping
+}
+
 ppgrep() {
     pgrep "$@" | xargs --no-run-if-empty ps fp
 }
@@ -33,9 +41,9 @@ EOM
 
 open() {
     if [ $# = 0 ] ; then
-        xdg-open .
+        xdg-open . >/dev/null 2>&1
     else
-        xdg-open $*
+        xdg-open "$@" >/dev/null 2>&1
     fi
 }
 

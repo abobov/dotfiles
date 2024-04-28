@@ -55,9 +55,9 @@ __load_or_generate() {
   if ! command -v "$1" >/dev/null ; then
     return
   fi
-  local target_file="/home/anton/.zsh/zsh-completions-cached/_$1"
-  local generate_command="$2"
+  local target_file="$HOME/.zsh/zsh-completions-cached/_$1"
   if [ ! -f "$target_file" ] ; then
+    local generate_command="$2"
     eval "$generate_command" > "$target_file"
   fi
 }

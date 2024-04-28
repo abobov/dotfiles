@@ -45,7 +45,6 @@ alias fn='find . -name'
 alias ip='ip -color -brief'
 alias dmesg='dmesg --human'
 alias ag="ag --page less"
-alias wcc="wc -c | numfmt --to=si"
 alias nf="numfmt --from=auto --to=iec"
 alias tree="tree --dirsfirst"
 alias dig='dig +nocmd +multiline +noall +answer'
@@ -56,6 +55,7 @@ alias rm='rm --interactive=once'
 is_command trash-put && alias rm='trash-put'
 alias mv='mv --interactive'
 alias cp='cp --interactive --recursive --reflink=auto'
+alias ln='ln --interactive --verbose'
 alias mkdir='mkdir -pv'
 if is_command colordiff; then
     alias diff='colordiff -u'
@@ -102,6 +102,9 @@ alias pwgen="pwgen --capitalize --numerals --secure"
 alias pw="pwgen 40 1"
 
 alias lsblk="lsblk -o NAME,SIZE,UUID,FSTYPE,MOUNTPOINT,LABEL,MODEL"
+
+alias gpgencrypt='gpg --encrypt-files'
+alias gpgdecrypt='gpg --decrypt-files'
 
 # }}}
 # Network and web {{{
