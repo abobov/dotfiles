@@ -25,6 +25,9 @@
 
 \set COMP_KEYWORD_CASE upper
 
+\set extensions 'SELECT * FROM pg_available_extensions;'
+\set version 'SELECT version();'
+
 --
 -- Taken from: https://github.com/lbolla/dotfiles/blob/master/psql/.psqlrc
 --
