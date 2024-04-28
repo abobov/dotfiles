@@ -26,3 +26,11 @@ die() {
   exit 1
 }
 endsnippet
+
+snippet psql
+psql --no-psqlrc --quiet -v ON_ERROR_STOP=1
+endsnippet
+
+snippet psqlq
+psql --no-psqlrc --quiet --no-align --tuples-only
+endsnippet

@@ -17,6 +17,8 @@ Plug 'tpope/vim-unimpaired'
 
 " Intelligent date inc/dec
 Plug 'tpope/vim-speeddating'
+" Heuristically set buffer options
+Plug 'tpope/vim-sleuth'
 " Readline style insertion
 "Plug 'tpope/vim-rsi'
 " Show colors in CSS format
@@ -48,9 +50,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'raimondi/delimitmate'
 " Syntax check and linting
 Plug 'dense-analysis/ale'
-" Java LSP support for ALE
-" Required by https://github.com/georgewfraser/java-language-server
-Plug 'natebosch/vim-lsc'
 " Text alignment commands
 Plug 'godlygeek/tabular'
 " Pasting in vim
@@ -90,6 +89,10 @@ Plug 'digitaltoad/vim-jade'
 Plug 'jceb/vim-orgmode'
 " EditorConfig plugin for Vim
 Plug 'editorconfig/editorconfig-vim'
+" use CTRL+A/X to create increasing sequence of numbers or letters via visual mode
+Plug 'triglav/vim-visual-increment'
+" A Vim plugin that manages your tag files
+Plug 'ludovicchabant/vim-gutentags'
 
 "Plug 'https://github.com/othree/xml.vim'
 "Plug 'https://github.com/terryma/vim-multiple-cursors'
@@ -609,6 +612,7 @@ let g:templates_directory=$HOME . "/.vim/templates"
 let g:ctrlp_map = "'p"
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_user_caching = 0
+let g:ctrlp_root_markers = ['.envrc']
 
 " }}}
 " Ledger {{{
@@ -624,6 +628,8 @@ augroup ft_ledger
     au FileType ledger noremap <Leader>e :call ledger#entry()<CR>
     au FileType ledger compiler ledger
     au BufWritePost *.ledger silent! make | redraw! | cwindow
+    au FileType ledger command Ltoday :Ledger register --period today
+    au FileType ledger command Lweek :Ledger register --period 'last week'
 augroup END
 
 let g:ledger_main = '~/Dropbox/ledger/journal.ledger'
@@ -698,6 +704,12 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " dadbod {{{
 
 let g:local = 'postgres://postgres@localhost'
+
+" }}}
+" gutentags {{{
+
+let g:gutentags_ctags_tagfile = '.tags'
+let g:gutentags_project_root = g:ctrlp_root_markers
 
 " }}}
 " }}}
