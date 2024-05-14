@@ -1,3 +1,10 @@
+# General
+*~
+*.swp
+tags
+.tags
+.envrc
+
 # Eclipse project files
 .classpath
 .project
@@ -11,6 +18,7 @@
 
 # Python
 *.pyc
+__pycache__
 
 # Infinitest
 infinitest.filters
@@ -18,3 +26,13 @@ infinitest.args
 
 # NPM
 package-lock.json
+
+# Archives
+*.tar
+*.gz
+*.bz2
+*.jar
+*.rar
+*.xz
+*.zip
+*.7z

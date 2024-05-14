@@ -10,7 +10,6 @@ git:
   paging:
     colorArg: always
     pager: diff-so-fancy
-    externalDiffCommand: difft --color=always --background=light
   commitPrefixes:
     gazprom:
       pattern: "^(\\d+)-.*"
@@ -18,6 +17,7 @@ git:
   # branchLogCmd: "git lg --color=always --no-merges --graph {{branchName}} --"
 services:
   'git.technocom.tech': 'gitea:git.technocom.tech'
+notARepository: skip
 keybinding:
   commits:
     moveDownCommit: '<c-n>'

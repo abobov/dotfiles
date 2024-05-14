@@ -1,4 +1,4 @@
---format bestvideo[width<=3840]+bestaudio/best[width<=3840]/bestvideo+bestaudio/best
+--format (bestvideo[width<=3840])[ext!=webm]+bestaudio/best[width<=3840]/bestvideo+bestaudio/best
 --live-from-start
 --sponsorblock-mark all
 --xff default
@@ -32,3 +32,6 @@
 --embed-thumbnail
 --embed-chapters
 --mtime
+
+# Preferring ru audio track
+--extractor-args 'youtube:lang=ru'
