@@ -29,9 +29,6 @@
     # Git
     ~/.gitconfig: files/.gitconfig
     ~/.gitignore: files/.gitignore
-    # Tmux
-    ~/.tmux.conf: files/.tmux.conf
-    ~/.tmux: files/.tmux/
     # Vim
     ~/.vim: files/.vim
     ~/.vimrc: files/.vimrc
@@ -50,8 +47,8 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - command: |
-        ~/.tmux/plugins/tpm/bin/install_plugins
-        ~/.tmux/plugins/tpm/bin/update_plugins all
+        ~/.config/tmux/plugins/tpm/bin/install_plugins
+        ~/.config/tmux/plugins/tpm/bin/update_plugins all
       description: Installing tmux plugins
     - command: vim -E +PlugInstall +PlugUpdate +qa
       description: Install vim plugins

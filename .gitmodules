@@ -17,8 +17,8 @@
 [submodule "mutt-colors-solarized"]
   path = files/.mutt/mutt-colors-solarized
   url = https://github.com/altercation/mutt-colors-solarized
-[submodule "files/.tmux/plugins/tpm"]
-  path = files/.tmux/plugins/tpm
+[submodule " files/.config/tmux/plugins/tpm"]
+  path = files/.config/tmux/plugins/tpm
   url = https://github.com/tmux-plugins/tpm
 [submodule "dotbot"]
   path = dotbot
