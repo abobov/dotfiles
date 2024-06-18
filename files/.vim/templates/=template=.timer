@@ -1,0 +1,11 @@
+[Unit]
+Description=%FILE% timer
+
+[Timer]
+# OnBootSec=2m
+# OnUnitActiveSec=10m
+# OnCalendar=*:*
+Unit=%FILE%.service
+
+[Install]
+WantedBy=timers.target
