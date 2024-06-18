@@ -1,11 +1,15 @@
 ---
 gui:
+  scrollHeight: 4
   nerdFontsVersion: "3"
   theme:
     lightTheme: true
   branchColors:
     'develop': '#ff2222'
   animateExplosion: false
+  spinner:
+    frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
+    rate: 100
 git:
   paging:
     colorArg: always

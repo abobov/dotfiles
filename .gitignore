@@ -9,7 +9,7 @@
 /files/.vim/bundle
 /files/.vim/plugged/
 /files/.zsh/cache
-/files/.tmux/plugins/
+/files/.config/tmux/plugins/
 
 /files/.reminders/*
 !/files/.reminders/defaults.rem
