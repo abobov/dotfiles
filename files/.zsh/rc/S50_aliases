@@ -146,6 +146,7 @@ alias gst="git status"
 alias ghome='cd "$(git rev-parse --show-toplevel)"'
 test -f ~/bin/pandoc-filter-includes.py && alias pdoc='pandoc --standalone --filter ~/bin/pandoc-filter-includes.py'
 is_command pgcli && alias pgcli="pgcli --pgclirc ~/.config/pgcli/config --pgclirc ~/.config/pgcli/local.config"
+alias pip3up="pip3 list --outdated | awk 'NR>2{print \$1}' | xargs --interactive pip3 install --no-cache-dir --upgrade"
 
 function mvn-or-mvnw() {
     if [ -x ./mvnw ]; then

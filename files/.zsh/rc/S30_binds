@@ -19,6 +19,7 @@ bindkey -v "^R" history-incremental-search-backward
 bindkey -v "^U" kill-whole-line
 bindkey -v "^V" quoted-insert
 bindkey -v "^W" backward-kill-word
+bindkey -v "^h" backward-kill-word  # delete last word with Ctrl+Backspace
 bindkey -v "^[w" backward-delete-to-slash
 
 bindkey -v "^N" down-history
