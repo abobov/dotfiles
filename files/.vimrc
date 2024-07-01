@@ -683,6 +683,7 @@ let g:ale_fixers = {}
 let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
 let g:ale_fixers.json = ['jq']
 let g:ale_fixers.sh = ['shfmt']
+let g:ale_fixers.python = ['black', 'ruff', 'ruff_format']
 let g:ale_sign_error = 'x'
 let g:ale_sign_warning = '!'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
