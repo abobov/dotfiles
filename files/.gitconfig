@@ -65,7 +65,7 @@
   k =  !sh -c 'gitk $1' -
   ka = !sh -c 'gitk --all' -
   kb = !sh -c 'gitk --branches' -
-  lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset' --abbrev-commit --date=relative
   l = "!git lg -10"
   f = !sh -c 'git branch | grep -F "feature/$1" | xargs -r -n 1 git co' -
   st = status
@@ -91,13 +91,15 @@
   rc = rebase --continue
   ra = rebase --abort
   rx = rebase --exec
-  prebase = rebase -x 'pre-commit run --from-ref HEAD~ --to-ref HEAD'
+  prebase = rebase -x 'chronic pre-commit run --from-ref HEAD~ --to-ref HEAD'
 
     # Gitlab merge requests helpers
   mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
   mr-clean = "!git for-each-ref refs/heads/mr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 
   recent = "!git for-each-ref --color=always --sort=-committerdate refs/heads --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:magenta)%(authorname)%(color:reset)|%(color:bold green)%(committerdate:relative)|%(color:red)%(objectname:short)%(color:reset)'|column -ts'|'"
+
+  edit-exclude = "!f() { GIT_DIR=\"$(git rev-parse --git-dir 2>/dev/null)\"; $EDITOR \"$GIT_DIR/info/exclude\"; }; f"
 
 [advice]
   statusHints = false
@@ -107,7 +109,7 @@
   autosetuprebase = local
   sort = -committerdate
 [rebase]
-  instructionFormat = %s [%an] {%ar}
+  instructionFormat = %s [%aN] {%ar}
   autoStash = true
   updateRefs = true
 [rerere]
