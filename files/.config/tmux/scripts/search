@@ -3,6 +3,8 @@
 
 set -euo pipefail
 
+urls='(https?://|git@|git://|ssh://|ftp://|file:///)[[:alnum:]?=%/_.:,;~@!#$&()*+-]*'
+
 search() {
   tmux send-keys -X search-backward "$1"
 }
@@ -18,8 +20,11 @@ search_path() {
   search "~?(/$path+|$path+/|$path*\.$path+)+$path*(:[0-9]+)*"
 }
 
+search_url() {
+  search "$urls"
+}
+
 search_interesting() {
-  urls='(https?://|git@|git://|ssh://|ftp://|file:///)[[:alnum:]?=%/_.:,;~@!#$&()*+-]*'
   emails='[-_\.[:alnum:]]+@[-_\.[:alnum:]]+'
   hashes='\b(([0-9a-f]{7,40}|[[:alnum:]]{52}|[0-9a-f]{64})(\.{2,3})?)+\b'
   ips='[[:digit:]]{1,3}\.[[:digit:]]{1,3}\.[[:digit:]]{1,3}\.[[:digit:]]{1,3}'
