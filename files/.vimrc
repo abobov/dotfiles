@@ -93,10 +93,14 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'triglav/vim-visual-increment'
 " A Vim plugin that manages your tag files
 Plug 'ludovicchabant/vim-gutentags'
+" Asynchronous build and test dispatcher
+Plug 'tpope/vim-dispatch'
+" Run your tests at the speed of thought
+Plug 'vim-test/vim-test'
+" A Narrow Region Plugin for vim (like Emacs Narrow Region)
+Plug 'chrisbra/NrrwRgn'
 
-"Plug 'https://github.com/othree/xml.vim'
 "Plug 'https://github.com/terryma/vim-multiple-cursors'
-"Plug 'https://github.com/motemen/git-vim'
 
 " }}}
 call plug#end()
@@ -245,7 +249,6 @@ if has('termguicolors')
     let g:solarized_termtrans=1
     set termguicolors
 endif
-set background=light
 silent! colorscheme solarized8
 
 " }}}
@@ -442,7 +445,8 @@ endif
 
 " Quick editing {{{
 
-nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <Leader>ev :edit $MYVIMRC<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>
 
 " }}}
 
