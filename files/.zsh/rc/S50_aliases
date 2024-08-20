@@ -38,7 +38,7 @@ alias -s html=open
 alias -s pdf=open
 is_command wine && alias -s exe=wine
 alias -s jar="java -jar"
-alias -s git="git clone --recursive"
+alias -s git="gclone"
 is_command gdebi && alias -s deb="sudo gdebi" || alias -s deb="sudo dpkg -i"
 is_command aria2c && alias -s torrent="aria2c"
 

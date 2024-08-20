@@ -3,6 +3,10 @@ mcd() {
 }
 compdef _directories mcd
 
+gclone() {
+  git clone --recursive "$1" && cd "$(basename "$1" | sed -e 's/\.git//')"
+}
+
 wcc() {
   wc -c "$@" | numfmt --to=si
 }
