@@ -74,6 +74,7 @@ __load_or_generate docker 'curl -sL "https://raw.githubusercontent.com/docker/cl
 __load_or_generate docker-compose 'curl -sL "https://raw.githubusercontent.com/docker/compose/1.28.x/contrib/completion/zsh/_docker-compose"'
 __load_or_generate watson 'curl -sL "https://raw.githubusercontent.com/TailorDev/Watson/master/watson.zsh-completion"'
 __load_or_generate cheat 'curl -sL "https://raw.githubusercontent.com/cheat/cheat/master/scripts/cheat.zsh"'
+__load_or_generate poetry "poetry completions zsh"
 
 compdef fdfind=fd
 
