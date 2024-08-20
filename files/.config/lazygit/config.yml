@@ -47,3 +47,7 @@ customCommands:
     context: 'commits'
     command: 'git dshow "{{.SelectedLocalCommit.Sha}}"'
     subprocess: true
+  - key: 'I'
+    description: 'Open in idea'
+    context: 'files'
+    command: 'idea {{.SelectedFile.Name | quote}}'
