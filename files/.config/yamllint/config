@@ -2,7 +2,11 @@
 extends: default
 
 rules:
+  brackets:
+    level: warning
+    max-spaces-inside: 1
   line-length: disable
+  comments: disable
   comments-indentation: disable
   indentation:
     spaces: consistent
