@@ -99,6 +99,8 @@ Plug 'tpope/vim-dispatch'
 Plug 'vim-test/vim-test'
 " A Narrow Region Plugin for vim (like Emacs Narrow Region)
 Plug 'chrisbra/NrrwRgn'
+" View and grep man pages in vim
+Plug 'vim-utils/vim-man'
 
 "Plug 'https://github.com/terryma/vim-multiple-cursors'
 
@@ -715,6 +717,14 @@ let g:local = 'postgres://postgres@localhost'
 
 let g:gutentags_ctags_tagfile = '.tags'
 let g:gutentags_project_root = g:ctrlp_root_markers
+
+" }}}
+" vim-man {{{
+
+augroup plugin_vim_man
+    autocmd!
+    au FileType man set nospell
+augroup END
 
 " }}}
 " }}}
