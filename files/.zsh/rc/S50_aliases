@@ -115,7 +115,11 @@ is_command pigz && alias gzip='pigz'
 is_command pigz && alias zcat='pigz -cd'
 is_command unpigz && alias gunzip='unpigz'
 
-alias man='LANG=C man '
+if is_command viman ; then
+  alias man='LANG=C viman'
+else
+  alias man='LANG=C man'
+fi
 
 alias sc=systemctl
 alias jf="journalctl --unit"
