@@ -1,0 +1,59 @@
+# vim: ft=confini :
+# https://mypy.readthedocs.io/en/stable/config_file.html
+[mypy]
+
+###############################################################################
+# Configuring error messages
+###############################################################################
+
+# Use visually nicer output in error messages: use soft word wrap, show source
+# code snippets, and show error location markers.
+pretty                 = True
+
+###############################################################################
+# Incremental mode
+###############################################################################
+
+# Specifies the location where mypy stores incremental cache info.
+cache_dir              = ~/.cache/mypy
+
+###############################################################################
+# Configuring warnings
+###############################################################################
+
+# Warns about casting an expression to its inferred type.
+warn_redundant_casts   = True
+
+# Warns about unneeded # type: ignore comments.
+warn_unused_ignores    = True
+
+# Shows a warning when returning a value with type Any from a function declared
+# with a non- Any return type.
+warn_return_any        = True
+
+# Shows a warning when encountering any code inferred to be unreachable or
+# redundant after performing type analysis.
+warn_unreachable       = True
+
+###############################################################################
+# Untyped definitions and calls
+###############################################################################
+
+# Disallows defining functions without type annotations or with incomplete type
+# annotations (a superset of disallow_incomplete_defs).
+disallow_untyped_defs  = True
+
+# Type-checks the interior of functions without type annotations.
+check_untyped_defs     = True
+
+###############################################################################
+# Import discovery
+###############################################################################
+
+# Suppresses error messages about imports that cannot be resolved.
+ignore_missing_imports = True
+
+# Directs what to do with imports when the imported module is found as a .py
+# file and not part of the files, modules and packages provided on the command
+# line.
+follow_imports         = silent
