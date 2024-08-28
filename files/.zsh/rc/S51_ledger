@@ -31,15 +31,15 @@ bal() {
 }
 
 lx() {
-    entry=$(ledger xact $*)
-    fn="$HOME/Dropbox/ledger/data/current.ledger"
+    local entry=$(ledger xact $*)
+    local fn="$HOME/Dropbox/ledger/data/current.ledger"
+    local reply
 
     echo "$entry"
-    read -q reply?"Is it ok? (Y/n) "
-    echo
+    vared -p "Is it ok? (Y/n) " -c reply
     case "$reply" in
-        [yY])
-            echo "$entry\n" >> "$fn";;
+      y|Y|"")
+        echo "\n$entry" >> "$fn";;
     esac
 }
 

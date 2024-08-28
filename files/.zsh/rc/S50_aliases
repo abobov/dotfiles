@@ -62,7 +62,6 @@ alias egrep='egrep --color=auto'
 alias fn='find . -name'
 alias ip='ip -color -brief'
 alias dmesg='dmesg --human'
-alias ag="ag --page less"
 alias nf="numfmt --from=auto --to=iec"
 alias tree="tree --dirsfirst"
 alias dig='dig +nocmd +multiline +noall +answer'
@@ -70,6 +69,7 @@ alias lsof='lsof -w'
 
 alias crontab='crontab -i'
 alias rm='rm --interactive=once'
+alias rmcdir='cd ..; rm -rfi "$OLDPWD" || cd "$OLDPWD"'
 is_command trash-put && alias rm='trash-put'
 alias mv='mv --interactive'
 alias cp='cp --interactive --recursive --reflink=auto'
@@ -106,6 +106,7 @@ check_com lg && is_command lazygit || alias lg='lazygit'
 check_com s || alias s='ssh'
 alias v='vim'
 alias vp='vim -c "setlocal buftype=nofile bufhidden=hide noswapfile buflisted" -'
+alias sv='sudo -e'
 alias t='tmux new-session -A -s main'
 alias mux='tmuxinator'
 alias scratch='vim -c Scratch +startinsert'
@@ -117,12 +118,15 @@ is_command unpigz && alias gunzip='unpigz'
 
 if is_command viman ; then
   alias man='LANG=C viman'
+  compdef _man viman
 else
   alias man='LANG=C man'
 fi
 
 alias sc=systemctl
-alias jf="journalctl --unit"
+alias scu="systemctl --user"
+alias jc="journalctl --lines=30 --follow --unit"
+alias jcu="journalctl --user --lines=30 --follow --unit"
 alias pwgen="pwgen --capitalize --numerals --secure"
 alias pw="pwgen 40 1"
 
@@ -140,6 +144,7 @@ fi
 alias localip="hostname -I | gawk '{print \$1}'"
 alias tcp-listen="netstat --tcp --listen --numeric --program 2>/dev/null || netstat -an | grep LISTEN"
 alias portcheck='nc -z -v -w 5'
+is_command netstat && alias ports='netstat -tulanp'
 is_command ss && alias ports='ss -tulanp'
 is_command lynx && alias urls="lynx -nonumbers -listonly -dump"
 alias ipv6_disable='sudo sysctl net.ipv6.conf.all.disable_ipv6=1'
@@ -164,7 +169,6 @@ alias yd-url='yd --flat-playlist --get-url'
 # Building tools and development {{{
 
 alias k='kubectl'
-alias http='http --timeout=99999 --style=solarized'
 alias make='make -j$(nproc)'
 alias nicer='nice -n 15 ionice -c 2 -n 7 '
 alias gco="git branch --sort=-committerdate | fzf --tiebreak=index | xargs git checkout"
@@ -172,7 +176,8 @@ alias gst="git status"
 alias ghome='cd "$(git rev-parse --show-toplevel)"'
 test -f ~/bin/pandoc-filter-includes.py && alias pdoc='pandoc --standalone --filter ~/bin/pandoc-filter-includes.py'
 is_command pgcli && alias pgcli="pgcli --pgclirc ~/.config/pgcli/config --pgclirc ~/.config/pgcli/local.config"
-alias pip3up="pip3 list --outdated | awk 'NR>2{print \$1}' | xargs --interactive pip3 install --no-cache-dir --upgrade"
+alias pipr="pip3 install -r"
+alias pipup="pip3 list --outdated | awk 'NR>2{print \$1}' | xargs --interactive pip3 install --no-cache-dir --upgrade"
 
 function mvn-or-mvnw() {
     if [ -x ./mvnw ]; then
