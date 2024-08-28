@@ -120,6 +120,13 @@ if has("multi_byte")
 endif
 set keymap=russian-jcukenwin
 set spelllang=ru,en
+set spellfile=~/.vim/spell/dictionary.utf-8.add
+augroup spellcheck
+  autocmd!
+
+  autocmd VimEnter * execute "silent mkspell! " . &spellfile
+augroup END
+
 set spell
 set spellcapcheck=
 set spelloptions=camel
