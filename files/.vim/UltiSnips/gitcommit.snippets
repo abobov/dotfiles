@@ -1,0 +1,22 @@
+# Conventional Commits: https://www.conventionalcommits.org/
+snippet title
+${1|feat,fix,refactor,test,docs,revert,chore,ci,perf,style,build|}: ${3}
+
+${0}
+endsnippet
+
+snippet refs "Add "
+refs #${0:TARGET}
+endsnippet
+
+snippet refst
+refs #$1`git rev-parse --abbrev-ref HEAD | grep -o -E "[0-9]+" | tr -d "\n"`$0
+endsnippet
+
+snippet review
+Reviewed-by: ${1:author} <${2:g:email}>$0
+endsnippet
+
+snippet co
+Co-authored-by: ${1:author} <${2:email}>$0
+endsnippet
