@@ -99,6 +99,8 @@ Plug 'tpope/vim-dispatch'
 Plug 'vim-test/vim-test'
 " A Narrow Region Plugin for vim (like Emacs Narrow Region)
 Plug 'chrisbra/NrrwRgn'
+" Go development plugin for Vim
+Plug 'fatih/vim-go'
 " View and grep man pages in vim
 Plug 'vim-utils/vim-man'
 
