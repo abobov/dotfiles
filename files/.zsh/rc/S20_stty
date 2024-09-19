@@ -1,0 +1,3 @@
+# Disable Ctrl+S/Ctrl-Q flow control
+
+stty -ixon
