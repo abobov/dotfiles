@@ -62,6 +62,14 @@ n ()
     }
 }
 
+nsel() {
+  local selection
+  selection="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection"
+  if [ -f "$selection" ] ; then
+    tr '\0' '\n' < "$selection"
+  fi
+}
+
 export NNN_PLUG NNN_ARCHIVE NNN_FCOLORS NNN_OPTS NNN_TRASH
 
 # vim: ft=zsh :

@@ -50,6 +50,9 @@ alias sudo='sudo '
 alias sudo-path='sudo env "PATH=$PATH"'
 alias watch='watch '
 
+# Remove grml alias for ag
+unalias ag
+
 alias -- -="cd -"
 
 alias df='df -h'
