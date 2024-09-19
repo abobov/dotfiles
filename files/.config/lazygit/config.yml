@@ -14,13 +14,9 @@ git:
   paging:
     colorArg: always
     pager: diff-so-fancy
-  commitPrefixes:
-    gazprom:
-      pattern: "^(\\d+)-.*"
-      replace: "feat: #$1 "
-  # branchLogCmd: "git lg --color=always --no-merges --graph {{branchName}} --"
-services:
-  'git.technocom.tech': 'gitea:git.technocom.tech'
+  # Do not spawn a separate process when using GPG
+  # https://github.com/jesseduffield/lazygit/discussions/3605#discussioncomment-9567079
+  overrideGpg: true
 notARepository: skip
 keybinding:
   commits:
