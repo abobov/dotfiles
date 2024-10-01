@@ -643,8 +643,8 @@ augroup ft_ledger
     au FileType ledger noremap <Leader>e :call ledger#entry()<CR>
     au FileType ledger compiler ledger
     au BufWritePost *.ledger silent! make | redraw! | cwindow
-    au FileType ledger command Ltoday :Ledger register --period today
-    au FileType ledger command Lweek :Ledger register --period 'last week'
+    au FileType ledger command! Ltoday :Ledger register --period today
+    au FileType ledger command! Lweek :Ledger register --period 'last week'
 augroup END
 
 let g:ledger_main = '~/Dropbox/ledger/journal.ledger'
