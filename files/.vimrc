@@ -524,6 +524,12 @@ augroup ft_markdown
     au FileType markdown setlocal textwidth=0
 augroup END
 " }}}
+" Direnv {{{
+augroup ft_direnv
+    au!
+    au FileType direnv setlocal filetype=direnv.sh
+augroup END
+" }}}
 " }}}
 " Plugins {{{
 " Surround {{{
