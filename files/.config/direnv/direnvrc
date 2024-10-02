@@ -1,0 +1,51 @@
+# https://github.com/direnv/direnv/wiki/Python#poetry
+layout_poetry() {
+  PYPROJECT_TOML="${PYPROJECT_TOML:-pyproject.toml}"
+  if [[ ! -f "$PYPROJECT_TOML" ]]; then
+    log_status "No pyproject.toml found. Executing \`poetry init\` to create a \`$PYPROJECT_TOML\` first."
+    poetry init --python "^$(python3 --version 2>/dev/null | cut -d ' ' -f 2 | cur -d . -f 1-2)"
+  fi
+
+  if [[ -d ".venv" ]]; then
+    VIRTUAL_ENV="$(pwd)/.venv"
+  else
+    VIRTUAL_ENV=$(
+      poetry env info --path 2>/dev/null
+      true
+    )
+  fi
+
+  if [[ -z $VIRTUAL_ENV || ! -d $VIRTUAL_ENV ]]; then
+    log_status "No virtual environment exists. Executing \`poetry install\` to create one."
+    poetry install
+    VIRTUAL_ENV=$(poetry env info --path)
+  fi
+
+  PATH_add "$VIRTUAL_ENV/bin"
+  export POETRY_ACTIVE=1 # or VENV_ACTIVE=1
+  export VIRTUAL_ENV
+}
+
+layout_sdkman() {
+  if [[ ! -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]]; then
+    log_status "No sdkman found."
+    return
+  fi
+
+  [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+
+  SDKMANRC="${SDKMANRC:-.sdkmanrc}"
+  if [[ ! -f "$SDKMANRC" ]]; then
+    log_status "No $SDKMANRC found.  Execution \`sdkman env init\`."
+    sdk env init
+  fi
+
+  SDKMAN_OFFLINE_MODE=true sdk env install
+}
+
+# Create directory (bin by default) and add it to PATH
+layout_bin() {
+  DIR=".direnv/${1:-bin}"
+  mkdir -p "$DIR"
+  PATH_add "$DIR"
+}
