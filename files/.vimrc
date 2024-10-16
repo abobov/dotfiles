@@ -126,7 +126,9 @@ set spellfile=~/.vim/spell/dictionary.utf-8.add
 augroup spellcheck
   autocmd!
 
-  autocmd VimEnter * execute "silent mkspell! " . &spellfile
+  if filereadable(&spellfile)
+    autocmd VimEnter * execute "silent mkspell! " . &spellfile
+  endif
 augroup END
 
 set spell
