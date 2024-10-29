@@ -23,10 +23,6 @@
   tool = vimdiff
   colorMoved = true
   submodule = log
-[difftool]
-  prompt = false
-[difftool "difftastic"]
-  cmd = difft --background=light --color=always "$LOCAL" "$REMOTE"
 [diff-so-fancy]
   stripLeadingSymbols = false
   markEmptyLines = false
@@ -56,9 +52,9 @@
   diffstat = diff --stat -r
   dc = diff --find-copies-harder --cached
   di = diff --find-copies-harder
-  dft = difftool --tool=difftastic
-  dshow = "!f() { GIT_EXTERNAL_DIFF=difft DFT_BACKGROUND=light git show --ext-diff $@; }; f"
-  dlog = "!f() { GIT_EXTERNAL_DIFF=difft DFT_BACKGROUND=light git log -p --ext-diff $@; }; f"
+  dshow = "!f() { DFT_BACKGROUND=light git -c diff.external=difft show --ext-diff $@; }; f"
+  dlog = "!f() { DFT_BACKGROUND=light git -c diff.external=difft log -p --ext-diff $@; }; f"
+  ddiff = "!f() { DFT_BACKGROUND=light git -c diff.external=difft diff $@; }; f"
   fix = commit --amend -C HEAD
   try = merge --no-commit --no-ff
   history-all = "!gitk --all $( git fsck | awk '/dangling commit/ {print $3}'; git log -g --pretty='format:%H')"
