@@ -4,6 +4,7 @@
 tags
 .tags
 .envrc
+.env
 
 # Eclipse project files
 .classpath
