@@ -51,4 +51,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Better `set -x` messages
 export PS4='+ ${BASH_SOURCE:-}:${FUNCNAME[0]:-}:L${LINENO:-}:   '
 
+# Allow pip to only run in a virtual environment; exit with an error otherwise.
+export PIP_REQUIRE_VIRTUALENV=true
+
 # vim: et ft=zsh :
