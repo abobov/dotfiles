@@ -1,11 +1,14 @@
 #!/usr/bin/env -S hurl --test
 
 # GET http://localhost/api/method
-# [QueryStringParams]
+# [Options]
+# variable: foo="bar"
+# [Query]
 # filter: {{capture_value}}
 # HTTP 200
 # [Asserts]
 # jsonpath "$.content" count == 1
 # jsonpath "$.content[0].id" > 0
+# jsonpath "$..name" includes "test"
 # [Captures]
 # id: jsonpath "$.content[0].id"
