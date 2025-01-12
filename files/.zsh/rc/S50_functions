@@ -4,7 +4,7 @@ mcd() {
 compdef _directories mcd
 
 gclone() {
-  git clone --recursive "$1" && cd "$(basename "$1" | sed -e 's/\.git//')"
+  git clone --recursive "$1" && cd "$(basename "$1" | sed -e 's/\.git$//')"
 }
 
 wcc() {
