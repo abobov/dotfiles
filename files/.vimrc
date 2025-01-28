@@ -736,7 +736,7 @@ let g:local = 'postgres://postgres@localhost'
 " gutentags {{{
 
 let g:gutentags_ctags_tagfile = '.tags'
-let g:gutentags_project_root = g:ctrlp_root_markers
+execute 'set tags+=' . g:gutentags_ctags_tagfile
 
 " }}}
 " vim-man {{{
