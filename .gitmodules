@@ -7,9 +7,6 @@
 [submodule "files/.zsh/z"]
   path = files/.zsh/z
   url = https://github.com/rupa/z.git
-[submodule "files/.zsh/forgit"]
-  path = files/.zsh/forgit
-  url = https://github.com/wfxr/forgit.git
 [submodule "files/.zsh/grml-etc-core"]
   path = files/.zsh/grml-etc-core
   url = https://github.com/grml/grml-etc-core.git
