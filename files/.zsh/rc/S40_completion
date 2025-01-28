@@ -75,6 +75,9 @@ __load_or_generate docker-compose 'curl -sL "https://raw.githubusercontent.com/d
 __load_or_generate watson 'curl -sL "https://raw.githubusercontent.com/TailorDev/Watson/master/watson.zsh-completion"'
 __load_or_generate cheat 'curl -sL "https://raw.githubusercontent.com/cheat/cheat/master/scripts/cheat.zsh"'
 __load_or_generate poetry "poetry completions zsh"
+__load_or_generate gmailctl "gmailctl completion zsh"
+__load_or_generate bat "bat --completion zsh"
+__load_or_generate git-absorb "git-absorb --gen-completions zsh"
 
 compdef fdfind=fd
 

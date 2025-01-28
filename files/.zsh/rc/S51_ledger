@@ -44,10 +44,27 @@ lx() {
 }
 
 budgets() {
-  first_day_of_current_month=$(date +%Y%m01)
-  seq 0 24 | xargs -I{} date -d "$first_day_of_current_month - {} months" +%Y-%m | \
-    fzf --reverse --preview-window 90% --preview 'ledger budget --force-color -p {} --exchange R ^Expenses and not ^Expenses:Cash'
-  }
+  (
+    start_year=2013
+    start_month=11
+
+    end_year=$(date +%Y)
+    end_month=$(date +%m)
+
+    for year in $(seq "$start_year" "$end_year"); do
+      [ "$year" = "$start_year" ] && s_month="$start_month" || s_month=1
+      [ "$year" = "$end_year"   ] && e_month="$end_month"   || e_month=12
+
+      for month in $(seq "$s_month" "$e_month"); do
+        printf "%d-%02d\n" "$year" "$month"
+      done
+    done
+  ) | sort -r | fzf \
+      --reverse \
+      --exact \
+      --preview-window 90% \
+      --preview 'ledger budget --force-color -p {} --exchange R ^Expenses and not ^Expenses:Cash'
+}
 
 expenses() {
   account=$(ledger accounts -p 'last 6 months' '^Assets:' | fzf)

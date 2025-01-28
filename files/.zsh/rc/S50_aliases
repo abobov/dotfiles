@@ -47,7 +47,7 @@ is_command aria2c && alias -s torrent="aria2c"
 
 # Fix aliases
 alias sudo='sudo '
-alias sudo-path='sudo env "PATH=$PATH"'
+alias sudo-path='sudo env "PATH=$PATH" '
 alias watch='watch '
 
 # Remove grml alias for ag
@@ -238,6 +238,13 @@ if is_command remind; then
     for day in {1..9} ; do
         alias $day="rem '*$day'"
     done
+
+    remind-schedule() {
+      remind -@ "${@:-*7}" | grep -vEe '^(No reminders\.|)$'
+    }
+    rem-schedule() {
+      rem -@ "${@:-*7}" | grep -vEe '^(No reminders\.|)$'
+    }
 fi
 
 # }}}
