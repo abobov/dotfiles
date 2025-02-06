@@ -78,6 +78,7 @@ __load_or_generate poetry "poetry completions zsh"
 __load_or_generate gmailctl "gmailctl completion zsh"
 __load_or_generate bat "bat --completion zsh"
 __load_or_generate git-absorb "git-absorb --gen-completions zsh"
+__load_or_generate buku 'curl -sL "https://raw.githubusercontent.com/jarun/buku/refs/heads/master/auto-completion/zsh/_buku"'
 
 compdef fdfind=fd
 

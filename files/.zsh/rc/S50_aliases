@@ -167,6 +167,7 @@ alias yd-date='yd --download-archive=download-archive.log --playlist-reverse --i
 alias yd-audio='yd --format bestaudio --embed-thumbnail --extract-audio --audio-format mp3'
 alias yd-cb='xsel -bo | xargs yt-dlp'
 alias yd-url='yd --flat-playlist --get-url'
+is_command buku && alias b='buku --suggest'
 
 # }}}
 # Building tools and development {{{
