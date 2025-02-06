@@ -69,6 +69,7 @@ alias nf="numfmt --from=auto --to=iec"
 alias tree="tree --dirsfirst"
 alias dig='dig +nocmd +multiline +noall +answer'
 alias lsof='lsof -w'
+is_command bat && alias cat='bat'
 
 alias crontab='crontab -i'
 alias rm='rm --interactive=once'
