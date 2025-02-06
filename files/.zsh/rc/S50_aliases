@@ -112,7 +112,11 @@ alias v='vim'
 alias vp='vim -c "setlocal buftype=nofile bufhidden=hide noswapfile buflisted" -'
 alias sv='sudo -e'
 alias t='tmux new-session -A -s main'
-alias mux='tmuxinator'
+if is_command tmuxp; then
+  alias mux='tmuxp load -y'
+elif is_command tmuxinator; then
+  alias mux='tmuxinator'
+fi
 alias scratch='vim -c Scratch +startinsert'
 alias scratchmd='scratch -c "set ft=markdown"'
 alias rscp='rsync -rlptDvzhP'
