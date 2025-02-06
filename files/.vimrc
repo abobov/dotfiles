@@ -508,6 +508,15 @@ augroup ft_json
 augroup END
 
 " }}}
+" Liquibase SQL {{{
+augroup ft_liquibase_sql
+    au!
+
+    au BufRead *.sql if getline(1) =~ 'liquibase' | setlocal filetype=sql.liquibase | endif
+    au FileType sql.liquibase set foldmethod=expr foldexpr=(getline(v:lnum)=~'^--\\schangeset\\s')?1:2 foldlevel=1
+augroup END
+
+" }}}
 " Org {{{
 augroup ft_org
     au!
