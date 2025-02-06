@@ -220,12 +220,24 @@ alias docker-dive='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.s
 # }}}
 # Package manager {{{
 
-if is_command aptitude; then
+if [ -r /etc/debian_version ] ; then
+  if is_command aptitude; then
     alias upa='sudo aptitude -u'
     alias apurge='sudo aptitude purge --purge-unused'
-else
+  else
     alias up='sudo apt update; sudo apt upgrade'
     alias apurge='sudo apt purge'
+  fi
+elif [ -r /etc/arch-release ] ; then
+  alias ati='sudo pacman -S'
+  alias acs='sudo pacman -Ss'
+  alias up='sudo pacman -Syu'
+  alias apurge='sudo pacman -Rs'
+elif [ -r /etc/redhat-release ] ; then
+  alias ati='sudo dnf install'
+  alias acs='dnf search'
+  alias up='sudo dnf upgrade'
+  alias apurge='sudo dnf remove'
 fi
 
 # }}}
