@@ -117,6 +117,7 @@ if is_command tmuxp; then
 elif is_command tmuxinator; then
   alias mux='tmuxinator'
 fi
+alias tp="tmux-sessionizer"
 alias scratch='vim -c Scratch +startinsert'
 alias scratchmd='scratch -c "set ft=markdown"'
 alias rscp='rsync -rlptDvzhP'
