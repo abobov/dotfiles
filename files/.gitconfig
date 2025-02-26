@@ -4,8 +4,10 @@
   signingkey = B4DCCEF7CE0E6AF3
 [commit]
   gpgsign = true
+  verbose = true
 [tag]
   gpgsign = true
+  sort = version:refname
 [http]
   sslVerify = false
 [color "diff-highlight"]
@@ -23,6 +25,7 @@
   tool = vimdiff
   colorMoved = true
   submodule = log
+  mnemonicprefix = true
 [diff-so-fancy]
   stripLeadingSymbols = false
   markEmptyLines = false
@@ -39,6 +42,7 @@
 [log]
   decorate = short
   mailmap = true
+  date = iso-local
 [alias]
   aa = add --all
   amend = commit --amend
@@ -108,6 +112,7 @@
   instructionFormat = %s [%aN] {%ar}
   autoStash = true
   updateRefs = true
+  autoSquash = true
 [rerere]
   autoUpdate = true
   enabled = true
@@ -148,6 +153,10 @@
 [fetch]
   prune = true
   writeCommitGraph = true
+  pruneTags = true
+  all = true
+[column]
+  ui = auto
 
 # Allow pushing changes when working with a "read-only" remote from GitHub.
 [url "git@github.com:"]
