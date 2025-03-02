@@ -79,6 +79,8 @@ __load_or_generate gmailctl "gmailctl completion zsh"
 __load_or_generate bat "bat --completion zsh"
 __load_or_generate git-absorb "git-absorb --gen-completions zsh"
 __load_or_generate buku 'curl -sL "https://raw.githubusercontent.com/jarun/buku/refs/heads/master/auto-completion/zsh/_buku"'
+__load_or_generate goreleaser 'goreleaser completion zsh'
+__load_or_generate aptly 'curl -sL "https://raw.githubusercontent.com/aptly-dev/aptly/refs/heads/master/completion.d/_aptly"'
 
 compdef fdfind=fd
 
