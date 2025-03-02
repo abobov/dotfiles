@@ -49,3 +49,93 @@ layout_bin() {
   mkdir -p "$DIR"
   PATH_add "$DIR"
 }
+
+# Extended go layout
+layout_go() {
+  path_add GOPATH "$(direnv_layout_dir)/go"
+
+  bindir="$(direnv_layout_dir)/go/bin"
+  PATH_add "$bindir"
+  export GOBIN="$bindir"
+
+  mkdir -p "$GOPATH"
+  gostate_file="$(direnv_layout_dir)/go_layout_state.txt"
+
+  if [ -f "$gostate_file" ]; then
+    if grep -q installed "$gostate_file"; then
+      path_add GOROOT "$(direnv_layout_dir)/.go"
+      PATH_add "$GOROOT/bin"
+    fi
+    return
+  fi
+
+  if command -v go >/dev/null; then
+    read -rp "Go binary in path ($(command -v go)), keep using it? [Yn] "
+    ans="${REPLY:-y}"
+    if [ "${ans,,}" = y ]; then
+      echo "use_existing" >"$gostate_file"
+      return
+    fi
+  fi
+
+  read -rp "Install go version ${1:-latest}? [Yn] "
+  ans="${REPLY:-y}"
+  if [ "${ans,,}" = n ]; then
+    return
+  fi
+
+  path_add GOROOT "$(direnv_layout_dir)/.go"
+  PATH_add "$GOROOT/bin"
+
+  # Install go
+
+  OS="$(uname -s)"
+  ARCH="$(uname -m)"
+
+  case "$OS" in
+  Linux)
+    case "$ARCH" in
+    x86_64) ARCH=amd64 ;;
+    aarch64) ARCH=arm64 ;;
+    armv6 | armv7l) ARCH=armv6l ;;
+    armv8) ARCH=arm64 ;;
+    i686) ARCH=386 ;;
+    .*386.*) ARCH=386 ;;
+    esac
+    PLATFORM="linux-$ARCH"
+    ;;
+  Darwin)
+    case $ARCH in
+    x86_64) ARCH=amd64 ;;
+    arm64) ARCH=arm64 ;;
+    esac
+    PLATFORM="darwin-$ARCH"
+    ;;
+  esac
+
+  if [ -z "$PLATFORM" ]; then
+    echo "failed" >"$gostate_file"
+    echo "Your operating system is not supported by the script."
+    return
+  fi
+
+  if [ -d "$GOROOT" ]; then
+    echo "failed" >"$gostate_file"
+    echo "The Go install directory ($GOROOT) already exists. Exiting."
+    return
+  fi
+
+  if [ $# -eq 0 ]; then
+    VERSION=$(curl -sL "https://go.dev/VERSION?m=text" | head -n 1)
+  else
+    VERSION="$1"
+  fi
+  PACKAGE_NAME="$VERSION.$PLATFORM.tar.gz"
+
+  mkdir -p "$GOROOT"
+
+  echo "Downloading $PACKAGE_NAME ..."
+  curl -sL "https://storage.googleapis.com/golang/$PACKAGE_NAME" | tar xz -C "$GOROOT" --strip-components=1
+
+  echo "installed" >"$gostate_file"
+}
