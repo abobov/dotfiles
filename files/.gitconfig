@@ -39,6 +39,7 @@
   pager = diff-so-fancy | less -+$LESS -FRX
   excludesfile = ~/.gitignore
   quotepath = false
+  attributesfile = ~/.gitattributes
 [log]
   decorate = short
   mailmap = true

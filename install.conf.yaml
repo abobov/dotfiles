@@ -29,6 +29,7 @@
     # Git
     ~/.gitconfig: files/.gitconfig
     ~/.gitignore: files/.gitignore
+    ~/.gitattributes: files/.gitattributes
     # Vim
     ~/.vim: files/.vim
     ~/.vimrc: files/.vimrc

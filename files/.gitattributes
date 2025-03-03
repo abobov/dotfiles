@@ -1,0 +1,13 @@
+# See:
+# - https://git-scm.com/docs/gitattributes#_defining_a_custom_hunk_header
+# - https://github.com/git/git/blob/cb0ae672aeabefca9704477ea8018ac94f523970/userdiff.c
+# - https://gist.github.com/tekin/12500956bd56784728e490d8cef9cb81
+
+*.css   diff=css
+*.go    diff=golang
+*.html  diff=html
+*.java  diff=java
+*.md    diff=markdown
+*.py    diff=python
+*.sh    diff=bash
+*.xhtml diff=html
