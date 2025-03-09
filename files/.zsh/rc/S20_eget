@@ -8,7 +8,7 @@ function () {
       config="$__EGET_CONFIG"
       if [ -f "$__EGET_CONFIG_LOCAL" ] ; then
         config=$(mktemp -t eget.config.XXXXX --suffix .toml)
-        trap "rm '$config'" EXIT
+        trap "command rm '$config'" EXIT
         cat "$__EGET_CONFIG" "$__EGET_CONFIG_LOCAL" >"$config" 2>/dev/null
       fi
 
@@ -25,7 +25,7 @@ function () {
         y|Y)
           unset -f eget
           temp_file=$(mktemp)
-          trap 'rm -f "$temp_file"' EXIT
+          trap 'command rm -f "$temp_file"' EXIT
           mkdir -p "$(dirname "$__EGET_LOCATION")"
           curl -o "$temp_file" "$EGET_SCRIPT_URL"
           echo "$EGET_SCRIPT_CHECKSUM  $temp_file" | shasum --algorithm 256 --check --quiet
