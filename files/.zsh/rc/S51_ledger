@@ -71,6 +71,17 @@ expenses() {
   ledger balance "$@" '^Expenses:' and not '^Expenses:Cash$' and expr "any(account == '$account')"
 }
 
+ledger-by-note() {
+  note="$1"
+  shift
+
+  if [ $# -eq 0 ] ; then
+    ledger print expr "note =~ /$note/"
+  else
+    ledger "$@" expr "note =~ /$note/"
+  fi
+}
+
 alias expenses-month='expenses -p "this month"'
 
 # vim: et ft=zsh :
