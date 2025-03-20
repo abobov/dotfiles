@@ -92,7 +92,9 @@ Plug 'editorconfig/editorconfig-vim'
 " use CTRL+A/X to create increasing sequence of numbers or letters via visual mode
 Plug 'triglav/vim-visual-increment'
 " A Vim plugin that manages your tag files
-Plug 'ludovicchabant/vim-gutentags'
+if executable('ctags') || executable('ctags-exuberant') || executable('ctags-universal')
+  Plug 'ludovicchabant/vim-gutentags'
+endif
 " Asynchronous build and test dispatcher
 Plug 'tpope/vim-dispatch'
 " Run your tests at the speed of thought
