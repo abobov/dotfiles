@@ -7,8 +7,9 @@ fi
 
 path=(~/bin ~/.local/bin $path)
 
-fpath=($HOME/.zsh/zsh-completions/src $fpath)
-fpath=($HOME/.zsh/zsh-completions-cached $fpath)
+fpath=($HOME/.zsh/zsh-completions/src "${fpath[@]}")
+fpath=($HOME/.zsh/zsh-completions-cached "${fpath[@]}")
+fpath=(/usr/share/zsh/site-functions "${fpath[@]}")
 # To force rebuild zcompdump:
 # rm -f ~/.zcompdump; compinit
 
