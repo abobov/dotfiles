@@ -82,6 +82,8 @@ __load_or_generate buku 'curl -sL "https://raw.githubusercontent.com/jarun/buku/
 __load_or_generate goreleaser 'goreleaser completion zsh'
 __load_or_generate aptly 'curl -sL "https://raw.githubusercontent.com/aptly-dev/aptly/refs/heads/master/completion.d/_aptly"'
 __load_or_generate gh 'gh completion --shell zsh'
+__load_or_generate ruff 'ruff generate-shell-completion zsh'
+__load_or_generate yt-dlp 'curl -sL "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.tar.gz" | tar -zxO yt-dlp/completions/zsh/_yt-dlp'
 
 compdef fdfind=fd
 
