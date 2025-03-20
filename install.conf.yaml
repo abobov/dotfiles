@@ -49,8 +49,7 @@
     - [git submodule update --init --recursive, Installing submodules]
     - command: |
         ~/.config/tmux/plugins/tpm/bin/install_plugins
-        ~/.config/tmux/plugins/tpm/bin/update_plugins all
       description: Installing tmux plugins
-    - command: vim -E +PlugInstall +PlugUpdate +qa
+    - command: vim -E +PlugInstall +qa
       description: Install vim plugins
       stdin: true
