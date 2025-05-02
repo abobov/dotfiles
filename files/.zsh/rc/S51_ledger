@@ -11,6 +11,7 @@ alias lcash='ledger balance Expenses:Cash'
 alias budget='ledger budget --exchange R ^Expenses and not ^Expenses:Cash'
 alias budget-month='ledger budget --period "this month" --exchange R ^Expenses and not ^Expenses:Cash'
 alias ele="vim '$HOME/Dropbox/ledger/data/current.ledger'"
+alias ledger-assets='ledger balance --exchange R --depth 3 --sort "-abs(display_total)" "^Assets:" "^Liabilities:"'
 
 
 _ledger_smartcase_expr() {
@@ -44,6 +45,13 @@ lx() {
 }
 
 budgets() {
+  read -r -d '' preview_command <<EOC
+ledger budget --force-color -p {} --exchange R ^Expenses and not ^Expenses:Cash
+echo
+echo
+ledger balance --force-color -p {} --exchange R --historical --depth 2 --sort "-abs(display_total)" \( ^Expenses and not ^Expenses:Cash \) ^Income
+EOC
+
   (
     start_year=2013
     start_month=11
@@ -58,12 +66,14 @@ budgets() {
       for month in $(seq "$s_month" "$e_month"); do
         printf "%d-%02d\n" "$year" "$month"
       done
+      echo "$year"
     done
   ) | sort -r | fzf \
       --reverse \
       --exact \
       --preview-window 90% \
-      --preview 'ledger budget --force-color -p {} --exchange R ^Expenses and not ^Expenses:Cash'
+      --preview "$preview_command" \
+      | xargs -I{} sh -c "$preview_command"
 }
 
 expenses() {

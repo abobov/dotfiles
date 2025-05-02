@@ -224,9 +224,11 @@ alias docker-dive='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.s
 
 if [ -r /etc/debian_version ] ; then
   if is_command aptitude; then
+    alias ati='sudo aptitude install'
     alias upa='sudo aptitude -u'
     alias apurge='sudo aptitude purge --purge-unused'
   else
+    alias ati='sudo apt install'
     alias up='sudo apt update; sudo apt upgrade'
     alias apurge='sudo apt purge'
   fi
