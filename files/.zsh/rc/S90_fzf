@@ -88,3 +88,32 @@ export FZF_CTRL_R_OPTS="$(
 --prompt ' Global History > '
 FZF_FTW
 )"
+
+_setup_fzf_ctrl_t_options() {
+  #
+  # fzf Ctrl+T options
+  # https://github.com/junegunn/fzf#key-bindings-for-command-line
+  #
+  local preview_command
+  if command -v bat >/dev/null 2>&1; then
+    preview_command="bat --color=always --line-range :500"
+  else
+    preview_command="cat"
+  fi
+  local find_command
+  if [ $(command -v fdfind) ] ; then
+    find_command="fdfind --type file --hidden"
+  elif [ $(command -v fd) ] ; then
+    find_command="fd --type file --hidden"
+  fi
+
+  FZF_CTRL_T_OPTS="${FZF_CTRL_T_OPTS:-} --preview '$preview_command {}'"
+  FZF_CTRL_T_OPTS="${FZF_CTRL_T_OPTS} --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+  FZF_CTRL_T_OPTS="${FZF_CTRL_T_OPTS} --bind 'ctrl-v:become(\"${EDITOR:-vim}\" -- {+} </dev/tty >/dev/tty)'"
+  FZF_CTRL_T_OPTS="${FZF_CTRL_T_OPTS} --bind 'ctrl-a:reload($find_command),ctrl-h:reload(eval \"${FZF_DEFAULT_COMMAND}\")'"
+  FZF_CTRL_T_OPTS="${FZF_CTRL_T_OPTS} --header 'enter select · ^/ toggle preview · ^v edit · ^(a|h) toggle hidden'"
+
+  export FZF_CTRL_T_OPTS
+}
+_setup_fzf_ctrl_t_options
+unfunction _setup_fzf_ctrl_t_options
