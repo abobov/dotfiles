@@ -1,4 +1,3 @@
----
 gui:
   scrollHeight: 4
   nerdFontsVersion: "3"
@@ -15,32 +14,34 @@ git:
   # Do not spawn a separate process when using GPG
   # https://github.com/jesseduffield/lazygit/discussions/3605#discussioncomment-9567079
   overrideGpg: true
+  autoForwardBranches: none
 notARepository: skip
 keybinding:
   commits:
     moveDownCommit: '<c-n>'
     moveUpCommit: '<c-p>'
+showNumstatInFilesView: true
 customCommands:
   - key: '<c-d>'
     description: 'Show Difftastic for current commit'
     context: 'subCommits'
     command: 'git dshow "{{.SelectedLocalCommit.Sha}}"'
-    subprocess: true
+    output: terminal
   - key: '<c-d>'
     description: 'Show difft of current commit'
     context: 'files'
     command: 'git dft -- {{.SelectedFile.Name | quote}}'
-    subprocess: true
+    output: terminal
   - key: '<c-d>'
     description: 'Show difft of current commit'
     context: 'commitFiles'
     command: 'git dshow "{{.SelectedLocalCommit.Sha}}" -- {{.SelectedCommitFile.Name | quote}}'
-    subprocess: true
+    output: terminal
   - key: '<c-d>'
     description: 'Show difft of current commit'
     context: 'commits'
     command: 'git dshow "{{.SelectedLocalCommit.Sha}}"'
-    subprocess: true
+    output: terminal
   - key: 'I'
     description: 'Open in idea'
     context: 'files'
