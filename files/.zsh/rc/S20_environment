@@ -39,16 +39,6 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
-export FZF_DEFAULT_OPTS="--color=light"
-if [ $(command -v fdfind) ] ; then
-    export FZF_DEFAULT_COMMAND="fdfind --type file"
-    export FZF_ALT_C_COMMAND="fdfind --type directory"
-elif [ $(command -v fd) ] ; then
-    export FZF_DEFAULT_COMMAND="fd --type file"
-    export FZF_ALT_C_COMMAND="fd --type directory"
-fi
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
 # Better `set -x` messages
 export PS4='+ ${BASH_SOURCE:-}:${FUNCNAME[0]:-}:L${LINENO:-}:   '
 

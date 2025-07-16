@@ -1,3 +1,15 @@
+# vim: ft=zsh :
+
+export FZF_DEFAULT_OPTS="--color=light"
+if [ $(command -v fdfind) ] ; then
+  export FZF_DEFAULT_COMMAND="fdfind --type file"
+  export FZF_ALT_C_COMMAND="fdfind --type directory"
+elif [ $(command -v fd) ] ; then
+  export FZF_DEFAULT_COMMAND="fd --type file"
+  export FZF_ALT_C_COMMAND="fd --type directory"
+fi
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
 
