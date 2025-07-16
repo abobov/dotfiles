@@ -3,6 +3,8 @@
 *.swp
 tags
 .tags
+.tags.lock
+.tags.temp
 .envrc
 .env
 
