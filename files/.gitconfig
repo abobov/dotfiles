@@ -154,7 +154,6 @@
 [fetch]
   prune = true
   writeCommitGraph = true
-  pruneTags = true
   all = true
 [column]
   ui = auto
