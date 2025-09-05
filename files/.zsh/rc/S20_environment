@@ -29,6 +29,7 @@ elif [ -f "/usr/bin/src-hilite-lesspipe.sh" ] ; then
 fi
 
 export XZ_DEFAULTS="--threads 4"
+export ZSTD_NBTHREADS=4
 
 # this make man pages look nicer
 export LESS_TERMCAP_mb=$'\E[01;31m'
