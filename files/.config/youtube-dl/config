@@ -1,32 +1,14 @@
---format (bestvideo[width<=3840])[ext!=webm]+bestaudio/best[width<=3840]/bestvideo+bestaudio/best
+--format "(bestvideo*+bestaudio/best)[height<=?1080][height>=?720] / bestvideo*+bestaudio/best"
+--audio-multistreams
+--video-multistreams
+--check-formats
+
 --live-from-start
 --sponsorblock-mark all
 --xff default
 
---no-check-certificate
 --geo-bypass
-
-# python3-secretstorage required
-# --cookies-from-browser chromium
-# --mark-watched
-
---concurrent-fragments 5
-# --downloader aria2c
-# --downloader-args aria2c:"--continue --max-connection-per-server 5 --split 5 --min-split-size 1M"
-
---extractor-retries 4
---file-access-retries 4
---fragment-retries 4
---retries 4
---retry-sleep extractor:exp=4
---retry-sleep file_access:exp=4
---retry-sleep fragment:exp=4
---retry-sleep http:exp=4
---retry-sleep exp=4
-
---audio-multistreams
---video-multistreams
---check-formats
+--add-headers 'User-Agent:Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
 
 --embed-metadata
 --embed-thumbnail
@@ -35,3 +17,8 @@
 
 # Preferring ru audio track
 --extractor-args 'youtube:lang=ru'
+
+--alias sub-ru '--embed-subs --write-sub --write-auto-sub --sub-lang "ru.*"'
+--alias sub-rus '--sub-ru'
+--alias sub-en '--embed-subs --write-sub --write-auto-sub --sub-lang "en.*"'
+--alias sub-eng '--sub-en'
