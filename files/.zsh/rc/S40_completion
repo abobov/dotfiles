@@ -64,6 +64,7 @@ __load_or_generate() {
 
 __load_completion_if_exists /etc/bash_completion.d/youtube-dl.bash-completion
 __load_completion_if_exists /usr/share/zsh/vendor-completions/_git-extras
+__load_completion_if_exists $LIQUIBASE_HOME/lib/liquibase_autocomplete.zsh
 
 __load_or_generate kubectl "kubectl completion zsh"
 __load_or_generate helm "helm completion zsh"
@@ -84,6 +85,9 @@ __load_or_generate aptly 'curl -sL "https://raw.githubusercontent.com/aptly-dev/
 __load_or_generate gh 'gh completion --shell zsh'
 __load_or_generate ruff 'ruff generate-shell-completion zsh'
 __load_or_generate yt-dlp 'curl -sL "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.tar.gz" | tar -zxO yt-dlp/completions/zsh/_yt-dlp'
+__load_or_generate qsv 'curl -sL "https://raw.githubusercontent.com/dathere/qsv/refs/heads/master/contrib/completions/examples/qsv.zsh"'
+__load_or_generate rustup "rustup completions zsh"
+__load_or_generate cargo "rustup completions zsh cargo"
 
 compdef fdfind=fd
 
