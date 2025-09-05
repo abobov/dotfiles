@@ -49,7 +49,7 @@
   amend = commit --amend
   ar = !sh -c 'git archive --format=tar --prefix="$(basename "$PWD")-$1/" $1^{tree} | bzip2 >"$(basename "$PWD")-$1.tar.bz2"' -
   br = branch --sort=-committerdate
-  blame = blame -w -C -C -C
+  b = blame -w -C -C -C
   acm = !git add --all && git commit -m
   c = commit --verbose
   co = checkout
@@ -60,6 +60,7 @@
   dshow = "!f() { DFT_BACKGROUND=light git -c diff.external=difft show --ext-diff $@; }; f"
   dlog = "!f() { DFT_BACKGROUND=light git -c diff.external=difft log -p --ext-diff $@; }; f"
   ddiff = "!f() { DFT_BACKGROUND=light git -c diff.external=difft diff $@; }; f"
+  fp = format-patch --find-renames --find-copies
   fix = commit --amend -C HEAD
   try = merge --no-commit --no-ff
   history-all = "!gitk --all $( git fsck | awk '/dangling commit/ {print $3}'; git log -g --pretty='format:%H')"
