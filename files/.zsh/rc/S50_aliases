@@ -203,21 +203,31 @@ compdef _mvn mvn-or-mvnw
 compdef _mvn mvnd
 
 # Docker and docker-compose
-alias dbash='docker exec -it `docker ps -ql` bash'
-alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}\t{{.Ports}}"'
-alias drun='docker run -it --rm'
-alias dlog='docker logs --tail 100 --follow'
-alias dc='docker-compose'
-alias dc-down='dc down --volumes --rmi local --remove-orphans'
-alias dc-logs='dc logs --tail 100 --follow'
-function dc-stats() {
-    dc $@ ps -q | xargs --no-run-if-empty docker stats
-}
-function docker-save() {
-    docker save "$1" | gzip > $(slugify "$1").tar.gz
-}
-alias docker-top='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock moncho/dry'
-alias docker-dive='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive'
+if is_command docker ; then
+  alias dbash='docker exec -it `docker ps -ql` bash'
+  alias dps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}\t{{.Ports}}"'
+  alias drun='docker run -it --rm'
+  alias dlog='docker logs --tail 100 --follow'
+
+  alias docker-top='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock moncho/dry'
+  alias docker-dive='docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive'
+
+  function docker-save() {
+      docker save "$1" | gzip > $(slugify "$1").tar.gz
+  }
+
+  if is_command docker-compose ; then
+    alias dc='docker-compose'
+  else
+    alias dc='docker compose'
+  fi
+
+  alias dc-down='dc down --volumes --rmi local --remove-orphans'
+  alias dc-logs='dc logs --tail 100 --follow'
+  function dc-stats() {
+      dc $@ ps -q | xargs --no-run-if-empty docker stats
+  }
+fi
 
 # }}}
 # Package manager {{{
@@ -266,6 +276,9 @@ if is_command remind; then
     }
     rem-schedule() {
       rem -@ "${@:-*7}" | grep -vEe '^(No reminders\.|)$'
+    }
+    tkremind-fzf() {
+      find "$HOME/.reminders" -name '*.rem' -print0 | fzf --read0 | xargs --no-run-if-empty tkremind
     }
 fi
 
