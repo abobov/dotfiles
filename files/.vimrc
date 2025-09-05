@@ -65,7 +65,9 @@ Plug 'lervag/vimtex'
 let g:polyglot_disabled = ['latex']
 Plug 'sheerun/vim-polyglot'
 " Hurl syntax
-Plug 'Orange-OpenSource/hurl', { 'rtp': 'contrib/vim' }
+if executable('hurl')
+  Plug 'Orange-OpenSource/hurl', { 'rtp': 'contrib/vim' }
+endif
 Plug 'terryma/vim-expand-region'
 " Maintains a history of previous yanks, changes and deletes
 "Plug 'vim-scripts/YankRing.vim'
