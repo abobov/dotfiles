@@ -8,9 +8,8 @@ gui:
     frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏']
     rate: 100
 git:
-  paging:
-    colorArg: always
-    pager: diff-so-fancy
+  pagers:
+    - pager: delta --paging=never --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
   # Do not spawn a separate process when using GPG
   # https://github.com/jesseduffield/lazygit/discussions/3605#discussioncomment-9567079
   overrideGpg: true

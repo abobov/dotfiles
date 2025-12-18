@@ -17,5 +17,6 @@ target = "~/.local/bin/nnn"
 ["mvdan/sh"]
 target = "~/.local/bin/shfmt"
 
-# Good-lookin' diffs. Actually… nah… The best-lookin' diffs. 🎉
-["so-fancy/diff-so-fancy"]
+# A syntax-highlighting pager for git, diff, grep, and blame output
+["dandavison/delta"]
+asset_filters = [ "linux-gnu.tar.gz" ]

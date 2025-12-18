@@ -26,9 +26,14 @@
   colorMoved = true
   submodule = log
   mnemonicprefix = true
-[diff-so-fancy]
-  stripLeadingSymbols = false
-  markEmptyLines = false
+[delta]
+  light = true
+  syntax-theme = Solarized (light)
+  navigate = true
+  file-decoration-style = ol ul
+  hyperlinks = true
+[interactive]
+  diffFilter = delta --color-only
 [grep]
   lineNumber = true
 [merge]
@@ -36,7 +41,7 @@
   stat = true
   tool = vimdiff
 [core]
-  pager = diff-so-fancy | less -+$LESS -FRX
+  pager = delta
   excludesfile = ~/.gitignore
   quotepath = false
   attributesfile = ~/.gitattributes
