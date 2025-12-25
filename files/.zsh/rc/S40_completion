@@ -88,6 +88,9 @@ __load_or_generate yt-dlp 'curl -sL "https://github.com/yt-dlp/yt-dlp/releases/l
 __load_or_generate qsv 'curl -sL "https://raw.githubusercontent.com/dathere/qsv/refs/heads/master/contrib/completions/examples/qsv.zsh"'
 __load_or_generate rustup "rustup completions zsh"
 __load_or_generate cargo "rustup completions zsh cargo"
+__load_or_generate aichat 'curl -sL "https://github.com/sigoden/aichat/raw/refs/heads/main/scripts/completions/aichat.zsh"'
+__load_or_generate mise 'mise completion zsh'
+__load_or_generate asdf 'asdf completion zsh'
 
 compdef fdfind=fd
 
