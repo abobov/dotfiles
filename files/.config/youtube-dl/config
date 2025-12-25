@@ -22,3 +22,4 @@
 --alias sub-rus '--sub-ru'
 --alias sub-en '--embed-subs --write-sub --write-auto-sub --sub-lang "en.*"'
 --alias sub-eng '--sub-en'
+--alias download-channel "--match-filters \"live_status = 'not_live' & webpage_url!*='/shorts/' & original_url!*='/shorts/'\""
