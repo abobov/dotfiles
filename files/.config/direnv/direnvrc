@@ -135,7 +135,7 @@ layout_go() {
   mkdir -p "$GOROOT"
 
   echo "Downloading $PACKAGE_NAME ..."
-  curl -sL "https://storage.googleapis.com/golang/$PACKAGE_NAME" | tar xz -C "$GOROOT" --strip-components=1
+  curl -sL "https://go.dev/dl/$PACKAGE_NAME" | tar xz -C "$GOROOT" --strip-components=1
 
   echo "installed" >"$gostate_file"
 }
