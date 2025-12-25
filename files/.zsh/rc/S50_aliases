@@ -278,7 +278,7 @@ if is_command remind; then
       rem -@ "${@:-*7}" | grep -vEe '^(No reminders\.|)$'
     }
     tkremind-fzf() {
-      find "$HOME/.reminders" -name '*.rem' -print0 | fzf --read0 | xargs --no-run-if-empty tkremind
+      find "$HOME/.reminders" -name '*.rem' -print0 | fzf --read0 | xargs --no-run-if-empty tkremind -m -b1
     }
 fi
 
