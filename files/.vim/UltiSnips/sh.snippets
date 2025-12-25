@@ -78,3 +78,14 @@ main() {
 
 main "$@"
 endsnippet
+
+snippet argc_snip "new argc template"
+# @describe
+# Specification: https://github.com/sigoden/argc/blob/main/docs/specification.md
+
+main() {
+  $0
+}
+
+eval "$(argc --argc-eval "$0" "$@")"
+endsnippet

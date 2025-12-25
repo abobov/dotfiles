@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# @describe
+
+main() {
+
+}
+
+eval "$(argc --argc-eval "$0" "$@")"
