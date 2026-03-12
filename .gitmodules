@@ -10,6 +10,9 @@
 [submodule "files/.zsh/grml-etc-core"]
   path = files/.zsh/grml-etc-core
   url = https://github.com/grml/grml-etc-core.git
+[submodule "files/.zsh/fzf-git.sh"]
+  path = files/.zsh/fzf-git.sh
+  url = https://github.com/junegunn/fzf-git.sh.git
 # Mutt
 [submodule "mutt-colors-solarized"]
   path = files/.mutt/mutt-colors-solarized
