@@ -135,8 +135,8 @@ fi
 
 alias sc=systemctl
 alias scu="systemctl --user"
-alias jc="journalctl --lines=30 --follow --unit"
-alias jcu="journalctl --user --lines=30 --follow --unit"
+alias jc=journalctl
+alias jcf="jc --lines=30 --follow"
 alias pwgen="pwgen --capitalize --numerals --secure"
 alias pw="pwgen 40 1"
 
