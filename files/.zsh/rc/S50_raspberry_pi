@@ -1,0 +1,17 @@
+raspberry_overlay_prompt() {
+  if mount | grep -q 'on / type overlay'; then
+    REPLY="[OverlayFS] "
+  else
+    REPLY=""
+  fi
+}
+
+grml_theme_add_token raspberry_overlay -i raspberry_overlay_prompt '%F{red}' '%f'
+
+() {
+  local -a items
+  if zstyle -a ':prompt:grml:left:setup' items items; then
+    items[$items[(i)path]]=(raspberry_overlay path)
+    zstyle ':prompt:grml:left:setup' items "${items[@]}"
+  fi
+}
