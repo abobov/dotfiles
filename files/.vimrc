@@ -27,6 +27,9 @@ Plug 'ap/vim-css-color'
 "Plug 'https://github.com/MarcWeber/vim-addon-local-vimrc'
 " Fuzzy finder
 Plug 'ctrlpvim/ctrlp.vim'
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " Finder
 Plug 'vim-scripts/FuzzyFinder'
 " Solarized colorscheme
@@ -61,6 +64,8 @@ Plug 'arecarn/vim-crunch'
 " Vim Tmux Navigator
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'lervag/vimtex'
+" Markdown Vim Mode
+Plug 'preservim/vim-markdown'
 " A solid language pack for Vim.
 let g:polyglot_disabled = ['latex']
 Plug 'sheerun/vim-polyglot'
@@ -95,6 +100,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'triglav/vim-visual-increment'
 " A Vim plugin that manages your tag files
 if executable('ctags') || executable('ctags-exuberant') || executable('ctags-universal')
+  Plug 'majutsushi/tagbar'
   Plug 'ludovicchabant/vim-gutentags'
 endif
 " Asynchronous build and test dispatcher
@@ -479,6 +485,9 @@ if executable('xmlstarlet')
 endif
 
 command Jira %!pandoc --to=jira
+
+command! CopyRelPath :let @+=expand("%")
+command! CopyPath :let @+=expand("%:p")
 " }}}
 " Filetype {{{
 " XML {{{
