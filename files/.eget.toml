@@ -12,6 +12,7 @@ target = "~/.local/bin/nnn"
 
 # ShellCheck, a static analysis tool for shell scripts
 ["koalaman/shellcheck"]
+asset_filters = [ ".tar.xz" ]
 
 # A shell parser, formatter, and interpreter with bash support; includes shfmt
 ["mvdan/sh"]
