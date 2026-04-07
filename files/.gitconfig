@@ -159,6 +159,8 @@
   process = git-lfs filter-process
 [mergetool "fugitive"]
   cmd = vim -c \"Gdiff\" \"$MERGED\"
+[am]
+  threeWay = true
 [fetch]
   prune = true
   writeCommitGraph = true
