@@ -5,8 +5,24 @@ tags
 .tags
 .tags.lock
 .tags.temp
+.notags
 .envrc
+.direnv
+.direnv.*
 .env
+.env.local
+
+# Private Keys and Certificates
+*.pem
+*.key
+*.pub
+*.p12
+*.pfx
+*.crt
+*.der
+id_rsa
+id_ecdsa
+id_ed25519
 
 # Eclipse project files
 .classpath
