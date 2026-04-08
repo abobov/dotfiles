@@ -166,4 +166,12 @@ vpn-toggle() {
     fi
 }
 
+own() {
+  if [ -n "${commands[sudo]}" ] ; then
+    sudo chown -R "$USER:" "$@"
+  else
+    chown -R "$USER:" "$@"
+  fi
+}
+
 # vim: ft=zsh :
