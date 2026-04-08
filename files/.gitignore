@@ -38,6 +38,9 @@ id_ed25519
 # Python
 *.pyc
 __pycache__
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
 
 # Infinitest
 infinitest.filters
