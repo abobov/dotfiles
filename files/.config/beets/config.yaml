@@ -2,17 +2,22 @@
 # Inspired by: https://github.com/trapd00r/configs/blob/master/beets/config.yaml
 library: ~/Music/beets.db
 plugins:
+  - albumtypes
+  - musicbrainz
+  - play
   - discogs
   - duplicates
   - edit
   - embedart
   - fetchart
+  - filefilter
   - fromfilename
   - ftintitle
   - info
+  - lastgenre
+  - mbsync
   - missing
   - rewrite
-  - albumtypes
 original_date: true
 
 albumtypes:
@@ -24,10 +29,14 @@ albumtypes:
     - remix: 'Remix'
   ignore_va: compilation
 
+play:
+  command: mpv --no-resume-playback
+
 fetchart:
   minwidth: 500
   maxwidth: 1200
   sources:
+    - filesystem
     - itunes
     - amazon
     - fanarttv
@@ -35,7 +44,7 @@ fetchart:
     - coverart
     - wikipedia
     - google
-    - filesystem
+    - '*'
 
 embedart:
   auto: true
