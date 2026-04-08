@@ -30,6 +30,7 @@
   light = true
   syntax-theme = Solarized (light)
   navigate = true
+  relative-paths = true
   file-decoration-style = ol ul
   hyperlinks = true
 [interactive]
@@ -119,6 +120,7 @@
   sort = -committerdate
 [rebase]
   instructionFormat = %s [%aN] {%ar}
+  stat = true
   autoStash = true
   updateRefs = true
   autoSquash = true
@@ -165,6 +167,8 @@
   prune = true
   writeCommitGraph = true
   all = true
+[submodule]
+  fetchJobs = 0
 [column]
   ui = auto
 
