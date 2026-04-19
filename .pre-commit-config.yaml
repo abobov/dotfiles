@@ -11,6 +11,6 @@ repos:
       - id: check-added-large-files
 
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.28.0
+    rev: v8.30.0
     hooks:
       - id: gitleaks-docker
