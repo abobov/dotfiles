@@ -1,0 +1,4 @@
+--exclude=.idea/**
+
+--exclude=target/**
+--exclude-exception=target/generated-sources/**

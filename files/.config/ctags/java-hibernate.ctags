@@ -1,0 +1,7 @@
+--kinddef-java=T,hibernateTable,Hibernate Tables
+--kinddef-java=C,hibernateColumn,Hibernate Columns
+--kinddef-java=S,hibernateSequence,Hibernate Sequences
+
+--regex-java=/@(Table|JoinTable|CollectionTable|SecondaryTable)\s*\([^)]*name\s*=\s*"([^"]+)"/\2/T/
+--regex-java=/@(Column|JoinColumn|PrimaryKeyJoinColumn|MapKeyColumn|MapKeyJoinColumn|DiscriminatorColumn)\s*\([^)]*name\s*=\s*"([^"]+)"/\2/C/
+--regex-java=/@SequenceGenerator\s*\([^)]*sequenceName\s*=\s*"([^"]+)"/\1/S/

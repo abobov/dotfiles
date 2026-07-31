@@ -1,0 +1,19 @@
+-f .tags
+--recurse=yes
+--tag-relative=yes
+
+# Metadata info:
+#  n: Line number of tag definition
+#  i: Inheritance information
+#  a: Access (or export) of class members
+#  z: prepend "kind:" to k/ (or K/) field output
+#  S: Signature of routine (e.g. prototype or parameter list)
+#  K: Kind of tag in long-name form
+--fields=+niazSK
+
+# Extra tags
+#  q: Include an extra class-qualified tag entry for each tag
+--extras=+q
+
+--c++-kinds=+px
+--c-kinds=+px

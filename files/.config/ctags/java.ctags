@@ -1,0 +1,2 @@
+# Fallback regex to treat Java records as standard classes (kind 'c')
+--regex-java=/(^|[ \t]+)record[ \t]+([A-Za-z0-9_]+)/\2/c/

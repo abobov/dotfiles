@@ -1,0 +1,3 @@
+--kinddef-java=E,springEndpoint,Spring REST Endpoints
+
+--regex-java=/@(GetMapping|PostMapping|PutMapping|DeleteMapping|PatchMapping|RequestMapping)\s*\(\s*(value\s*=\s*|path\s*=\s*)?"([^"]+)"/\3/E/
