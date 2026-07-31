@@ -13,6 +13,12 @@ set t_vb=
 autocmd InsertEnter * set cursorline
 autocmd InsertLeave * set nocursorline
 
+" Fix gx in XFCE
+" https://vi.stackexchange.com/a/5034
+if executable('exo-open')
+  let g:netrw_browsex_viewer="setsid exo-open"
+endif
+
 let s:local_gvimrc=$MYGVIMRC . ".local"
 if filereadable(s:local_gvimrc)
     silent! execute ':source ' . s:local_gvimrc
