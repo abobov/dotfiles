@@ -305,8 +305,8 @@ alias boot-log="sed 's/\^\[/\o33/g;s/\[1G\[/\[27G\[/' /var/log/boot | less -r"
 # TLP
 
 alias tlp-stat='sudo tlp-stat'
-alias tlp-fullcharge='sudo tlp fullcharge BAT0; sudo tlp fullcharge BAT1'
-alias tlp-setcharge='sudo tlp setcharge BAT0; sudo tlp setcharge BAT1'
+alias tlp-fullcharge='sudo tlp fullcharge'
+alias tlp-setcharge='sudo tlp setcharge'
 
 # ZFS
 
