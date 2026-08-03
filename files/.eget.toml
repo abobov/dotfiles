@@ -21,3 +21,6 @@ target = "~/.local/bin/shfmt"
 # A syntax-highlighting pager for git, diff, grep, and blame output
 ["dandavison/delta"]
 asset_filters = [ "linux-gnu.tar.gz" ]
+
+# A Bash CLI framework, also a Bash command runner.
+["sigoden/argc"]
