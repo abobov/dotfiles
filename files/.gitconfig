@@ -51,66 +51,95 @@
   mailmap = true
   date = iso-local
 [alias]
+  # Add & Commit
   aa = add --all
-  amend = commit --amend
-  ar = !sh -c 'git archive --format=tar --prefix="$(basename "$PWD")-$1/" $1^{tree} | bzip2 >"$(basename "$PWD")-$1.tar.bz2"' -
-  br = branch --sort=-committerdate
-  b = blame -w -C -C -C
   acm = !git add --all && git commit -m
+  addnw = !sh -c 'git diff --unified=0 --ignore-all-space --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
+  amend = commit --amend
   c = commit --verbose
-  co = checkout
+  cdate = !git commit -m "$(date +%F)"
   ci = commit
-  diffstat = diff --stat -r
-  dc = diff --find-copies-harder --cached
-  di = diff --find-copies-harder
-  dshow = "!f() { DFT_BACKGROUND=light git -c diff.external=difft show --ext-diff $@; }; f"
-  dlog = "!f() { DFT_BACKGROUND=light git -c diff.external=difft log -p --ext-diff $@; }; f"
-  ddiff = "!f() { DFT_BACKGROUND=light git -c diff.external=difft diff $@; }; f"
-  fp = format-patch --find-renames --find-copies
   fix = commit --amend -C HEAD
-  try = merge --no-commit --no-ff
+
+  # Branching
+  br = branch --sort=-committerdate
+  branch-name = "!git rev-parse --abbrev-ref HEAD"
+  clean-branches = !sh -c 'git branch --merged | grep -v '^*' | fzf -m | xargs -rp git branch -d'
+  recent = "!git for-each-ref --color=always --sort=-committerdate refs/heads --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:magenta)%(authorname)%(color:reset)|%(color:bold green)%(committerdate:relative)|%(color:red)%(objectname:short)%(color:reset)'|column -ts'|'"
+
+  # Checkout
+  co = checkout
+  co-before = !sh -c 'git rev-list -1 --before="$@" HEAD | xargs -r git checkout' -
+  f = !sh -c 'git branch | grep -F "feature/$1" | xargs -r -n 1 git co' -
+
+  # Config & Status
+  b = blame -w -C -C -C
+  edit-exclude = "!f() { GIT_DIR=\"$(git rev-parse --git-dir 2>/dev/null)\"; $EDITOR \"$GIT_DIR/info/exclude\"; }; f"
+  sha = rev-parse --short
+  st = status
+  whoami = config user.email
+
+  # Diff
+  dc = diff --find-copies-harder --cached
+  ddiff = "!f() { DFT_BACKGROUND=light git -c diff.external=difft diff $@; }; f"
+  di = diff --find-copies-harder
+  diffstat = diff --stat -r
+  dshow = "!f() { DFT_BACKGROUND=light git -c diff.external=difft show --ext-diff $@; }; f"
+
+  # GUI Tools
   history-all = "!gitk --all $( git fsck | awk '/dangling commit/ {print $3}'; git log -g --pretty='format:%H')"
   k =  !sh -c 'gitk $1' -
   ka = !sh -c 'gitk --all' -
   kb = !sh -c 'gitk --branches' -
-  lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset' --abbrev-commit --date=relative
-  l = "!git lg -10"
-  rl = reflog --date=relative
-  f = !sh -c 'git branch | grep -F "feature/$1" | xargs -r -n 1 git co' -
-  st = status
-  stashlist = stash list --date=short
-  stash-all = stash save --include-untracked
-  sha = rev-parse --short
-  addnw = !sh -c 'git diff --unified=0 --ignore-all-space --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
-  branch-name = "!git rev-parse --abbrev-ref HEAD"
-  pushf = push --force-with-lease
-  publish = "!git push -u origin $(git branch-name)"
-    # https://datagrok.org/git/git-serve/
-  quickserve="daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/"
-    # https://github.com/anishathalye/dotfiles/blob/master/gitconfig
-  update-submodules = submodule update --init --recursive
-  upgrade-submodules = submodule update --init --remote
-  wc = whatchanged -p --abbrev-commit --pretty=medium
-  undo = reset --soft HEAD~
-  whoami = config user.email
-  fugitive = mergetool --tool fugitive
-  clean-branches = !sh -c 'git branch --merged | grep -v '^*' | fzf -m | xargs -rp git branch -d'
-  co-before = !sh -c 'git rev-list -1 --before="$@" HEAD | xargs -r git checkout' -
-  ri = rebase --interactive
-  rc = rebase --continue
-  ra = rebase --abort
-  rx = rebase --exec
-  pre-commit-last = !sh -c 'pre-commit run --color always --from-ref HEAD~ --to-ref HEAD'
-  prebase = rebase -x 'chronic git pre-commit-last'
 
-    # Gitlab merge requests helpers
+  # Log & History
+  dlog = "!f() { DFT_BACKGROUND=light git -c diff.external=difft log -p --ext-diff $@; }; f"
+  l = lg -10
+  lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset' --abbrev-commit --date=relative
+  rl = reflog --date=relative
+  wc = whatchanged -p --abbrev-commit --pretty=medium
+
+  # Merging & GitLab Helpers
+  fugitive = mergetool --tool fugitive
+  try = merge --no-commit --no-ff
+
+  # GitLab Helpers
   mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
   mr-clean = "!git for-each-ref refs/heads/mr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 
-  recent = "!git for-each-ref --color=always --sort=-committerdate refs/heads --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:magenta)%(authorname)%(color:reset)|%(color:bold green)%(committerdate:relative)|%(color:red)%(objectname:short)%(color:reset)'|column -ts'|'"
+  # Patch & Archive
+  ar = !sh -c 'git archive --format=tar --prefix="$(basename "$PWD")-$1/" $1^{tree} | bzip2 >"$(basename "$PWD")-$1.tar.bz2"' -
+  fp = format-patch --find-renames --find-copies
 
-  edit-exclude = "!f() { GIT_DIR=\"$(git rev-parse --git-dir 2>/dev/null)\"; $EDITOR \"$GIT_DIR/info/exclude\"; }; f"
+  # Rebase & Hooks
+  pre-commit-last = !sh -c 'pre-commit run --color always --from-ref HEAD~ --to-ref HEAD'
+  prebase = rebase -x 'chronic git pre-commit-last'
+  ra = rebase --abort
+  rc = rebase --continue
+  ri = rebase --interactive
+  rx = rebase --exec
 
+  # Remote & Network
+  publish = "!git push -u origin $(git branch-name)"
+  pushf = push --force-with-lease
+    # https://datagrok.org/git/git-serve/
+  quickserve="daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/"
+
+  # Reset & Undo
+  undo = reset --soft HEAD~
+
+  # Stash
+  stash-all = stash save --include-untracked
+  stashlist = stash list --date=short
+
+  # Submodules
+  update-submodules = submodule update --init --recursive
+  upgrade-submodules = submodule update --init --remote
+
+  # Tags
+  desc = describe --tags
+  lasttag = desc --abbrev=0
+  lt = lasttag
 [advice]
   statusHints = false
   detachedHead = false
