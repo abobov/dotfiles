@@ -81,10 +81,10 @@
 
   # Diff
   dc = diff --find-copies-harder --cached
-  ddiff = "!f() { DFT_BACKGROUND=light git -c diff.external=difft diff $@; }; f"
+  ddiff = -c diff.external=difft diff
   di = diff --find-copies-harder
   diffstat = diff --stat -r
-  dshow = "!f() { DFT_BACKGROUND=light git -c diff.external=difft show --ext-diff $@; }; f"
+  dshow = -c diff.external=difft show --ext-diff
 
   # GUI Tools
   history-all = "!gitk --all $( git fsck | awk '/dangling commit/ {print $3}'; git log -g --pretty='format:%H')"
@@ -93,7 +93,7 @@
   kb = !sh -c 'gitk --branches' -
 
   # Log & History
-  dlog = "!f() { DFT_BACKGROUND=light git -c diff.external=difft log -p --ext-diff $@; }; f"
+  dlog = -c diff.external=difft log -p --ext-diff
   l = lg -10
   lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%aN>%Creset' --abbrev-commit --date=relative
   rl = reflog --date=relative
