@@ -1,1 +1,1 @@
-../reload/reload.lua
+../reload/main.lua
