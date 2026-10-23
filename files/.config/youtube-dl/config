@@ -15,6 +15,9 @@
 --embed-chapters
 --mtime
 
+--downloader aria2c
+--downloader-args "aria2c:-c -j 8 -x 8 -s 8 --min-split-size=1M"
+
 # Preferring ru audio track
 --extractor-args 'youtube:lang=ru'
 
