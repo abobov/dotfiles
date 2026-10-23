@@ -103,6 +103,12 @@ else
     alias du='du -h'
 fi
 
+if is_command btop; then
+  alias top=btop
+elif is_command htop; then
+  alias top=htop
+fi
+
 alias bc='bc -lq'
 
 alias c=' clear'
@@ -214,6 +220,13 @@ if is_command docker ; then
 
   function docker-save() {
       docker save "$1" | gzip > $(slugify "$1").tar.gz
+  }
+
+  function docker-volume-mc() {
+      docker run -it --rm \
+          -v "$1":/data \
+          -v "$(pwd)":/cwd \
+          alpine sh -c "apk add --no-cache mc && mc /data /cwd"
   }
 
   if is_command docker-compose ; then
