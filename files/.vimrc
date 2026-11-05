@@ -7,9 +7,6 @@ call plug#begin()
 
 " Plugins {{{
 
-" Library for other plugins
-Plug 'vim-scripts/L9'
-
 " Git inside vim
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter', { 'branch': 'main' }
@@ -25,13 +22,9 @@ Plug 'tpope/vim-sleuth'
 Plug 'ap/vim-css-color'
 " Load project .vimrc files
 "Plug 'https://github.com/MarcWeber/vim-addon-local-vimrc'
-" Fuzzy finder
-Plug 'ctrlpvim/ctrlp.vim'
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Finder
-Plug 'vim-scripts/FuzzyFinder'
 " Solarized colorscheme
 Plug 'lifepillar/vim-solarized8'
 " Zen codding
@@ -40,23 +33,17 @@ Plug 'mattn/emmet-vim'
 if has('python3')
   Plug 'SirVer/ultisnips'
 endif
-" Silversearch plugin
-Plug 'mileszs/ack.vim'
 " Support dot command for plugins
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 " Files tree plugin
-Plug 'scrooloose/nerdtree'
-" Commenting text
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdtree'
 " Automatic closing of quotes, parenthesis, etc...
 Plug 'raimondi/delimitmate'
 " Syntax check and linting
 Plug 'dense-analysis/ale'
 " Text alignment commands
 Plug 'godlygeek/tabular'
-" Pasting in vim
-Plug 'ConradIrwin/vim-bracketed-paste'
 " File templates
 Plug 'aperezdc/vim-template'
 " Calculations in Vim
@@ -74,8 +61,6 @@ if executable('hurl')
   Plug 'Orange-OpenSource/hurl', { 'rtp': 'contrib/vim' }
 endif
 Plug 'terryma/vim-expand-region'
-" Maintains a history of previous yanks, changes and deletes
-"Plug 'vim-scripts/YankRing.vim'
 Plug 'tpope/vim-dadbod'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'tpope/vim-eunuch'
@@ -90,8 +75,8 @@ Plug 'jamessan/vim-gnupg'
 "Plug 'https://github.com/abobov/vim-ledger'
 Plug 'ledger/vim-ledger'
 
-" Jade templates
-Plug 'digitaltoad/vim-jade'
+" Pug (formerly Jade) templates
+Plug 'digitaltoad/vim-pug'
 " Orgmode
 Plug 'jceb/vim-orgmode'
 " EditorConfig plugin for Vim
@@ -105,6 +90,8 @@ if executable('ctags') || executable('ctags-exuberant') || executable('ctags-uni
 endif
 " Asynchronous build and test dispatcher
 Plug 'tpope/vim-dispatch'
+" comment stuff out
+Plug 'tpope/vim-commentary'
 " Run your tests at the speed of thought
 Plug 'vim-test/vim-test'
 " A Narrow Region Plugin for vim (like Emacs Narrow Region)
@@ -114,7 +101,6 @@ Plug 'fatih/vim-go'
 " View and grep man pages in vim
 Plug 'vim-utils/vim-man'
 
-"Plug 'https://github.com/terryma/vim-multiple-cursors'
 
 " }}}
 call plug#end()
@@ -136,7 +122,7 @@ set spellfile=~/.vim/spell/dictionary.utf-8.add
 augroup spellcheck
   autocmd!
 
-  if filereadable(&spellfile)
+  if filereadable(expand(&spellfile))
     autocmd VimEnter * execute "silent mkspell! " . &spellfile
   endif
 augroup END
@@ -199,19 +185,14 @@ set wildmenu    " command-line completion shows a list of matches
 set wildmode=list:longest,full
 " Не перерисовывать экран пока не выполнится макрос
 set lazyredraw
-" Не создавать swap файл в текущей директории
-set directory-=.
 " Язык проверки орфографии по умолчанию
 set wildignore=*.swp,*.bak,*.pyc,*.class
-set pastetoggle=<F3>
 set cursorline
-set ttyfast
 set mouse=a
 set shortmess+=Ic
 set nrformats-=octal
 
 set autoindent
-set smartindent
 
 set splitright
 set splitbelow
@@ -266,11 +247,11 @@ if &t_Co < 16
     set t_Co=16
 endif
 if has('termguicolors')
+    set termguicolors
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
     let g:solarized_termcolors=256
     let g:solarized_termtrans=1
-    set termguicolors
 endif
 silent! colorscheme solarized8
 
@@ -350,7 +331,6 @@ if has('autocmd')
 
     " TODO перенести в ftplugin
     au FileType tex setlocal spell textwidth=79
-    au FileType java setlocal omnifunc=javacomplete#Complete
     au FileType python set expandtab
     au FileType html,xml,ant set nolist
 
@@ -384,7 +364,7 @@ nnoremap <Leader>s :setlocal spell!<cr>
 nnoremap <Leader>w :setlocal wrap!<cr>
 nnoremap <Leader>l :setlocal list!<cr>
 
-nnoremap <Leader>p :silent! set paste<CR>"*p:set nopaste<CR>
+nnoremap <Leader>p "*p
 vnoremap <Leader>y "*y
 
 " Disable keys {{{
@@ -563,31 +543,17 @@ let g:surround_171="« \r »"
 let g:surround_187="«\r»"
 
 " }}}
-" Syntastic {{{
-"let g:syntastic_check_on_open = 0
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_auto_jump = 0
-"let g:syntastic_java_checker = 'javac'
-let g:syntastic_mode_map = {
-            \ 'mode': 'passive',
-            \ 'active_filetypes': [],
-            \ 'passive_filetypes': ['java']
-            \ }
+" tagbar {{{
 
-nnoremap <Leader>C :SyntasticCheck<CR>
+nnoremap <silent> <F8> :TagbarToggle<CR>
 
 " }}}
-" Taglist {{{
+" fzf {{{
 
-nnoremap <silent> <F8> :Tlist<CR>
-
-" }}}
-" Fuzzy Finder {{{
-
-nnoremap '. :FufFileWithCurrentBufferDir<CR>
-nnoremap 'f :FufFile<CR>
-nnoremap 'h :FufFile $HOME/<CR>
-nnoremap 'k :FufBuffer<CR>
+nnoremap '. :call fzf#vim#files(expand('%:p:h'))<CR>
+nnoremap 'f :Files<CR>
+nnoremap 'h :call fzf#vim#files(expand('$HOME'))<CR>
+nnoremap 'k :Buffers<CR>
 
 " }}}
 " NERD Tree {{{
@@ -602,13 +568,6 @@ let NERDTreeChDirMode = 2
 let NERDTreeAutoDeleteBuffer=1
 
 let NERDTreeIgnore = [ '\.pyc$' ]
-
-" }}}
-" NERD Commenter {{{
-
-let NERDSpaceDelims=1
-let g:NERDCustomDelimiters = { 'hurl': { 'left': '#' } }
-
 
 " }}}
 " Scratch {{{
@@ -652,25 +611,17 @@ au FileType html let b:delimitMate_matchpairs="(:),[:],{:}"
 let g:templates_directory=$HOME . "/.vim/templates"
 
 " }}}
-" Ctrl-P {{{
-
-let g:ctrlp_map = "'p"
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-let g:ctrlp_user_caching = 0
-let g:ctrlp_root_markers = ['.envrc']
-
-" }}}
 " Ledger {{{
 
 augroup ft_ledger
     au!
     au FileType ledger setlocal textwidth=200
     au FileType ledger setlocal foldmethod=marker foldmarker={,}
-    au FileType leader let g:crunch_result_type_append = 0
+    au FileType ledger let g:crunch_result_type_append = 0
     au FileType ledger inoremap <silent><buffer> <Leader>e <Esc>:call ledger#entry()<CR>
     au FileType ledger noremap <silent><buffer> <Leader>x <Esc>:call ledger#transaction_state_toggle(line('.'), '* ')<CR>
-    au FileType ledger noremap = :LedgerAlign<CR>
-    au FileType ledger noremap <Leader>e :call ledger#entry()<CR>
+    au FileType ledger noremap <buffer> = :LedgerAlign<CR>
+    au FileType ledger noremap <buffer> <Leader>e :call ledger#entry()<CR>
     au FileType ledger compiler ledger
     au BufWritePost *.ledger silent! make | redraw! | cwindow
     au FileType ledger command! Ltoday :Ledger register --period today
@@ -691,24 +642,6 @@ let g:tex_flavor = 'latex'
 " }}}
 " polyglot {{{
 
-
-" }}}
-" YankRing {{{
-
-let g:yankring_replace_n_pkey = '<C-k>'
-let g:yankring_replace_n_nkey = '<C-j>'
-let g:yankring_history_dir = "$HOME/tmp/vim/"
-
-" }}}
-" Ack {{{
-
-if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
-    cnoreabbrev ag Ack
-    cnoreabbrev aG Ack
-    cnoreabbrev Ag Ack
-    cnoreabbrev AG Ack
-endif
 
 " }}}
 " ALE {{{
