@@ -174,4 +174,26 @@ own() {
   fi
 }
 
+rmcdir() {
+  local target="$PWD"
+  cd .. || return
+
+  local remover="rm -rf"
+  (( $+commands[trash-put] )) && remover="trash-put"
+
+  local files=("$target"/*(ND))
+  if [ ${#files[@]} -eq 0 ]; then
+    ${=remover} "$target"
+  else
+    echo -n "Delete current directory $target [y/N]: "
+    read -r reply
+
+    if [[ "$reply" =~ ^[Yy]$ ]]; then
+      ${=remover} "$target"
+    else
+      cd "$target" || return
+    fi
+  fi
+}
+
 # vim: ft=zsh :
